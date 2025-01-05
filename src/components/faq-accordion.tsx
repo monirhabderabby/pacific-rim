@@ -12,10 +12,10 @@ import faqImg from "../../public/assets/img/faq-Image.png"
 
 export default function FAQSection() {
   return (
-    <section className="container mx-auto px-6 lg:px-12 py-8">
+    <section className="container  lg:px-12 h-auto relative section">
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
         {/* Left Image Section */}
-        <div className="lg:w-2/5">
+        <div className="lg:w-2/5 hidden md:block">
           <Image 
             src={faqImg}
             alt="Decorative background"
@@ -26,7 +26,7 @@ export default function FAQSection() {
         {/* Right Content Section */}
         <div className="lg:w-3/5">
           <div className="text-center lg:text-left">
-            <h1 className="text-3xl font-bold text-[#2A6C2D] mb-3">
+            <h1 className="text-3xl font-bold text-[#2A6C2D] mb-3 py-2">
               What do you want to know?
             </h1>
             <p className="text-lg text-[#444444] leading-6 mb-6">
