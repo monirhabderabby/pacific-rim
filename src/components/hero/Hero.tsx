@@ -8,12 +8,22 @@ const Hero = () => {
 
  <section
       className="relative w-full h-[530px] bg-cover bg-center z-[-10] lg:px-20"
-      style={{ backgroundImage: "url('assets/img/heroBg.png')" }}
+      style={{
+        backgroundImage: `url(assets/img/heroBg.png)`,
+        backgroundSize: "cover",
+        backgroundRepeat: "repeat", // Ensure seamless background
+        animation: "moveBackground 30s linear infinite alternate", // Alternate animation direction
+        top: 0,
+        left: 0,
+      }
+    
+    
+    }
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 flex items-center justify-center w-[670px] h-full text-white ">
         <div className="px-6 md:px-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+          <h1 className="text-4xl md:text-5xl font-semibold mb-4">
           SHARE THE  <br />
           BALANCE
           </h1>
@@ -26,7 +36,7 @@ const Hero = () => {
     </section>
 
 {/* three image  */}
-<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto max-w-[1200px] mt-[-100px] z-50'>
+<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto max-w-[1200px] mt-[-100px] z-50 justify-items-center p-2'>
 
 <Image
       src="/assets/img/hero1.png"
@@ -50,6 +60,27 @@ const Hero = () => {
 </div>
 
 
+<style>
+        {`
+          @keyframes moveBackground {
+            0% {
+              background-position: 0 0;
+            }
+            100% {
+              background-position: 100% 100%; /* Ends at this position */
+            }
+          }
+
+          @keyframes fadeIn {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }       
+        `}
+      </style>
     </div>
   )
 }

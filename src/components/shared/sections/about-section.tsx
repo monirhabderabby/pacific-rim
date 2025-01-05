@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function AboutSection({ image }: { image: string }) {
   {
     return (
-      <section className="h-[800px] container md:flex flex-wrap justify-between gap-8 items-center w-full py-9">
+      <section className=" h-auto  container flex md:flex-row flex-col justify-between gap-8 items-center w-full section ">
         <div className="flex-1">
           <div>
             <div className="my-4">
@@ -94,7 +94,7 @@ export default function AboutSection({ image }: { image: string }) {
             </div>
           </div>
         </div>
-        <div className="flex-1 relative w-full h-full overflow-hidden rounded-[16px]">
+        <div className="flex-1 relative w-[400px] h-[700px] overflow-hidden rounded-[16px] hidden md:block">
           <Image
             src={image}
             alt="Picture of the author"
