@@ -9,12 +9,7 @@ import Newsletter from "@/components/shared/footer/newsletter/page";
 export default function Home() {
   return (
     <>
-      <TopHeader />
-      <MainHeader />
-      <h1>ok</h1>
-
-      <Newsletter />
-      <MainFooter />
+      <h1>Hello</h1>
     </>
   );
 }
