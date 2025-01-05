@@ -1,14 +1,12 @@
-import Hero from "@/components/hero/Hero";
-import PopularCategories from "@/components/PopularCategories/PopularCategories";
 
-// ilhan 
+
 
 export default function Home() {
   return (
+    <>
+      <h1>Hello</h1>
+    </>
   <>
  
-<Hero/>
-<PopularCategories/>
-  </>
-  );
+)
 }
