@@ -164,7 +164,7 @@ function Navbar() {
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {/* Login/ SignUp before */}
-          {/* <button
+          <button
             type="button"
             className="inline-flex items-center rounded-md px-3 mr-3 py-2 border border-lime-500 text-sm font-semibold text-primary-green shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
@@ -175,10 +175,10 @@ function Navbar() {
             className="inline-flex items-center rounded-md bg-primary-green px-3 py-2 text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Sign up
-          </button> */}
+          </button>
           {/* Login/ SignUp after */}
 
-          <HeaderIconMenu />
+          {/* <HeaderIconMenu /> */}
 
 
         </div>
@@ -256,7 +256,7 @@ function Navbar() {
               </div>
               <div className="py-6">
                 {/* Login/ SignUp before */}
-                {/* <button
+                <button
                   type="button"
                   className="inline-flex items-center rounded-md px-3 mr-3 py-2 border border-lime-500 text-sm font-semibold text-primary-green shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
@@ -267,10 +267,10 @@ function Navbar() {
                   className="inline-flex items-center rounded-md bg-primary-green px-3 py-2 text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Sign up
-                </button> */}
+                </button>
                 {/* Login/ SignUp after */}
 
-                <HeaderIconMenu />
+                {/* <HeaderIconMenu /> */}
               </div>
             </div>
           </div>
