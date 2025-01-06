@@ -5,6 +5,7 @@ import Footer from "@/components/shared/footer/mainFooter/page";
 import NewsletterPage from "@/components/shared/footer/newsletter/page";
 import Navbar from "@/components/shared/header/mainHeader/page";
 import Topbar from "@/components/shared/header/topHeader/page";
+import SearchBerCategories from "@/components/shared/searchBerCategories/searchBerCategories";
 import AboutSection from "@/components/shared/sections/about-section";
 
 const Page = () => {
@@ -13,6 +14,7 @@ const Page = () => {
       <div className="min-h-screen">
         <Topbar />
         <Navbar />
+        <SearchBerCategories />
         <Hero />
         <PopularCategories />
         <AboutSection image="https://images.pexels.com/photos/28858556/pexels-photo-28858556/free-photo-of-serene-couple-walk-on-a-tranquil-beach.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
