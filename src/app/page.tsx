@@ -16,7 +16,7 @@ const Page = () => {
         <Hero />
         <PopularCategories />
         <AboutSection image="https://images.pexels.com/photos/28858556/pexels-photo-28858556/free-photo-of-serene-couple-walk-on-a-tranquil-beach.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <FAQSection/>
+        <FAQSection />
       </div>
       <NewsletterPage />
       <Footer />
