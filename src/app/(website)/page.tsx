@@ -1,7 +1,7 @@
 import FAQSection from "@/components/faq-accordion";
 import Hero from "@/components/hero/Hero";
 import PopularCategories from "@/components/PopularCategories/PopularCategories";
-import PopularBlogs from "@/components/shared/cards/popularBlogs/popularBlogs";
+import PopularBlogs from "@/components/shared/sections/popularBlogs/popularBlogs";
 import CartPage from "@/components/shared/cart-page";
 import { ClientReviews } from "@/components/shared/clientReview/ClientReview";
 import SearchBerCategories from "@/components/shared/searchBerCategories/searchBerCategories";
