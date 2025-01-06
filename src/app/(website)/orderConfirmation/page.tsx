@@ -1,5 +1,5 @@
-import OrderConfirmed from "@/components/orderConfirmed/OrderConfirmed";
-import OrderDetails from "@/components/orderDetails/OrderDetails";
+import OrderConfirmed from "./_components/OrderConfirmed";
+import OrderDetails from "./_components/OrderDetails";
 
 const Page = () => {
   // order Status data it will be come backend ==========

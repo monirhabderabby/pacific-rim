@@ -4,7 +4,6 @@ import PopularCategories from "@/components/PopularCategories/PopularCategories"
 import PopularBlogs from "@/components/shared/cards/popularBlogs/popularBlogs";
 import CartPage from "@/components/shared/cart-page";
 import { ClientReviews } from "@/components/shared/clientReview/ClientReview";
-import NewsletterPage from "@/components/shared/footer/newsletter/page";
 import SearchBerCategories from "@/components/shared/searchBerCategories/searchBerCategories";
 import AboutSection from "@/components/shared/sections/about-section";
 
@@ -25,7 +24,7 @@ const Page = () => {
       </div>
 
       <PopularBlogs />
-      <NewsletterPage />
+
       <CartPage />
     </div>
   );
