@@ -29,7 +29,6 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 
-
 const products = [
   {
     name: "Analytics",
@@ -178,8 +177,6 @@ function Navbar() {
           {/* Login/ SignUp after */}
 
           {/* <HeaderIconMenu /> */}
-
-
         </div>
       </nav>
       <Dialog
