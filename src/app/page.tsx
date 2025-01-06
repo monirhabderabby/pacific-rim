@@ -1,25 +1,63 @@
 import FAQSection from "@/components/faq-accordion";
 import Hero from "@/components/hero/Hero";
+import OrderConfirmed from "@/components/orderConfirmed/OrderConfirmed";
+import OrderDetails from "@/components/orderDetails/OrderDetails";
 import PopularCategories from "@/components/PopularCategories/PopularCategories";
 import { ClientReviews } from "@/components/shared/clientReview/ClientReview";
 import Footer from "@/components/shared/footer/mainFooter/page";
 import NewsletterPage from "@/components/shared/footer/newsletter/page";
 import Navbar from "@/components/shared/header/mainHeader/page";
 import Topbar from "@/components/shared/header/topHeader/page";
+import SearchBerCategories from "@/components/shared/searchBerCategories/searchBerCategories";
 import AboutSection from "@/components/shared/sections/about-section";
 
 const Page = () => {
+
+  // order Status data it will be come backend ==========
+  const orderStatus = {
+    ordered: {
+      date: "17 jan,2024",
+      isComplete: true
+    },
+    shipping: {
+      isComplete: true
+    },
+    delivery: {
+      date: "Jan 25-29",
+      isComplete: true
+    }
+  }
+ // order Details data it will be come backend #####################
+  const orderData = {
+    confirmationNumber: '566842',
+    shippingAddress: {
+      name: 'Smiles Davis',
+      street: '600 montgomey St',
+      cityStateZip: 'San Francisco, CA 9858'
+    },
+    payment: {
+      method: 'Paypal',
+      subtotal: 7000.00,
+      shippingCost: 7800.00,
+      taxAmount: 50.00
+    },
+    totalItems: 3
+  }
+
   return (
     <div>
       <div className="min-h-screen">
         <Topbar />
         <Navbar />
+        <SearchBerCategories />
         <Hero />
         <PopularCategories />
         <AboutSection image="https://images.pexels.com/photos/28s858556/pexels-photo-28858556/free-photo-of-serene-couple-walk-on-a-tranquil-beach.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
         <FAQSection/>
         <ClientReviews/>
       </div>
+<OrderConfirmed orderStatus={orderStatus}/>
+<OrderDetails {...orderData}/>
       <NewsletterPage />
       <Footer />
     </div>

@@ -13,7 +13,7 @@ import faqImg from "../../public/assets/img/faq-Image.png"
 export default function 
 FAQSection() {
   return (
-    <section className="container  lg:px-12 h-auto relative section">
+    <section className="container px-4 h-auto relative section">
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
         {/* Left Image Section */}
         <div className="lg:w-2/5 hidden md:block">

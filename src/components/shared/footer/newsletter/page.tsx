@@ -18,7 +18,7 @@ function NewsletterPage() {
   return (
     <>
       <section
-        className="relative overflow-hidden object-cover h-auto lg:h-[457px] p-[30px] w-full"
+        className="relative overflow-hidden object-cover h-auto lg:h-[457px] p-[5px]  w-full"
         style={{
           backgroundImage: "url('assets/newsletter/newsletter-bg.png')",
           backgroundRepeat: "no-repeat",

@@ -9,7 +9,7 @@ interface Props {
 const SectionHeading = ({ heading, subheading }: Props) => {
   return (
     <div className='my-5  w-full mx-auto'>
-            <p className='text-center text-5xl text-primary-green-hover font-semibold'> {subheading} </p>
+            <p className='text-center text-2xl lg:text-5xl text-primary-green-hover font-semibold'> {subheading} </p>
             <h1 className='text-center font-medium text-xl lg:text-3xl text-primary-green-hover my-2'>{heading}</h1>
             
           <Image
