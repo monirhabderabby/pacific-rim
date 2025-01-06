@@ -20,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("antialiased", inter.className)}>{children}</body>
+      <body className={cn("antialiased", inter.className)}>
+      
+        {children}
+    
+        </body>
     </html>
   );
 }

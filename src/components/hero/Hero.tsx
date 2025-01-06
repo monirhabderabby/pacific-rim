@@ -21,7 +21,7 @@ const Hero = () => {
     }
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative z-10 flex items-center justify-center w-[670px] h-full text-white ">
+      <div className="relative z-10 flex items-center justify-center md:w-[670px] h-full text-white ">
         <div className="px-6 md:px-12">
           <h1 className="text-4xl md:text-5xl font-semibold mb-4">
           SHARE THE  <br />

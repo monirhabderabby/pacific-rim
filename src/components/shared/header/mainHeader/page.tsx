@@ -28,8 +28,6 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useState } from "react";
-import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
-
 
 const products = [
   {
@@ -179,8 +177,6 @@ function Navbar() {
           {/* Login/ SignUp after */}
 
           {/* <HeaderIconMenu /> */}
-
-
         </div>
       </nav>
       <Dialog
