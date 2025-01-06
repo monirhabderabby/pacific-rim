@@ -84,11 +84,17 @@ export const ClientReviews: React.FC = () => {
             <CarouselItem key={index} className="w-full flex justify-center md:basis-1/2 lg:basis-1/3">
               <div
                 className={`m-5 transition-shadow duration-300 rounded-lg ${
-                  index === centerIndex ? "shadow-2xl" : "shadow-none"
+                  index === centerIndex
+                    ? "drop-shadow-lg" // Use the default drop-shadow for the example
+                    : "shadow-none"
                 }`}
+                style={{
+                  boxShadow: index === centerIndex ? "0px 0px 10px 1px rgba(34, 86, 36, 0.15)" : "none",
+                }}
               >
-              <ReviewCard {...review} />
+                <ReviewCard {...review} />
               </div>
+
             </CarouselItem>
           ))}
         </CarouselContent>
