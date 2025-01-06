@@ -93,6 +93,6 @@ body {
   }
 
   .section {
-    @apply py-[80px] md:py-[100px]
+    @apply my-[50px] md:my-[100px];
   }
 }

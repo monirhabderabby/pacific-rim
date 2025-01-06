@@ -60,7 +60,7 @@ export default function AboutSection({ image }: { image: string }) {
               <Link href="/Click" className=" text-white">
                 <button
                   type="button"
-                  className="transition ease-in-out delay-100 bg-[#2A6C2D] hover:-translate-y-1 hover:scale-105 hover:bg-[#3da842] duration-300  py-2 md:px-8 px-4 border-none  border rounded-lg"
+                  className="transition ease-in-out delay-100 bg-[#2A6C2D] hover:-translate-y-1 hover:scale-105 hover:bg-[#3da842] duration-300 py-2 lg:px-8 md:px-4 px-2 border-none border rounded-lg md:text-base text-sm"
                 >
                   Click Here
                 </button>
