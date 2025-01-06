@@ -28,14 +28,19 @@ const OrderDetails = ({
   return (
     <div>
 
-<div className="max-w-4xl mx-auto p-6">
+<div className="max-w-6xl mx-auto p-6">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-semibold text-green-700">Order details.</h1>
         <p className="text-gray-600 mt-2">Confirmation number: {confirmationNumber}</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 items-start">
-        <Card className="border-none shadow-none">
+ {/*------------- Vertical  Divider for sm devices----------*/}
+      <div className=" border-t border-[#A8C3A9] w-full mb-10"></div>
+
+
+      <div className="max-w-4xl mx-auto grid  grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 items-start">
+      {/* address details  */}
+        <Card className="border-none shadow-none mb-[-50px]">
           <CardHeader>
             <CardTitle>Shipping Address</CardTitle>
           </CardHeader>
@@ -52,7 +57,7 @@ const OrderDetails = ({
         <div className="block sm:hidden border-t border-gray-300 w-full"></div>
 
 
-
+{/* payment details  */}
         <Card className="border-none shadow-none">
           <CardHeader>
             <CardTitle>
@@ -94,7 +99,7 @@ const OrderDetails = ({
 
       <div className="mt-8 text-center">
         <Button 
-          className="bg-primary-green hover:bg-primary-green-hover text-white px-8"
+          className="bg-[#2A6C2D] hover:bg-primary-green text-white px-8"
         //   onClick={() => window.location.href = '/shop'}
         >
           Shop More
