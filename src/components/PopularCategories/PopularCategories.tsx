@@ -6,7 +6,11 @@ import FindFavourite from "../FindFavourite";
 import SectionHeading from "../shared/SectionHeading/SectionHeading";
 import PopularCategoriesCard from "../shared/cards/PopularCategoriesCard";
 
-const PopularCategories = () => {
+interface Props {
+  loggedin: boolean;
+}
+
+const PopularCategories = ({ loggedin }: Props) => {
   return (
     <div className="my-20 py-20 rounded-[16px]  lg:rounded-[52px] bg-primary-light">
       <SectionHeading
@@ -15,22 +19,24 @@ const PopularCategories = () => {
       />
 
       {/*================= cardd ========================= */}
-      <div className="container p-2 mx-auto ">
+      <div className="container mx-auto pt-5 md:pt-10 ">
         <PopularCategoriesCard />
       </div>
 
       {/*///////////// find favourite if user not found then show it ///////////////////// */}
+      {!loggedin && (
+        <div className="container ">
+          <FindFavourite />
+        </div>
+      )}
 
-      <div className="px-4">
-        <FindFavourite />
-      </div>
-
-      <div>
-        <OurFeatureSection />
-        <OurAuction />
-      </div>
-
-      <PersonalizedRecomendation />
+      {loggedin && (
+        <>
+          <OurFeatureSection />
+          <OurAuction />
+          <PersonalizedRecomendation />
+        </>
+      )}
     </div>
   );
 };

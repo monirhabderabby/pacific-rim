@@ -1,4 +1,7 @@
 import "@/app/globals.css";
+import Footer from "@/components/shared/footer/mainFooter/page";
+import Navbar from "@/components/shared/header/mainHeader/page";
+import Topbar from "@/components/shared/header/topHeader/page";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -20,7 +23,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("antialiased", inter.className)}>{children}</body>
+      <body className={cn("antialiased", inter.className)}>
+        <div>
+          <Topbar />
+          <Navbar />
+        </div>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
