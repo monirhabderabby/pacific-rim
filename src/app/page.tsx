@@ -3,6 +3,7 @@ import Hero from "@/components/hero/Hero";
 import OrderConfirmed from "@/components/orderConfirmed/OrderConfirmed";
 import OrderDetails from "@/components/orderDetails/OrderDetails";
 import PopularCategories from "@/components/PopularCategories/PopularCategories";
+import { ClientReviews } from "@/components/shared/clientReview/ClientReview";
 import Footer from "@/components/shared/footer/mainFooter/page";
 import NewsletterPage from "@/components/shared/footer/newsletter/page";
 import Navbar from "@/components/shared/header/mainHeader/page";
@@ -51,8 +52,9 @@ const Page = () => {
         <SearchBerCategories />
         <Hero />
         <PopularCategories />
-        <AboutSection image="https://images.pexels.com/photos/28858556/pexels-photo-28858556/free-photo-of-serene-couple-walk-on-a-tranquil-beach.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <FAQSection />
+        <AboutSection image="https://images.pexels.com/photos/28s858556/pexels-photo-28858556/free-photo-of-serene-couple-walk-on-a-tranquil-beach.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+        <FAQSection/>
+        <ClientReviews/>
       </div>
 <OrderConfirmed orderStatus={orderStatus}/>
 <OrderDetails {...orderData}/>
