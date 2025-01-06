@@ -9,21 +9,23 @@ import PopularCategoriesCard from "../shared/cards/PopularCategoriesCard";
 
 const PopularCategories = () => {
   return (
-    <div className="my-20 py-20 px-5 rounded-[52px] bg-primary-light">
+    <div className="my-20 py-20 rounded-[16px]  lg:rounded-[52px] bg-primary-light">
       <SectionHeading
         subheading="Shop By Popular categories"
         heading="Popular categories"
       />
 
       {/*================= cardd ========================= */}
-      <div className="container mx-auto p-4">
+      <div className="container p-2 mx-auto ">
       <PopularCategoriesCard/>
        
       </div>
 
       {/*///////////// find favourite if user not found then show it ///////////////////// */}
 
-      <FindFavourite/>
+     <div className="px-4">
+     <FindFavourite/>
+     </div>
 
      
     </div>
