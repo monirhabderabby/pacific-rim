@@ -1,4 +1,4 @@
-
+"use client"
 import * as React from "react";
 import { ReviewCard } from "./ReviewCard";
 import {
@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import type { CarouselApi } from "@/components/ui/carousel"
 
 const reviewsData = [
   {
@@ -45,6 +46,20 @@ const reviewsData = [
 ];
 
 export const ClientReviews: React.FC = () => {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [api, setApi] = React.useState<CarouselApi>()
+  React.useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    api.on("select", () => {
+      setActiveIndex(api.selectedScrollSnap())
+    })
+  }, [api])
+  const totalSlides = reviewsData.length;
+  const visibleItems = 3; 
+  const centerIndex = (activeIndex + Math.floor(visibleItems / 2)) % totalSlides;
   return (
     <section className="flex flex-col items-center py-12">
       {/* Header Section */}
@@ -63,11 +78,17 @@ export const ClientReviews: React.FC = () => {
       </div>
 
       {/* Carousel Section */}
-      <Carousel opts={{ align: "start", loop: true }} className="w-full max-w-5xl relative mb-10">
+      <Carousel opts={{ align: "start", loop: true }} className="w-full max-w-7xl relative mb-10 p-3" setApi={setApi}>   
         <CarouselContent>
           {reviewsData.map((review, index) => (
             <CarouselItem key={index} className="w-full flex justify-center md:basis-1/2 lg:basis-1/3">
+              <div
+                className={`m-5 transition-shadow duration-300 rounded-lg ${
+                  index === centerIndex ? "shadow-2xl" : "shadow-none"
+                }`}
+              >
               <ReviewCard {...review} />
+              </div>
             </CarouselItem>
           ))}
         </CarouselContent>
