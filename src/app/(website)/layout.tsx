@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 import Footer from "@/components/shared/footer/mainFooter/page";
+import NewsletterPage from "@/components/shared/footer/newsletter/page";
 import Navbar from "@/components/shared/header/mainHeader/page";
 import Topbar from "@/components/shared/header/topHeader/page";
 import { cn } from "@/lib/utils";
@@ -29,7 +30,10 @@ export default function RootLayout({
           <Navbar />
         </div>
         {children}
-        <Footer />
+        <div>
+          <NewsletterPage />
+          <Footer />
+        </div>
       </body>
     </html>
   );
