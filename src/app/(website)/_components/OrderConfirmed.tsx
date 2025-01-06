@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { OrderConfirmationProps } from "@/data/Order";
 import { Check } from "lucide-react";
-import { OrderConfirmationProps } from "./Order";
 
 const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
   return (
@@ -29,7 +29,7 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.ordered.isComplete
                       ? "bg-green-700"
-                      : "bg-gray-200"
+                      : "bg-[#BDD1BE]"
                   }`}
                 >
                   {orderStatus.ordered.isComplete && (
@@ -48,7 +48,7 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.shipping.isComplete
                       ? "bg-green-700"
-                      : "bg-gray-200"
+                      : "bg-[#BDD1BE]"
                   }`}
                 >
                   {orderStatus.shipping.isComplete && (
@@ -66,7 +66,7 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.delivery.isComplete
                       ? "bg-green-700"
-                      : "bg-gray-200"
+                      : "bg-[#BDD1BE]"
                   }`}
                 >
                   {orderStatus.delivery.isComplete && (
@@ -90,7 +90,7 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
 
           <Button
             variant="default"
-            className="bg-primary-green hover:bg-primary-green-hover"
+            className="bg-[#2A6C2D] hover:bg-primary-green"
           >
             Help center
           </Button>
