@@ -12,7 +12,7 @@ function SearchBer() {
                     <Input
                         type="search"
                         placeholder="Search"
-                        className="pl-8 py-[20px] border-2 border-primary-green-hover "
+                        className="pl-8 py-[20px] border-2 border-primary-green-hover focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
                     />
                 </div>
                 <Button className="bg-[#2B6B39] hover:bg-[#225430] w-[105px] py-[22px] absolute right-0 top-0">
