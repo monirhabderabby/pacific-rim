@@ -1,4 +1,5 @@
 // local import ***********
+import OurAuction from "@/app/(website)/_components/our_auction";
 import OurFeatureSection from "@/app/(website)/_components/our_feature_section";
 import FindFavourite from "../FindFavourite";
 import SectionHeading from "../shared/SectionHeading/SectionHeading";
@@ -25,6 +26,7 @@ const PopularCategories = () => {
 
       <div>
         <OurFeatureSection />
+        <OurAuction />
       </div>
     </div>
   );
