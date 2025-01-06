@@ -28,7 +28,8 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useState } from "react";
-// import { Bell, CircleUserRound, Heart, ShoppingCart } from 'lucide-react';
+import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
+
 
 const products = [
   {
@@ -70,10 +71,10 @@ const callsToAction = [
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <header className="bg-white">
+    <header className="bg-white ">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto h-[80px] flex max-w-7xl items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
@@ -99,7 +100,7 @@ function Navbar() {
             About
           </a>
           <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
+            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 outline-0">
               Auctions
               <ChevronDownIcon
                 aria-hidden="true"
@@ -177,38 +178,9 @@ function Navbar() {
           </button>
           {/* Login/ SignUp after */}
 
-          {/* <button
-                        type="button"
-                        className="relative rounded-full p-1 mr-2 text-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                    >
-                        <span className="absolute -inset-1.5" />
-                        <span className="sr-only">View notifications</span>
-                        <Bell aria-hidden="true" className="size-6" />
-                    </button>
-                    <button
-                        type="button"
-                        className="relative rounded-full p-1 mr-2 text-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                    >
-                        <span className="absolute -inset-1.5" />
-                        <span className="sr-only">View notifications</span>
-                        <Heart aria-hidden="true" className="size-6" />
-                    </button>
-                    <button
-                        type="button"
-                        className="relative rounded-full p-1 mr-2 text-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                    >
-                        <span className="absolute -inset-1.5" />
-                        <span className="sr-only">View notifications</span>
-                        <ShoppingCart aria-hidden="true" className="size-6" />
-                    </button>
-                    <button
-                        type="button"
-                        className="relative rounded-full p-1 text-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                    >
-                        <span className="absolute -inset-1.5" />
-                        <span className="sr-only">View notifications</span>
-                        <CircleUserRound aria-hidden="true" className="size-6" />
-                    </button> */}
+          {/* <HeaderIconMenu /> */}
+
+
         </div>
       </nav>
       <Dialog
@@ -298,38 +270,7 @@ function Navbar() {
                 </button>
                 {/* Login/ SignUp after */}
 
-                {/* <button
-                                    type="button"
-                                    className="relative rounded-full p-1 mr-2 text-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                >
-                                    <span className="absolute -inset-1.5" />
-                                    <span className="sr-only">View notifications</span>
-                                    <Bell aria-hidden="true" className="size-6" />
-                                </button>
-                                <button
-                                    type="button"
-                                    className="relative rounded-full p-1 mr-2 text-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                >
-                                    <span className="absolute -inset-1.5" />
-                                    <span className="sr-only">View notifications</span>
-                                    <Heart aria-hidden="true" className="size-6" />
-                                </button>
-                                <button
-                                    type="button"
-                                    className="relative rounded-full p-1 mr-2 text-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                >
-                                    <span className="absolute -inset-1.5" />
-                                    <span className="sr-only">View notifications</span>
-                                    <ShoppingCart aria-hidden="true" className="size-6" />
-                                </button>
-                                <button
-                                    type="button"
-                                    className="relative rounded-full p-1 text-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                >
-                                    <span className="absolute -inset-1.5" />
-                                    <span className="sr-only">View notifications</span>
-                                    <CircleUserRound aria-hidden="true" className="size-6" />
-                                </button> */}
+                {/* <HeaderIconMenu /> */}
               </div>
             </div>
           </div>

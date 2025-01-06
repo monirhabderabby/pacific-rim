@@ -18,17 +18,17 @@ function NewsletterPage() {
   return (
     <>
       <section
-        className="relative overflow-hidden object-cover"
+        className="relative overflow-hidden object-cover h-auto lg:h-[457px] p-[5px] lg:p-[30px]  w-full"
         style={{
           backgroundImage: "url('assets/newsletter/newsletter-bg.png')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
       >
-        <div className="container mx-auto px-4 py-12 md:py-24">
-          <div className="grid gap-8 md:grid-cols-2 items-center">
+        <div className="container mx-auto px-4 py-12 md:py-24 w-full">
+          <div className="flex flex-col lg:flex-row gap-4">
             {/* Left column with image */}
-            <div className="relative h-[197px] md:h-[400px] rounded-2xl overflow-hidden">
+            <div className="hidden lg:block md:w-[470px] h-[293px] relative">
               <Image
                 src={Newsletter}
                 alt="Newsletter feature image"
@@ -39,8 +39,8 @@ function NewsletterPage() {
             </div>
 
             {/* Right column with form */}
-            <div className="space-y-6 md:pl-8 bg-white p-24 rounded-lg opacity-80">
-              <div className="space-y-4">
+            <div className="flex-1 w-full bg-white/80 p-[20px] md:p-[40px] rounded-[16px]">
+              <div className="space-y-4 mb-5">
                 <h2 className="text-3xl md:text-4xl font-bold text-green-700">
                   Subscribe Newsletter
                 </h2>
