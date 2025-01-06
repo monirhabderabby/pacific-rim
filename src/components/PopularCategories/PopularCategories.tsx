@@ -1,6 +1,7 @@
 // local import ***********
 import OurAuction from "@/app/(website)/_components/our_auction";
 import OurFeatureSection from "@/app/(website)/_components/our_feature_section";
+import PersonalizedRecomendation from "@/app/(website)/_components/personalized-recomendatin";
 import FindFavourite from "../FindFavourite";
 import SectionHeading from "../shared/SectionHeading/SectionHeading";
 import PopularCategoriesCard from "../shared/cards/PopularCategoriesCard";
@@ -28,6 +29,8 @@ const PopularCategories = () => {
         <OurFeatureSection />
         <OurAuction />
       </div>
+
+      <PersonalizedRecomendation />
     </div>
   );
 };
