@@ -1,6 +1,7 @@
-import * as React from 'react';
+import * as React from "react";
 import { Button } from "@/components/ui/button";
-import { NavigationButtonProps } from './types';
+import { NavigationButtonProps } from "./types";
+import Image from "next/image";
 
 export const NavigationButton: React.FC<NavigationButtonProps> = ({
   direction,
@@ -15,7 +16,7 @@ export const NavigationButton: React.FC<NavigationButtonProps> = ({
       onClick={onClick}
       aria-label={`${direction} slide`}
     >
-      <img
+      <Image
         src={iconSrc}
         alt=""
         className="w-5 stroke-[2px] stroke-white"

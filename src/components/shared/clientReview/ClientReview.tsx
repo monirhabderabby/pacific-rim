@@ -1,6 +1,6 @@
-"use client";
-import * as React from 'react';
-import { ReviewCard } from './ReviewCard';
+
+import * as React from "react";
+import { ReviewCard } from "./ReviewCard";
 import {
   Carousel,
   CarouselContent,
