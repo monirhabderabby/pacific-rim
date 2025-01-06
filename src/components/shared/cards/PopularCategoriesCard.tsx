@@ -57,7 +57,7 @@ const PopularCategoriesCard = () => {
                 </div>
                 <Link
                   key={category.title}
-                  href="categories"
+                  href="#"
                   className="block transition-transform "
                 >
                   <div className="bg-[#1B4D2B] hover:bg-[#1B4D2B]/80 p-4 text-center rounded-lg">
