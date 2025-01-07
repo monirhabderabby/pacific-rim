@@ -12,6 +12,7 @@ import Navbar from "@/components/shared/header/mainHeader/page";
 import Topbar from "@/components/shared/header/topHeader/page";
 import SearchBerCategories from "@/components/shared/searchBerCategories/searchBerCategories";
 import AboutSection from "@/components/shared/sections/about-section";
+import { PageHeader } from "@/components/shared/sections/breadcrumb-section";
 
 const Page = () => {
   // order Status data it will be come backend ==========
@@ -51,6 +52,7 @@ const Page = () => {
         <Topbar />
         <Navbar />
         <SearchBerCategories />
+        
         <Hero />
         <PopularCategories />
         <AboutSection image="https://images.pexels.com/photos/28s858556/pexels-photo-28858556/free-photo-of-serene-couple-walk-on-a-tranquil-beach.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
@@ -62,6 +64,17 @@ const Page = () => {
       <PopularBlogs />
       <NewsletterPage />
       <CartPage />
+      <PageHeader 
+        title="Products" 
+        items={[
+          { label: "Our Products", href: "/products" },
+          { label: "CBD", href: "/products/cbd" },
+          {
+            label: "PDP",
+            href: ""
+          }
+        ]}
+      />
       <Footer />
     </div>
   );
