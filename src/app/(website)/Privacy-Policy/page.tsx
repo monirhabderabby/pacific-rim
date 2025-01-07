@@ -1,11 +1,10 @@
-import React from "react";
 import privacyimage from "@/../../public/assets/img/privacy_icon.png.png";
 import Image from "next/image";
 
 const Privacypage = () => {
   return (
     <section>
-      <div className="container">
+      <div className="container section">
         <div className="text-center">
           <h2 className="text-[25px] lg:text-[36px] font-semibold leading-[42.2px] text-[#2A6C2D]">
             Privacy Policy
@@ -308,7 +307,7 @@ const Privacypage = () => {
             </li>
           </ul>
         </div>
-        
+
         <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 list-disc ">
           Please note that third parties may also use Cookies on our Platform.
           We do not have access to these Cookies and, other than allowing them
