@@ -50,7 +50,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href="/term-and-conditions"
                   className="text-zinc-400 hover:text-white transition-colors"
                 >
                   Terms and conditions
