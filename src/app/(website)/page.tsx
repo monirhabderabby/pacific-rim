@@ -13,6 +13,7 @@ const Page = () => {
     <div>
       <div className="min-h-screen">
         <SearchBerCategories />
+        
         <Hero />
         <PopularCategories loggedin={loggedin} />
         {!loggedin && (
