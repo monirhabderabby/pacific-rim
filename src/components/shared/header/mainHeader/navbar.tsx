@@ -105,9 +105,9 @@ function Navbar() {
           </a>
           <Link href="/products">Auctions</Link>
 
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
+          <Link href="/blogs" className="text-sm/6 font-semibold text-gray-900">
             Blog
-          </a>
+          </Link>
           <Link
             href="/contact"
             className="text-sm/6 font-semibold text-gray-900"
