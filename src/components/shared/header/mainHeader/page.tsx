@@ -1,6 +1,7 @@
 "use client";
 
 import HeaderLogo from "@/../../public/assets/header-logo.png";
+import { cn } from "@/lib/utils";
 import {
   Dialog,
   DialogPanel,
@@ -27,6 +28,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const products = [
@@ -68,8 +70,10 @@ const callsToAction = [
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const pathName = usePathname();
   return (
-    <header className="bg-white ">
+    <header className={cn("bg-white", pathName !== "/" && "border-b-2")}>
       <nav
         aria-label="Global"
         className="mx-auto h-[80px] flex max-w-7xl items-center justify-between p-6 lg:px-8"
