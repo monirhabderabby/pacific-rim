@@ -1,6 +1,7 @@
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import SocialIcons from "../cards/social-icons";
+
 
 export default function AboutSection({ image }: { image: string }) {
   {
@@ -40,7 +41,7 @@ export default function AboutSection({ image }: { image: string }) {
           </div>
           <div className="">
             {/* statistic */}
-            <div className="flex items-center  gap-8 my-8">
+            <div className="flex items-center gap-8 my-8">
               <div>
                 <h3 className="text-[32px] font-semibold text-center">30K+</h3>
                 <h4 className="text-[20px] font-medium">Our Products</h4>
@@ -65,32 +66,7 @@ export default function AboutSection({ image }: { image: string }) {
                   Click Here
                 </button>
               </Link>
-              <div className="flex items-center gap-4">
-                <Link
-                  href="/"
-                  className="border rounded-full border-[#2A6C2D] hover:bg-[#2A6C2D] p-2"
-                >
-                  <Facebook className="fill-[#2A6C2D] text-white " />
-                </Link>
-                <Link
-                  href="/"
-                  className="border rounded-full border-[#2A6C2D] hover:bg-[#2A6C2D] p-2"
-                >
-                  <Linkedin className="fill-[#2A6C2D] text-white " />
-                </Link>
-                <Link
-                  href="/"
-                  className="border rounded-full border-[#2A6C2D] p-2  hover:bg-[#2A6C2D]"
-                >
-                  <Twitter className="text-[#2A6C2D] hover:text-white" />
-                </Link>
-                <Link
-                  href="/"
-                  className="border rounded-full border-[#2A6C2D] p-2 hover:bg-[#2A6C2D]"
-                >
-                  <Instagram className="text-[#2A6C2D] hover:text-white" />
-                </Link>
-              </div>
+              <SocialIcons/>
             </div>
           </div>
         </div>
