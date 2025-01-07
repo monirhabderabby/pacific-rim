@@ -48,8 +48,10 @@ const Page = () => {
           },
         ]}
       />
+
       <OrderConfirmed orderStatus={orderStatus} />
       <OrderDetails {...orderData} />
+      
     </div>
   );
 };

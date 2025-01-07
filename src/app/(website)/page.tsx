@@ -1,3 +1,5 @@
+
+import OrderDetailsTable from "@/components/DetailsOrder/OrderDetailsTable";
 import FAQSection from "@/components/faq-accordion";
 import Hero from "@/components/hero/Hero";
 import PopularCategories from "@/components/PopularCategories/PopularCategories";
@@ -24,6 +26,9 @@ const Page = () => {
       </div>
 
       <PopularBlogs />
+
+    
+      <OrderDetailsTable/>
     </div>
   );
 };
