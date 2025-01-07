@@ -93,6 +93,6 @@ body {
   }
 
   .section {
-    @apply my-[50px] md:my-[100px];
+    @apply my-[40px] md:my-[50px];
   }
 }
