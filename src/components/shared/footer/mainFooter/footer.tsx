@@ -42,7 +42,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  href="/privacy"
+                  href="/privacy-policy"
                   className="text-zinc-400 hover:text-white transition-colors"
                 >
                   Privacy policy
@@ -50,7 +50,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href="/term-and-conditions"
                   className="text-zinc-400 hover:text-white transition-colors"
                 >
                   Terms and conditions
