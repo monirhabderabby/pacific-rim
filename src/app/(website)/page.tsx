@@ -3,6 +3,7 @@ import OrderDetailsTable from "@/components/DetailsOrder/OrderDetailsTable";
 import FAQSection from "@/components/faq-accordion";
 import Hero from "@/components/hero/Hero";
 import PopularCategories from "@/components/PopularCategories/PopularCategories";
+import { BillingDetails } from "@/components/shared/cards/orderDetails/BillingDetails";
 import { ClientReviews } from "@/components/shared/clientReview/ClientReview";
 import SearchBerCategories from "@/components/shared/searchBerCategories/searchBerCategories";
 import AboutSection from "@/components/shared/sections/about-section";
