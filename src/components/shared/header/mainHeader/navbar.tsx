@@ -2,69 +2,12 @@
 
 import HeaderLogo from "@/../../public/assets/header-logo.png";
 import { cn } from "@/lib/utils";
-import {
-  Dialog,
-  DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  PopoverGroup,
-} from "@headlessui/react";
-import {
-  ChevronDownIcon,
-  PhoneIcon,
-  PlayCircleIcon,
-} from "@heroicons/react/20/solid";
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
-const products = [
-  {
-    name: "Analytics",
-    description: "Get a better understanding of your traffic",
-    href: "#",
-    icon: ChartPieIcon,
-  },
-  {
-    name: "Engagement",
-    description: "Speak directly to your customers",
-    href: "#",
-    icon: CursorArrowRaysIcon,
-  },
-  {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: FingerPrintIcon,
-  },
-  {
-    name: "Integrations",
-    description: "Connect with third-party tools",
-    href: "#",
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: "Automations",
-    description: "Build strategic funnels that will convert",
-    href: "#",
-    icon: ArrowPathIcon,
-  },
-];
-const callsToAction = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
-];
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -97,20 +40,49 @@ function Navbar() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <Link href="/" className="text-sm/6 font-semibold text-gray-900">
+          <Link
+            href="/"
+            className={cn(
+              "text-sm/6 font-semibold",
+              pathName === "/" ? "text-primary-green" : "text-gray-900"
+            )}
+          >
             Home
           </Link>
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
+          <Link
+            href="/about"
+            className={cn(
+              "text-sm/6 font-semibold",
+              pathName === "/about" ? "text-primary-green" : "text-gray-900"
+            )}
+          >
             About
-          </a>
-          <Link href="/products">Auctions</Link>
+          </Link>
+          <Link
+            href="/products"
+            className={cn(
+              "text-sm/6 font-semibold",
+              pathName === "/products" ? "text-primary-green" : "text-gray-900"
+            )}
+          >
+            Auctions
+          </Link>
 
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
+          <Link
+            href="/blogs"
+            className={cn(
+              "text-sm/6 font-semibold",
+              pathName === "/blogs" ? "text-primary-green" : "text-gray-900"
+            )}
+          >
             Blog
-          </a>
+          </Link>
           <Link
             href="/contact"
-            className="text-sm/6 font-semibold text-gray-900"
+            className={cn(
+              "text-sm/6 font-semibold",
+              pathName === "/contact" ? "text-primary-green" : "text-gray-900"
+            )}
           >
             Contact
           </Link>
@@ -165,46 +137,35 @@ function Navbar() {
                 >
                   Home
                 </Link>
-                <a
-                  href="#"
+                <Link
+                  href="/about"
+                  onClick={closeMobileMenu}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   About
-                </a>
-                <Disclosure as="div" className="-mx-3">
-                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                    Auctions
-                    <ChevronDownIcon
-                      aria-hidden="true"
-                      className="size-5 flex-none group-data-[open]:rotate-180"
-                    />
-                  </DisclosureButton>
-                  <DisclosurePanel className="mt-2 space-y-2">
-                    {[...products, ...callsToAction].map((item) => (
-                      <DisclosureButton
-                        key={item.name}
-                        as="a"
-                        href={item.href}
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-                      >
-                        {item.name}
-                      </DisclosureButton>
-                    ))}
-                  </DisclosurePanel>
-                </Disclosure>
+                </Link>
+                <Link
+                  href="/products"
+                  onClick={closeMobileMenu}
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                >
+                  Auctions
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                  href="/blogs"
+                  onClick={closeMobileMenu}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Blog
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/contact"
+                  onClick={closeMobileMenu}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Contact
-                </a>
+                </Link>
               </div>
               <div className="py-6">
                 {/* Login/ SignUp before */}

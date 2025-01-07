@@ -3,16 +3,15 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { CalendarDays, MessageCircle, User } from 'lucide-react';
 import Link from "next/link";
 import Image from "next/image";
-import blogsImg from "@/../../public/assets/blogs/blogs.png";
 import { Blog } from '@/types/popularBlog';
 
-function BlogsCards({ title, date, author, comments, id }: Blog) {
+function BlogsCards({ image, title, date, author, comments, id }: Blog) {
     return (
         <>
             <Card key={id} className="overflow-hidden bg-primary-light shadow-none border-0">
                 <CardHeader className="p-0">
                     <Image
-                        src={blogsImg}
+                        src={image}
                         alt={title}
                         width={600}
                         height={400}
