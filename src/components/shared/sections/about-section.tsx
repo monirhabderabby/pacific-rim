@@ -98,7 +98,7 @@ export default function AboutSection({ image }: { image: string }) {
           <Image
             src={image}
             alt="Picture of the author"
-            className="rounded-[16px] hover:scale-105"
+            className="rounded-[16px] hover:scale-105 transition-all duration-300"
             fill
           />
         </div>
