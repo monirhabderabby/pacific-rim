@@ -1,6 +1,6 @@
 
-export type PopularBlog = {
-    id: string; // Added the id property
+export interface Blog {
+    id: number;
     image: string;
     title: string;
     date: string;
@@ -9,3 +9,6 @@ export type PopularBlog = {
     href: string;
 };
 
+export interface BlogsCardType {
+    Blog: Blog;
+}
