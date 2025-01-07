@@ -15,6 +15,7 @@ const initialItems: CartItem[] = [
     quantity: 1,
     rating: 4,
     isHot: false,
+    icon: "heart",
     views: 8,
   },
   {
@@ -26,6 +27,7 @@ const initialItems: CartItem[] = [
     quantity: 1,
     rating: 4,
     isHot: true,
+    icon: "heart",
     views: 8,
   },
   {
@@ -37,6 +39,7 @@ const initialItems: CartItem[] = [
     quantity: 1,
     rating: 4,
     isHot: true,
+    icon: "heart",
     views: 8,
   },
 ];

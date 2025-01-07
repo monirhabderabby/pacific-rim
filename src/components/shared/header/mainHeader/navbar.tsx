@@ -108,9 +108,12 @@ function Navbar() {
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
             Blog
           </a>
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
+          <Link
+            href="/contact"
+            className="text-sm/6 font-semibold text-gray-900"
+          >
             Contact
-          </a>
+          </Link>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {/* Login/ SignUp before */}

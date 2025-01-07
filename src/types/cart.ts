@@ -7,6 +7,7 @@ export interface CartItem {
     quantity: number
     rating: number
     isHot?: boolean
+    icon: "heart",
     views?: number
   }
   
