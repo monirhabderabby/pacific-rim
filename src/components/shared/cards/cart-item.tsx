@@ -1,11 +1,12 @@
 import { CartItem } from "@/types/cart";
-import { Check } from "lucide-react";
+import { Check, Heart, Star } from "lucide-react";
 import Image from "next/image";
 import { StarRating } from "../../../app/(website)/cart/_components/star-rating";
 interface CartItemProps {
   item: CartItem;
   onUpdateQuantity: (id: string, quantity: number) => void;
   onRemove: (id: string) => void;
+  iconType?: "heart" | "trash" | "check";
 }
 
 export function CartItemCard({
@@ -13,6 +14,12 @@ export function CartItemCard({
   onUpdateQuantity,
   onRemove,
 }: CartItemProps) {
+    // Define a mapping of icon names to components
+    const iconMap: Record<string, JSX.Element> = {
+      heart: <Heart className="w-4 h-4 text-gray-600" />,
+      check: <Check className="w-4 h-4 text-gray-600" />,
+      star: <Star className="w-4 h-4 text-gray-600" />,
+    };
   return (
     <div className="flex flex-col rounded-lg p-4 border border-gray-200">
       <div className="flex gap-4">
@@ -24,7 +31,7 @@ export function CartItemCard({
             className="rounded-lg object-cover"
           />
           <button className="absolute top-2 right-2 p-1.5 bg-white rounded-full">
-            {/* <Heart className="w-4 h-4 text-gray-600" /> */}
+          {iconMap[item.icon] || null}
           </button>
         </div>
         <div className="flex-1 space-y-1">

@@ -75,7 +75,7 @@ export default function FeaturedProductCard({
           </div>
         </div>
         <button
-          className="gap-2.5 self-stretch px-6 py-3 mt-4 w-full text-base font-medium leading-tight text-white bg-green-800 rounded-lg max-md:px-5"
+          className="gap-2.5 self-stretch px-6 py-3 mt-4 w-full text-base font-medium leading-tight text-white bg-primary-green-hover hover:bg-primary-green-hover/90 rounded-lg max-md:px-5 transition-colors duration-300"
           aria-label="Add to cart"
         >
           Add to cart

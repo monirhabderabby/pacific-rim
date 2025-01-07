@@ -1,3 +1,4 @@
+import { PageHeader } from "@/components/shared/sections/breadcrumb-section";
 import OrderConfirmed from "./_components/OrderConfirmed";
 import OrderDetails from "./_components/OrderDetails";
 
@@ -34,6 +35,19 @@ const Page = () => {
   };
   return (
     <div>
+      <PageHeader
+        title="Your Cart"
+        items={[
+          {
+            label: "Home",
+            href: "/",
+          },
+          {
+            label: "Confirmation",
+            href: "/orderConfirmation",
+          },
+        ]}
+      />
       <OrderConfirmed orderStatus={orderStatus} />
       <OrderDetails {...orderData} />
     </div>
