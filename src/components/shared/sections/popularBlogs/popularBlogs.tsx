@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 
+import PopularBlogsCards from '../../cards/BlogsCards';
+import SectionHeading from '../../SectionHeading/SectionHeading';
 import { PopularBlogs } from '@/data/popularBlogs';
-import PopularBlogsCards from '../../cards/PopularBlogsCards';
-import { Card } from '@/components/ui/card';
 
 
 function PopularBlog() {
@@ -12,17 +12,17 @@ function PopularBlog() {
             <div className="container mx-auto">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-bold text-green-600 mb-2">Shop By Popular Blogs</h2>
-                    <div className="flex items-center justify-center gap-2">
-                        <div className="h-1 w-8 bg-green-600"></div>
+                    <div className="font-bold">
                         <h3 className="text-xl text-green-600">Blog</h3>
-                        <div className="h-1 w-8 bg-green-600"></div>
+                        <div className='mt-[-10px]'>
+                            <SectionHeading heading={''} subheading={''} />
+                        </div>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    {PopularBlogs.map(blog => <Card key={blog.id} className="overflow-hidden bg-primary-light shadow-none border-0">
-                        <PopularBlogsCards image={blog.title} title={blog.title} date={blog.date} author={blog.author} comments={0} href={blog.href} id={''} />
-                    </Card>
+                    {PopularBlogs.slice(0, 3).map(blog =>
+                        <PopularBlogsCards key={blog.id} image={blog.image} title={blog.title} date={blog.date} author={blog.author} comments={blog.comments} href={blog.href} id={blog.id} />
                     )}
                 </div>
 
