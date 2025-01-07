@@ -34,7 +34,6 @@ export function PageHeader({
           top: 0,
           left: 0,
         }
-      
       }
     >
       <div className={cn(
