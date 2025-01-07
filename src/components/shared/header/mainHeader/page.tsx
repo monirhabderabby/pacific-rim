@@ -28,7 +28,6 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -80,10 +79,10 @@ function Navbar() {
         className="mx-auto h-[80px] flex max-w-7xl items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <Image alt="" src={HeaderLogo} className="h-12 w-24" />
-          </Link>
+          </a>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -96,9 +95,9 @@ function Navbar() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <Link href="/" className="text-sm/6 font-semibold text-gray-900">
+          <a href="#" className="text-sm/6 font-semibold text-gray-900">
             Home
-          </Link>
+          </a>
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
             About
           </a>
@@ -158,9 +157,9 @@ function Navbar() {
             </PopoverPanel>
           </Popover>
 
-          <Link href="/blogs" className="text-sm/6 font-semibold text-gray-900">
+          <a href="#" className="text-sm/6 font-semibold text-gray-900">
             Blog
-          </Link>
+          </a>
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
             Contact
           </a>
@@ -192,10 +191,10 @@ function Navbar() {
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <Link href="/" className="-m-1.5 p-1.5">
+            <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <Image alt="" src={HeaderLogo} className="h-8 w-auto" />
-            </Link>
+            </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -208,12 +207,12 @@ function Navbar() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <Link
-                  href="/"
+                <a
+                  href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Home
-                </Link>
+                </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
@@ -242,12 +241,12 @@ function Navbar() {
                   </DisclosurePanel>
                 </Disclosure>
 
-                <Link
-                  href="/blogs"
+                <a
+                  href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Blog
-                </Link>
+                </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
