@@ -13,17 +13,16 @@ const Page = () => {
     <div>
       <div className="min-h-screen">
         <SearchBerCategories />
-        
+
         <Hero />
         <PopularCategories loggedin={loggedin} />
         {!loggedin && (
           <AboutSection image="https://utfs.io/f/HkyicnKv4pLkKb11IfnzkrEA5LwVvWx2Fbfe7a6P94u0gcjZ" />
         )}
         {!loggedin && <FAQSection />}
-        <ClientReviews />
+        {loggedin && <PopularBlogs />}
+        {loggedin && <ClientReviews />}
       </div>
-
-      <PopularBlogs />
     </div>
   );
 };
