@@ -4,7 +4,7 @@ import OrderConfirmed from "@/components/orderConfirmed/OrderConfirmed";
 import OrderDetails from "@/components/orderDetails/OrderDetails";
 import PopularCategories from "@/components/PopularCategories/PopularCategories";
 import PopularBlogs from "@/components/shared/cards/popularBlogs/popularBlogs";
-import CartPage from "@/components/shared/cart-page";
+import CartPage from "@/components/shared/sections/cart-page";
 import { ClientReviews } from "@/components/shared/clientReview/ClientReview";
 import Footer from "@/components/shared/footer/mainFooter/page";
 import NewsletterPage from "@/components/shared/footer/newsletter/page";
