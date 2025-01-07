@@ -28,7 +28,7 @@ const Page = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {PopularBlogs.map(blog =>
-          <BlogsCards key={blog.id} image={blog.title} title={blog.title} date={blog.date} author={blog.author} comments={0} href={blog.href} id={blog.id} />
+          <BlogsCards key={blog.id} image={blog.image} title={blog.title} date={blog.date} author={blog.author} comments={0} href={blog.href} id={blog.id} />
 
         )}
       </div>
