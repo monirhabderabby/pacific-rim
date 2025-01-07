@@ -85,7 +85,7 @@ export const ClientReviews: React.FC = () => {
               <div
                 className={`m-5 transition-shadow duration-300 rounded-lg ${
                   index === centerIndex
-                    ? "drop-shadow-lg" // Use the default drop-shadow for the example
+                    ? "drop-shadow-lg" 
                     : "shadow-none"
                 }`}
                 style={{
