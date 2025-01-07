@@ -91,10 +91,20 @@ const config: Config = {
             height: "0",
           },
         },
+        moveBackground: {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "100% 100%" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        moveBackground: "moveBackground 30s linear infinite alternate",
+        fadeIn: "fadeIn 1s ease-in-out",
       },
     },
   },
