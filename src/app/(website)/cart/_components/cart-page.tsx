@@ -1,48 +1,12 @@
 "use client";
 
 import { CartItemCard } from "@/components/shared/cards/cart-item";
-import { CartItem } from "@/types/cart";
 import { useState } from "react";
 import { CartSummary } from "./cart-summary";
+import { Heart } from "lucide-react";
+import { CartItem } from "@/types/cart";
+import { initialItems } from "@/data/CartData";
 
-const initialItems: CartItem[] = [
-  {
-    id: "1",
-    name: "American Beauty",
-    price: 7000.0,
-    originalPrice: 9325.0,
-    image: "/assets/img/image 559.png",
-    quantity: 1,
-    rating: 4,
-    isHot: false,
-    icon: "heart",
-    views: 8,
-  },
-  {
-    id: "2",
-    name: "American Beauty",
-    price: 7000.0,
-    originalPrice: 9325.0,
-    image: "/assets/img/image 559.png",
-    quantity: 1,
-    rating: 4,
-    isHot: true,
-    icon: "heart",
-    views: 8,
-  },
-  {
-    id: "3",
-    name: "American Beauty",
-    price: 7000.0,
-    originalPrice: 9325.0,
-    image: "/assets/img/image 559.png",
-    quantity: 1,
-    rating: 4,
-    isHot: true,
-    icon: "heart",
-    views: 8,
-  },
-];
 
 export default function CartPage() {
   const [items, setItems] = useState<CartItem[]>(initialItems);
@@ -86,12 +50,13 @@ export default function CartPage() {
             Cart Items
           </h2>
           <div className="space-y-4">
-            {items.map((item) => (
+            {items.slice(0, 3).map((item) => (
               <CartItemCard
                 key={item.id}
                 item={item}
                 onUpdateQuantity={updateQuantity}
                 onRemove={removeItem}
+                icon={<Heart className="w-4 h-4 text-gray-600" />}
               />
             ))}
           </div>

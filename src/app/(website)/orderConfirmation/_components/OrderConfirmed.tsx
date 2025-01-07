@@ -22,9 +22,9 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
             <div className="absolute left-0 top-10 h-0.5 w-full bg-gray-200" />
 
             {/* Status Points */}
-            <div className="relative flex justify-between">
+            <div className="relative flex justify-between ">
               {/* Ordered */}
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-start ">
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.ordered.isComplete
@@ -61,7 +61,7 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
               </div>
 
               {/* Expired delivery */}
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-end">
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.delivery.isComplete
