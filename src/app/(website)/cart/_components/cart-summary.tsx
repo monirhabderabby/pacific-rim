@@ -32,7 +32,7 @@ interface CartSummaryProps {
           <div className="border-t border-[#A8C3A9] pt-4">
             <div className="flex justify-between text-xl font-semibold">
               <span className="text-[#9C9C9C]">Order Total</span>
-              <span>₭{total.toLocaleString()}</span>
+              <span>${total.toLocaleString()}</span>
             </div>
           </div>
           <button
