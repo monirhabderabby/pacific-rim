@@ -1,6 +1,7 @@
 "use client";
 
 import HeaderLogo from "@/../../public/assets/header-logo.png";
+import { cn } from "@/lib/utils";
 import {
   Dialog,
   DialogPanel,
@@ -27,6 +28,8 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const products = [
@@ -68,17 +71,23 @@ const callsToAction = [
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const pathName = usePathname();
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
   return (
-    <header className="bg-white ">
+    <header className={cn("bg-white", pathName !== "/" && "border-b-2")}>
       <nav
         aria-label="Global"
         className="mx-auto h-[80px] flex max-w-7xl items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
+          <Link href="/" className="-m-1.5 p-1.5">
+            <span className="sr-only">Pacific Rim</span>
             <Image alt="" src={HeaderLogo} className="h-12 w-24" />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -91,9 +100,9 @@ function Navbar() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
+          <Link href="/" className="text-sm/6 font-semibold text-gray-900">
             Home
-          </a>
+          </Link>
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
             About
           </a>
@@ -188,7 +197,7 @@ function Navbar() {
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
+              <span className="sr-only">Pacific Rim</span>
               <Image alt="" src={HeaderLogo} className="h-8 w-auto" />
             </a>
             <button
@@ -203,12 +212,13 @@ function Navbar() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <a
-                  href="#"
+                <Link
+                  href="/"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  onClick={closeMobileMenu}
                 >
                   Home
-                </a>
+                </Link>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"

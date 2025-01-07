@@ -13,7 +13,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
   review
 }) => {
   return (
-    <Card className="flex-1 min-w-[240px] w-[296px]">
+    <Card className="flex-1 min-w-[370px] w-[202px]">
       <CardContent className="p-4">
         <div className="flex gap-5 items-center w-full">
           <div className="flex flex-1 gap-2 items-center">

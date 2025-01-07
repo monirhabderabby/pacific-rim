@@ -27,7 +27,7 @@ function Categories() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="w-full mb-5 lg:mb-0 lg:w-[178px] h-[44px] text-white hover:text-white justify-between gap-2 bg-primary-green-hover hover:bg-primary-green outline-0">
+                <Button variant="outline" className="w-full mb-5 lg:mb-0 lg:w-[178px] h-[44px] text-white hover:text-white justify-between gap-2 bg-primary-green-hover hover:bg-primary-green focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0">
                     {category}
                     <ChevronDown className="h-4 w-4" />
                 </Button>
