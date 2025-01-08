@@ -10,6 +10,7 @@ export interface ProductImage {
   
   export interface ProductData {
     title: string;
+    store: string;
     rating: number;
     price: number;
     originalPrice: number;

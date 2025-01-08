@@ -6,9 +6,11 @@ import { SizeSelector } from "./_components/SizeSelector";
 import { ProductData, SizeOption } from "./_components/types";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import { Flame, Minus, Plus, Heart, RefreshCw } from "lucide-react";
+import Image from "next/image";
 
 const productData: ProductData = {
   title: "American Beauty",
+  store:"American Beauty",
   rating: 5,
   price: 7000.0,
   originalPrice: 9250.0,
@@ -91,7 +93,19 @@ const Page = () => {
               <div className="mt-4 w-full text-base leading-5 text-neutral-700">
                 {productData.description}
               </div>
-              <div className="mt-6 w-full border border-solid bg-neutral-700 border-neutral-700 min-h-[1px]" />
+              <div className="flex gap-4 mt-3">
+                <span className="text-neutral-400">Store:</span>
+                <div className=" flex space-x-2">
+                  <Image
+                        src="/assets/img/store.png"
+                        width={20}
+                        height={20}
+                        alt="store name"
+                      />
+                      <div className="text-primary-green">{productData.store}</div>
+                </div>
+              </div>
+              <div className="mt-5 w-full border border-solid bg-neutral-700 border-neutral-700 min-h-[1px]" />
               <div className="flex flex-col mt-6 w-full">
                 {/* Size Selector */}
                 <SizeSelector sizes={sizes} onSelect={handleSizeSelect} />
