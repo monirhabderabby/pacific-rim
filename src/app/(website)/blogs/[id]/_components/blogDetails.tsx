@@ -14,7 +14,7 @@ function BlogDetails() {
                     className="w-full h-auto mb-4 rounded-t-lg"
                 />
                 <div className='p-4'>
-                    <h2 className="text-2xl font-bold text-green-700 mb-4">Germany&#39;s Pioneering Cannabis Legislation: Setting a Precedent for the EU</h2>
+                    <h2 className="text-2xl font-bold text-green-700 mb-4">Germany &#39;s Pioneering Cannabis Legislation: Setting a Precedent for the EU</h2>
                     <div className="text-sm text-gray-600 mb-4">
                         <span>01 Nov, 2025</span> • <span>By Admin</span> • <span>55 Comments</span> • <span>95 Views</span>
                     </div>
