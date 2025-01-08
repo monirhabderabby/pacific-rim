@@ -10,7 +10,7 @@ export default async function AccountLayout({
   return (
     <div>
       <PageHeader title="Account" items={[]} />
-      <div className="section container flex gap-x-[30px]">
+      <div className="section container flex flex-wrap gap-x-[30px]">
         <AccountSidebar />
         {children}
       </div>

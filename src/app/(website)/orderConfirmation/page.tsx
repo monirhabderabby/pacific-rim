@@ -10,7 +10,7 @@ const Page = () => {
       isComplete: true,
     },
     shipping: {
-      isComplete: false,
+      isComplete: true,
     },
     delivery: {
       date: "Jan 25-29",
