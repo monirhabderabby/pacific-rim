@@ -7,8 +7,8 @@ interface ListItemProps {
 
 const ListItem: React.FC<ListItemProps> = ({ title, spanTitle }) => {
   return (
-    <li className="text-base text-[#444444] font-medium leading-[19.2px] list-disc pt-2">
-      <span className="font-semibold">{spanTitle}</span> {title}
+    <li className="text-base text-[#444444] font-normal leading-[19.2px] list-disc pt-2">
+      <span className="font-medium">{spanTitle}</span> {title}
     </li>
   );
 };
