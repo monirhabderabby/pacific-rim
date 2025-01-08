@@ -52,7 +52,7 @@ function Page() {
                                 alt="Profile"
                                 width={40}
                                 height={40}
-                                className="rounded-full w-14 h-10 lg:w-10 lg:h-10"
+                                className="rounded-full w-20 h-10 lg:w-10 lg:h-10"
                             />
                         </div>
                         <span className="text-[5] lg:text-xl text-[#4D4D4D]">{notification.message}</span>
@@ -61,10 +61,10 @@ function Page() {
                         <span className="text-nowrap text-xs lg:text-base text-[#4D4D4D]">{notification.date}</span>
                         <button
                             onClick={() => removeNotification(notification.id, year)}
-                            className="text-[#4D4D4D] hover:text-red-400 transition-colors w-[20px] h-[20px]"
+                            className="hover:text-red-400 transition-colors w-[20px] h-[20px]"
                             aria-label="Close notification"
                         >
-                            <X className='' />
+                            <X className='text-[#000000]' />
                         </button>
                     </div>
                 </div>
