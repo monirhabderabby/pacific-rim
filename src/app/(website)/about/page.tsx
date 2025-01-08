@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/shared/sections/breadcrumb-section";
 import Heading from "./_components/headig";
 import List_item from "./_components/list_item";
 
-const Page = () => {
+const Page = () => { 
   return (
     <section>
       <PageHeader
@@ -26,7 +26,7 @@ const Page = () => {
           Pacific Rim Fusion offers a suite of tailored auction services
           designed to meet the unique needs of local cannabis enterprises:
         </p>
-        {/* ======list=========== */}
+
         <ul className="ml-[25px] ">
           <List_item
             title="Our auction platform allows local sellers to showcase their products to a broad audience, ensuring that they receive fair market value through competitive bidding."
@@ -46,7 +46,7 @@ const Page = () => {
           efficiently but also to help local businesses enhance their market
           presence against international competitors.
         </p>
-        {/* ========list2===== */}
+
         <Heading heading="Empowering Local Businesses" />
         <ul className="ml-[25px]">
           <List_item
