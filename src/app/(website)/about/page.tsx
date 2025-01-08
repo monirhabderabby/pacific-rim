@@ -12,7 +12,7 @@ const Page = () => {
           Pacific Rim Fusion offers a suite of tailored auction services
           designed to meet the unique needs of local cannabis enterprises:
         </p>
-        {/* ======list=========== */}
+       
         <ul className="ml-[25px] ">
           <List_item
             title="Our auction platform allows local sellers to showcase their products to a broad audience, ensuring that they receive fair market value through competitive bidding."
@@ -32,7 +32,7 @@ const Page = () => {
           efficiently but also to help local businesses enhance their market
           presence against international competitors.
         </p>
-        {/* ========list2===== */}
+       
         <Heading heading="Empowering Local Businesses" />
         <ul className="ml-[25px]">
         <List_item
@@ -40,11 +40,11 @@ const Page = () => {
             spanTitle="Competitive Access:"
           />
            <List_item
-            title="  Our platform ensures that all participants have valid Cannabis Business licenses and that those licenses are in good standing with the respective agencies or authorities. In this way, transactions comply with local and international laws, giving local businesses a secure and reliable environment to operate within."
+            title="Our platform ensures that all participants have valid Cannabis Business licenses and that those licenses are in good standing with the respective agencies or authorities. In this way, transactions comply with local and international laws, giving local businesses a secure and reliable environment to operate within."
             spanTitle="Regulatory Compliance:"
           />
             <List_item
-            title=" By participating in our marketplace, local farms and businesses gain significant exposure, attracting buyers who are interested in supporting and sourcing from local producers."
+            title="By participating in our marketplace, local farms and businesses gain significant exposure, attracting buyers who are interested in supporting and sourcing from local producers."
             spanTitle="Enhanced Visibility:"
           />
             <List_item
@@ -62,6 +62,7 @@ const Page = () => {
         <p className="text-base text-[#444444] font-normal leading-[19.2px] mt-3">Contact us to learn more or sign up for an account and start leveraging our platform to boost your business’s potential. For inquiries, partnerships, or additional information about how Pacific Rim Fusion can help your local business, please visit our Contact Page or reach out through our support channel.</p>
         <p className="text-base text-[#444444] font-normal leading-[19.2px] mt-3">Together, we can build a more equitable and prosperous cannabis industry.</p>
         </div>
+        <p>deleat this item</p>
       </div>
     </section>
   );
