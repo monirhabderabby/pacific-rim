@@ -9,16 +9,13 @@ import {
 
 function Topbar() {
   return (
-    <div className="bg-primary-black">
+    <div className="bg-[#333333] h-[40px]">
       <div className="container">
-        <div className="flex justify-end items-center py-1">
+        <div className="flex justify-end items-center h-full">
           <div className="mr-2">
             <Select>
-              <SelectTrigger className="w-[80px] text-primary-light border-0 opacity-100">
-                <SelectValue
-                  placeholder="USD"
-                  className="text-primary-light bg-white opacity-0"
-                />
+              <SelectTrigger className="w-[80px] text-[#B3B3B3] focus-visible:ring-0 border-0 opacity-100">
+                <SelectValue placeholder="USD" className=" opacity-0" />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
@@ -32,11 +29,11 @@ function Topbar() {
             </Select>
           </div>
           <div>
-            <a href="#" className="text-sm/6 text-primary-light">
+            <a href="#" className="text-sm/6 text-[#B3B3B3]">
               Log in /
             </a>
 
-            <a href="#" className="text-sm/6 text-primary-light ml-1">
+            <a href="#" className="text-sm/6 text-[#B3B3B3] ml-1">
               Sign up
             </a>
           </div>
