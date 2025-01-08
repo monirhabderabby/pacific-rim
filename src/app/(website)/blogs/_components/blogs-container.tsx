@@ -12,7 +12,7 @@ const BlogsContainer = () => {
         {PopularBlogs.map((blog) => (
           <BlogsCards
             key={blog.id}
-            image={blog.title}
+            image={blog.image}
             title={blog.title}
             date={blog.date}
             author={blog.author}
@@ -35,3 +35,4 @@ const BlogsContainer = () => {
 };
 
 export default BlogsContainer;
+

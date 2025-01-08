@@ -7,7 +7,7 @@ export const PopularBlogs: Blog[] = [
         date: "01 Nov,2025",
         author: "Admin",
         comments: 55,
-        image: "/public/assets/blogs/blogs.png",
+        image: "/assets/blogs/blogs.png",
         href: "#"
     },
     {
@@ -16,7 +16,7 @@ export const PopularBlogs: Blog[] = [
         date: "01 Nov,2025",
         author: "Admin",
         comments: 55,
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/assets/blogs/blogs.png",
         href: "#"
     },
     {
@@ -25,7 +25,7 @@ export const PopularBlogs: Blog[] = [
         date: "01 Nov,2025",
         author: "Admin",
         comments: 55,
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/assets/blogs/blogs.png",
         href: "#"
     },
     {
@@ -34,7 +34,7 @@ export const PopularBlogs: Blog[] = [
         date: "01 Nov,2025",
         author: "Admin",
         comments: 55,
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/assets/blogs/blogs.png",
         href: "#"
     },
     {
@@ -43,7 +43,7 @@ export const PopularBlogs: Blog[] = [
         date: "01 Nov,2025",
         author: "Admin",
         comments: 55,
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/assets/blogs/blogs.png",
         href: "#"
     },
     {
@@ -52,7 +52,7 @@ export const PopularBlogs: Blog[] = [
         date: "01 Nov,2025",
         author: "Admin",
         comments: 55,
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/assets/blogs/blogs.png",
         href: "#"
     },
 ]
