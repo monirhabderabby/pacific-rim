@@ -21,7 +21,8 @@ function NewsletterPage() {
         className="h-auto lg:h-[457px]"
         style={{
           backgroundImage: "url('assets/newsletter/newsletter-bg.png')",
-          backgroundRepeat: "no-repeat",
+          backgroundRepeat: "repeat", // Ensure seamless background
+          animation: "moveBackground 30s linear infinite alternate", // Alternate animation direction
           backgroundSize: "cover",
           backgroundPosition: "top",
         }}
@@ -73,6 +74,27 @@ function NewsletterPage() {
             </div>
           </div>
         </div>
+        <style>
+          {`
+          @keyframes moveBackground {
+            0% {
+              background-position: 0 0;
+            }
+            100% {
+              background-position: 100% 100%; /* Ends at this position */
+            }
+          }
+
+          @keyframes fadeIn {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }       
+        `}
+        </style>
       </section>
     </>
   );
