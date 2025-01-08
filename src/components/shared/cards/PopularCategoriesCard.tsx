@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 // package import ###########
 import { Button } from "@/components/ui/button";
@@ -42,13 +41,13 @@ const categories: CategoryCard[] = [
 
 const PopularCategoriesCard = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-20  justify-items-center">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[13px]   justify-items-center">
       {categories.map((category) => (
         <Card
           key={category.id}
-          className="overflow-hidden w-full  lg:w-[270px]  "
+          className="overflow-hidden w-full  lg:w-[270px] shadow-none "
         >
-          <CardContent className=" ">
+          <CardContent className=" p-[12px]">
             <div className="aspect-square relative">
               <Image
                 src={category.image}
@@ -57,13 +56,7 @@ const PopularCategoriesCard = () => {
                 className="object-cover w-[246px] h-[204px]"
               />
             </div>
-            <Link
-              key={category.title}
-              href={category.title}
-              className="block transition-transform "
-            >
-              <Button>{category.title}</Button>
-            </Link>
+            <CardButtons />
           </CardContent>
         </Card>
       ))}
@@ -72,3 +65,14 @@ const PopularCategoriesCard = () => {
 };
 
 export default PopularCategoriesCard;
+
+// here are two button used for the same action. Please make sure two button are responsible for one work
+const CardButtons = () => {
+  return (
+    <>
+      <Button className="w-full  text-[14px] md:text-[16px] px-[16px] md:px-[20px] py-[8px] md:py-[10px]">
+        Flowers
+      </Button>
+    </>
+  );
+};

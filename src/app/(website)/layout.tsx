@@ -4,7 +4,7 @@ import NProgress from "@/components/providers/NProgress";
 import Footer from "@/components/shared/footer/mainFooter/footer";
 import NewsletterPage from "@/components/shared/footer/newsletter/page";
 import Navbar from "@/components/shared/header/mainHeader/navbar";
-import Topbar from "@/components/shared/header/topHeader/page";
+import Topbar from "@/components/shared/header/topHeader/topBar";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";

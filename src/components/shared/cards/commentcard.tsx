@@ -15,7 +15,7 @@ function Commentcard({ author, date, content, avatarUrl }: CommentCard) {
             />
             <div className="flex flex-col grow shrink min-w-[240px] w-[739px] max-md:max-w-full">
                 <div className="flex flex-wrap gap-1.5 items-start w-full font-medium leading-tight text-neutral-700 max-md:max-w-full">
-                    <div>{author}</div>
+                    <div className='text-base text-[#444444]'>{author}</div>
                     <div>•</div>
                     <div className="text-sm text-neutral-400">{date}</div>
                 </div>

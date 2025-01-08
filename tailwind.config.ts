@@ -106,6 +106,9 @@ const config: Config = {
         moveBackground: "moveBackground 30s linear infinite alternate",
         fadeIn: "fadeIn 1s ease-in-out",
       },
+      backgroundImage: {
+        "green-linear": "linear-gradient(90deg, #1D4C1F 0%, #44B249 100%)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
