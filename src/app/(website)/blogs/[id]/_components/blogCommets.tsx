@@ -31,23 +31,23 @@ function BlogCommets() {
     return (
         <>
             <div className="py-4">
-                <h3 className="text-xl font-semibold mb-4">Leave us a comment</h3>
+                <h3 className="text-2xl font-semibold mb-4 text-black">Leave us a comment</h3>
                 <form onSubmit={onSubmit} className="space-y-6">
                     <div className="grid gap-4 md:grid-cols-2">
                         <div className="space-y-2">
-                            <Label htmlFor="fullName" className="text-gray-400">
+                            <Label htmlFor="fullName" className="text-[#444444] text-base">
                                 Full Name
                             </Label>
                             <Input
                                 id="fullName"
                                 placeholder="Write your full name"
                                 required
-                                className=" border-primary-light text-primary-black placeholder:text-[#C5C5C5] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0;
+                                className="border-[1px] border-[#C5C5C5] p-6 text-primary-black placeholder:text-[#C5C5C5] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0;
 "
                             />
                         </div>
                         <div className="space-y-2">
-                            <Label htmlFor="email" className="text-gray-400">
+                            <Label htmlFor="email" className="text-[#444444] text-base">
                                 Username or Email
                             </Label>
                             <Input
@@ -55,26 +55,26 @@ function BlogCommets() {
                                 type="email"
                                 placeholder="Write your user name or email"
                                 required
-                                className=" border-primary-light text-primary-black placeholder:text-[#C5C5C5] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                                className=" border-[1px] border-[#C5C5C5] p-6 text-primary-black placeholder:text-[#C5C5C5] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
                         </div>
                     </div>
                     <div className="space-y-2">
-                        <Label htmlFor="comment" className="text-gray-400">
+                        <Label htmlFor="comment" className="text-[#444444] text-base">
                             Comments
                         </Label>
                         <Textarea
                             id="comment"
                             placeholder="Write your comments here.."
                             required
-                            className="min-h-[150px]  border-primary-light text-primary-black placeholder:text-[#C5C5C5] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                            className="min-h-[150px]  border-[1px] border-[#C5C5C5] p-6 text-primary-black placeholder:text-[#C5C5C5] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
                         />
                     </div>
                     <div className="flex justify-center">
                         <Button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full lg:w-[285px] h-[56px] bg-[#2B7A2B] hover:bg-[#236423] text-white"
+                            className="w-full lg:w-[285px] h-[56px] bg-[#2A6C2D] hover:bg-[#236423] text-white"
                         >
                             {isSubmitting ? "Submitting..." : "Submit Comment"}
                         </Button>
