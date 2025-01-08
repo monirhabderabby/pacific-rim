@@ -66,7 +66,7 @@ function NewsletterPage() {
                 />
                 <Button
                   type="submit"
-                  className="bg-primary-green-hover hover:bg-[#225430] w-[142px] py-[13px] lg:absolute right-0 top-0 text-white mt-3 lg:mt-0"
+                  className="bg-primary-green-hover hover:bg-[#225430] w-[120px] lg:w-[142px] py-[13px] lg:absolute right-0 top-0 text-white mt-3 lg:mt-0"
                 >
                   Subscribe
                 </Button>

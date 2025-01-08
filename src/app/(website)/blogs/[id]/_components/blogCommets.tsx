@@ -42,7 +42,7 @@ function BlogCommets() {
                                 id="fullName"
                                 placeholder="Write your full name"
                                 required
-                                className="border-[1px] border-[#C5C5C5] p-6 text-primary-black placeholder:text-[#C5C5C5] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0;
+                                className="border-[1px] border-[#C5C5C5] p-6 text-primary-black placeholder:text-[#C5C5C5] focus-visible:ring-0 focus-visible:ring-offset-0;
 "
                             />
                         </div>
@@ -55,7 +55,7 @@ function BlogCommets() {
                                 type="email"
                                 placeholder="Write your user name or email"
                                 required
-                                className=" border-[1px] border-[#C5C5C5] p-6 text-primary-black placeholder:text-[#C5C5C5] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                                className=" border-[1px] border-[#C5C5C5] p-6 text-primary-black placeholder:text-[#C5C5C5] focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
                         </div>
                     </div>
@@ -67,14 +67,14 @@ function BlogCommets() {
                             id="comment"
                             placeholder="Write your comments here.."
                             required
-                            className="min-h-[150px]  border-[1px] border-[#C5C5C5] p-6 text-primary-black placeholder:text-[#C5C5C5] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                            className="min-h-[150px]  border-[1px] border-[#C5C5C5] p-6 text-primary-black placeholder:text-[#C5C5C5] focus-visible:ring-0 focus-visible:ring-offset-0"
                         />
                     </div>
                     <div className="flex justify-center">
                         <Button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full lg:w-[285px] h-[56px] bg-[#2A6C2D] hover:bg-[#236423] text-white"
+                            className="w-[285px] h-[56px] bg-[#2A6C2D] hover:bg-[#236423] text-white"
                         >
                             {isSubmitting ? "Submitting..." : "Submit Comment"}
                         </Button>
