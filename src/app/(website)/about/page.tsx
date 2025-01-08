@@ -1,10 +1,24 @@
 import AboutSection from "@/components/shared/sections/about-section";
-import Heading from "./_component/headig";
-import List_item from "./_component/list_item";
+import { PageHeader } from "@/components/shared/sections/breadcrumb-section";
+import Heading from "./_components/headig";
+import List_item from "./_components/list_item";
 
 const Page = () => { 
   return (
     <section>
+      <PageHeader
+        title="About Us"
+        items={[
+          {
+            label: "Home",
+            href: "/",
+          },
+          {
+            label: "About Us",
+            href: "",
+          },
+        ]}
+      />
       <div className="container section">
         <AboutSection image="https://utfs.io/f/HkyicnKv4pLkLqVIHJ6QMS5ptdV7G0eysFamPcTWv2Z6o91B" />
         <Heading heading="What We Offer" />
@@ -40,11 +54,11 @@ const Page = () => {
             spanTitle="Competitive Access:"
           />
           <List_item
-            title="Our platform ensures that all participants have valid Cannabis Business licenses and that those licenses are in good standing with the respective agencies or authorities. In this way, transactions comply with local and international laws, giving local businesses a secure and reliable environment to operate within."
+            title="  Our platform ensures that all participants have valid Cannabis Business licenses and that those licenses are in good standing with the respective agencies or authorities. In this way, transactions comply with local and international laws, giving local businesses a secure and reliable environment to operate within."
             spanTitle="Regulatory Compliance:"
           />
           <List_item
-            title="By participating in our marketplace, local farms and businesses gain significant exposure, attracting buyers who are interested in supporting and sourcing from local producers."
+            title=" By participating in our marketplace, local farms and businesses gain significant exposure, attracting buyers who are interested in supporting and sourcing from local producers."
             spanTitle="Enhanced Visibility:"
           />
           <List_item

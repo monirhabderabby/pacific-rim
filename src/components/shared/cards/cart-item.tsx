@@ -6,13 +6,16 @@ interface CartItemProps {
   item: CartItem;
   onUpdateQuantity: (id: string, quantity: number) => void;
   onRemove: (id: string) => void;
+  icon: JSX.Element;
 }
 
 export function CartItemCard({
   item,
   onUpdateQuantity,
   onRemove,
+  icon
 }: CartItemProps) {
+
   return (
     <div className="flex flex-col rounded-lg p-4 border border-gray-200">
       <div className="flex gap-4">
@@ -24,7 +27,7 @@ export function CartItemCard({
             className="rounded-lg object-cover"
           />
           <button className="absolute top-2 right-2 p-1.5 bg-white rounded-full">
-            {/* <Heart className="w-4 h-4 text-gray-600" /> */}
+          {icon}
           </button>
         </div>
         <div className="flex-1 space-y-1">
