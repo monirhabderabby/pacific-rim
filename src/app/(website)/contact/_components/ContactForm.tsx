@@ -120,7 +120,7 @@ const ContactForm: React.FC = () => {
           {/* Submit Button */}
           <Button
             type="submit"
-            className="gap-2.5 self-center px-6 py-5 mt-8 max-w-full font-semibold text-white whitespace-nowrap bg-primary-green hover:bg-primary-green-hover rounded-lg min-h-[56px] w-[198px] max-md:px-5 transition-colors duration-200"
+            className="gap-2.5 self-center px-6 py-5 mt-4 max-w-full font-semibold text-white whitespace-nowrap bg-primary-green hover:bg-primary-green-hover rounded-lg min-h-[56px] w-[198px] max-md:px-5 transition-colors duration-200"
           >
             Submit
           </Button>

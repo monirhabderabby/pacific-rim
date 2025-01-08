@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div>
       <section
-        className="relative w-full h-[530px] bg-cover bg-center z-[-10] lg:px-20"
+        className="relative w-full h-[430px] lg:h-[530px] bg-cover bg-center z-[-10] lg:px-20"
         style={{
           backgroundImage: `url(assets/img/heroBg.png)`,
           backgroundSize: "cover",
@@ -32,7 +32,7 @@ const Hero = () => {
       </section>
 
       {/* three image  */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto max-w-[1200px] mt-[-100px] z-50 justify-items-center p-2">
+      <div className="grid grid-cols-3 gap-2 lg:gap-5 mx-auto max-w-[1200px] mt-[-50px] lg:mt-[-100px] z-50 justify-items-center p-2">
         <Image
           src="/assets/img/hero1.png"
           width={500}
