@@ -18,14 +18,15 @@ function NewsletterPage() {
   return (
     <>
       <section
-        className="relative overflow-hidden object-cover h-auto lg:h-[457px] p-[5px]  w-full"
+        className="h-auto lg:h-[457px]"
         style={{
           backgroundImage: "url('assets/newsletter/newsletter-bg.png')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
+          backgroundPosition: "top",
         }}
       >
-        <div className="container mx-auto px-4 py-12 md:py-24 w-full">
+        <div className="container mx-auto py-12 w-full h-full flex items-center">
           <div className="flex flex-col lg:flex-row gap-4">
             {/* Left column with image */}
             <div className="hidden lg:block md:w-[470px] h-[293px] relative">
@@ -39,32 +40,32 @@ function NewsletterPage() {
             </div>
 
             {/* Right column with form */}
-            <div className="flex-1 w-full bg-white/80 p-[20px] md:p-[40px] rounded-[16px]">
+            <div className="flex-1 w-full bg-white/70 p-[20px] md:p-[40px] rounded-[16px]">
               <div className="space-y-4 mb-5">
-                <h2 className="text-3xl md:text-4xl font-bold text-green-700">
+                <h2 className="text-2xl lg:text-4xl font-bold text-primary-green-hover">
                   Subscribe Newsletter
                 </h2>
-                <h3 className="text-xl md:text-2xl font-semibold text-green-600">
+                <h3 className="text-base lg:text-xl text-primary-green-hover">
                   Get bidding update earlier.
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-[#444444] ">
                   Subscribe to our newsletter and be the first to discover the
                   latest CBD tips, exclusive discounts, and wellness news.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="flex gap-2 max-w-md">
+              <form onSubmit={handleSubmit} className="gap-2 flex-1 lg:relative w-full">
                 <Input
                   type="email"
                   placeholder="Enter Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="flex-1 bg-white"
+                  className="flex-1 bg-white text-[#B3B3B3] text-center lg:text-left text-sm lg:text-base p-[22px] lg:p-6 border-[1px] border-primary-green-hover focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
                 <Button
                   type="submit"
-                  className="bg-green-700 hover:bg-green-800 text-white"
+                  className="bg-primary-green-hover hover:bg-[#225430] w-[142px] py-[13px] lg:absolute right-0 top-0 text-white mt-3 lg:mt-0"
                 >
                   Subscribe
                 </Button>

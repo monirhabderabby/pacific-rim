@@ -52,10 +52,10 @@ function Page() {
                                 alt="Profile"
                                 width={40}
                                 height={40}
-                                className="rounded-full w-20 h-10 lg:w-10 lg:h-10"
+                                className="rounded-full w-24 h-12 lg:w-10 lg:h-10"
                             />
                         </div>
-                        <span className="text-[5] lg:text-xl text-[#4D4D4D]">{notification.message}</span>
+                        <span className="text-base lg:text-xl text-[#4D4D4D]">{notification.message}</span>
                     </div>
                     <div className="flex items-center justify-end flex-wrap-reverse gap-4">
                         <span className="text-nowrap text-xs lg:text-base text-[#4D4D4D]">{notification.date}</span>
@@ -77,7 +77,7 @@ function Page() {
         <div className="section">
             <div className="text-center mb-12">
                 <div className="font-bold">
-                    <h3 className="text-3xl text-primary-green">Notifications</h3>
+                    <h3 className="text-2xl lg:text-4xl text-primary-green-hover">Notifications</h3>
                     <div className="mt-[-10px]">
                         <SectionHeading heading={""} subheading={""} />
                     </div>
@@ -86,9 +86,9 @@ function Page() {
             <div className="container">
                 <ScrollArea className="">
                     <div className="">
-                        <h1 className="text-[25px]  mb-2">New</h1>
+                        <h1 className="text-[25px] text-black font-bold  mb-2">New</h1>
                         {renderNotifications(notifications2026, 2026)}
-                        <h1 className="text-[25px] mt-8 mb-2">Earlier</h1>
+                        <h1 className="text-[25px] mt-8 mb-2 text-black font-bold">Earlier</h1>
                         {renderNotifications(notifications2023, 2023)}
                     </div>
                 </ScrollArea>
