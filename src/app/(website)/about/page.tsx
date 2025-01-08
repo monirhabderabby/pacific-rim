@@ -62,7 +62,6 @@ const Page = () => {
         <p className="text-base text-[#444444] font-normal leading-[19.2px] mt-3">Contact us to learn more or sign up for an account and start leveraging our platform to boost your business’s potential. For inquiries, partnerships, or additional information about how Pacific Rim Fusion can help your local business, please visit our Contact Page or reach out through our support channel.</p>
         <p className="text-base text-[#444444] font-normal leading-[19.2px] mt-3">Together, we can build a more equitable and prosperous cannabis industry.</p>
         </div>
-        <p>deleat this item</p>
       </div>
     </section>
   );
