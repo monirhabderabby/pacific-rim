@@ -40,25 +40,49 @@ function Navbar() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <Link href="/" className="text-sm/6 font-semibold text-primary-green">
+          <Link
+            href="/"
+            className={cn(
+              "text-sm/6 font-semibold",
+              pathName === "/" ? "text-primary-green" : "text-gray-900"
+            )}
+          >
             Home
           </Link>
-          <Link href="/about" className="text-sm/6 font-semibold text-gray-900">
+          <Link
+            href="/about"
+            className={cn(
+              "text-sm/6 font-semibold",
+              pathName === "/about" ? "text-primary-green" : "text-gray-900"
+            )}
+          >
             About
           </Link>
           <Link
             href="/products"
-            className="text-sm/6 font-semibold text-gray-900"
+            className={cn(
+              "text-sm/6 font-semibold",
+              pathName === "/products" ? "text-primary-green" : "text-gray-900"
+            )}
           >
             Auctions
           </Link>
 
-          <Link href="/blogs" className="text-sm/6 font-semibold text-gray-900">
+          <Link
+            href="/blogs"
+            className={cn(
+              "text-sm/6 font-semibold",
+              pathName === "/blogs" ? "text-primary-green" : "text-gray-900"
+            )}
+          >
             Blog
           </Link>
           <Link
             href="/contact"
-            className="text-sm/6 font-semibold text-gray-900"
+            className={cn(
+              "text-sm/6 font-semibold",
+              pathName === "/contact" ? "text-primary-green" : "text-gray-900"
+            )}
           >
             Contact
           </Link>

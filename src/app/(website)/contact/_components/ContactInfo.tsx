@@ -1,7 +1,6 @@
 import * as React from "react";
 import { ContactItem } from "./ContactItem";
-import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import SocialIcons from "@/components/shared/cards/social-icons";
 
 const contactData = [
   {
@@ -29,6 +28,7 @@ const contactData = [
     iconAlt: "Clock icon"
   }
 ];
+
 const ContactInfo: React.FC = () => {
   return (
     <div className="flex flex-col grow p-5 max-w-[470px] bg-[#EAF0EA] rounded-2xl min-h-[648px] max-md:mt-8 max-md:max-w-full">
@@ -45,35 +45,10 @@ const ContactInfo: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-col mt-8 w-full max-md:max-w-full">
-        <h2 className="text-3xl font-semibold leading-tight text-green-800 max-md:max-w-full">
+        <h2 className="text-3xl font-semibold leading-tight text-green-800 max-md:max-w-full py-2">
           Social Media
         </h2>
-        <div className="flex gap-5 items-center self-start mt-6">
-          <Link
-            href="/"
-            className="border rounded-full border-[#2A6C2D] hover:bg-[#2A6C2D] p-2"
-          >
-            <Facebook className="fill-[#2A6C2D] text-white " />
-          </Link>
-          <Link
-            href="/"
-            className="border rounded-full border-[#2A6C2D] hover:bg-[#2A6C2D] p-2"
-          >
-            <Linkedin className="fill-[#2A6C2D] text-white " />
-          </Link>
-          <Link
-            href="/"
-            className="border rounded-full border-[#2A6C2D] p-2  hover:bg-[#2A6C2D]"
-          >
-            <Twitter className="text-[#2A6C2D] hover:text-white" />
-          </Link>
-          <Link
-            href="/"
-            className="border rounded-full border-[#2A6C2D] p-2 hover:bg-[#2A6C2D]"
-          >
-            <Instagram className="text-[#2A6C2D] hover:text-white" />
-          </Link>
-        </div>
+        <SocialIcons/>
       </div>
     </div>
   );
