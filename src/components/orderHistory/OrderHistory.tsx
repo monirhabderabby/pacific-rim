@@ -68,7 +68,7 @@ const OrderHistory = () => {
       Proceed  <ArrowRight />
     </Button> 
                 </div>
-              <table className="w-full">
+              <table className="w-full ">
                 <thead className="bg-gray-100 ">
                   <tr className="">
                     <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Order Id </th>
@@ -78,9 +78,9 @@ const OrderHistory = () => {
                     <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600"></th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-gray-200 ">
                   {products.map((product) => (
-                    <tr key={product.id}>
+                    <tr className="hover:bg-[#EAF0EA]" key={product.id}>
                       <td className="px-6 py-4 text-sm text-gray-600">
                     
                         <p className="">#{product.id}</p>
@@ -127,7 +127,7 @@ const OrderHistory = () => {
                       {product.status}
                       </span>
                     </div>
-                    <div className="text-[12px] p-2 text-sm text-[#2A6C2D] font-medium">
+                    <div className="text-[12px] p-2 text-sm text-[#2A6C2D] ">
                     <Link  href="#"> view Details </Link>
                     </div>
                   </div>
