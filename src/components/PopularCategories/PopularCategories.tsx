@@ -12,14 +12,14 @@ interface Props {
 
 const PopularCategories = ({ loggedin }: Props) => {
   return (
-    <div className="my-20 py-20 rounded-[16px]  lg:rounded-[52px] bg-primary-light ">
+    <div className=" pt-[54px] pb-[40px] md:pb-[100px] section rounded-[16px]  lg:rounded-[52px] bg-primary-light ">
       <SectionHeading
-        subheading="Shop By Popular categories"
-        heading="Popular categories"
+        subheading="Popular categories"
+        heading="Shop By Popular categories"
       />
 
       {/*================= cardd ========================= */}
-      <div className="container mx-auto pt-5 md:pt-10 ">
+      <div className="container mx-auto pt-[20px] md:pt-[30px] mb-[40px] lg:mb-[85px]">
         <PopularCategoriesCard />
       </div>
 
