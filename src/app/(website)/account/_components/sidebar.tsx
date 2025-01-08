@@ -53,7 +53,7 @@ const navigationLists = [
 const AccountSidebar = () => {
   const pathName = usePathname();
   return (
-    <div className="border-[1px] rounded-[12px] border-[#C5C5C5] w-[270px] h-[500px] sticky top-[50px]">
+    <div className="border-[1px] rounded-[12px] border-[#C5C5C5] w-full mb-5 md:w-[270px] h-[500px] md:sticky md:top-[50px]">
       <div className="h-[70px] w-full flex justify-start items-center border-b border-b-[#C5C5C5]">
         <h2 className="text-[32px] text-[#2A6C2D] font-semibold text-left pl-3">
           Navigation
