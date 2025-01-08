@@ -9,6 +9,8 @@ function Commentcard({ author, date, content, avatarUrl }: CommentCard) {
                 loading="lazy"
                 src={avatarUrl}
                 alt={`${author}'s avatar`}
+                width={36}
+                height={40}
                 className="object-contain shrink-0 w-9 rounded-full aspect-[0.9]"
             />
             <div className="flex flex-col grow shrink min-w-[240px] w-[739px] max-md:max-w-full">
