@@ -45,7 +45,7 @@ const ContactForm: React.FC = () => {
         <div className="mt-2 text-base leading-5 text-neutral-700 max-md:max-w-full">
           For inquiries, partnerships, or additional information about how
           Pacific Rim Fusion can help your local business, please reach out
-          through our support channel.
+          through our support channel..
           <br />
           <br />
           Together, we can build a more equitable and prosperous cannabis
