@@ -2,7 +2,7 @@ import React from "react";
 import StoreHeading from "./_components/storeHeading";
 import StoreText from "./_components/storeText";
 import SubHeading from "./_components/subheading";
-import ListItem from "@/app/(website)/about/-component/list_item";
+import ListItem from "@/app/(website)/about/_component/list_item";
 
 const AboutMyPage = () => {
   return (

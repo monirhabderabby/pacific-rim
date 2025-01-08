@@ -1,6 +1,6 @@
 import AboutSection from "@/components/shared/sections/about-section";
-import Heading from "./-component/headig";
-import List_item from "./-component/list_item";
+import Heading from "./_component/headig";
+import List_item from "./_component/list_item";
 
 const Page = () => {
   return (
