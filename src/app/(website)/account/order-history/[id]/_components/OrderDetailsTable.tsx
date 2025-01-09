@@ -42,7 +42,7 @@ const OrderDetailsTable = () => {
       }
     
   return (
-    <div className="w-full max-w-4xl mx-auto p-4">
+    <div className="w-full max-w-4xl mx-auto mt-10 md:mt-0">
     {/* Table for medium and larger screens */}
     <div className="hidden md:block overflow-hidden rounded-lg border border-gray-200 ">
       <table className="w-full ">

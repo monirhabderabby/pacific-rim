@@ -10,9 +10,14 @@ export default async function AccountLayout({
   return (
     <div>
       <PageHeader title="Account" items={[]} />
-      <div className="section container flex flex-wrap gap-x-[30px]">
-        <AccountSidebar />
-        {children}
+      <div className="mt-10 container mx-auto flex flex-col md:flex-row gap-6">
+        {/* Sidebar */}
+        <aside className=" md:w-[270px]">
+          <AccountSidebar />
+        </aside>
+
+        {/* Content */}
+        <main className="flex-1">{children}</main>
       </div>
     </div>
   );
