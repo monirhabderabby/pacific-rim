@@ -5,12 +5,9 @@ import { featureProducts } from "@/data/featured";
 const OurFeatureSection = () => {
   return (
     <div className="section container ">
-      <SectionHeading
-        heading="Shop By Popular categories"
-        subheading="Popular categories"
-      />
+      <SectionHeading heading="Our Featured Products" subheading="Products" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-[17px] md:gap-[27px] pt-[40px]">
         {featureProducts.map((product) => (
           <FeaturedProductCard key={product.image} product={product} />
         ))}

@@ -7,7 +7,7 @@ import AboutSection from "@/components/shared/sections/about-section";
 import PopularBlogs from "@/components/shared/sections/popularBlogs/popularBlogs";
 
 const Page = () => {
-  const loggedin = false;
+  const loggedin = true;
 
   return (
     <div>
@@ -19,7 +19,8 @@ const Page = () => {
         {!loggedin && (
           <AboutSection image="https://utfs.io/f/HkyicnKv4pLkKb11IfnzkrEA5LwVvWx2Fbfe7a6P94u0gcjZ" />
         )}
-        {!loggedin && <FAQSection />}
+        <div className="pb-[160px]">{!loggedin && <FAQSection />}</div>
+
         {loggedin && <PopularBlogs />}
         {loggedin && <ClientReviews />}
       </div>
