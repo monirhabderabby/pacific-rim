@@ -16,7 +16,7 @@ const OurAuction = () => {
     <div className="section container">
       <SectionHeading heading="Our Auctions" subheading="Auctions" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6 h-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[17px] lg:gap-[27px] pt-[40px] h-auto">
         <FeaturedCards />
 
         <div className="space-y-4">

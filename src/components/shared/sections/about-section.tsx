@@ -6,8 +6,8 @@ import SocialIcons from "../cards/social-icons";
 export default function AboutSection({ image }: { image: string }) {
   {
     return (
-      <div className="container px-[14px]">
-        <section className=" h-auto   flex md:flex-row flex-col justify-between gap-8 items-center w-full section ">
+      <div className="container section">
+        <section className=" h-auto   flex md:flex-row flex-col justify-between gap-8 items-center w-full  ">
           <div className="flex-1">
             <div>
               <div className="my-4">

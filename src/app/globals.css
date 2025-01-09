@@ -95,6 +95,6 @@ body {
   }
 
   .section {
-    @apply my-[40px] md:my-[50px];
+    @apply my-[40px] md:my-[80px];
   }
 }

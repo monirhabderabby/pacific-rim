@@ -71,7 +71,7 @@ const config: Config = {
         screens: {
           sm: "100%",
           md: "100%",
-          lg: "1173px",
+          lg: "1170px",
         },
       },
       keyframes: {
@@ -111,11 +111,11 @@ const config: Config = {
       },
     },
   },
-  variants: {  
-    extend: {  
-      backdropBlur: ['responsive', 'hover', 'focus'],  
-    },  
-  },  
+  variants: {
+    extend: {
+      backdropBlur: ["responsive", "hover", "focus"],
+    },
+  },
   plugins: [require("tailwindcss-animate")],
 };
 export default config;
