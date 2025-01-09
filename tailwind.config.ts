@@ -65,13 +65,13 @@ const config: Config = {
       container: {
         center: true,
         padding: {
-          DEFAULT: "1rem",
-          lg: "2rem",
+          DEFAULT: "14px",
+          lg: "20px",
         },
         screens: {
           sm: "100%",
           md: "100%",
-          lg: "1280px",
+          lg: "1173px",
         },
       },
       keyframes: {
