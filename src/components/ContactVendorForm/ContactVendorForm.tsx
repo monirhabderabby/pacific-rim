@@ -54,76 +54,78 @@ function ContactVendorForm() {
     }
 
     return (
-        <div className="w-full max-w-xl mx-auto border-[1px] border-[#C5C5C5] rounded-2xl">
-            <div className="border-b-[1px] border-[#E6E6E6]">
-                <h1 className="text-[32px] leading-[38.4px] p-6 font-semibold text-[#2A6C2D]">Contact Vendor</h1>
+        <div className="container">
+            <div className="w-full max-w-xl mx-auto border-[1px] border-[#C5C5C5] rounded-2xl">
+                <div className="border-b-[1px] border-[#E6E6E6]">
+                    <h1 className="text-[32px] leading-[38.4px] p-6 font-semibold text-[#2A6C2D]">Contact Vendor</h1>
+                </div>
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 p-6">
+                    <div className="space-y-2">
+                        <Label htmlFor="fullName">Full Name</Label>
+                        <Input
+                            id="fullName"
+                            placeholder="Full Name"
+                            {...register("fullName", {
+                                required: "Full name is required",
+                                pattern: {
+                                    value: /^[A-Za-z]/,
+                                    message: "Please enter at least first and last name"
+                                }
+                            })}
+                            aria-invalid={errors.fullName ? "true" : "false"}
+                            className="border-[#2A6C2D] focus-visible:ring-0 focus-visible:ring-offset-0"
+                        />
+                        {errors.fullName && (
+                            <p className="text-red-500 text-sm">{errors.fullName.message}</p>
+                        )}
+                    </div>
+
+                    <div className="space-y-2">
+                        <Label htmlFor="email">Email address</Label>
+                        <Input
+                            id="email"
+                            placeholder="Email address"
+                            type="email"
+                            {...register("email", {
+                                required: "Email is required",
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                    message: "Invalid email address",
+                                },
+                            })}
+                            aria-invalid={errors.email ? "true" : "false"}
+                            className="border-[#2A6C2D] focus-visible:ring-0 focus-visible:ring-offset-0"
+                        />
+                        {errors.email && (
+                            <p className="text-red-500 text-sm">{errors.email.message}</p>
+                        )}
+                    </div>
+
+                    <div className="space-y-2">
+                        <Label htmlFor="message">Message</Label>
+                        <Textarea
+                            id="message"
+                            placeholder="Message"
+                            {...register("message", { required: "Message is required" })}
+                            aria-invalid={errors.message ? "true" : "false"}
+                            className="min-h-[150px] border-[#2A6C2D] focus-visible:ring-0 focus-visible:ring-offset-0"
+                        />
+                        {errors.message && (
+                            <p className="text-red-500 text-sm">{errors.message.message}</p>
+                        )}
+                    </div>
+
+                    <div className="flex justify-center">
+                        <Button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className=" bg-[#2A6C2D] text-white w-[198px] h-[56px]"
+                        >
+                            {isSubmitting ? "Sending..." : "Submit Message"}
+                        </Button>
+                    </div>
+                </form>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 p-6">
-                <div className="space-y-2">
-                    <Label htmlFor="fullName">Full Name</Label>
-                    <Input
-                        id="fullName"
-                        placeholder="Full Name"
-                        {...register("fullName", {
-                            required: "Full name is required",
-                            pattern: {
-                                value: /^[A-Za-z]/,
-                                message: "Please enter at least first and last name"
-                            }
-                        })}
-                        aria-invalid={errors.fullName ? "true" : "false"}
-                        className="border-[#2A6C2D] focus-visible:ring-0 focus-visible:ring-offset-0"
-                    />
-                    {errors.fullName && (
-                        <p className="text-red-500 text-sm">{errors.fullName.message}</p>
-                    )}
-                </div>
-
-                <div className="space-y-2">
-                    <Label htmlFor="email">Email address</Label>
-                    <Input
-                        id="email"
-                        placeholder="Email address"
-                        type="email"
-                        {...register("email", {
-                            required: "Email is required",
-                            pattern: {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message: "Invalid email address",
-                            },
-                        })}
-                        aria-invalid={errors.email ? "true" : "false"}
-                        className="border-[#2A6C2D] focus-visible:ring-0 focus-visible:ring-offset-0"
-                    />
-                    {errors.email && (
-                        <p className="text-red-500 text-sm">{errors.email.message}</p>
-                    )}
-                </div>
-
-                <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                        id="message"
-                        placeholder="Message"
-                        {...register("message", { required: "Message is required" })}
-                        aria-invalid={errors.message ? "true" : "false"}
-                        className="min-h-[150px] border-[#2A6C2D] focus-visible:ring-0 focus-visible:ring-offset-0"
-                    />
-                    {errors.message && (
-                        <p className="text-red-500 text-sm">{errors.message.message}</p>
-                    )}
-                </div>
-
-                <div className="flex justify-center">
-                    <Button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className=" bg-[#2A6C2D] text-white w-[198px] h-[56px]"
-                    >
-                        {isSubmitting ? "Sending..." : "Submit Message"}
-                    </Button>
-                </div>
-            </form>
         </div>
     )
 }
