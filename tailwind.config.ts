@@ -109,6 +109,9 @@ const config: Config = {
       backgroundImage: {
         "green-linear": "linear-gradient(90deg, #1D4C1F 0%, #44B249 100%)",
       },
+      boxShadow: {
+        feature_card: "0px 0px 10px 1px #2A6C2D1A",
+      },
     },
   },
   variants: {
