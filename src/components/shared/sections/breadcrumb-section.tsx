@@ -24,7 +24,7 @@ export function PageHeader({ title, items }: PageHeaderProps) {
         "relative w-full flex flex-col items-center justify-center bg-black h-[300px] animate-moveBackground"
       )}
       style={{
-        backgroundImage: `url(assets/img/heroBg.png)`,
+        backgroundImage: `url(/assets/img/heroBg.png)`,
         backgroundSize: "cover",
         backgroundRepeat: "repeat",
         top: 0,
