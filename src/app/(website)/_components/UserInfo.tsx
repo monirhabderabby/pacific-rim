@@ -7,7 +7,7 @@ const UserInfo = () => {
   return (
     <div>
 
-<div className=" flex items-center justify-center p-4">
+<div className=" flex items-center justify-center  ">
       <ProfileCard
         user={userData}
         onEdit={() => {
