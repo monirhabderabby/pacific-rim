@@ -334,6 +334,7 @@ const Privacypage = () => {
           browser. Note that disabling or deleting Cookies may prevent you from
           using the full range of services available on the Platform.
         </p>
+        <p>delete</p>
       </div>
     </section>
   );
