@@ -17,7 +17,7 @@ const UserDetailsInfo = () => {
   return (
     <div>
 
-<div className=" p-4 md:p-6 lg:p-8 flex items-start justify-center">
+<div className="   flex items-start justify-center">
       <UserDetailsCard user={sampleUser} />
     </div>
     </div>

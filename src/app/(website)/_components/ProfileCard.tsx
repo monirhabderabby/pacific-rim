@@ -22,8 +22,8 @@ export function ProfileCard({ user, onEdit }: ProfileCardProps) {
           <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
         </Avatar>
         <div className="text-center">
-          <h2 className="text-2xl font-semibold">{user.name}</h2>
-          <p className="text-muted-foreground">{user.role}</p>
+          <h2 className="text-[20px] text-[#000000] font-medium">{user.name}</h2>
+          <p className="text-muted-foreground text-[16px] font-normal leading-[19.2px]">{user.role}</p>
         </div>
         <button
           // variant="link" 
