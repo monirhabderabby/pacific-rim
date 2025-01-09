@@ -43,7 +43,7 @@ const navigationLists = [
     href: "/account/settings",
   },
   {
-    id: 5,
+    id: 6,
     name: "Log out",
     icon: <LogOut className="ml-3" />,
     href: "/",
