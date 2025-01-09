@@ -30,7 +30,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           <Image alt="" src={HeaderLogo} className="h-12 w-24" />
         </Link>
       </div>
-      <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+      <PopoverGroup className="hidden lg:flex lg:gap-x-12 ">
         <Link
           href="/"
           className={cn(
@@ -56,7 +56,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
             pathName === "/products" ? "text-primary-green" : "text-gray-900"
           )}
         >
-          <AuctionList/>
+          <AuctionList />
         </Link>
         <Link
           href="/blogs"
@@ -145,7 +145,7 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
                 >
                   About
                 </Link>
-                <AuctionMobileMenu/>
+                <AuctionMobileMenu />
                 <Link
                   href="/blogs"
                   onClick={closeMobileMenu}
