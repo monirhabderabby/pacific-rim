@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const VendorStoreHeader = () => {
   return (
-    <div className="relative">
+    <div className="relative ">
       <div
         style={{
           backgroundImage: `url(/assets/img/heroBg.png)`,
@@ -16,7 +16,7 @@ const VendorStoreHeader = () => {
         }}
         className="bg-cover animate-moveBackground"
       />
-      <div className="container relative -top-[88px]">
+      <div className="container relative -mt-[88px]">
         <Image
           src="https://utfs.io/f/HkyicnKv4pLkPTppIqbBiT8gFA2Wp9JkLtc5ZdKlhCyNY0vX"
           height={180}
