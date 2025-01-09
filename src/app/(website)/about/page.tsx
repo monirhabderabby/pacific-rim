@@ -26,7 +26,6 @@ const Page = () => {
           Pacific Rim Fusion offers a suite of tailored auction services
           designed to meet the unique needs of local cannabis enterprises:
         </p>
-
         <ul className="ml-[25px] ">
           <List_item
             title="Our auction platform allows local sellers to showcase their products to a broad audience, ensuring that they receive fair market value through competitive bidding."
