@@ -1,5 +1,5 @@
 "use client";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import React, { useState } from "react";
 import { ProductImageGallery } from "./ProductImageGallery";
 import { StarRating } from "./StarRating";
