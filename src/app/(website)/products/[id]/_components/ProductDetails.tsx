@@ -1,5 +1,5 @@
 "use client";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import React, { useState } from "react";
 import { ProductImageGallery } from "./ProductImageGallery";
 import { StarRating } from "./StarRating";
@@ -95,13 +95,13 @@ const ProductDetails = () => {
                 <div className="flex gap-4 mt-3">
                   <span className="text-[#9C9C9C]">Store:</span>
                   <div className=" flex space-x-2  items-center">
-                    
+
                     <Avatar className="w-[20px] h-[20px]">
                       <AvatarImage
                         src="/assets/img/store.png"
                         alt="store name"
                       />
-                      
+
                     </Avatar>
                     <div className="text-[#2a6c2d]">
                       {productData.store}
@@ -135,11 +135,10 @@ const ProductDetails = () => {
                     {/* wishlist----------------- */}
                     <button
                       onClick={handleWishlistToggle}
-                      className={`flex gap-2.5 justify-center items-center px-2 bg-white rounded-lg border border-solid ${
-                        isWishlist
+                      className={`flex gap-2.5 justify-center items-center px-2 bg-white rounded-lg border border-solid ${isWishlist
                           ? "border-red-500 text-red-500"
                           : "border-stone-300"
-                      } h-[42px] min-h-[41px] w-[43px]`}
+                        } h-[42px] min-h-[41px] w-[43px]`}
                       aria-label="Add to wishlist"
                     >
                       <Heart fill={isWishlist ? "red" : "none"} />
