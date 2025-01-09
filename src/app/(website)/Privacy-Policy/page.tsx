@@ -13,37 +13,45 @@ const Privacypage = () => {
             <Image src={privacyimage} alt="privacyimage" />
           </div>
         </div>
-        <h3 className="text-center md:text-left  text-[20px] lg:text-[32px] font-medium leading-[38.4px] text-[#2A6C2D] mt-5 lg:mt-10">
-          Privacy Policy
-        </h3>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] mt-6">
+
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] mt-5 md:mt-10">
           Privacy Policy
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Protecting your private information is our priority. This Statement of
           Privacy applies to www.pacifirimfusion.com and PACIFIC RIM FUSION and
           governs data collection and usage. For the purposes of this Privacy
           Policy, unless otherwise noted, all references to PACIFIC RIM FUSION
-          include <br />
+          include
+          <span className="hidden sm:inline">
+            <br />
+          </span>
           www.pacificrimfusion.com. The Platform is intended solely for verified
           and approved licensed cannabis vendors operating in jurisdictions
           where cannabis is legal for recreational or medical use. You represent
           and warrant that you are 21 years old and a licensed cannabis vendor
-          in good standing and <br />
+          in good standing and
+          <span className="hidden sm:inline">
+            <br />
+          </span>
           authorized to conduct cannabis-related business activities in your
           respective jurisdiction.
-          <br /> By using the PACIFIC RIM FUSION website, you consent to the
-          data practices described in this statement.
-          <br />
+        </p>
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
+          By using the PACIFIC RIM FUSION website, you consent to the data
+          practices described in this statement.
+        </p>
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Collection of your Personal Information:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           In order to better provide you with products and services offered on
           our Site, PACIFIC RIM FUSION may collect personally identifiable
           information, such as your: First and Last Name, Mailing Address,
           E-mail Address, Phone Number, and Copy of Government Issued Photo ID.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           PACIFIC RIM FUSION may also collect anonymous demographic information,
           which is not unique to you, such as your: Age and Gender. Please keep
           in mind that if you directly disclose personally identifiable
@@ -51,7 +59,7 @@ const Privacypage = () => {
           public message boards, this information may be collected and used by
           others.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           We do not collect any personal information about you unless you
           voluntarily provide it to us. However, you may be required to provide
           certain personal information to us when you elect to use certain
@@ -66,20 +74,20 @@ const Privacypage = () => {
           have requested from us. We also may gather additional personal or
           non-personal information in the future.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Use of your Personal Information:
         </p>
-        <p className="text-base font-normal  text-[#444444] leading-5">
+        <p className="text-base font-normal  text-[#444444] leading-5 mt-4">
           PACIFIC RIM FUSION collects and uses your personal information to
           operate its website(s) and deliver the services you have requested.
           PACIFIC RIM FUSION may also use your personally identifiable
           information to inform you of other products or services available from
           PACIFIC RIM FUSION and its affiliates.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Sharing Information with Third Parties:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           PACIFIC RIM FUSION does not sell, rent or lease its customer lists to
           third parties. PACIFIC RIM FUSION may share data with trusted partners
           to help perform statistical analysis, send you email or postal mail,
@@ -96,10 +104,10 @@ const Privacypage = () => {
           act under exigent circumstances to protect the personal safety of
           users of PACIFIC RIM FUSION, or the public.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Tracking User Behavior:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           PACIFIC RIM FUSION may keep track of the websites and pages our users
           visit within PACIFIC RIM FUSION, in order to determine what PACIFIC
           RIM FUSION services are the most popular. This data is used to deliver
@@ -107,10 +115,10 @@ const Privacypage = () => {
           customers whose behavior indicates that they are interested in a
           particular subject area.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Automatically Collected Information:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Information about your computer hardware and software may be
           automatically collected by PACIFIC RIM FUSION. This information can
           include: your IP address, browser type, domain names, access times and
@@ -119,10 +127,10 @@ const Privacypage = () => {
           provide general statistics regarding use of the PACIFIC RIM FUSION
           website.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Use of Cookies:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           The PACIFIC RIM FUSION website may use “cookies” to help you
           personalize your online experience. A cookie is a text file that is
           placed on your hard disk by a web page server. Cookies cannot be used
@@ -145,20 +153,20 @@ const Privacypage = () => {
           cookies, you may not be able to fully experience the interactive
           features of the PACIFIC RIM FUSION services or websites you visit
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Links:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           This website contains links to other sites. Please be aware that we
           are not responsible for the content or privacy practices of such other
           sites. We encourage our users to be aware when they leave our site and
           to read the privacy statements of any other site that collects
           personally identifiable information
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Security of your Personal Information:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           PACIFIC RIM FUSION secures your personal information from unauthorized
           access, use, or disclosure. PACIFIC RIM FUSION uses the following
           methods for this purpose: SSL Protocol. When personal information
@@ -166,7 +174,7 @@ const Privacypage = () => {
           protected through the use of encryption, such as the Secure Sockets
           Layer (SSL) protocol.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           We strive to take appropriate security measures to protect against
           unauthorized access to or alteration of your personal information.
           Unfortunately, no data transmission over the Internet or any wireless
@@ -177,10 +185,10 @@ const Privacypage = () => {
           of any and all information and data exchanged between you and us
           through this Site cannot be guaranteed
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Right to Deletion:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Subject to certain exceptions set out below, on receipt of a
           verifiable request from you, we will: Delete your personal information
           from our records; and Direct any service providers to delete your
@@ -210,10 +218,10 @@ const Privacypage = () => {
           your personal information, internally, in a lawful manner that is
           compatible with the context in which you provided the information.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           E-mail Communications:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           From time to time, PACIFIC RIM FUSION may contact you via email for
           the purpose of providing announcements, promotional offers, alerts,
           confirmations, surveys, and/or other general communication. In order
@@ -224,17 +232,17 @@ const Privacypage = () => {
           communications by clicking on the UNSUBSCRIBE button at the bottom of
           our emails..
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           External Data Storage Sites:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           We may store your data on servers provided by third party hosting
           vendors with whom we have contracted.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Changes to this Statement:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           PACIFIC RIM FUSION reserves the right to change this Privacy Policy
           from time to time. We will notify you about significant changes in the
           way we treat personal information by sending a notice to the primary
@@ -245,35 +253,35 @@ const Privacypage = () => {
           of the modified Privacy Policy; and (b) agreement to abide and be
           bound by that Policy.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Contact Information:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           PACIFIC RIM FUSION welcomes your questions or comments regarding this
           Statement of Privacy. If you believe that PACIFIC RIM FUSION has not
           adhered to this Statement, please contact PACIFIC RIM FUSION at:
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Cookie Policy
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           Cookies and similar technologies such as tags, pixels, web beacons and
           tracking technologies on mobile apps (“Cookies”) are small data files
           that Pacific Rim Fusion Limited (“we”, “us”, or “Pacific Rim Fusion”)
           stores on your device, and you have a choice as to which categories of
           Cookies you allow us to store.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           We use Cookies to distinguish you from other users of our website and
           mobile application (the “Platform”). This helps us to provide you with
           a good experience when you browse and interact with the Platform and
           allows us to improve the Platform.
         </p>
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4">
           We use the following types of Cookies:
         </p>
         {/* =====list start======== */}
-        <div className="ml-[33px]">
+        <div className="ml-[33px] mt-4">
           <ul>
             <li className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 list-disc ">
               Essential Cookies. These are Cookies that are required for the
@@ -308,14 +316,17 @@ const Privacypage = () => {
           </ul>
         </div>
 
-        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 list-disc ">
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4 ">
           Please note that third parties may also use Cookies on our Platform.
           We do not have access to these Cookies and, other than allowing them
           to be served, we play no role in these Cookies at all. These third
           parties may include, for example, businesses fundraising on the
           Platform, advertising networks, and providers of external services
           like web traffic analysis services. Such third party Cookies are
-          likely to be analytics, personalisation or marketing Cookies. You can
+          likely to be analytics, personalisation or marketing Cookies. 
+        </p>
+        <p className=" text-sm lg:text-base font-normal  text-[#444444] leading-5 mt-4 ">
+        You can
           choose which Cookies we can set on our Platform. You can also choose
           to enable or disable website Cookies in your browser settings. In
           addition, you may delete Cookies that have already been placed on your
@@ -323,7 +334,7 @@ const Privacypage = () => {
           browser. Note that disabling or deleting Cookies may prevent you from
           using the full range of services available on the Platform.
         </p>
-        <p>privacy</p>
+        <p>delete</p>
       </div>
     </section>
   );
