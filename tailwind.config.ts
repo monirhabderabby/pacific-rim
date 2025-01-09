@@ -111,6 +111,11 @@ const config: Config = {
       },
     },
   },
+  variants: {  
+    extend: {  
+      backdropBlur: ['responsive', 'hover', 'focus'],  
+    },  
+  },  
   plugins: [require("tailwindcss-animate")],
 };
 export default config;

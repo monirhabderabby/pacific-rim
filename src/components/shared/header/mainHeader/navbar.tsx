@@ -10,6 +10,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
+import AuctionList from "./AuctionList";
+import { AuctionMobileMenu } from "./demonav";
 
 interface DesktopNavbarProps {
   pathName: string;
@@ -20,7 +22,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
   return (
     <nav
       aria-label="Global"
-      className="mx-auto h-[80px] flex max-w-7xl  items-center justify-between p-6 lg:px-8"
+      className="mx-auto h-[82px] flex max-w-7xl  items-center justify-between p-6 lg:px-8 translate-x-8"
     >
       <div className="flex ">
         <Link href="/" className="-m-1.5 p-1.5">
@@ -32,7 +34,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/"
           className={cn(
-            "text-sm/6 font-semibold",
+            "text-sm/6 font-semibold hover:text-primary-green",
             pathName === "/" ? "text-primary-green" : "text-gray-900"
           )}
         >
@@ -41,7 +43,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/about"
           className={cn(
-            "text-sm/6 font-semibold",
+            "text-sm/6 font-semibold hover:text-primary-green",
             pathName === "/about" ? "text-primary-green" : "text-gray-900"
           )}
         >
@@ -50,16 +52,16 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/products"
           className={cn(
-            "text-sm/6 font-semibold",
+            "text-sm/6 font-semibold hover:text-primary-green",
             pathName === "/products" ? "text-primary-green" : "text-gray-900"
           )}
         >
-          Auctions
+          <AuctionList/>
         </Link>
         <Link
           href="/blogs"
           className={cn(
-            "text-sm/6 font-semibold",
+            "text-sm/6 font-semibold hover:text-primary-green",
             pathName === "/blogs" ? "text-primary-green" : "text-gray-900"
           )}
         >
@@ -68,7 +70,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/contact"
           className={cn(
-            "text-sm/6 font-semibold",
+            "text-sm/6 font-semibold hover:text-primary-green",
             pathName === "/contact" ? "text-primary-green" : "text-gray-900"
           )}
         >
@@ -143,13 +145,7 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
                 >
                   About
                 </Link>
-                <Link
-                  href="/products"
-                  onClick={closeMobileMenu}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                >
-                  Auctions
-                </Link>
+                <AuctionMobileMenu/>
                 <Link
                   href="/blogs"
                   onClick={closeMobileMenu}

@@ -10,11 +10,11 @@ export function VendorCard({ vendor }: VendorCardProps) {
     <Card className="bg-white rounded-xl shadow-sm border border-gray-200 max-w-[500px]">
       <CardContent className="p-6 space-y-4">
         <div className="flex items-center justify-center mb-4">
-          <div className="w-24 h-24 bg-[#2A6C2D] rounded-lg flex items-center justify-center">
+          <div className="w-[130px] h-[130px] rounded-lg flex items-center justify-center">
             <Image
               src={vendor.imageUrl}
               alt="Cannabis Logo"
-              className="w-20 h-20"
+              className="w-full h-full"
               loading="lazy"
               width={200}
               height={200}
@@ -23,7 +23,7 @@ export function VendorCard({ vendor }: VendorCardProps) {
         </div>
         
         <div>
-          <h2 className="text-lg md:text-[32px] font-semibold mb-1">{vendor.name}</h2>
+          <h2 className="text-lg md:text-[32px] font-medium mb-1">{vendor.name}</h2>
           <div className="flex items-center gap-2 mb-4">
             <span className="text-gray-600">{vendor.followers} Followers</span>
             <div className="flex items-center gap-2">
