@@ -7,8 +7,8 @@ const Page = () => {
   return (
     <div className="max-w-[870px] flex  items-center flex-col  md:flex-row">
      
-<div>
-   {/* user infro card       */}
+<div className="mb-[80px]">
+   {/* user infro dtails       */}
 <div className="max-w-[870px] flex items-start justify-between   mb-[10px] flex-col   md:flex-row   ">
 <UserInfo/>
 <UserDetailsInfo/>
