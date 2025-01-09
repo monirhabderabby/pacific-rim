@@ -1,6 +1,5 @@
 "use client";
 
-import Newsletter from "@/../../public/assets/newsletter/newsletter.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
@@ -32,7 +31,7 @@ function NewsletterPage() {
             {/* Left column with image */}
             <div className="hidden lg:block md:w-[470px] h-[293px] relative">
               <Image
-                src={Newsletter}
+                src="/assets/newsletter/newsletter.png"
                 alt="Newsletter feature image"
                 fill
                 className="object-cover"
@@ -55,7 +54,10 @@ function NewsletterPage() {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="gap-2 flex-1 lg:relative w-full">
+              <form
+                onSubmit={handleSubmit}
+                className="gap-2 flex-1 lg:relative w-full"
+              >
                 <Input
                   type="email"
                   placeholder="Enter Your Email"
