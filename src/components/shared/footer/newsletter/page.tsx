@@ -43,7 +43,7 @@ function NewsletterPage() {
             {/* Right column with form */}
             <div className="flex-1 w-full bg-white/70 p-[20px] md:p-[40px] rounded-[16px]">
               <div className="space-y-4 mb-5">
-                <h2 className="text-2xl lg:text-4xl font-bold text-primary-green-hover">
+                <h2 className="text-2xl lg:text-4xl font-semibold text-primary-green-hover">
                   Subscribe Newsletter
                 </h2>
                 <h3 className="text-base lg:text-xl text-primary-green-hover">
@@ -62,7 +62,7 @@ function NewsletterPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="flex-1 bg-white text-[#B3B3B3] text-center lg:text-left text-sm lg:text-base p-[22px] lg:p-6 border-[1px] border-primary-green-hover focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="placeholder:text-[#B3B3B3] flex-1 bg-white text-black text-center lg:text-left text-sm lg:text-base p-[22px] lg:p-6 border-[1px] border-primary-green-hover focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
                 <Button
                   type="submit"
