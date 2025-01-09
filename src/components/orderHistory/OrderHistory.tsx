@@ -60,7 +60,7 @@ const OrderHistory = () => {
   return (
     <div>
 
-      <div className=" w-[370px] lg:w-[870px] mx-auto  mt-5">
+      <div className=" w-[370px] lg:w-[870px] mx-auto   ">
         {/* Table for medium and larger screens */}
         <div className="hidden md:block overflow-hidden rounded-lg border border-gray-200">
           <div className="flex justify-between items-center p-3">
@@ -104,7 +104,7 @@ const OrderHistory = () => {
         </div>
 
         {/* Card layout for small screens */}
-        <div className="md:hidden   w-full border border-gray-200 rounded-lg">
+        <div className="md:hidden   w-[343px] border border-gray-200 rounded-lg">
         <h1 className="text-[20px] leading-[24px] text-center font-semibold py-3 text-[#2A6C2D] border-b">Recet Order History</h1>
           {products.map((product) => (
             <div key={product.id} className=" w-full  border-b border-gray-200 p-3  hover:bg-[#EAF0EA] ">
