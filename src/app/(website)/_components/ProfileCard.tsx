@@ -15,7 +15,7 @@ interface ProfileCardProps {
 
 export function ProfileCard({ user, onEdit }: ProfileCardProps) {
   return (
-    <Card className=" w-[343px] lg:w-[370px]   h-[248px] mx-auto shadow-none mb-[20px]">
+    <Card className=" w-[343px] lg:w-[370px]   h-[248px] mx-auto shadow-none mb-[20px] border-[#C5C5C5] border-[1px]">
       <CardContent className="flex flex-col items-center gap-1 pt-6">
         <Avatar className="w-24 h-24">
           <AvatarImage src={user.avatarUrl} alt={user.name} />
