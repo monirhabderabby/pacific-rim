@@ -1,14 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { OrderConfirmationProps } from "@/data/Order";
 import { Check } from "lucide-react";
+import { Progress } from "@/components/ui/progress"
+
 
 const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
+  // const totalStages = 3;
+  // const completedStages = Object.values(orderStatus).filter(
+  //   (stage) => stage.isComplete
+  // ).length;
+  // const progressValue = (completedStages / totalStages) * 100;
+  let progressValue = 0;
+  if (orderStatus.ordered.isComplete) progressValue += 0;
+  if (orderStatus.shipping.isComplete) progressValue += 50;
+  if (orderStatus.delivery.isComplete) progressValue += 100;
   return (
     <div>
       <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center space-y-6 text-center">
           <h1 className="text-2xl font-semibold text-green-700 sm:text-3xl">
-            Wooh Your order is confirmed.
+            Wooh Your order is confirmed
           </h1>
 
           <p className="text-sm text-gray-600 sm:text-base">
@@ -19,7 +30,7 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
           {/* Progress Tracker */}
           <div className="relative w-full max-w-xl pt-6">
             {/* Progress Line */}
-            <div className="absolute left-0 top-10 h-0.5 w-full bg-gray-200" />
+            <Progress value={progressValue} className="absolute left-0 top-10 h-[5px] w-full bg-gray-200 [&>div]:bg-[#2A6C2D]" />
 
             {/* Status Points */}
             <div className="relative flex justify-between ">
@@ -28,7 +39,7 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.ordered.isComplete
-                      ? "bg-green-700"
+                      ? "bg-[#2A6C2D]"
                       : "bg-[#BDD1BE]"
                   }`}
                 >
@@ -43,11 +54,11 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
               </div>
 
               {/* Ready To shipping */}
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center translate-x-3">
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.shipping.isComplete
-                      ? "bg-green-700"
+                      ? "bg-[#2A6C2D]"
                       : "bg-[#BDD1BE]"
                   }`}
                 >
@@ -61,11 +72,11 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
               </div>
 
               {/* Expired delivery */}
-              <div className="flex flex-col items-end">
+              <div className="flex flex-col items-end translate-x-2">
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.delivery.isComplete
-                      ? "bg-green-700"
+                      ? "bg-[#2A6C2D]"
                       : "bg-[#BDD1BE]"
                   }`}
                 >
