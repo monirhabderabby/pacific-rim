@@ -15,7 +15,7 @@ const Page = ({ }: { params: { id: string } }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-col md:flex-row gap-[30px]">
         <div className="md:w-2/3">
           <BlogDetails />
           <BlogCommets />
