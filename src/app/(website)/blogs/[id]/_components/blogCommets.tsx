@@ -55,7 +55,7 @@ function BlogCommets() {
                                 type="email"
                                 placeholder="Write your user name or email"
                                 required
-                                className=" border-[1px] border-[#C5C5C5] p-6 text-primary-black placeholder:text-[#C5C5C5] focus-visible:ring-0 focus-visible:ring-offset-0"
+                                className="border-[1px] border-[#C5C5C5] p-6 text-primary-black placeholder:text-[#C5C5C5] focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
                         </div>
                     </div>
