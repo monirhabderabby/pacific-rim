@@ -16,7 +16,7 @@ const OurFeatureSection = () => {
       </div>
 
       <div className="mt-[40px] w-full flex justify-center items-center">
-        <ButtonArrow text="Explore More" size="sm" onClick={() => {}} />
+        <ButtonArrow text="Explore More" size="sm" href="/" />
       </div>
     </div>
   );

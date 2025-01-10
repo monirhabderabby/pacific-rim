@@ -13,7 +13,7 @@ const page = () => {
           Order Details
         </div>
         <div className="hidden md:block">
-          <ButtonArrow text="Back to List" onClick={() => {}} />
+          <ButtonArrow text="Back to List" href="/" />
         </div>
       </div>
       <BillingDetails />

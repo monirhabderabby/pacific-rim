@@ -66,7 +66,7 @@ const OrderHistory = () => {
               Recet Order History
             </h1>
 
-            <ButtonArrow text=" Explore More" onClick={() => {}} />
+            <ButtonArrow text=" Explore More" href="/" />
           </div>
           <table className="w-full ">
             <thead className="bg-gray-100 ">

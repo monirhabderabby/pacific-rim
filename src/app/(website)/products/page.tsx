@@ -1,7 +1,5 @@
-import FeaturedProductCard from "@/components/shared/cards/featured_card";
-import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import { PageHeader } from "@/components/shared/sections/page-header";
-import { featureProducts } from "@/data/featured";
+import ProductsContainer from "./_components/products-container";
 
 const Page = () => {
   return (
@@ -13,15 +11,7 @@ const Page = () => {
           { label: "Our Products", href: "" },
         ]}
       />
-      <div className="container section ">
-        <SectionHeading heading="Products" subheading="" />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-[50px]">
-          {featureProducts.map((product) => (
-            <FeaturedProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </div>
+      <ProductsContainer />
     </div>
   );
 };
