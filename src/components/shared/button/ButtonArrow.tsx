@@ -1,31 +1,61 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ArrowRight } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
 
 interface BackToListButtonProps {
-  text: string
+  text: string;
+  size?: "sm" | "md";
+  onClick: () => void;
 }
 
-export function ButtonArrow({ text }: BackToListButtonProps) {
-  const [isHovered, setIsHovered] = useState(false)
+export function ButtonArrow({ text, size, onClick }: BackToListButtonProps) {
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Button
-      className="bg-[#2A6C2D] hover:bg-[#2A6C2D]/90 text-white rounded-md transition-all duration-300 ease-in-out"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      size={size}
+      onClick={onClick}
     >
-      <span>{text}</span>
-      <ArrowRight
-        className={cn(
-          "ml-2 h-4 w-4 transition-all duration-300 ease-in-out",
-          isHovered ? "transform translate-x-1 text-white" : "text-white/70"
+      <span className="">{text}</span>
+      <AnimatePresence mode="wait">
+        {!isHovered ? (
+          <motion.div
+            key="arrow-right"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Image
+              src="/assets/svg/arrow-narrow-right.svg"
+              height={20}
+              width={20}
+              alt="arrow-Right"
+            />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="move-up-right"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Image
+              src="/assets/svg/arrow-narrow-up-right.svg"
+              height={20}
+              width={20}
+              alt="arrow-Right"
+              className="text-white"
+            />
+          </motion.div>
         )}
-      />
+      </AnimatePresence>
     </Button>
-  )
+  );
 }
-
