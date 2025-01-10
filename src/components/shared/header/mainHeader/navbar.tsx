@@ -10,17 +10,63 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
+import AuctionList from "./AuctionList";
+import { AuctionMobileMenu } from "./demonav";
 
 interface DesktopNavbarProps {
   pathName: string;
   loggedin: boolean;
 }
 
+const Navicons = [
+  {
+    href: "/notifications",
+    src: "/assets/svg/bell.svg",
+    alt: "bell-icon",
+    count: 4,
+    srOnlyText: "View notifications",
+  },
+  {
+    href: "/wishlist",
+    src: "/assets/svg/heart.svg",
+    alt: "heart-icon",
+    srOnlyText: "View wishlist",
+  },
+  {
+    href: "/cart",
+    src: "/assets/svg/cart-icon.svg",
+    alt: "cart-icon",
+    count: 2,
+    srOnlyText: "View cart",
+  },
+  {
+    href: "/account",
+    src: "/assets/svg/user-circle.svg",
+    alt: "user-icon",
+    srOnlyText: "View account",
+  },
+];
+const mobileNavicons = [
+  {
+    href: "/wishlist",
+    src: "/assets/svg/heart.svg",
+    alt: "heart-icon",
+    srOnlyText: "View wishlist",
+  },
+  {
+    href: "/cart",
+    src: "/assets/svg/cart-icon.svg",
+    alt: "cart-icon",
+    count: 4,
+    srOnlyText: "View cart",
+  },
+];
+
 function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
   return (
     <nav
       aria-label="Global"
-      className="mx-auto h-[80px] flex max-w-7xl  items-center justify-between p-6 lg:px-8"
+      className="mx-auto h-[82px] flex container  items-center justify-between  "
     >
       <div className="flex ">
         <Link href="/" className="-m-1.5 p-1.5">
@@ -28,11 +74,11 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           <Image alt="" src={HeaderLogo} className="h-12 w-24" />
         </Link>
       </div>
-      <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+      <PopoverGroup className="hidden lg:flex lg:gap-x-12 ">
         <Link
           href="/"
           className={cn(
-            "text-sm/6 font-semibold",
+            "text-sm/6 font-semibold hover:text-primary-green",
             pathName === "/" ? "text-primary-green" : "text-gray-900"
           )}
         >
@@ -41,25 +87,25 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/about"
           className={cn(
-            "text-sm/6 font-semibold",
+            "text-sm/6 font-semibold hover:text-primary-green",
             pathName === "/about" ? "text-primary-green" : "text-gray-900"
           )}
         >
           About
         </Link>
         <Link
-          href="/products"
+          href=""
           className={cn(
-            "text-sm/6 font-semibold",
+            "text-sm/6 font-semibold hover:text-primary-green",
             pathName === "/products" ? "text-primary-green" : "text-gray-900"
           )}
         >
-          Auctions
+          <AuctionList />
         </Link>
         <Link
           href="/blogs"
           className={cn(
-            "text-sm/6 font-semibold",
+            "text-sm/6 font-semibold hover:text-primary-green",
             pathName === "/blogs" ? "text-primary-green" : "text-gray-900"
           )}
         >
@@ -68,7 +114,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/contact"
           className={cn(
-            "text-sm/6 font-semibold",
+            "text-sm/6 font-semibold hover:text-primary-green",
             pathName === "/contact" ? "text-primary-green" : "text-gray-900"
           )}
         >
@@ -83,7 +129,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           </div>
         ) : (
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <HeaderIconMenu />
+            <HeaderIconMenu icons={Navicons} />
           </div>
         )}
       </div>
@@ -97,14 +143,26 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setMobileMenuOpen(true)}
-        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 lg:hidden"
-      >
-        <span className="sr-only">Open main menu</span>
-        <Bars3Icon aria-hidden="true" className="size-6" />
-      </button>
+      <div className="flex items-center justify-between h-[56px] px-4">
+        <div className="flex ">
+          <Link href="/" className="-m-1.5 p-1.5">
+            <span className="sr-only">Pacific Rim</span>
+            <Image alt="" src={HeaderLogo} className="h-10 w-20" />
+          </Link>
+        </div>
+        <div className="flex items-center gap-4">
+          <HeaderIconMenu icons={mobileNavicons} />
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(true)}
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 lg:hidden"
+          >
+            <span className="sr-only">Open main menu</span>
+            <Bars3Icon aria-hidden="true" className="size-6" />
+          </button>
+        </div>
+      </div>
+
       <Dialog
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
@@ -143,13 +201,7 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
                 >
                   About
                 </Link>
-                <Link
-                  href="/products"
-                  onClick={closeMobileMenu}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                >
-                  Auctions
-                </Link>
+                <AuctionMobileMenu />
                 <Link
                   href="/blogs"
                   onClick={closeMobileMenu}
@@ -182,7 +234,7 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
                     </button>
                   </>
                 ) : (
-                  <HeaderIconMenu />
+                  <HeaderIconMenu icons={Navicons} />
                 )}
               </div>
             </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import Newsletter from "@/../../public/assets/newsletter/newsletter.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
@@ -20,7 +19,7 @@ function NewsletterPage() {
       <section
         className="h-auto lg:h-[457px]"
         style={{
-          backgroundImage: "url('assets/newsletter/newsletter-bg.png')",
+          backgroundImage: "url('/assets/newsletter/newsletter-bg.png')",
           backgroundRepeat: "repeat", // Ensure seamless background
           animation: "moveBackground 30s linear infinite alternate", // Alternate animation direction
           backgroundSize: "cover",
@@ -32,7 +31,7 @@ function NewsletterPage() {
             {/* Left column with image */}
             <div className="hidden lg:block md:w-[470px] h-[293px] relative">
               <Image
-                src={Newsletter}
+                src="/assets/newsletter/newsletter.png"
                 alt="Newsletter feature image"
                 fill
                 className="object-cover"
@@ -43,7 +42,7 @@ function NewsletterPage() {
             {/* Right column with form */}
             <div className="flex-1 w-full bg-white/70 p-[20px] md:p-[40px] rounded-[16px]">
               <div className="space-y-4 mb-5">
-                <h2 className="text-2xl lg:text-4xl font-bold text-primary-green-hover">
+                <h2 className="text-2xl lg:text-4xl font-semibold text-primary-green-hover">
                   Subscribe Newsletter
                 </h2>
                 <h3 className="text-base lg:text-xl text-primary-green-hover">
@@ -55,14 +54,17 @@ function NewsletterPage() {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="gap-2 flex-1 lg:relative w-full">
+              <form
+                onSubmit={handleSubmit}
+                className="gap-2 flex-1 lg:relative w-full"
+              >
                 <Input
                   type="email"
                   placeholder="Enter Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="flex-1 bg-white text-[#B3B3B3] text-center lg:text-left text-sm lg:text-base p-[22px] lg:p-6 border-[1px] border-primary-green-hover focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="placeholder:text-[#B3B3B3] flex-1 bg-white text-black text-center lg:text-left text-sm lg:text-base p-[22px] lg:p-6 border-[1px] border-primary-green-hover focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
                 <Button
                   type="submit"

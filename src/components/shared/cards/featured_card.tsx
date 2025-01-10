@@ -8,26 +8,26 @@ export default function FeaturedProductCard({
   product: FeatureCardType;
 }) {
   return (
-    <div className="flex overflow-hidden relative flex-col grow shrink self-stretch p-3 my-auto mx-auto bg-white rounded-xl border border-gray-200 border-solid w-full md:w-[260px]">
-      <div>
+    <div className="flex overflow-hidden relative flex-col grow shrink self-stretch p-3 my-auto mx-auto bg-white rounded-[8px] border border-gray-200 border-solid w-full md:w-[260px] hover:shadow-feature_card transition-shadow duration-300">
+      <div className="overflow-hidden rounded-[8px]">
         <Image
           loading="lazy"
           src={product.image}
           alt="Product image"
           width={300}
           height={100}
-          className="object-contain z-0 w-full rounded-lg aspect-[1.07]"
+          className="object-contain z-0 w-full rounded-[8px] aspect-[1.07] hover:scale-105 duration-300"
         />
       </div>
-      <div className="flex absolute top-5 z-0 flex-col w-8 right-[22px]">
-        <button className="flex gap-2.5 items-center p-2 w-full h-8 bg-white hover:bg-white/90 rounded-[30px]">
-          <Heart />
+      <div className="flex absolute top-5 z-0 flex-col w-[32px] right-[22px]">
+        <button className="flex gap-2.5 items-center p-2 w-full h-8 bg-white hover:bg-primary-green rounded-[30px] transition-colors duration-300 group">
+          <Heart className="group-hover:fill-white hover:border-0" />
         </button>
       </div>
       <div className="flex z-0 flex-col mt-2 w-full">
         <div className="flex flex-col w-full">
           <div className="flex gap-10 justify-between items-center w-full">
-            <div className="flex gap-2 items-center self-stretch my-auto text-xs leading-tight text-red-600 whitespace-nowrap">
+            <div className="flex gap-2 items-center self-stretch my-auto text-xs leading-tight text-[#E10E0E] whitespace-nowrap">
               <div className="flex gap-1 items-center self-stretch my-auto">
                 <Image
                   loading="lazy"
@@ -35,9 +35,9 @@ export default function FeaturedProductCard({
                   height={9}
                   src="/assets/svg/hot.svg"
                   alt="hot icon"
-                  className="object-contain shrink-0 self-stretch my-auto aspect-[0.75] fill-red-600 w-[9px]"
+                  className="object-contain shrink-0 self-stretch my-auto aspect-[0.75] fill-[#E10E0E] w-[9px]"
                 />
-                <div className="self-stretch my-auto">Hot</div>
+                <div className="self-stretch my-auto text-[#E10E0E]">Hot</div>
               </div>
             </div>
             <div className="flex gap-1 items-start self-stretch my-auto">
@@ -62,14 +62,14 @@ export default function FeaturedProductCard({
               />
             </div>
           </div>
-          <div className="mt-2 text-base font-medium leading-tight text-green-800">
+          <div className="mt-2 text-[16px] text-base font-medium leading-[19.2px] text-[#2A6C2D]">
             American Beauty
           </div>
           <div className="flex gap-1 items-end self-start mt-2 font-medium leading-tight">
-            <div className="self-stretch text-base whitespace-nowrap text-zinc-900">
+            <div className="self-stretch text-base text-[16px] leading-[19.2px] whitespace-nowrap text-[#1A1A1A]">
               ₿{product.price}
             </div>
-            <div className="self-stretch text-xs text-neutral-400">
+            <div className="self-stretch text-[12px] leading-[14.4px] font-medium text-[#9C9C9C]">
               <span className="line-through">₿{product.originalPrice}</span>
             </div>
           </div>

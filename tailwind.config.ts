@@ -65,13 +65,13 @@ const config: Config = {
       container: {
         center: true,
         padding: {
-          DEFAULT: "1rem",
-          lg: "2rem",
+          DEFAULT: "14px",
+          lg: "20px",
         },
         screens: {
           sm: "100%",
           md: "100%",
-          lg: "1280px",
+          lg: "1170px",
         },
       },
       keyframes: {
@@ -109,6 +109,14 @@ const config: Config = {
       backgroundImage: {
         "green-linear": "linear-gradient(90deg, #1D4C1F 0%, #44B249 100%)",
       },
+      boxShadow: {
+        feature_card: "0px 0px 10px 1px #2A6C2D1A",
+      },
+    },
+  },
+  variants: {
+    extend: {
+      backdropBlur: ["responsive", "hover", "focus"],
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/sections/breadcrumb-section";
+import { PageHeader } from "@/components/shared/sections/page-header";
 import WishlistContainer from "./_components/wishlist-container";
 
 export default function WishlistPage() {

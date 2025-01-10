@@ -1,6 +1,6 @@
 import FeaturedProductCard from "@/components/shared/cards/featured_card";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
-import { PageHeader } from "@/components/shared/sections/breadcrumb-section";
+import { PageHeader } from "@/components/shared/sections/page-header";
 import { featureProducts } from "@/data/featured";
 
 const Page = () => {

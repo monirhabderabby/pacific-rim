@@ -3,7 +3,7 @@ import OrderHistory from "@/components/orderHistory/OrderHistory";
 
 const Page = () => {
   return (
-    <div className="min-h-[500px] w-full flex justify-center items-center text-[20px]">
+    <div className="max-w-[870px] flex  i flex-col  md:flex-row ">
    
       <OrderHistory/>
     </div>
