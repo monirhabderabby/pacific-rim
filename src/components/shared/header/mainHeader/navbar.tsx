@@ -66,7 +66,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
   return (
     <nav
       aria-label="Global"
-      className="mx-auto h-[82px] flex max-w-7xl  items-center justify-between p-6 lg:px-8 translate-x-8"
+      className="mx-auto h-[82px] flex container  items-center justify-between  "
     >
       <div className="flex ">
         <Link href="/" className="-m-1.5 p-1.5">

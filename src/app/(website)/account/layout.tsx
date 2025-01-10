@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/sections/breadcrumb-section";
+import { PageHeader } from "@/components/shared/sections/page-header";
 import { ReactNode } from "react";
 import AccountSidebar from "./_components/sidebar";
 
