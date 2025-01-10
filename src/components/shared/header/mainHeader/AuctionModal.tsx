@@ -20,7 +20,7 @@ const AuctionModal: React.FC<AuctionModalProps> = ({ isOpen, onClose }) => {
         <Dialog.Panel className="bg-white ml-[50px]  shadow-lg rounded-b-[8px] z-50 ">
           <Dialog.Title className="w-full">
             <Link
-              href="/products"
+              href="/all-auctions"
               className=" inline-block hover:bg-gray-100 w-full p-6 py-[12px]"
               onClick={onClose}
             >
@@ -29,7 +29,7 @@ const AuctionModal: React.FC<AuctionModalProps> = ({ isOpen, onClose }) => {
           </Dialog.Title>
           <Dialog.Title className="w-full">
             <Link
-              href="/products"
+              href="/live-auctions"
               className=" inline-block hover:bg-gray-100 w-full p-6 py-[12px] rounded-[8px]"
               onClick={onClose}
             >
