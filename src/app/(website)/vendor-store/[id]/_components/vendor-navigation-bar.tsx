@@ -3,35 +3,37 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const navigationLists = [
-  {
-    id: 1,
-    name: "Products",
-    href: "/account",
-  },
-  {
-    id: 2,
-    name: "Store About",
-    href: "/account/order-history",
-  },
-  {
-    id: 3,
-    name: "Policies",
-    href: "/wishlist",
-  },
-  {
-    id: 4,
-    name: "Reviews",
-    href: "/cart",
-  },
-  {
-    id: 5,
-    name: "Business License",
-    href: "/account/settings",
-  },
-];
+const getLists = (storeId: string) => {
+  return [
+    {
+      id: 1,
+      name: "Products",
+      href: `/vendor-store/${storeId}`,
+    },
+    {
+      id: 2,
+      name: "Store About",
+      href: `/vendor-store/${storeId}/about`,
+    },
+    {
+      id: 3,
+      name: "Policies",
+      href: `/vendor-store/${storeId}/policies`,
+    },
+    {
+      id: 4,
+      name: "Reviews",
+      href: `/vendor-store/${storeId}/reviews`,
+    },
+    {
+      id: 5,
+      name: "Business License",
+      href: `/vendor-store/${storeId}/license`,
+    },
+  ];
+};
 
-const VendorNavigationBar = () => {
+const VendorNavigationBar = ({ id }: { id: string }) => {
   const pathName = usePathname();
   return (
     <div className="border-[1px] rounded-[12px] border-[#C5C5C5] w-full  md:w-[270px] h-auto md:sticky ">
@@ -41,7 +43,7 @@ const VendorNavigationBar = () => {
         </h2>
       </div>
       <div className="h-auto flex flex-col">
-        {navigationLists.map(({ id, name, href }) => {
+        {getLists(id).map(({ id, name, href }) => {
           const isActive = pathName === href;
 
           return (

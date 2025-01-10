@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/sections/breadcrumb-section";
+import { PageHeader } from "@/components/shared/sections/page-header";
 import CartPage from "./_components/cart-page";
 import EmptyCart from "./_components/empty-cart";
 import ProductsYouMayLike from "./_components/products-you-may-like";
