@@ -65,11 +65,20 @@ const PacificPagination: React.FC<PaginationProps> = ({
       <PaginationContent>
         <PaginationItem>
           <PaginationLink
-            onClick={() => handlePageClick(currentPage - 1)}
-            href="#"
-            className="border border-primary-green-hover hover:bg-primary-green-hover hover:text-white"
+            onClick={() => {
+              if (currentPage === 1) {
+                return;
+              } else handlePageClick(currentPage - 1);
+            }}
+            className={cn(
+              "border border-primary-green-hover hover:bg-primary-green-hover hover:text-white",
+              currentPage === 1 &&
+                "cursor-not-allowed bg-[#E3E3E3] border-0  pointer-events-none"
+            )}
           >
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft
+              className={cn("h-4 w-4", currentPage === 1 && "text-white")}
+            />
           </PaginationLink>
         </PaginationItem>
 
@@ -78,10 +87,10 @@ const PacificPagination: React.FC<PaginationProps> = ({
             <PaginationLink
               onClick={() => handlePageClick(page)}
               className={cn(
-                "border cursor-pointer border-primary-green-hover hover:bg-primary-green-hover hover:text-white",
+                "border cursor-pointer border-primary-green-hover hover:bg-[#2A6C2D] hover:text-white",
                 page === currentPage
-                  ? "bg-primary-green text-white"
-                  : "hover:bg-primary-green-hover hover:text-white"
+                  ? "bg-[#2A6C2D] text-white"
+                  : "hover:bg-primary-green-hover hover:text-white text-[#2A6C2D]"
               )}
             >
               {page === "..." ? "..." : page}
@@ -91,8 +100,18 @@ const PacificPagination: React.FC<PaginationProps> = ({
 
         <PaginationItem>
           <PaginationLink
-            onClick={() => handlePageClick(currentPage + 1)}
-            className="border border-primary-green-hover hover:bg-primary-green-hover hover:text-white"
+            onClick={() => {
+              if (totalPages === currentPage) {
+                return;
+              } else {
+                handlePageClick(currentPage + 1);
+              }
+            }}
+            className={cn(
+              "border border-primary-green-hover hover:bg-primary-green-hover hover:text-white",
+              currentPage === totalPages &&
+                "cursor-not-allowed bg-[#E3E3E3] border-0  pointer-events-none"
+            )}
           >
             <ChevronRight className="h-4 w-4" />
           </PaginationLink>

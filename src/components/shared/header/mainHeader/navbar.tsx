@@ -249,6 +249,11 @@ function Navbar() {
   const loggedin = true;
   const pathName = usePathname();
 
+  // if age alert navbar should not display
+  if (pathName === "/age-alert") {
+    return;
+  }
+
   return (
     <header className={cn("bg-white", pathName !== "/" && "border-b-2")}>
       <div className="lg:hidden">
