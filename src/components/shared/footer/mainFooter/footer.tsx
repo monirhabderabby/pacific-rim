@@ -1,8 +1,16 @@
+"use client";
 import FooterLogo from "@/../../public/assets/footer-logo.png";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function Footer() {
+  const pathName = usePathname();
+
+  if (pathName === "/age-alert") {
+    return;
+  }
+
   return (
     <footer className="bg-zinc-950 text-white py-12">
       <div className="container mx-auto px-4">
