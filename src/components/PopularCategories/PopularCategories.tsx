@@ -12,7 +12,7 @@ interface Props {
 
 const PopularCategories = ({ loggedin }: Props) => {
   return (
-    <div className=" pt-[54px] pb-[40px] md:pb-[100px] section rounded-[16px]  lg:rounded-[52px] bg-primary-light ">
+    <div className=" pt-[54px]  pb-[40px] md:pb-[100px] section rounded-[16px]  lg:rounded-[52px] bg-primary-light ">
       <SectionHeading
         subheading="Popular categories"
         heading="Shop By Popular categories"

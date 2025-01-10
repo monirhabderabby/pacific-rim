@@ -19,7 +19,11 @@ const Page = () => {
         {!loggedin && (
           <AboutSection image="https://utfs.io/f/HkyicnKv4pLkKb11IfnzkrEA5LwVvWx2Fbfe7a6P94u0gcjZ" />
         )}
-        <div className="pb-[160px]">{!loggedin && <FAQSection />}</div>
+        {!loggedin && (
+          <div className="pb-[160px]">
+            <FAQSection />
+          </div>
+        )}
 
         {loggedin && <PopularBlogs />}
         {loggedin && <ClientReviews />}
