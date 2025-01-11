@@ -17,4 +17,6 @@ export interface StarRatingProps {
   rating: number;
   maxRating?: number;
   className?: string;
+  activeColor?: string;
+  inactiveColor?: string;
 }
