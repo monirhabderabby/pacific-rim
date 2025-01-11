@@ -73,7 +73,6 @@ const CustomerReviewsCard: React.FC<CustomerReviewsCardProps> = ({
           </p>
         </div>
       </div>
-      <p>delete this</p>
     </div>
   );
 };
