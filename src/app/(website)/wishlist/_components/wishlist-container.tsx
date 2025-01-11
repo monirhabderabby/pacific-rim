@@ -20,6 +20,7 @@ const WishlistContainer = () => {
   };
   return (
     <section>
+      <h4 className="text-[20px] font-semibold my-4 text-[#2A6C2D]">Wish list Items</h4>
       <div className="flex flex-wrap justify-center -mx-4">
         {items.slice(0, 6).map((item, index) => (
           <div
