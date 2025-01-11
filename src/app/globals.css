@@ -97,4 +97,5 @@ body {
   .section {
     @apply my-[40px] md:my-[80px];
   }
+
 }
