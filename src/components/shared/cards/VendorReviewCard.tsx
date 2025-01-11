@@ -1,8 +1,7 @@
-import React from "react";
-import { MdOutlineStar } from "react-icons/md";
-import { LuBox } from "react-icons/lu";
 import Image from "next/image";
-
+import React from "react";
+import { LuBox } from "react-icons/lu";
+import { StarRating } from "../clientReview/StarRating";
 
 interface CustomerReviewsCardProps {
   imageSrc: string; // Path to the image
@@ -13,7 +12,7 @@ interface CustomerReviewsCardProps {
   rating: number; // rating number
 }
 
-const CustomerReviewsCard: React.FC<CustomerReviewsCardProps> = ({
+const VendorReviewCard: React.FC<CustomerReviewsCardProps> = ({
   imageSrc,
   name,
   date,
@@ -22,7 +21,7 @@ const CustomerReviewsCard: React.FC<CustomerReviewsCardProps> = ({
   rating,
 }) => {
   return (
-    <div className="px-5 mt-5 pb-5">
+    <div className="px-5 mt-5 pb-5 ">
       <div className="border-b-[1px] border-[#C5C5C5] pb-6">
         <div className="flex items-center gap-x-[8px] lg:gap-x-[12px]">
           <div className="w-[52px] h-auto lg:w-[80px]">
@@ -47,14 +46,7 @@ const CustomerReviewsCard: React.FC<CustomerReviewsCardProps> = ({
               </div>
             </div>
             <div className="flex gap-x-1 mt-2 lg:mt-4">
-              {Array.from({ length: 5 }, (_, index) => (
-                <MdOutlineStar
-                  key={index}
-                  className={`text-xl ${
-                    index < rating ? "text-[#EFC360]" : "text-[#B0B0B0]"
-                  }`}
-                />
-              ))}
+              <StarRating rating={rating} className="w-[20px] h-[20px]" />
               <p className="text-base text-[#3D3D3D] font-medium leading-[19.2px]">
                 ({rating}.0)
               </p>
@@ -77,4 +69,4 @@ const CustomerReviewsCard: React.FC<CustomerReviewsCardProps> = ({
   );
 };
 
-export default CustomerReviewsCard;
+export default VendorReviewCard;
