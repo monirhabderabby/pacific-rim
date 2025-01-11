@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/sections/page-header";
+import { PageHeader } from "@/components/shared/sections/breadcrumb-section";
 import WishlistContainer from "./_components/wishlist-container";
 
 export default function WishlistPage() {
@@ -18,8 +18,8 @@ export default function WishlistPage() {
         ]}
       />
 
-      <div className="container section mx-auto p-4 md:p-6 lg:p-8">
-        <h1 className="text-2xl font-semibold text-[#2A6C2D] text-center mb-8">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <h1 className="text-[32px] font-semibold text-[#2A6C2D] text-center md:my-8 my-2">
           Your Wishlist
         </h1>
         <WishlistContainer />
