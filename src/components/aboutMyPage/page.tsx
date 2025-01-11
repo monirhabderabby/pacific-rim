@@ -1,7 +1,8 @@
-import ListItem from "@/app/(website)/about/_component/list_item";
+import React from "react";
 import StoreHeading from "./_components/storeHeading";
 import StoreText from "./_components/storeText";
 import SubHeading from "./_components/subheading";
+import ListItem from "@/app/(website)/about/_component/list_item";
 
 const AboutMyPage = () => {
   return (
@@ -16,7 +17,7 @@ const AboutMyPage = () => {
           Pacific Rim Fusion offers a suite of tailored auction services
           designed to meet the unique needs of local cannabis enterprises:
         </p>
-        {/* ===list-item-1 */}
+          {/* ===list-item-1 */}
         <ul className="ml-[25px] mb-2 ">
           <ListItem
             spanTitle="Auctions:"
@@ -55,6 +56,6 @@ const AboutMyPage = () => {
       </div>
     </div>
   );
-};
+}; 
 
 export default AboutMyPage;

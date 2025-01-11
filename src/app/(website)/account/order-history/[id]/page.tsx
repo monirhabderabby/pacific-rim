@@ -1,9 +1,9 @@
-"use client";
-import { ButtonArrow } from "@/components/shared/button/ButtonArrow";
+import React from "react";
 import { BillingDetails } from "./_components/BillingDetails";
 import OrderDetailsTable from "./_components/OrderDetailsTable";
 import OrderProgress from "./_components/OrderProgress";
 import OrderProgressVertical from "./_components/OrderProgressVertical";
+import { ButtonArrow } from "@/components/shared/button/ButtonArrow";
 
 const page = () => {
   return (
@@ -13,7 +13,7 @@ const page = () => {
           Order Details
         </div>
         <div className="hidden md:block">
-          <ButtonArrow text="Back to List" href="/" />
+          <ButtonArrow text="Back to List" />
         </div>
       </div>
       <BillingDetails />
