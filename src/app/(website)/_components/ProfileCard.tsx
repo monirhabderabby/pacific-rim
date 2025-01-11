@@ -5,9 +5,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { User } from "@/types/user"
 
-
-
-
 interface ProfileCardProps {
   user: User
   onEdit?: () => void
