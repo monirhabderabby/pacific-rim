@@ -1,4 +1,9 @@
 "use client";
+// package import ==============
+import * as React from "react";
+
+
+// local import --------------
 import type { CarouselApi } from "@/components/ui/carousel";
 import {
   Carousel,
@@ -7,13 +12,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import * as React from "react";
+
 import { ReviewCard } from "./ReviewCard";
 
+// Review data this come from Backend **********************
 const reviewsData = [
   {
     name: "Robert Fox",
-    role: "Customer",
+    role: "vendor",
     avatarSrc: "/assets/img/revDp.png",
     rating: 2,
     title: '"Good Experience"',
@@ -52,6 +58,7 @@ const reviewsData = [
 export const ClientReviews: React.FC = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [api, setApi] = React.useState<CarouselApi>();
+
   React.useEffect(() => {
     if (!api) {
       return;
@@ -61,10 +68,13 @@ export const ClientReviews: React.FC = () => {
       setActiveIndex(api.selectedScrollSnap());
     });
   }, [api]);
+   
   const totalSlides = reviewsData.length;
   const visibleItems = 3;
   const centerIndex =
     (activeIndex + Math.floor(visibleItems / 2)) % totalSlides;
+
+
   return (
     <section className="flex flex-col items-center mb-12 mt-[90px]">
       {/* Header Section */}
@@ -82,7 +92,8 @@ export const ClientReviews: React.FC = () => {
         </div>
       </div>
 
-      {/* Carousel Section */}
+
+      {/*---------------------- Carousel Section ----------------------*/}
       <Carousel
         opts={{ align: "start", loop: true }}
         className="w-full max-w-7xl relative mb-10 p-3"

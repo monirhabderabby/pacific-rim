@@ -1,7 +1,10 @@
+// package import =========
+import Image from "next/image";
 import * as React from "react";
+// local import ------------
 import { Button } from "@/components/ui/button";
 import { NavigationButtonProps } from "./types";
-import Image from "next/image";
+
 
 export const NavigationButton: React.FC<NavigationButtonProps> = ({
   direction,

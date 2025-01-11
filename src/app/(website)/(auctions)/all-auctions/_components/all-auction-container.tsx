@@ -1,11 +1,16 @@
 "use client";
+
+// package import ===========
+import dynamic from "next/dynamic";
+import { useState } from "react";
+
+// local import ----------------
+import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
+import PacificPagination from "@/components/ui/PacificPagination";
+
 const AuctionCard = dynamic(
   () => import("@/components/shared/cards/auction-card")
 );
-import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
-import PacificPagination from "@/components/ui/PacificPagination";
-import dynamic from "next/dynamic";
-import { useState } from "react";
 
 const AllAuctionsContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);

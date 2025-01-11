@@ -1,3 +1,4 @@
+// locatl  import ==================
 import FAQSection from "@/components/faq-accordion";
 import Hero from "@/components/hero/Hero";
 import PopularCategories from "@/components/PopularCategories/PopularCategories";
