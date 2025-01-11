@@ -1,8 +1,7 @@
+import { ButtonArrow } from "@/components/shared/button/ButtonArrow";
 import FeaturedProductCard from "@/components/shared/cards/featured_card";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
-import { Button } from "@/components/ui/button";
 import { featureProducts } from "@/data/featured";
-import { ArrowRight } from "lucide-react";
 
 const ProductsYouMayLike = () => {
   return (
@@ -16,9 +15,7 @@ const ProductsYouMayLike = () => {
       </div>
 
       <div className="flex justify-center ">
-        <Button className="bg-primary-green-hover h-[44px] hover:bg-primary-green-hover/80 transition-colors duration-300">
-          Explore More <ArrowRight />
-        </Button>
+        <ButtonArrow text="Explore More" href="/" />
       </div>
     </div>
   );
