@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
@@ -22,6 +23,7 @@ const formSchema = z.object({
 });
 
 export default function PasswordSettingsForm() {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
@@ -34,6 +36,8 @@ export default function PasswordSettingsForm() {
           <code className="text-white">{JSON.stringify(values, null, 2)}</code>
         </pre>
       );
+
+      router.push("/account");
     } catch (error) {
       console.error("Form submission error", error);
       toast.error("Failed to submit the form. Please try again.");
