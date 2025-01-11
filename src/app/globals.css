@@ -101,3 +101,7 @@ body {
     @apply p-2 m-5;
   }
 }
+
+#reviews-card:last-child{
+  border:none;
+}
