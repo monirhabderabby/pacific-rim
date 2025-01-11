@@ -1,6 +1,6 @@
 "use client";
 
-import Cookies from "js-cookie";
+import { addToSessionStorage } from "@/lib/session-storage";
 import Image from "next/image";
 // Packages
 import { useRouter } from "next/navigation";
@@ -16,7 +16,7 @@ const AgeAlert = () => {
   }, []);
 
   const handleYes = () => {
-    Cookies.set("age-restriction", "false", { expires: 7 }); // Set cookie for 1 day
+    addToSessionStorage("age-restriction", false);
     push("/");
   };
 

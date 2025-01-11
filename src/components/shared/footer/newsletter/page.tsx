@@ -3,10 +3,17 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 function NewsletterPage() {
   const [email, setEmail] = useState("");
+  const pathName = usePathname();
+
+  // if age alert navbar should not display
+  if (pathName === "/age-alert") {
+    return;
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
