@@ -10,7 +10,7 @@ const UserDetailsCard = ({user}:UserProfileCardProps) => {
     const fullAddress = `${address.street}, ${address.city}, ${address.state} ${address.zip}`
   
   return (
-    <Card className=" max-w-[470px] lg:h-[248px] mx-auto shadow-none ">
+    <Card className="w-[343px] lg:w-[470px] lg:h-[248px] mx-auto shadow-none mb-[10px] border-[#C5C5C5] border-[1px]">
       <CardContent className="p-6">
         <div className="grid gap-4 md:gap-1 ">
           <div className="grid grid-cols-[100px_1fr] md:grid-cols-[140px_1fr] items-center gap-2 ">

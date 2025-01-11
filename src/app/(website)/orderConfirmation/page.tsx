@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/sections/breadcrumb-section";
+import { PageHeader } from "@/components/shared/sections/page-header";
 import OrderConfirmed from "./_components/OrderConfirmed";
 import OrderDetails from "./_components/OrderDetails";
 
@@ -51,7 +51,6 @@ const Page = () => {
 
       <OrderConfirmed orderStatus={orderStatus} />
       <OrderDetails {...orderData} />
-      
     </div>
   );
 };

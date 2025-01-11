@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/button";
-
+"use client";
 import { PopularBlogs } from "@/data/popularBlogs";
+import { ButtonArrow } from "../../button/ButtonArrow";
 import PopularBlogsCards from "../../cards/BlogsCards";
 import SectionHeading from "../../SectionHeading/SectionHeading";
 
 function PopularBlog() {
   return (
-    <section className="py-16 px-4">
+    <section>
       <div className="container mx-auto">
         <SectionHeading heading="Our Featured Products" subheading="Products" />
 
@@ -26,25 +26,7 @@ function PopularBlog() {
         </div>
 
         <div className="text-center">
-          <Button
-            variant="outline"
-            className=" w-[173px] h-[44px] text-white bg-primary-green hover:bg-primary-green-hover hover:text-white"
-          >
-            Explore More
-            <svg
-              className="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </Button>
+          <ButtonArrow href="/blogs" text="Explore More" />
         </div>
       </div>
     </section>
