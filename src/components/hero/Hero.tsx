@@ -32,9 +32,10 @@ const Hero = () => {
       </section>
 
       {/* three image  */}
-      <div className="grid grid-cols-3 gap-0 lg:gap-[24px] mx-auto max-w-[1200px] mt-[-50px] lg:mt-[-100px] z-50 justify-items-center p-2">
+      <div className="grid grid-cols-3 gap-4 lg:gap-[24px] mx-auto max-w-[1200px] mt-[-50px] lg:mt-[-100px] z-50 justify-items-center p-2">
         <div className="h-[130px] w-[103px] md:w-[200px] md:h-[220px] lg:h-[300px] lg:w-[370px]  rounded-[16px] relative">
           <Image
+          
             src="/assets/img/hero1.png"
             alt="Picture of the author"
             className="rounded-[16px]"

@@ -1,11 +1,14 @@
 "use client";
 
-import { addToSessionStorage } from "@/lib/session-storage";
-import Image from "next/image";
-// Packages
+// Packages====================
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2"; // Import SweetAlert2
+
+
+// local impot -------------------------
+import { addToSessionStorage } from "@/lib/session-storage";
+import Image from "next/image";
 
 const AgeAlert = () => {
   const [showModal, setShowModal] = useState(false);
