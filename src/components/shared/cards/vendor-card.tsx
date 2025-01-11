@@ -50,7 +50,7 @@ export function VendorCard({ vendor }: VendorCardProps) {
       </CardContent>
       
       <CardFooter className="p-6 pt-0">
-        <Button 
+        <Button size='sm'
           className="text-sm bg-[#2A6C2D] hover:bg-[#235B26] text-white font-medium hover:gap-4 transition-all"
         >
           Visit Store

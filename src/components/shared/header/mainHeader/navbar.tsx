@@ -19,54 +19,22 @@ interface DesktopNavbarProps {
 }
 
 const Navicons = [
-  {
-    href: "/notifications",
-    src: "/assets/svg/bell.svg",
-    alt: "bell-icon",
-    count: 4,
-    srOnlyText: "View notifications",
-  },
-  {
-    href: "/wishlist",
-    src: "/assets/svg/heart.svg",
-    alt: "heart-icon",
-    srOnlyText: "View wishlist",
-  },
-  {
-    href: "/cart",
-    src: "/assets/svg/cart-icon.svg",
-    alt: "cart-icon",
-    count: 2,
-    srOnlyText: "View cart",
-  },
-  {
-    href: "/account",
-    src: "/assets/svg/user-circle.svg",
-    alt: "user-icon",
-    srOnlyText: "View account",
-  },
+  { href: "/notifications", src: "/assets/svg/bell.svg", alt: "bell-icon", count: 4, srOnlyText: "View notifications" },
+  { href: "/wishlist", src: "/assets/svg/heart.svg", alt: "heart-icon", srOnlyText: "View wishlist" },
+  { href: "/cart", src: "/assets/svg/cart-icon.svg", alt: "cart-icon", count: 2, srOnlyText: "View cart" },
+  { href: "/account", src: "/assets/svg/user-circle.svg", alt: "user-icon", srOnlyText: "View account" },
+
 ];
 const mobileNavicons = [
-  {
-    href: "/wishlist",
-    src: "/assets/svg/heart.svg",
-    alt: "heart-icon",
-    srOnlyText: "View wishlist",
-  },
-  {
-    href: "/cart",
-    src: "/assets/svg/cart-icon.svg",
-    alt: "cart-icon",
-    count: 4,
-    srOnlyText: "View cart",
-  },
+  { href: "/wishlist", src: "/assets/svg/heart.svg", alt: "heart-icon",  srOnlyText: "View wishlist" },
+  { href: "/cart", src: "/assets/svg/cart-icon.svg", alt: "cart-icon", count: 4, srOnlyText: "View cart" },
 ];
 
 function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
   return (
     <nav
       aria-label="Global"
-      className="mx-auto h-[82px] flex container  items-center justify-between  "
+      className="mx-auto h-[82px] flex max-w-7xl  items-center justify-between p-6 lg:px-8 translate-x-8"
     >
       <div className="flex ">
         <Link href="/" className="-m-1.5 p-1.5">
@@ -94,7 +62,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           About
         </Link>
         <Link
-          href=""
+          href="/products"
           className={cn(
             "text-sm/6 font-semibold hover:text-primary-green",
             pathName === "/products" ? "text-primary-green" : "text-gray-900"
@@ -143,20 +111,20 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
 
   return (
     <>
-      <div className="flex items-center justify-between h-[56px] px-4">
-        <div className="flex ">
-          <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Pacific Rim</span>
-            <Image alt="" src={HeaderLogo} className="h-10 w-20" />
-          </Link>
-        </div>
-        <div className="flex items-center gap-4">
-          <HeaderIconMenu icons={mobileNavicons} />
+    <div className="flex items-center justify-between h-[56px] px-4">
+       <div className="flex ">
+        <Link href="/" className="-m-1.5 p-1.5">
+          <span className="sr-only">Pacific Rim</span>
+          <Image alt="" src={HeaderLogo} className="h-10 w-20" />
+        </Link>
+      </div>
+      <div className="flex items-center gap-4">
+        <HeaderIconMenu icons={mobileNavicons}/>
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 lg:hidden"
-          >
+            >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
@@ -248,11 +216,6 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
 function Navbar() {
   const loggedin = true;
   const pathName = usePathname();
-
-  // if age alert navbar should not display
-  if (pathName === "/age-alert") {
-    return;
-  }
 
   return (
     <header className={cn("bg-white", pathName !== "/" && "border-b-2")}>

@@ -1,9 +1,9 @@
 import AboutSection from "@/components/shared/sections/about-section";
-import { PageHeader } from "@/components/shared/sections/page-header";
+import { PageHeader } from "@/components/shared/sections/breadcrumb-section";
 import Heading from "./_components/headig";
 import List_item from "./_components/list_item";
 
-const Page = () => {
+const Page = () => { 
   return (
     <section>
       <PageHeader

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "../../../components/ui/button";
+import { Button } from "./ui/button";
 const FindFavourite = () => {
   return (
     <div className=" relative h-[344px] lg:h-[395px] max-w-[1125px] mx-auto  lg:py-24 overflow-hidden rounded-[16px] drop-shadow-[0px_4px_4px_#00000026]">

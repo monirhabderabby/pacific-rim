@@ -1,35 +1,32 @@
-// Packages
 import * as React from "react";
-
-// Local imports
-import SocialIcons from "@/components/shared/cards/social-icons";
 import { ContactItem } from "./ContactItem";
+import SocialIcons from "@/components/shared/cards/social-icons";
 
 const contactData = [
   {
     icon: "/assets/img/location.png",
     title: "Address:",
     details: ["3517 W. Gray St. Utica, Pennsylvania 57867"],
-    iconAlt: "Location icon",
+    iconAlt: "Location icon"
   },
   {
     icon: "/assets/img/phone.png",
     title: "Phone:",
     details: ["(629) 555-0129", "(229) 555-0109"],
-    iconAlt: "Phone icon",
+    iconAlt: "Phone icon"
   },
   {
     icon: "/assets/img/mail.png",
     title: "Email:",
     details: ["deanna.curtis@example.com", "deanna.curtis@example.com"],
-    iconAlt: "Email icon",
+    iconAlt: "Email icon"
   },
   {
     icon: "/assets/img/clock.png",
     title: "Available:",
     details: ["Mon- Fri:", "08:00 AM - 5:00 PM"],
-    iconAlt: "Clock icon",
-  },
+    iconAlt: "Clock icon"
+  }
 ];
 
 const ContactInfo: React.FC = () => {
@@ -51,7 +48,7 @@ const ContactInfo: React.FC = () => {
         <h2 className="text-3xl font-semibold leading-tight text-green-800 max-md:max-w-full py-2">
           Social Media
         </h2>
-        <SocialIcons />
+        <SocialIcons/>
       </div>
     </div>
   );
