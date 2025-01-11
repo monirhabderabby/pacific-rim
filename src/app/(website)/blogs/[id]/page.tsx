@@ -19,7 +19,7 @@ const Page = ({ }: { params: { id: string } }) => {
         </div>
       </div>
     </div>
-  </div>;
+  </div>
 };
 
 export default Page;
