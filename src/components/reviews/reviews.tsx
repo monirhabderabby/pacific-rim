@@ -1,5 +1,5 @@
 "use Client";
-import StoreHeading from "../aboutMyPage/_components/storeHeading";
+import StoreHeading from "@/app/(website)/vendor-store/[id]/about/_components/storeHeading";
 import CoustomerReviwsCard from "./_copponents/reviewsCard";
 
 const Reviews = () => {
@@ -19,7 +19,6 @@ const Reviews = () => {
         storeName=" American Beauty"
       />
      
-       
     </div>
   );
 };
