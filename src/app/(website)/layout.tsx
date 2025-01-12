@@ -8,6 +8,7 @@ import Topbar from "@/components/shared/header/topHeader/topBar";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,11 +34,13 @@ export default function RootLayout({
             <Navbar />
           </div>
           <AgeRestrictionGuard>{children}</AgeRestrictionGuard>
+
           <div>
             {/* <NewsletterPage /> */}
             <Footer />
           </div>
           <NProgress />
+          <Toaster />
         </body>
       </html>
     </AppProvider>

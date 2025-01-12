@@ -44,8 +44,8 @@ export default function CartPage() {
         Your Shopping Cart
       </h1>
 
-      <div className="max-w-7xl mx-auto grid md:grid-cols-[1fr_500px] gap-8">
-        <div className="space-y-6 md:border-r-[.5px] border-[#A8C3A9]/70 pr-8">
+      <div className="max-w-7xl mx-auto lg:grid md:grid-cols-[1fr_500px] gap-8">
+        <div className="space-y-6 lg:border-r-[.5px] border-[#A8C3A9]/70 md:pr-8">
           <h2 className="text-xl font-semibold text-[#2A6C2D] mb-6">
             Cart Items
           </h2>

@@ -1,7 +1,7 @@
 import { CartItem } from "@/types/cart";
 import { Check } from "lucide-react";
 import Image from "next/image";
-import { StarRating } from "../../../app/(website)/cart/_components/star-rating";
+import { StarRating } from "../clientReview/StarRating";
 interface CartItemProps {
   item: CartItem;
   onUpdateQuantity: (id: string, quantity: number) => void;
@@ -18,8 +18,8 @@ export function CartItemCard({
 
   return (
     <div className="flex flex-col rounded-lg p-4 border border-gray-200">
-      <div className="flex gap-4">
-        <div className="relative w-32 h-24 md:w-40 md:h-32">
+      <div className="sm:flex gap-4 ">
+        <div className="relative h-[180px] min-w-[180px]">
           <Image
             src={item.image}
             alt={item.name}
@@ -30,10 +30,11 @@ export function CartItemCard({
           {icon}
           </button>
         </div>
-        <div className="flex-1 space-y-1">
+        <div className="flex-1 space-y-1 pt-2 flex flex-col justify-evenly">
           <div className="flex items-start justify-between">
             <div>
-              <StarRating rating={item.rating} />
+              <StarRating rating={item.rating} activeColor="fill-amber-500 text-amber-500" inactiveColor="fill-stone-300 text-stone-300"  />
+              
               <h3 className=" font-medium  mt-1">{item.name}</h3>
               {item.isHot && (
                 <div className="flex items-center gap-3 text-sm">
@@ -51,7 +52,7 @@ export function CartItemCard({
                 </div>
               )}
             </div>
-            <div className="flex items-center px-2 py-1 rounded">
+            <div className="flex items-center  py-1 rounded">
               <span className="text-xs border rounded-xl flex items-center gap-2 px-2 py-1">
                 <Check className="w-3 h-3" />
                 In stock

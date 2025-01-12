@@ -33,7 +33,7 @@ function ContactVendor() {
 
     if (isSubmitted) {
         return (
-            <div className="w-full max-w-xl mx-auto p-6">
+            <div className="w-full px-6">
                 <Alert className="bg-green-50 border-green-200">
                     <CheckCircle2 className="h-4 w-4 text-green-600" />
                     <AlertTitle className="text-green-800">Thank you for your message!</AlertTitle>
