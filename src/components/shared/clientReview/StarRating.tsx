@@ -1,6 +1,8 @@
-import * as React from "react";
+
+// package import =========
 import { Star } from "lucide-react";
-        
+import * as React from "react";
+
 // local import ------------
 import { cn } from "@/lib/utils";
 import { StarRatingProps } from "./types";
