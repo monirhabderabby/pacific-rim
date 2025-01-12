@@ -1,10 +1,13 @@
 "use client";
-
-import { Button } from "@/components/ui/button";
-import { AnimatePresence, motion } from "framer-motion";
+// package import 
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+
+// local import 
+import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
+
 
 interface BackToListButtonProps {
   text: string;

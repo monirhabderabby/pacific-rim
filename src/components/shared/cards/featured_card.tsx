@@ -1,6 +1,10 @@
-import { FeatureCardType } from "@/data/featured";
+// package import 
 import { Heart } from "lucide-react";
 import Image from "next/image";
+
+// local import 
+import { FeatureCardType } from "@/data/featured";
+
 
 export default function FeaturedProductCard({
   product,

@@ -1,12 +1,15 @@
 'use client'
-
+// package import 
 import { useState } from "react"
 import { useForm } from "react-hook-form"
+import { CheckCircle2 } from 'lucide-react'
+// local import 
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { CheckCircle2 } from 'lucide-react'
+
 
 interface ContactFormData {
     fullName: string

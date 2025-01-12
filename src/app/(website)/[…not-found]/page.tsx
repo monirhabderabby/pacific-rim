@@ -1,6 +1,10 @@
-import { Button } from "@/components/ui/button";
+// package import 
 import Image from "next/image";
 import Link from "next/link";
+
+// local import 
+import { Button } from "@/components/ui/button";
+
 
 const NotFound = () => {
   return (
