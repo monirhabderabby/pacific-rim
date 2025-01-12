@@ -1,6 +1,10 @@
-import { CartItem } from "@/types/cart";
+// package import 
 import { Check } from "lucide-react";
 import Image from "next/image";
+
+// local import 
+import { CartItem } from "@/types/cart";
+
 import { StarRating } from "../../../app/(website)/cart/_components/star-rating";
 interface CartItemProps {
   item: CartItem;
