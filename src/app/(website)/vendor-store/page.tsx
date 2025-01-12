@@ -10,5 +10,5 @@ export default function page() {
     <div className='section container '>
       <VendorStore/>
     </div>
-  )
+  );
 }

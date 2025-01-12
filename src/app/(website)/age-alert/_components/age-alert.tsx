@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2"; // Import SweetAlert2
 
-
 // local impot -------------------------
 import { addToSessionStorage } from "@/lib/session-storage";
 import Image from "next/image";
@@ -98,27 +97,21 @@ const AgeAlert = () => {
         >
           PACIFIC RIM FUSION
         </h1>
-        <p
-          style={{
-            fontSize: "22px",
-            fontWeight: "bold",
-            color: "green",
-            textAlign: "center",
-            marginBottom: "20px",
-          }}
-        >
+        <p className="text-[32px] font-semibold leading-[38.4px] text-center text-[#2A6C2D]">
           Are you 18 years or older?
         </p>
         <p
           style={{
-            fontSize: "20px",
-            color: "#555",
+            fontSize: "22px",
+            color: "#102011",
             textAlign: "center",
             marginBottom: "30px",
           }}
         >
-          We need this information for legal purposes.
-          <br /> You must be 18+ years to enter this site.
+          We need this information for legal stuff.
+          <br />
+          You Must be 21+ years for <br />
+          enter this site.
         </p>
         <button
           onClick={handleYes}

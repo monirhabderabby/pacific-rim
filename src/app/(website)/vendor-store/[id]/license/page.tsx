@@ -1,7 +1,9 @@
+import BusinessLicens from "./_components/businessLicens";
+
 const Page = () => {
   return (
-    <div className="w-full min-h-[500px] flex justify-center items-center">
-      Business License
+    <div className="w-full min-h-[444px] flex">
+        <BusinessLicens/>
     </div>
   );
 };
