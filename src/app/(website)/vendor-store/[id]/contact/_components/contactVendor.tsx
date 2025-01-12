@@ -1,12 +1,15 @@
 'use client'
-
+// package import 
 import { useState } from "react"
 import { useForm } from "react-hook-form"
+import { CheckCircle2 } from 'lucide-react'
+// local import 
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { CheckCircle2 } from 'lucide-react'
+
 
 interface ContactFormData {
     fullName: string
@@ -33,7 +36,7 @@ function ContactVendor() {
 
     if (isSubmitted) {
         return (
-            <div className="w-full max-w-xl mx-auto p-6">
+            <div className="w-full px-6">
                 <Alert className="bg-green-50 border-green-200">
                     <CheckCircle2 className="h-4 w-4 text-green-600" />
                     <AlertTitle className="text-green-800">Thank you for your message!</AlertTitle>

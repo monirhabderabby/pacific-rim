@@ -1,7 +1,7 @@
 'use client'
 
+// local import 
 import { Card, CardContent } from "@/components/ui/card"
-// import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { User } from "@/types/user"
 
@@ -23,7 +23,6 @@ export function ProfileCard({ user, onEdit }: ProfileCardProps) {
           <p className="text-muted-foreground text-[16px] font-normal leading-[19.2px]">{user.role}</p>
         </div>
         <button
-          // variant="link" 
           className="text-primary-green-hover hover:text-primary-green text-[16px] font-semibold"
           onClick={onEdit}
         >
