@@ -1,4 +1,4 @@
-// local import ***********
+// local import 
 import OurAuction from "@/app/(website)/_components/our_auction";
 import OurFeatureSection from "@/app/(website)/_components/our_feature_section";
 import PersonalizedRecomendation from "@/app/(website)/_components/personalized-recomendatin";

@@ -1,10 +1,10 @@
 "use client";
 
-// package import ===========
+// package import
 import dynamic from "next/dynamic";
 import { useState } from "react";
 
-// local import ----------------
+// local import 
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import PacificPagination from "@/components/ui/PacificPagination";
 

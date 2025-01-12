@@ -1,9 +1,12 @@
 'use client'
-
-import { useState } from 'react'
-import { ScrollArea } from "@/components/ui/scroll-area"
+// package import 
 import { X } from 'lucide-react'
 import Image from "next/image"
+import { useState } from 'react'
+
+// local import 
+
+import { ScrollArea } from "@/components/ui/scroll-area"
 import SectionHeading from '@/components/shared/SectionHeading/SectionHeading'
 
 interface Notification {

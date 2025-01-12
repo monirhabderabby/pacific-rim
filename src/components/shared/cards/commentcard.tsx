@@ -1,6 +1,10 @@
-import { CommentCard } from '@/types/commentCard';
+// package import 
 import Image from 'next/image';
 import React from 'react';
+
+// local import 
+import { CommentCard } from '@/types/commentCard';
+
 
 
 

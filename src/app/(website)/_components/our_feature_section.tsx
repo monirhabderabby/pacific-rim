@@ -1,4 +1,7 @@
 "use client";
+
+
+// local import 
 import { ButtonArrow } from "@/components/shared/button/ButtonArrow";
 import FeaturedProductCard from "@/components/shared/cards/featured_card";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";

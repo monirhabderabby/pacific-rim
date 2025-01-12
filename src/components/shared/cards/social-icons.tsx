@@ -1,7 +1,11 @@
+// package import 
 import Link from "next/link";
 import { BsTwitterX } from "react-icons/bs";
 import { GrInstagram } from "react-icons/gr";
 import { TfiFacebook, TfiLinkedin } from "react-icons/tfi";
+
+
+
 export default function SocialIcons() {
   return (
     <div className="flex items-center gap-x-[20px]">

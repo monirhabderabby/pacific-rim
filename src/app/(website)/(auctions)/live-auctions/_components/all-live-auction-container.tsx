@@ -4,6 +4,7 @@ import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import PacificPagination from "@/components/ui/PacificPagination";
 import { useState } from "react";
 
+
 const AllLiveAuctionContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);
   return (

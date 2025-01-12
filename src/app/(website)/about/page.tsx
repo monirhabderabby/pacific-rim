@@ -1,3 +1,4 @@
+// loacal import 
 import AboutSection from "@/components/shared/sections/about-section";
 import { PageHeader } from "@/components/shared/sections/page-header";
 import Heading from "./_components/headig";

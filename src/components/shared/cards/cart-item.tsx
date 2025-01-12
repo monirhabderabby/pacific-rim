@@ -1,7 +1,8 @@
-import { CartItem } from "@/types/cart";
+// package import 
 import { Check } from "lucide-react";
 import Image from "next/image";
 import { StarRating } from "../clientReview/StarRating";
+import { CartItem } from "@/types/cart";
 interface CartItemProps {
   item: CartItem;
   onUpdateQuantity: (id: string, quantity: number) => void;
