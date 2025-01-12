@@ -7,14 +7,14 @@ const VendorStoreHeader = () => {
     <div className="relative ">
       <div
         style={{
-          backgroundImage: `url(/assets/img/heroBg.png)`,
+          backgroundImage: `url("https://i.postimg.cc/HxDYXZQN/image-1.png")`,
           backgroundSize: "cover",
           backgroundRepeat: "repeat",
           top: 0,
           left: 0,
           height: "300px",
         }}
-        className="bg-cover animate-moveBackground"
+        className="bg-cover animate-moveBackground bg-gray-200"
       />
       <div className="container relative -mt-[88px]">
         <Image
