@@ -8,23 +8,48 @@ interface FormContextType {
   formData: FormData
   setStep: (step: FormStep) => void
   updateFormData: (data: Partial<FormData>) => void
+  getNextStep: (currentStep: FormStep) => FormStep
 }
 
 const FormContext = createContext<FormContextType | undefined>(undefined)
 
 export function FormProvider({ children }: { children: React.ReactNode }) {
-  const [step, setStep] = useState<FormStep>('login')
+  const [step, setStep] = useState<FormStep>('experience')
   const [formData, setFormData] = useState<FormData>({
-    email: '',
-    password: '',
+    licenses: []
   })
 
   const updateFormData = (data: Partial<FormData>) => {
     setFormData(prev => ({ ...prev, ...data }))
   }
 
+  const getNextStep = (currentStep: FormStep): FormStep => {
+    if (currentStep === 'experience') {
+      if (formData.experience === 'Recreational Cannabis') {
+        return 'email'
+      }
+      return 'user-info'
+    }
+
+    if (currentStep === 'email') {
+      return 'business-info'
+    }
+
+    if (currentStep === 'business-info') {
+      return 'user-info'
+    }
+
+    return 'experience'
+  }
+
   return (
-    <FormContext.Provider value={{ step, setStep, formData, updateFormData }}>
+    <FormContext.Provider value={{ 
+      step, 
+      setStep, 
+      formData, 
+      updateFormData,
+      getNextStep 
+    }}>
       {children}
     </FormContext.Provider>
   )
