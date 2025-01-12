@@ -30,6 +30,7 @@ export function VerifyOTPForm() {
     setStep('reset-password');
   };
 
+
   return (
     <div className="space-y-6">
       <div className="space-y-2 text-center">
@@ -57,6 +58,7 @@ export function VerifyOTPForm() {
           ))}
         </div>
         <div className="flex items-center justify-between">
+
           <span className="text-base text-[#444444] font-normal leading-[19.2px]">
             Didn’t receive OTP?
           </span>
@@ -73,9 +75,12 @@ export function VerifyOTPForm() {
           type="submit"
           className="w-full text-base text-[#FFFFFF] font-semibold leading-[19.2px] bg-[#2A6C2D] hover:bg-[#2A6C2D]/80 !mt-[36px]"
         >
+
           Verify
         </Button>
       </form>
     </div>
+
   );
 }
+
