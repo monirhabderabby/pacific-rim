@@ -8,7 +8,8 @@ export type FormStep =
   | 'login'
   | 'forgot-password'
   | 'reset-password'
-  | 'verify-otp';
+  | 'verify-otp'
+  | 'profession';
 
 export interface BusinessLicense {
   type: 'Recreational' | 'CBD' | 'Reseller';
@@ -24,6 +25,7 @@ export interface FormData {
   fullName?: string;
   password?: string;
   confirmPassword?: string;
+  profession?: string;
 }
 
 export interface Country {
