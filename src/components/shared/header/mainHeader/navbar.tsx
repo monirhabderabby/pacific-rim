@@ -1,14 +1,16 @@
 "use client";
-
-import HeaderLogo from "@/../../public/assets/header-logo.png";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+// Packages
 import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+
+// Local imports
+import HeaderLogo from "@/../../public/assets/header-logo.png";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
 import AuctionList from "./AuctionList";
 import { AuctionMobileMenu } from "./demonav";
@@ -249,9 +251,17 @@ function Navbar() {
   const loggedin = true;
   const pathName = usePathname();
 
-  // if age alert navbar should not display
-  if (pathName === "/age-alert") {
-    return;
+  // Routes where the Navbar should be hidden
+  const hideRoutes = ["/age-alert"];
+
+  // Check if the current pathName starts with any hideRoutes item
+  const shouldHideNavbar = hideRoutes.some((route) =>
+    pathName.startsWith(route)
+  );
+
+  // If the Navbar should be hidden, return null
+  if (shouldHideNavbar) {
+    return null;
   }
 
   return (

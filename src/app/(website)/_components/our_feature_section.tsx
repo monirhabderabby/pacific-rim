@@ -1,7 +1,6 @@
 "use client";
 
-
-// local import 
+// local import
 import { ButtonArrow } from "@/components/shared/button/ButtonArrow";
 import FeaturedProductCard from "@/components/shared/cards/featured_card";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
@@ -19,7 +18,7 @@ const OurFeatureSection = () => {
       </div>
 
       <div className="mt-[40px] w-full flex justify-center items-center">
-        <ButtonArrow text="Explore More" size="sm" href="/" />
+        <ButtonArrow text="Explore More" size="sm" href="/products" />
       </div>
     </div>
   );

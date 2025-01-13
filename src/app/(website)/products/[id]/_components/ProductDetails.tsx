@@ -1,12 +1,14 @@
 "use client";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import React, { useState } from "react";
-import { ProductImageGallery } from "./ProductImageGallery";
-import { StarRating } from "./StarRating";
-import { SizeSelector } from "./SizeSelector";
-import { ProductData, SizeOption } from "./types";
+import FeaturedProductCard from "@/components/shared/cards/featured_card";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
-import { Flame, Minus, Plus, Heart, RefreshCw } from "lucide-react";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { featureProducts } from "@/data/featured";
+import { Flame, Heart, Minus, Plus, RefreshCw } from "lucide-react";
+import { useState } from "react";
+import { ProductImageGallery } from "./ProductImageGallery";
+import { SizeSelector } from "./SizeSelector";
+import { StarRating } from "./StarRating";
+import { ProductData, SizeOption } from "./types";
 
 const productData: ProductData = {
   title: "American Beauty",
@@ -56,7 +58,7 @@ const ProductDetails = () => {
   return (
     <div>
       <SectionHeading heading={"Our products"} subheading={""} />
-      <section className="flex justify-center items-center py-10 px-4">
+      <section className="flex justify-center items-center pt-10 px-4">
         <div className="flex flex-col w-full max-w-[1200px]">
           <div className="flex flex-wrap gap-8 w-full ">
             <ProductImageGallery
@@ -74,7 +76,9 @@ const ProductDetails = () => {
                     <div className="flex gap-2 items-center mt-2 text-base leading-tight text-[#E10E0E] -translate-x-[7px]">
                       <div className="flex items-center self-stretch my-auto">
                         <Flame className="h-[15px]" />
-                        <div className="self-stretch my-auto font-[16px]">Hot</div>
+                        <div className="self-stretch my-auto font-[16px]">
+                          Hot
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -95,17 +99,13 @@ const ProductDetails = () => {
                 <div className="flex gap-4 mt-3">
                   <span className="text-[#9C9C9C]">Store:</span>
                   <div className=" flex space-x-2  items-center">
-
                     <Avatar className="w-[20px] h-[20px]">
                       <AvatarImage
                         src="/assets/img/store.png"
                         alt="store name"
                       />
-
                     </Avatar>
-                    <div className="text-[#2a6c2d]">
-                      {productData.store}
-                    </div>
+                    <div className="text-[#2a6c2d]">{productData.store}</div>
                   </div>
                 </div>
                 <div className="mt-5 w-full border border-solid  border-b-stone-700 h-[1px]" />
@@ -135,10 +135,11 @@ const ProductDetails = () => {
                     {/* wishlist----------------- */}
                     <button
                       onClick={handleWishlistToggle}
-                      className={`flex gap-2.5 justify-center items-center px-2 bg-white rounded-lg border border-solid ${isWishlist
+                      className={`flex gap-2.5 justify-center items-center px-2 bg-white rounded-lg border border-solid ${
+                        isWishlist
                           ? "border-red-500 text-red-500"
                           : "border-stone-300"
-                        } h-[42px] min-h-[41px] w-[43px]`}
+                      } h-[42px] min-h-[41px] w-[43px]`}
                       aria-label="Add to wishlist"
                     >
                       <Heart fill={isWishlist ? "red" : "none"} />
@@ -172,6 +173,17 @@ const ProductDetails = () => {
               {productData.description}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="my-[80px]  container">
+        <h1 className="text-[28px] font-semibold text-[#2A6C2D] leading-[33.6px]">
+          Explore related Items
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-[24px] gap-[30px]">
+          {featureProducts.slice(0, 4).map((product) => (
+            <FeaturedProductCard key={product.id} product={product} />
+          ))}
         </div>
       </section>
     </div>

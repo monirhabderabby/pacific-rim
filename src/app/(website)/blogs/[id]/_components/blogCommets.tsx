@@ -94,12 +94,9 @@ function BlogCommets() {
             />
           ))}
         </div>
-        <button
-          className="gap-2.5 self-start px-6 py-3 mt-5 text-base font-medium leading-tight text-green-800 bg-white rounded-lg border border-green-800 border-solid max-md:px-5"
-          tabIndex={0}
-        >
+        <Button variant="outline" size="sm">
           Read More
-        </button>
+        </Button>
       </div>
     </>
   );
