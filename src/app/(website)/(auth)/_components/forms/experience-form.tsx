@@ -6,11 +6,11 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Label } from '@/components/ui/label'
 
 export function ExperienceForm() {
-  const { updateFormData, setStep, getNextStep } = useForm()
+  const { updateFormData, setStep } = useForm()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setStep(getNextStep('experience'))
+    setStep("profession")
   }
 
   return (

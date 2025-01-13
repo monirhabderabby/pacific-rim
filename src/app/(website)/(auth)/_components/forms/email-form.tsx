@@ -9,7 +9,7 @@ export function EmailForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setStep(getNextStep('email'))
+    setStep(getNextStep("email"))
   }
 
   return (
