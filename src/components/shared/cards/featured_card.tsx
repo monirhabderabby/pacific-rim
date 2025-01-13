@@ -1,18 +1,25 @@
-// package import 
+"use client";
+// package import
 import { Heart } from "lucide-react";
 import Image from "next/image";
 
-// local import 
+// local import
 import { FeatureCardType } from "@/data/featured";
-
+import { useRouter } from "next/navigation";
 
 export default function FeaturedProductCard({
   product,
 }: {
   product: FeatureCardType;
 }) {
+  const router = useRouter();
   return (
-    <div className="flex overflow-hidden relative flex-col grow shrink self-stretch p-3 my-auto mx-auto bg-white rounded-[8px] border border-gray-200 border-solid w-full md:w-[260px] hover:shadow-feature_card transition-shadow duration-300">
+    <div
+      className="flex overflow-hidden relative flex-col grow shrink self-stretch p-3 my-auto mx-auto bg-white rounded-[8px] border border-gray-200 border-solid w-full md:w-[260px] hover:shadow-feature_card transition-shadow duration-300 cursor-pointer"
+      onClick={() => {
+        router.push(`/products/${product.id}`);
+      }}
+    >
       <div className="overflow-hidden rounded-[8px]">
         <Image
           loading="lazy"
@@ -66,7 +73,7 @@ export default function FeaturedProductCard({
               />
             </div>
           </div>
-          <div className="mt-2 text-[16px] text-base font-medium leading-[19.2px] text-[#2A6C2D]">
+          <div className="mt-2 text-[16px] text-left font-medium leading-[19.2px] text-[#2A6C2D]">
             American Beauty
           </div>
           <div className="flex gap-1 items-end self-start mt-2 font-medium leading-tight">
@@ -79,6 +86,12 @@ export default function FeaturedProductCard({
           </div>
         </div>
         <button
+          onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            console.log("add to cart");
+          }}
           className="gap-2.5 self-stretch px-6 py-3 mt-4 w-full text-base font-medium leading-tight text-white bg-primary-green-hover hover:bg-primary-green-hover/90 rounded-lg max-md:px-5 transition-colors duration-300"
           aria-label="Add to cart"
         >
