@@ -1,31 +1,59 @@
+export type ExperienceType = 'CBD/HEMP' | 'Recreational Cannabis';
+
 export type FormStep = 
+  | 'experience'
+  | 'email'
+  | 'business-info'
+  | 'user-info'
   | 'login'
   | 'forgot-password'
-  | 'verify-otp'
   | 'reset-password'
-  | 'experience'
-  | 'business-info'
-  | 'user-info';
+  | 'verify-otp';
+
+export interface BusinessLicense {
+  type: 'Recreational' | 'CBD' | 'Reseller';
+  licenseNumber: string;
+}
+
+export interface FormData {
+  experience?: ExperienceType;
+  email?: string;
+  country?: string;
+  province?: string;
+  licenses: BusinessLicense[];
+  fullName?: string;
+  password?: string;
+  confirmPassword?: string;
+}
 
 export interface Country {
   name: string;
   provinces: string[];
 }
 
-export interface BusinessLicense {
-  type: 'CBD' | 'Reseller';
-  licenseNumber: string;
-}
-
-export interface FormData {
-  email: string;
-  password: string;
-  fullName?: string;
-  confirmPassword?: string;
-  experience?: 'CBD/HEMP' | 'Recreational Cannabis';
-  country?: string;
-  province?: string;
-  licenses?: BusinessLicense[];
-  otp?: string;
-}
+export const COUNTRIES: Country[] = [
+  {
+    name: 'USA',
+    provinces: [
+      'Alabama',
+      'Alaska',
+      'Arizona',
+      'Arkansas',
+      'California',
+      'Colorado',
+      'Nevada',
+      'New York',
+      'Ohio',
+      'Oklahoma'
+    ]
+  },
+  {
+    name: 'Canada',
+    provinces: ['Ontario', 'Quebec', 'British Columbia']
+  },
+  {
+    name: 'Mexico',
+    provinces: ['Jalisco', 'Nuevo León', 'Yucatán']
+  }
+];
 

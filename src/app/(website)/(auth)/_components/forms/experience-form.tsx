@@ -2,14 +2,15 @@
 
 import { Button } from '@/components/ui/button'
 import { useForm } from '@/provider/form-provider'
-import { Checkbox } from '@/components/ui/checkbox'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Label } from '@/components/ui/label'
 
 export function ExperienceForm() {
-  const { updateFormData, setStep } = useForm()
+  const { updateFormData, setStep, getNextStep } = useForm()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setStep('business-info')
+    setStep(getNextStep('experience'))
   }
 
   return (
@@ -20,35 +21,24 @@ export function ExperienceForm() {
           Continue to register as a customer or vendor, Please provide the information.
         </p>
       </div>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <h2 className="text-2xl font-semibold">What do you want to experience?</h2>
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="cbd"
-              onCheckedChange={() => updateFormData({ experience: 'CBD/HEMP' })}
-            />
-            <label
-              htmlFor="cbd"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              CBD/HEMP
-            </label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="recreational"
-              onCheckedChange={() =>
-                updateFormData({ experience: 'Recreational Cannabis' })
-              }
-            />
-            <label
-              htmlFor="recreational"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              Recreational Cannabis
-            </label>
-          </div>
+          <h2 className="text-2xl font-semibold">What do you want to experience?</h2>
+          <RadioGroup
+            onValueChange={(value) => 
+              updateFormData({ experience: value as 'CBD/HEMP' | 'Recreational Cannabis' })
+            }
+            className="space-y-3"
+          >
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="CBD/HEMP" id="cbd" />
+              <Label htmlFor="cbd">CBD/HEMP</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="Recreational Cannabis" id="recreational" />
+              <Label htmlFor="recreational">Recreational Cannabis</Label>
+            </div>
+          </RadioGroup>
         </div>
         <Button type="submit" className="w-full bg-green-600 hover:bg-green-700">
           Next
