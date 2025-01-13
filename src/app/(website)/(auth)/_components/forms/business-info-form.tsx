@@ -25,8 +25,9 @@ export function BusinessInfoForm() {
     if (formStep < 3) {
       setFormStep(formStep + 1)
     } else {
-      setStep(getNextStep('business-info'))
+      setStep(getNextStep('business-info'))	
     }
+  
   }
 
   const renderStep = () => {
@@ -218,4 +219,5 @@ export function BusinessInfoForm() {
     </div>
   )
 }
+
 

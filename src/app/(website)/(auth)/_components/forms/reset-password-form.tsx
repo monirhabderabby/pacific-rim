@@ -4,10 +4,12 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { EyeIcon, EyeOffIcon } from 'lucide-react'
+import { useForm } from "@/provider/form-provider"
 
 export function ResetPasswordForm() {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const { setStep } = useForm()
   const [formData, setFormData] = useState({
     password: "",
     confirmPassword: "",
@@ -19,6 +21,7 @@ export function ResetPasswordForm() {
       // Handle password update
       console.log("Password updated successfully")
     }
+    setStep('login')
   }
 
   return (

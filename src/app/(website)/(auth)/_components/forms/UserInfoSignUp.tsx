@@ -5,10 +5,14 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { EyeIcon, EyeOffIcon } from 'lucide-react'
+import { useForm } from '@/provider/form-provider'
 
 export default function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+
+  const {  setStep, getNextStep } = useForm()
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -20,6 +24,7 @@ export default function SignUpForm() {
       confirmPassword: formData.get('confirmPassword')
     }
     console.log('Form Data:', data)
+    setStep(getNextStep('user-info'))
   }
 
   return (

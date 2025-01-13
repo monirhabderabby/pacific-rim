@@ -23,24 +23,37 @@ export function FormProvider({ children }: { children: React.ReactNode }) {
     setFormData(prev => ({ ...prev, ...data }))
   }
 
-  const getNextStep = (currentStep: FormStep): FormStep => {
-    if (currentStep === 'experience') {
-      if (formData.experience === 'Recreational Cannabis') {
-        return 'email'
-      }
-      return 'user-info'
-    }
+  const getNextStep = (currentStep: FormStep): any => {
+    const experience = formData.experience;
+  
+    switch (currentStep) {
+      case 'experience':
+        if (experience === 'CBD/HEMP') {
+          return 'profession';
+        } else if (experience === 'Recreational Cannabis') {
+          return 'profession';
+        }
+        break;
+  
+      case 'profession':
+        return experience === 'CBD/HEMP' ? 'user-info' : 'email';
+  
+      case 'email':
+        return 'business-info';
 
-    if (currentStep === 'email') {
-      return 'business-info'
-    }
+      case 'business-info':
+        return experience === 'CBD/HEMP' ? 'login' : 'user-info';
 
-    if (currentStep === 'business-info') {
-      return 'user-info'
-    }
+      case 'user-info':
+        return experience === 'CBD/HEMP' ? 'business-info' : 'login';
 
-    return 'experience'
-  }
+
+      default:
+        return 'login';
+    }
+  };
+
+
 
   return (
     <FormContext.Provider value={{ 
