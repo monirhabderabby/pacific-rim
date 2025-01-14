@@ -130,7 +130,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
               <Link href="/login">Log in</Link>
             </Button>
             <Button size="md" asChild>
-              <Link href="/auth">Sign up</Link>
+              <Link href="/registration">Sign up</Link>
             </Button>
           </div>
         ) : (
@@ -261,7 +261,6 @@ function Navbar() {
     "/vendor-dashboard",
     "/login",
     "/registration",
-    "/auth",
   ];
 
   // Check if the current pathName starts with any hideRoutes item
