@@ -76,6 +76,7 @@ export function MultiStepForm() {
               />
             </div>
             <div className="md:p-8 flex flex-col justify-center">
+
               {renderStep()}
             </div>
           </div>
