@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
-import Image from 'next/image'
 import React from 'react'
 import { useForm } from '@/provider/form-provider'
 
@@ -37,21 +36,9 @@ export default function CheckProfession() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container px-4 py-6 mx-auto">
+    <div className="bg-background">
+      <div className=" px-4 py-6 mx-auto">
       
-
-        <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
-          <div className="relative aspect-square md:aspect-auto">
-            <Image
-              src=""
-              alt="Cannabis products with leaves"
-              fill
-              className="object-cover rounded-lg"
-              priority
-            />
-          </div>
-
           <div className="space-y-6">
             <div className="space-y-2">
               <h1 className="text-3xl font-semibold tracking-tight text-green-600">Sign Up</h1>
@@ -83,13 +70,12 @@ export default function CheckProfession() {
 
             <Button 
               className="bg-green-600 hover:bg-green-700"
-                onClick={()=> setStep(getNextStep('profession'))}
+              onClick={()=> setStep(getNextStep('profession'))}
               disabled={selectedProfessions.length === 0}
             >
               Next
             </Button>
           </div>
-        </div>
       </div>
     </div>
   )
