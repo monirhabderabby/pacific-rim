@@ -1,15 +1,18 @@
 "use client";
 
 import { CartItemCard } from "@/components/shared/cards/cart-item";
+import { initialItems } from "@/data/CartData";
+import { CartItem } from "@/types/cart";
+import { Heart } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { CartSummary } from "./cart-summary";
-import { Heart } from "lucide-react";
-import { CartItem } from "@/types/cart";
-import { initialItems } from "@/data/CartData";
-
 
 export default function CartPage() {
   const [items, setItems] = useState<CartItem[]>(initialItems);
+  const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const updateQuantity = (id: string, quantity: number) => {
     setItems(
@@ -34,6 +37,12 @@ export default function CartPage() {
 
   const handleCheckout = () => {
     console.log("Proceeding to checkout...");
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      router.push("/checkout");
+    }, 3000);
   };
 
   const { subtotal, shipping, tax, total } = calculateTotals();
@@ -68,6 +77,7 @@ export default function CartPage() {
             tax={tax}
             total={total}
             onCheckout={handleCheckout}
+            loading={loading}
           />
         </div>
       </div>
