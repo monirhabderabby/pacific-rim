@@ -248,7 +248,7 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
 }
 
 function Navbar() {
-  const loggedin = true;
+  const loggedin = false;
   const pathName = usePathname();
 
   // Routes where the Navbar should be hidden
