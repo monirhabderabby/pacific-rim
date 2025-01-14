@@ -42,18 +42,20 @@ export function MultiStepForm() {
   }
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen  overflow-hidden">
       <div className="mx-auto container px-4 py-8">
-        <div className="relative rounded-lg">
-          <div className="flex items-center justify-between p-4">
-            <div className="flex items-center gap-4">
+        <div className="relative rounded-lg ">
+          <div className="flex items-center justify-between py-4 md:mb-[90px]">
+            <div className="flex items-cente gap-1">
               <Image
-                src="/placeholder.svg"
+                src="/assets/img/logo.png"
                 alt="Pacific Rim Fusion"
                 width={40}
                 height={40}
                 className="rounded-full"
-              />
+                />
+              <span className='font-semibold text-[10px] leading-[12px]'>Pacific <br /> Rim <br /> Fusion</span>
+            </div>
               {step !== 'experience' && (
                 <button
                   onClick={() => setStep(getNextStep('experience'))}
@@ -63,18 +65,17 @@ export function MultiStepForm() {
                   Back
                 </button>
               )}
-            </div>
           </div>
-          <div className="grid min-h-[600px] md:grid-cols-2">
+          <div className="grid h-[600px] md:grid-cols-2">
             <div className="relative hidden md:block">
               <Image
                 src="/assets/img/signup.png"
                 alt="CBD Products"
                 fill
-                className="rounded-l-lg object-cover"
+                className="rounded-l-lg object-cover rounded-2xl"
               />
             </div>
-            <div className="lg:p-8">
+            <div className="md:p-8 flex flex-col justify-center">
               {renderStep()}
             </div>
           </div>
