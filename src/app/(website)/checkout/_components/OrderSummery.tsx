@@ -6,14 +6,14 @@ interface OrderItem {
   price: string;
 }
 
-export const OrderSummary: React.FC<OrderItem> = ({
+const OrderSummary: React.FC<OrderItem> = ({
   imageUrl,
   name,
   price,
 }) => {
   return (
     <div>
-      <div className="flex flex-wrap gap-4 items-center w-full max-md:max-w-full">
+      <div className="flex flex-wrap gap-4 items-center w-full max-md:max-w-full h-[52px]">
         <Image
           loading="lazy"
           src={imageUrl}
@@ -23,11 +23,12 @@ export const OrderSummary: React.FC<OrderItem> = ({
           className=""
         />
         <div className="flex flex-1 shrink gap-10 justify-between items-start self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
-          <div className="w-60 text-green-800">{name}</div>
-          <div className="text-neutral-900">{price}</div>
+          <div className="w-60 text-[#2A6C2D]">{name}</div>
+          <div className="text-[#181818]">{price}</div>
         </div>
       </div>
       
     </div>
   );
 };
+export default OrderSummary
