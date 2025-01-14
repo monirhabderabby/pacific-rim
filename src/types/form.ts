@@ -16,6 +16,13 @@ export interface BusinessLicense {
   licenseNumber: string;
 }
 
+export interface BusinessStore {
+  country: string;
+  province?: string;
+  recreationalLicense: string;
+  resellerLicense?: string;
+}
+
 export interface FormData {
   experience?: ExperienceType;
   email?: string;
@@ -26,6 +33,7 @@ export interface FormData {
   password?: string;
   confirmPassword?: string;
   profession?: string;
+  businessStores?: any;
 }
 
 export interface Country {
