@@ -74,6 +74,7 @@ export function MultiStepForm() {
                 className="rounded-l-lg object-cover"
               />
             </div>
+
             <div className="lg:p-8">
               {renderStep()}
             </div>
