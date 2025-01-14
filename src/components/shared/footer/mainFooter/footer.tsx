@@ -66,7 +66,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  href="/faq"
+                  href="/faqs"
                   className="text-zinc-400 hover:text-white transition-colors"
                 >
                   Faq
