@@ -155,7 +155,7 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex overflow-hidden gap-2 items-center mt-12 w-full rounded-lg border border-solid border-slate-400 max-md:mt-10">
+              <div className="flex overflow-hidden gap-2 items-center mt-12 w-full rounded-lg border border-solid border-slate-400 max-md:mt-10 h-[42px]">
                 <div className="flex gap-2.5 justify-center items-center self-stretch px-2 py-2.5 my-auto rounded-lg min-h-[41px] w-[43px]">
                   <RefreshCw />
                 </div>
