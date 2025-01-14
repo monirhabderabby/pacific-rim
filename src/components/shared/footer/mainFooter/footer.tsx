@@ -7,8 +7,17 @@ import { usePathname } from "next/navigation";
 function Footer() {
   const pathName = usePathname();
 
-  if (pathName === "/age-alert") {
-    return;
+  // Routes where the Navbar should be hidden
+  const hideRoutes = ["/age-alert", "/vendor-dashboard"];
+
+  // Check if the current pathName starts with any hideRoutes item
+  const shouldHideNavbar = hideRoutes.some((route) =>
+    pathName.startsWith(route)
+  );
+
+  // If the Navbar should be hidden, return null
+  if (shouldHideNavbar) {
+    return null;
   }
 
   return (
@@ -66,7 +75,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  href="/faq"
+                  href="/faqs"
                   className="text-zinc-400 hover:text-white transition-colors"
                 >
                   Faq

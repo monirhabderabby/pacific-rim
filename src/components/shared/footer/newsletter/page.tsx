@@ -11,7 +11,7 @@ function NewsletterPage() {
   const pathName = usePathname();
 
   // Routes where the Navbar should be hidden
-  const hideRoutes = ["/age-alert"];
+  const hideRoutes = ["/age-alert", "/vendor-dashboard"];
 
   // Check if the current pathName starts with any hideRoutes item
   const shouldHideNavbar = hideRoutes.some((route) =>
