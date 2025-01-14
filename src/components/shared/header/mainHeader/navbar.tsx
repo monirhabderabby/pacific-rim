@@ -130,7 +130,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
               <Link href="/login">Log in</Link>
             </Button>
             <Button size="md" asChild>
-              <Link href="/registration">Sign up</Link>
+              <Link href="/auth">Sign up</Link>
             </Button>
           </div>
         ) : (
