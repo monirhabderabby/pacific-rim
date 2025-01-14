@@ -10,9 +10,9 @@ export default async function AccountLayout({
   return (
     <div>
       <PageHeader title="Account" items={[]} />
-      <div className="mt-10 container mx-auto flex flex-col md:flex-row gap-6">
+      <div className="my-[80px] container mx-auto flex flex-col md:flex-row gap-6">
         {/* Sidebar */}
-        <aside className=" md:w-[270px]">
+        <aside className=" md:w-[270px] h-auto">
           <AccountSidebar />
         </aside>
 

@@ -1,4 +1,5 @@
 "use client";
+// package import 
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
 const NProgress = () => {

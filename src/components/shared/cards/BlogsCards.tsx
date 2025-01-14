@@ -1,8 +1,13 @@
+// package import 
 import React from 'react';
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { CalendarDays, MessageCircle, User } from 'lucide-react';
 import Link from "next/link";
 import Image from "next/image";
+import { CalendarDays, MessageCircle, User } from 'lucide-react';
+
+// local import 
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+
+
 import { Blog } from '@/types/popularBlog';
 
 function BlogsCards({ image, title, date, author, comments, id }: Blog) {

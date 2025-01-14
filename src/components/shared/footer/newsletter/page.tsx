@@ -3,10 +3,25 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 function NewsletterPage() {
   const [email, setEmail] = useState("");
+  const pathName = usePathname();
+
+  // Routes where the Navbar should be hidden
+  const hideRoutes = ["/age-alert"];
+
+  // Check if the current pathName starts with any hideRoutes item
+  const shouldHideNavbar = hideRoutes.some((route) =>
+    pathName.startsWith(route)
+  );
+
+  // If the Navbar should be hidden, return null
+  if (shouldHideNavbar) {
+    return null;
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

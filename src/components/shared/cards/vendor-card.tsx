@@ -1,8 +1,13 @@
+// package import 
+import Image from 'next/image'
 import { MapPin, Phone, Mail, MoveRight } from 'lucide-react'
+
+// local import 
+
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import type { VendorCardProps } from "@/types/vendor"
-import Image from 'next/image'
+
 import { StarRating } from '@/app/(website)/cart/_components/star-rating'
 
 export function VendorCard({ vendor }: VendorCardProps) {

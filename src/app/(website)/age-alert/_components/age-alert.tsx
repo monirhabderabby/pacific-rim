@@ -1,11 +1,14 @@
 "use client";
 
-import Cookies from "js-cookie";
-import Image from "next/image";
-// Packages
+// Packages====================
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2"; // Import SweetAlert2
+
+// local impot -------------------------
+import { Button } from "@/components/ui/button";
+import { addToSessionStorage } from "@/lib/session-storage";
+import Image from "next/image";
 
 const AgeAlert = () => {
   const [showModal, setShowModal] = useState(false);
@@ -16,7 +19,7 @@ const AgeAlert = () => {
   }, []);
 
   const handleYes = () => {
-    Cookies.set("age-restriction", "false", { expires: 7 }); // Set cookie for 1 day
+    addToSessionStorage("age-restriction", false);
     push("/");
   };
 
@@ -56,9 +59,8 @@ const AgeAlert = () => {
       <div
         style={{
           width: "100%",
-          height: "100%",
-          maxWidth: "500px",
-          maxHeight: "600px",
+          height: "auto",
+          maxWidth: "550px",
           backgroundColor: "rgba(255, 255, 255, 0.9)",
           borderRadius: "12px",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -66,6 +68,7 @@ const AgeAlert = () => {
           flexDirection: "column",
           alignItems: "center",
           padding: "30px",
+          paddingBottom: "50px",
           position: "relative",
           overflow: "hidden",
           opacity: showModal ? 1 : 0,
@@ -76,78 +79,41 @@ const AgeAlert = () => {
           src="/assets/img/logo.png"
           alt="Logo"
           style={{
-            width: "100px",
-            height: "100px",
+            width: "205px",
+            height: "205px",
             borderRadius: "50%",
             marginBottom: "20px",
           }}
           width={100}
           height={100}
         />
-        <h1
-          style={{
-            fontSize: "36px",
-            fontWeight: "bold",
-            textAlign: "center",
-            marginBottom: "10px",
-            padding: "2px",
-          }}
-        >
+        <h1 className="text-[36px] font-bold leading-[43.64px] text-[#333333]">
           PACIFIC RIM FUSION
         </h1>
-        <p
-          style={{
-            fontSize: "22px",
-            fontWeight: "bold",
-            color: "green",
-            textAlign: "center",
-            marginBottom: "20px",
-          }}
-        >
+        <p className="text-[32px] font-semibold leading-[38.4px] text-center text-[#2A6C2D]">
           Are you 18 years or older?
         </p>
         <p
           style={{
-            fontSize: "20px",
-            color: "#555",
+            fontSize: "22px",
+            color: "#102011",
             textAlign: "center",
-            marginBottom: "30px",
+            marginBottom: "32px",
           }}
         >
-          We need this information for legal purposes.
-          <br /> You must be 18+ years to enter this site.
+          We need this information for legal stuff.
+          <br />
+          You Must be 21+ years for <br />
+          enter this site.
         </p>
-        <button
-          onClick={handleYes}
-          style={{
-            padding: "10px 30px",
-            backgroundColor: "green",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            fontSize: "16px",
-            cursor: "pointer",
-            transition: "background-color 0.3s",
-            marginBottom: "30px",
-          }}
-        >
-          YES
-        </button>
-        <button
-          onClick={handleNo}
-          style={{
-            padding: "10px 30px",
-            backgroundColor: "white",
-            color: "#b91c1c",
-            border: "2px solid red",
-            borderRadius: "5px",
-            fontSize: "16px",
-            cursor: "pointer",
-            transition: "background-color 0.3s, color 0.3s",
-          }}
-        >
-          NO
-        </button>
+        <div className="space-y-[30px] w-full max-w-[396px]">
+          <Button onClick={handleYes} className="w-full">
+            YES
+          </Button>
+          <Button onClick={handleNo} variant="outline" className="w-full">
+            NO
+          </Button>
+        </div>
       </div>
 
       {/* CSS Keyframes */}

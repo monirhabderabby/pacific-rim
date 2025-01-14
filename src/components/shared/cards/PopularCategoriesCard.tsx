@@ -1,6 +1,7 @@
+// local import 
 import Image from "next/image";
 
-// package import ###########
+// package import 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 // category type ////

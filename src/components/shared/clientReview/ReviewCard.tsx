@@ -1,8 +1,12 @@
+// package import =========
 import * as React from "react";
+import Image from "next/image";
+
+// local import ------------
 import { Card, CardContent } from "@/components/ui/card";
 import { StarRating } from "./StarRating";
 import { ReviewCardProps } from "./types";
-import Image from "next/image";
+
 
 export const ReviewCard: React.FC<ReviewCardProps> = ({
   name,

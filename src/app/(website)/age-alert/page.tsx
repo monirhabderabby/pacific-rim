@@ -1,3 +1,4 @@
+// package import ==========
 import dynamic from "next/dynamic";
 
 const AgeAlert = dynamic(() => import("./_components/age-alert"), {

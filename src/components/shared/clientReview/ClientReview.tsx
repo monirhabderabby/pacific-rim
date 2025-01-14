@@ -1,6 +1,10 @@
-"use client"
+"use client";
+// package import ==============
 import * as React from "react";
-import { ReviewCard } from "./ReviewCard";
+
+
+// local import --------------
+import type { CarouselApi } from "@/components/ui/carousel";
 import {
   Carousel,
   CarouselContent,
@@ -8,60 +12,71 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import type { CarouselApi } from "@/components/ui/carousel"
 
+import { ReviewCard } from "./ReviewCard";
+
+// Review data this come from Backend **********************
 const reviewsData = [
   {
     name: "Robert Fox",
-    role: "Customer",
+    role: "vendor",
     avatarSrc: "/assets/img/revDp.png",
     rating: 2,
-    title: "\"Good Experience\"",
-    review: "\"Pacific Rim Fusion is an outstanding platform for the B2B surplus cannabis market, offering a seamless auction experience that enhances both buying and selling processes.\""
+    title: '"Good Experience"',
+    review:
+      '"Pacific Rim Fusion is an outstanding platform for the B2B surplus cannabis market, offering a seamless auction experience that enhances both buying and selling processes."',
   },
   {
     name: "Robert Fox",
     role: "Customer",
     avatarSrc: "/assets/img/revDp.png",
     rating: 4,
-    title: "\"Good Experience\"",
-    review: "\"Pacific Rim Fusion is an outstanding platform for the B2B surplus cannabis market, offering a seamless auction experience that enhances both buying and selling processes.\""
+    title: '"Good Experience"',
+    review:
+      '"Pacific Rim Fusion is an outstanding platform for the B2B surplus cannabis market, offering a seamless auction experience that enhances both buying and selling processes."',
   },
   {
     name: "Robert Fox",
     role: "Customer",
     avatarSrc: "/assets/img/revDp.png",
     rating: 2,
-    title: "\"Good Experience\"",
-    review: "\"Pacific Rim Fusion is an outstanding platform for the B2B surplus cannabis market, offering a seamless auction experience that enhances both buying and selling processes.\""
+    title: '"Good Experience"',
+    review:
+      '"Pacific Rim Fusion is an outstanding platform for the B2B surplus cannabis market, offering a seamless auction experience that enhances both buying and selling processes."',
   },
   {
     name: "Robert Fox",
     role: "Customer",
     avatarSrc: "/assets/img/revDp.png",
     rating: 2,
-    title: "\"Good Experience\"",
-    review: "\"Pacific Rim Fusion is an outstanding platform for the B2B surplus cannabis market, offering a seamless auction experience that enhances both buying and selling processes.\""
+    title: '"Good Experience"',
+    review:
+      '"Pacific Rim Fusion is an outstanding platform for the B2B surplus cannabis market, offering a seamless auction experience that enhances both buying and selling processes."',
   },
 ];
 
 export const ClientReviews: React.FC = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [api, setApi] = React.useState<CarouselApi>()
+  const [api, setApi] = React.useState<CarouselApi>();
+
   React.useEffect(() => {
     if (!api) {
-      return
+      return;
     }
 
     api.on("select", () => {
-      setActiveIndex(api.selectedScrollSnap())
-    })
-  }, [api])
+      setActiveIndex(api.selectedScrollSnap());
+    });
+  }, [api]);
+   
   const totalSlides = reviewsData.length;
-  const visibleItems = 3; 
-  const centerIndex = (activeIndex + Math.floor(visibleItems / 2)) % totalSlides;
+  const visibleItems = 3;
+  const centerIndex =
+    (activeIndex + Math.floor(visibleItems / 2)) % totalSlides;
+
+
   return (
-    <section className="flex flex-col items-center py-12">
+    <section className="flex flex-col items-center mb-12 mt-[90px]">
       {/* Header Section */}
       <div className="flex flex-col max-w-full w-[625px] mb-10">
         <div className="text-center">
@@ -77,24 +92,32 @@ export const ClientReviews: React.FC = () => {
         </div>
       </div>
 
-      {/* Carousel Section */}
-      <Carousel opts={{ align: "start", loop: true }} className="w-full max-w-7xl relative mb-10 p-3" setApi={setApi}>   
+
+      {/*---------------------- Carousel Section ----------------------*/}
+      <Carousel
+        opts={{ align: "start", loop: true }}
+        className="w-full max-w-7xl relative mb-10 p-3"
+        setApi={setApi}
+      >
         <CarouselContent>
           {reviewsData.map((review, index) => (
-            <CarouselItem key={index} className="w-full flex justify-center md:basis-1/2 lg:basis-1/3">
+            <CarouselItem
+              key={index}
+              className="w-full flex justify-center md:basis-1/2 lg:basis-1/3"
+            >
               <div
                 className={`m-5 transition-shadow duration-300 rounded-lg ${
-                  index === centerIndex
-                    ? "drop-shadow-lg" 
-                    : "shadow-none"
+                  index === centerIndex ? "drop-shadow-lg" : "shadow-none"
                 }`}
                 style={{
-                  boxShadow: index === centerIndex ? "0px 0px 10px 1px rgba(34, 86, 36, 0.15)" : "none",
+                  boxShadow:
+                    index === centerIndex
+                      ? "0px 0px 10px 1px rgba(34, 86, 36, 0.15)"
+                      : "none",
                 }}
               >
                 <ReviewCard {...review} />
               </div>
-
             </CarouselItem>
           ))}
         </CarouselContent>
