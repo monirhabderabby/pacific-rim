@@ -8,8 +8,10 @@ export type FormStep =
   | 'login'
   | 'forgot-password'
   | 'reset-password'
-  | 'verify-otp'
+  | 'verify-otp'  
+  | 'cannabis'
   | 'profession';
+  
 
 export interface BusinessLicense {
   type: 'Recreational' | 'CBD' | 'Reseller';
