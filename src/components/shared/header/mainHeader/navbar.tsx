@@ -129,7 +129,9 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
             <Button variant="outline" asChild size="md">
               <Link href="/login">Log in</Link>
             </Button>
-            <Button size="md">Sign up</Button>
+            <Button size="md" asChild>
+              <Link href="/registration">Sign up</Link>
+            </Button>
           </div>
         ) : (
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
