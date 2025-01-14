@@ -16,6 +16,7 @@ function NewsletterPage() {
     "/vendor-dashboard",
     "/login",
     "/registration",
+    "/auth",
   ];
 
   // Check if the current pathName starts with any hideRoutes item
