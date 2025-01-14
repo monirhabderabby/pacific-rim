@@ -1,10 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import React from 'react'
 import { useForm } from '@/provider/form-provider'
+import NextButton from './button'
 
 
 interface Profession {
@@ -68,13 +68,9 @@ export default function CheckProfession() {
               </div>
             </div>
 
-            <Button 
-              className="bg-green-600 hover:bg-green-700"
-              onClick={()=> setStep(getNextStep('profession'))}
-              disabled={selectedProfessions.length === 0}
-            >
-              Next
-            </Button>
+           <div  onClick={()=> setStep(getNextStep('profession'))}>
+            <NextButton disable={selectedProfessions.length === 0} />
+           </div>
           </div>
       </div>
     </div>

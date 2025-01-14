@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
   Select,
@@ -11,9 +10,9 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useForm } from "@/provider/form-provider"
-import { Plus } from 'lucide-react'
 import { BusinessStore } from '@/types/form'
 import { AdminApprovalModal } from '../modal/admin-aproval-modal' 
+import NextButton, { AddMoreButton } from './button'
 
 const COUNTRIES = ['USA', 'Canada', 'Mexico', 'Thailand', 'Germany']
 const USA_PROVINCES = ['Arizona', 'California', 'Nevada', 'New York', 'Ohio', 'Oklahoma']
@@ -150,19 +149,12 @@ export function BusinessInfoForm() {
           </div>
         </div>
         <div className="flex items-center justify-between">
-          <Button type="submit" className="bg-green-600 hover:bg-green-700" disabled={isNextDisabled}>
-            Next
-          </Button>
+        
+          <NextButton disable={isNextDisabled}/>
           {(currentStore.country && currentStore.country !== 'USA' || (currentStore.country === 'USA' && currentStore.province)) && (
-            <Button
-              type="button"
-              variant="outline"
-              className="border-green-600 text-green-600 hover:bg-green-50"
-              onClick={addNewStore}
-            >
-              <Plus className="mr-2 h-4 w-4" />
-              Add More
-            </Button>
+            <div onClick={addNewStore}>
+             <AddMoreButton />
+            </div>
           )}
         </div>
       </form>
