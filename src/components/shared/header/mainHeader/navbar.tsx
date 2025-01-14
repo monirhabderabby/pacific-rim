@@ -129,7 +129,9 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
             <Button variant="outline" asChild size="md">
               <Link href="/login">Log in</Link>
             </Button>
-            <Button size="md">Sign up</Button>
+            <Button size="md" asChild>
+              <Link href="/registration">Sign up</Link>
+            </Button>
           </div>
         ) : (
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -254,7 +256,12 @@ function Navbar() {
   const pathName = usePathname();
 
   // Routes where the Navbar should be hidden
-  const hideRoutes = ["/age-alert", "/vendor-dashboard", "/login"];
+  const hideRoutes = [
+    "/age-alert",
+    "/vendor-dashboard",
+    "/login",
+    "/registration",
+  ];
 
   // Check if the current pathName starts with any hideRoutes item
   const shouldHideNavbar = hideRoutes.some((route) =>
