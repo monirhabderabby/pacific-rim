@@ -126,8 +126,12 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
       <div>
         {!loggedin ? (
           <div className="hidden lg:flex lg:flex-1 gap-x-[20px] lg:justify-end">
-            <Button variant="outline">Log in</Button>
-            <Button>Sign up</Button>
+            <Button variant="outline" asChild size="md">
+              <Link href="/login">Log in</Link>
+            </Button>
+            <Button size="md" asChild>
+              <Link href="/registration">Sign up</Link>
+            </Button>
           </div>
         ) : (
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -248,11 +252,16 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
 }
 
 function Navbar() {
-  const loggedin = true;
+  const loggedin = false;
   const pathName = usePathname();
 
   // Routes where the Navbar should be hidden
-  const hideRoutes = ["/age-alert"];
+  const hideRoutes = [
+    "/age-alert",
+    "/vendor-dashboard",
+    "/login",
+    "/registration",
+  ];
 
   // Check if the current pathName starts with any hideRoutes item
   const shouldHideNavbar = hideRoutes.some((route) =>

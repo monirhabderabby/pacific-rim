@@ -12,9 +12,10 @@ import { ForgotPasswordForm } from './forms/forgot-password-form'
 import { ResetPasswordForm } from './forms/reset-password-form'
 import { VerifyOTPForm } from './forms/verify-otp-form'
 import CheckProfession from './forms/check-profession'
+import { RecreationalCannabis } from './forms/recreational-cannabis'
 
 export function MultiStepForm() {
-  const { step, setStep, getNextStep } = useForm()
+  const { step, setStep, getPrevStep } = useForm()
 
   const renderStep = () => {
     switch (step) {
@@ -34,6 +35,8 @@ export function MultiStepForm() {
         return <EmailForm />
       case 'user-info':
         return <SignUpForm />
+      case 'cannabis':
+        return <RecreationalCannabis />
       case 'business-info':
         return <BusinessInfoForm />
       default:
@@ -42,39 +45,40 @@ export function MultiStepForm() {
   }
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen  overflow-hidden">
       <div className="mx-auto container px-4 py-8">
-        <div className="relative rounded-lg">
-          <div className="flex items-center justify-between p-4">
-            <div className="flex items-center gap-4">
+        <div className="relative rounded-lg ">
+          <div className="flex items-center justify-between py-4 md:mb-[90px]">
+            <div className="flex items-cente gap-1">
               <Image
-                src="/placeholder.svg"
+                src="/assets/img/logo.png"
                 alt="Pacific Rim Fusion"
                 width={40}
                 height={40}
                 className="rounded-full"
-              />
-              {step !== 'experience' && (
-                <button
-                  onClick={() => setStep(getNextStep('experience'))}
-                  className="flex items-center text-gray-500 hover:text-gray-700"
-                >
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back
-                </button>
-              )}
+                />
+              <span className='font-semibold text-[10px] leading-[12px]'>Pacific <br /> Rim <br /> Fusion</span>
             </div>
+            {step !== 'experience' && (
+        <button
+          onClick={() => setStep(getPrevStep(step))}
+          className="flex items-center text-gray-500 hover:text-gray-700"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back
+        </button>
+      )}
           </div>
-          <div className="grid min-h-[600px] md:grid-cols-2">
+          <div className="grid h-[600px] md:grid-cols-2">
             <div className="relative hidden md:block">
               <Image
                 src="/assets/img/signup.png"
                 alt="CBD Products"
                 fill
-                className="rounded-l-lg object-cover"
+                className="rounded-l-lg object-cover rounded-2xl"
               />
             </div>
-            <div className="lg:p-8">
+            <div className="md:p-8 flex flex-col justify-center">
               {renderStep()}
             </div>
           </div>

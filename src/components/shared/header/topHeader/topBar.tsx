@@ -1,3 +1,4 @@
+"use client";
 import {
   Select,
   SelectContent,
@@ -6,8 +7,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { usePathname } from "next/navigation";
 
 function Topbar() {
+  const pathName = usePathname();
+  // Routes where the Navbar should be hidden
+  const displayRoutes = ["/"];
+
+  // Check if the current pathName starts with any hideRoutes item
+  if (!displayRoutes.includes(pathName)) {
+    return;
+  }
   return (
     <div className="bg-[#333333] h-[40px]">
       <div className="container">
