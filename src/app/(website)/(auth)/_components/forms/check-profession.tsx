@@ -2,7 +2,8 @@
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { useForm } from "@/provider/form-provider";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setRegistrationValue } from "../../../../../redux/features/authentication/AuthSlice";
 import NextButton from "./button";
 
 interface Profession {
@@ -19,16 +20,23 @@ const professions: Profession[] = [
 ];
 
 export default function CheckProfession() {
-  const [selectedProfessions, setSelectedProfessions] = useState<string[]>([]);
+  // const [selectedProfessions, setSelectedProfessions] = useState<string[]>([]);
   const { setStep, getNextStep } = useForm();
 
-  const handleProfessionChange = (professionId: string) => {
-    setSelectedProfessions((current) => {
-      if (current.includes(professionId)) {
-        return current.filter((id) => id !== professionId);
-      }
-      return [...current, professionId];
-    });
+  const dispatch = useDispatch();
+  const val = useSelector((state: any) => state?.auth);
+
+  const selectedProfessions: string[] = val.profession;
+
+  const handleProfessionChange = (currentProfession: string) => {
+    const updatedProfessions = selectedProfessions.includes(currentProfession)
+      ? selectedProfessions.filter(
+          (profession) => profession !== currentProfession
+        ) // Remove if already selected
+      : [...selectedProfessions, currentProfession]; // Add if not already selected
+
+    // Dispatch the updated profession list
+    dispatch(setRegistrationValue({ profession: updatedProfessions }));
   };
 
   return (

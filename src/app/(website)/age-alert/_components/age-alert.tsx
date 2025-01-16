@@ -2,21 +2,18 @@
 
 // Packages====================
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import Swal from "sweetalert2"; // Import SweetAlert2
 
 // local impot -------------------------
-import { Button } from "@/components/ui/button";
 import { addToSessionStorage } from "@/lib/session-storage";
 import Image from "next/image";
+import Modal from "@/components/shared/modal/modal";
 
 const AgeAlert = () => {
-  const [showModal, setShowModal] = useState(false);
+
   const { push } = useRouter();
 
-  useEffect(() => {
-    setShowModal(true); // Trigger animation when component mounts
-  }, []);
+ 
 
   const handleYes = () => {
     addToSessionStorage("age-restriction", false);
@@ -56,135 +53,49 @@ const AgeAlert = () => {
         left: 0,
       }}
     >
-      <div
-        style={{
-          width: "100%",
-          height: "auto",
-          maxWidth: "550px",
-          backgroundColor: "rgba(255, 255, 255, 0.9)",
-          borderRadius: "12px",
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          padding: "30px",
-          paddingBottom: "50px",
-          position: "relative",
-          overflow: "hidden",
-          opacity: showModal ? 1 : 0,
-          animation: showModal ? "fadeIn 1.5s ease-out" : "",
-        }}
-      >
-        <Image
-          src="/assets/img/logo.png"
-          alt="Logo"
-          style={{
-            width: "205px",
-            height: "205px",
-            borderRadius: "50%",
-            marginBottom: "20px",
-          }}
-          width={100}
-          height={100}
-        />
-        <h1 className="text-[36px] font-bold leading-[43.64px] text-[#333333]">
-          PACIFIC RIM FUSION
-        </h1>
-        <p className="text-[32px] font-semibold leading-[38.4px] text-center text-[#2A6C2D]">
-          Are you 18 years or older?
-        </p>
-        <p
-          style={{
-            fontSize: "22px",
-            color: "#102011",
-            textAlign: "center",
-            marginBottom: "32px",
-          }}
-        >
-          We need this information for legal stuff.
-          <br />
-          You Must be 21+ years for <br />
-          enter this site.
-        </p>
-        <div className="space-y-[30px] w-full max-w-[396px]">
-          <Button onClick={handleYes} className="w-full">
-            YES
-          </Button>
-          <Button onClick={handleNo} variant="outline" className="w-full">
-            NO
-          </Button>
+      <Modal>
+        <div>
+          <div className="mx-auto mt-6 w-[160px] md:w-[205px] h-[160px] md:h-[205px] relative">
+            <Image
+              src="/assets/img/logo.png"
+              alt="logo"
+              fill
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+          <h2 className="text-center text-[28px] md:text-[36.53px] text-[#333333] font-bold leading-[33.6px] md:leading-[43.84px] mt-2">
+            PACIFIC RIM FUSION
+          </h2>
+          <h3 className="text-center text-[32px] text-[#2A6C2D] font-semibold leading-[38.4px] mt-[25px]">
+            Are you 21 years or older
+          </h3>
+          <p className="text-center text-[22px] text-[#102011] font-normal leading-[26.4px] mt-4">
+            We need this information for legal stuff
+          </p>
+          <div className=" flex justify-center">
+            <p className="text-center text-[22px] text-[#102011] font-normal leading-[26.4px] w-[295px] mx-auto">
+              You must be 21+ years to enter this site.
+            </p>
+          </div>
+          <div className="flex justify-between">
+            <button
+              onClick={handleYes}
+              className="w-full border-[1px] border-[#2A6C2D] py-[20px] text-base text-white bg-[#2A6C2D] hover:bg-[#266129]/80 rounded-[8px] mt-[36px] duration-300"
+            >
+              Yes
+            </button>
+          </div>
+          <div className="flex justify-between">
+            <button
+              onClick={handleNo}
+              className="w-full border-[1px] border-[#2A6C2D] py-[20px] text-base text-[#2A6C2D] rounded-[8px] hover:border-[#2A6C2D]/80 mt-4 duration-300"
+            >
+              No
+            </button>
+          </div>
         </div>
-      </div>
-
-      {/* CSS Keyframes */}
-      <style>
-        {`
-          @keyframes moveBackground {
-            0% {
-              background-position: 0 0;
-            }
-            100% {
-              background-position: 100% 100%; /* Ends at this position */
-            }
-          }
-
-          @keyframes fadeIn {
-            0% {
-              opacity: 0;
-            }
-            100% {
-              opacity: 1;
-            }
-          }
-
-          @media only screen and (max-width: 768px) {
-            div > div {
-              max-width: 90%;
-              max-height: 90%;
-              padding: 20px;
-            }
-
-            h1 {
-              font-size: 28px;
-            }
-
-            p {
-              font-size: 18px;
-            }
-
-            button {
-              font-size: 14px;
-              padding: 8px 20px;
-            }
-          }
-
-          @media only screen and (max-width: 480px) {
-            div > div {
-              max-width: 95%;
-              max-height: 90%;
-              padding: 15px;
-            }
-
-            h1 {
-              font-size: 24px;
-            }
-
-            p {
-              font-size: 16px;
-            }
-
-            button {
-              font-size: 12px;
-              padding: 8px 15px;
-            }
-
-            img {
-              width: 80px;
-              height: 80px;
-            }
-          }
-        `}
-      </style>
+      </Modal>
+    
     </div>
   );
 };
