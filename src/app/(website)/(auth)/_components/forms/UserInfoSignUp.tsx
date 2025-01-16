@@ -2,14 +2,12 @@
 // local  import
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useForm } from "@/provider/form-provider";
 import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NextButton from "./button";
 export default function SignUpForm() {
-  const { setStep, getNextStep } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwordWarning, setPasswordWarning] = useState("");
