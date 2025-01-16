@@ -1,4 +1,5 @@
 import AnalyticsChart from "./_components/analytics-chart";
+
 import DashboardOverview from "./_components/dashBoardOverview";
 import OrderRangeChart from "./_components/order-range-chart";
 import PaymentVolumeChart from "./_components/payment-volume-chart";
@@ -27,6 +28,7 @@ const Page = () => {
 
   </div>
   )
+
 };
 
 export default Page;

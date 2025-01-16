@@ -7,6 +7,11 @@ import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { useForm } from '@/provider/form-provider'
 import Link from 'next/link'
+// import { useDispatch } from 'react-redux'
+
+
+
+
 
 // Default credentials (for demonstration purposes only)
 const DEFAULT_EMAIL = 'user@example.com'
@@ -18,6 +23,8 @@ export function LoginForm() {
   const [password, setPassword] = useState('')
   const [agreed, setAgreed] = useState(false)
   const [errors, setErrors] = useState({ email: '', password: '', terms: '' })
+
+  // const dispatch = useDispatch()
 
   const validateEmail = (email: string) => {
     if (!email) return 'Email is required'
@@ -32,6 +39,9 @@ export function LoginForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
+    // dispatch(setRegistrationValue({  }));
+
     
     // Validate all fields
     const emailError = validateEmail(email)
