@@ -1,5 +1,5 @@
 
-const Modal = ({children,}:any) => {
+const Modal = ({children}:any) => {
  
   return (
     <section className="fixed inset-0 w-full h-full flex justify-center items-center bg-black bg-opacity-30 backdrop-blur-sm z-50 ">

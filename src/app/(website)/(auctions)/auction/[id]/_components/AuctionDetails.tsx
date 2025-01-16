@@ -106,6 +106,8 @@ const AuctionDetails = () => {
     console.log(biddingPrice);
   };
 
+  const islive = true;
+
   return (
     <div>
       <SectionHeading heading={"Our products"} subheading={""} />
