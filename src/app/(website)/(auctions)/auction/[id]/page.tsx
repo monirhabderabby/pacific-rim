@@ -1,12 +1,5 @@
-import React from 'react'
-import AuctionDetails from "./_components/AuctionDetails"
+const Page = () => {
+  return <div>Auction Details Page</div>;
+};
 
-const page = () => {
-  return (
-    <div>
-      <AuctionDetails/>
-    </div>
-  )
-}
-
-export default page
+export default Page;
