@@ -1,15 +1,33 @@
-"use client";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { useForm } from "@/provider/form-provider";
-import NextButton from "./button";
+'use client'
+import NextButton from './button'
+import { useForm } from '@/provider/form-provider'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Label } from '@/components/ui/label'
+import { useDispatch, useSelector } from 'react-redux'
+import { setRegistrationValue } from './AuthSlice'
+
 
 export function ExperienceForm() {
-  const { updateFormData, setStep } = useForm();
+  const { updateFormData, setStep } = useForm()
+  
+  const dispatch = useDispatch();
+  const val = useSelector((state: any) => state);
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStep("profession");
+    console.log(val)
+  };
+
+  const handleRadioChange = (value: string) => {
+    // saving in redux 
+    dispatch(setRegistrationValue({ type: value }));
+
+    // using contextApi
+    updateFormData({ experience: value as 'CBD/HEMP' | 'Recreational Cannabis' })
+
+    console.log(value)
   };
 
   return (
@@ -27,11 +45,7 @@ export function ExperienceForm() {
             What do you want to experience?
           </h2>
           <RadioGroup
-            onValueChange={(value) =>
-              updateFormData({
-                experience: value as "CBD/HEMP" | "Recreational Cannabis",
-              })
-            }
+            onValueChange={handleRadioChange}
             className="space-y-3"
           >
             <div className="flex items-center space-x-2">

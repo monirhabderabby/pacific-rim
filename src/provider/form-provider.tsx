@@ -47,6 +47,7 @@ export function FormProvider({ children }: { children: React.ReactNode }) {
         return experience === 'CBD/HEMP' ? 'login' : 'cannabis';
       case 'cannabis':	
         return 'login'
+        
       case 'user-info':
         return experience === 'CBD/HEMP' ? 'business-info' : 'login';
 
