@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { blurDataUrl } from "@/data/blur-data-url";
 import Image from "next/image";
 import Link from "next/link";
 import SocialIcons from "../cards/social-icons";
@@ -84,6 +85,9 @@ export default function AboutSection({ image }: { image: string }) {
               alt="Picture of the author"
               className="rounded-[16px] hover:scale-105 transition-all duration-300"
               fill
+              placeholder="blur"
+              priority
+              blurDataURL={blurDataUrl}
             />
           </div>
         </section>
