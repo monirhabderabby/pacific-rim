@@ -6,7 +6,7 @@ import DashboardSidebarItem from "./dashboard-sidebar-item";
 
 const DashSidebar = () => {
   return (
-    <div className="h-[calc(100vh-94px)] w-[336px] bg-[#2A6C2D] shadow-[0px_28px_20px_0px_#0000000D]">
+    <div className="h-screen w-[336px] bg-[#2A6C2D] shadow-[0px_28px_20px_0px_#0000000D] sticky top-[0px] pt-[20px]">
       <ScrollArea className="h-full w-full">
         <div className="w-[265px] mx-auto space-y-[16px]">
           {sidebarContents.map((item) => (

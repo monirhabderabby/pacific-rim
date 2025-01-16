@@ -9,8 +9,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useForm } from "@/provider/form-provider";
+import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
 import { BusinessStore } from "@/types/form";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { AdminApprovalModal } from "../modal/admin-aproval-modal";
 import NextButton, { AddMoreButton } from "./button";
 
@@ -36,6 +38,7 @@ export function BusinessInfoForm() {
     },
   ]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const currentStore = businessStores[currentStoreIndex];
 
@@ -46,6 +49,8 @@ export function BusinessInfoForm() {
     } else {
       submitForm();
     }
+
+    dispatch(setRegistrationValue({}));
   };
 
   const submitForm = () => {
