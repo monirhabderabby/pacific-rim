@@ -5,6 +5,8 @@ import { Checkbox } from '@/components/ui/checkbox'
 import React from 'react'
 import { useForm } from '@/provider/form-provider'
 import NextButton from './button'
+import { useDispatch, useSelector } from 'react-redux'
+import { setRegistrationValue } from './AuthSlice'
 
 
 interface Profession {
@@ -26,6 +28,9 @@ export default function CheckProfession() {
   const [selectedProfessions, setSelectedProfessions] = useState<string[]>([])
   const { setStep, getNextStep } = useForm()
 
+  const dispatch = useDispatch();
+  const val = useSelector((state: any) => state);
+
   const handleProfessionChange = (professionId: string) => {
     setSelectedProfessions(current => {
       if (current.includes(professionId)) {
@@ -33,6 +38,9 @@ export default function CheckProfession() {
       }
       return [...current, professionId]
     })
+
+    dispatch(setRegistrationValue({ profession: selectedProfessions }));
+    console.log(val)
   }
 
   return (
