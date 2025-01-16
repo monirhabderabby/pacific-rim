@@ -35,12 +35,15 @@ export function ExperienceForm() {
       <div className="space-y-2 text-center">
         <h1 className="text-4xl  font-semibold text-[#6EBA6B]">Sign Up</h1>
         <p className="text-gray-500 text-xs">
-          Continue to register as a customer or vendor, Please provide the information.
+          Continue to register as a customer or vendor, Please provide the
+          information.
         </p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-4">
-          <h2 className=" text-[32px] font-medium">What do you want to experience?</h2>
+          <h2 className=" text-[32px] font-medium">
+            What do you want to experience?
+          </h2>
           <RadioGroup
             onValueChange={handleRadioChange}
             className="space-y-3"
@@ -58,6 +61,5 @@ export function ExperienceForm() {
         <NextButton disable={false} />
       </form>
     </div>
-  )
+  );
 }
-
