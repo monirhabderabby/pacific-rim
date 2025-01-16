@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 // Define the initial state of the counter
 const initialState = {
   type: "",
-  experience: '',
-  profession: "",
+  experience: "",
+  profession: [],
   email: "",
   fullName: "",
   password: "",
@@ -21,7 +21,7 @@ const initialState = {
 
 // Create the slice
 const authSlice = createSlice({
-  name: "auth", 
+  name: "auth",
   initialState,
   reducers: {
     setRegistrationValue: (state, action) => {

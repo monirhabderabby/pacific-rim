@@ -1,33 +1,29 @@
-'use client'
-import NextButton from './button'
-import { useForm } from '@/provider/form-provider'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Label } from '@/components/ui/label'
-import { useDispatch, useSelector } from 'react-redux'
-import { setRegistrationValue } from './AuthSlice'
-
+"use client";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { useForm } from "@/provider/form-provider";
+import { useDispatch } from "react-redux";
+import { setRegistrationValue } from "../../../../../redux/features/authentication/AuthSlice";
+import NextButton from "./button";
 
 export function ExperienceForm() {
-  const { updateFormData, setStep } = useForm()
-  
-  const dispatch = useDispatch();
-  const val = useSelector((state: any) => state);
+  const { updateFormData, setStep } = useForm();
 
+  const dispatch = useDispatch();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStep("profession");
-    console.log(val)
   };
 
   const handleRadioChange = (value: string) => {
-    // saving in redux 
+    // saving in redux
     dispatch(setRegistrationValue({ type: value }));
 
     // using contextApi
-    updateFormData({ experience: value as 'CBD/HEMP' | 'Recreational Cannabis' })
-
-    console.log(value)
+    updateFormData({
+      experience: value as "CBD/HEMP" | "Recreational Cannabis",
+    });
   };
 
   return (
@@ -44,10 +40,7 @@ export function ExperienceForm() {
           <h2 className=" text-[32px] font-medium">
             What do you want to experience?
           </h2>
-          <RadioGroup
-            onValueChange={handleRadioChange}
-            className="space-y-3"
-          >
+          <RadioGroup onValueChange={handleRadioChange} className="space-y-3">
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="CBD/HEMP" id="cbd" />
               <Label htmlFor="cbd">CBD/HEMP</Label>
