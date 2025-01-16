@@ -1,12 +1,11 @@
 'use client'
 // local  import 
 import { useState } from 'react'
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { EyeIcon, EyeOffIcon } from 'lucide-react'
 import { useForm } from '@/provider/form-provider'
-import { ArrowRight } from 'lucide-react';
+import NextButton from './button'
 export default function SignUpForm() {
     const {  setStep, getNextStep } = useForm()
   const [showPassword, setShowPassword] = useState(false)
@@ -52,10 +51,10 @@ export default function SignUpForm() {
       </div>
 
       <div className="mb-6">
-        <h2 className="text-[25px] lg:text-[29px] font-medium text-[#000000] mb-4">Enter your Email, Name & Password</h2>
+        <h2 className="text-[25px] lg:text-[32px] font-medium text-[#000000] mb-4">Enter your Email, Name & Password</h2>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4 text-[20px]">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5 text-[20px] ">
         <div className="space-y-2">
           <Label className='text-[20px] text-[#444444]' htmlFor="email">Email address</Label>
           <Input
@@ -111,7 +110,7 @@ export default function SignUpForm() {
           </div>
         </div>
 
-        <div className="space-y-2 ">
+        <div className="space-y-2 mb-10">
           <Label className='text-[20px] text-[#444444]' htmlFor="confirmPassword">Confirm password</Label>
           <div className="relative">
             <Input
@@ -141,10 +140,9 @@ export default function SignUpForm() {
         {passwordWarning && (
           <p className="text-red-500 text-sm">{passwordWarning}</p>
         )}
-
-        <Button type="submit" className="bg-green-600 hover:bg-green-700 mt-[40px] ">
-          Next <ArrowRight />
-        </Button>
+    <div>
+            <NextButton />
+    </div>
        
       </form>
     </div>

@@ -86,7 +86,9 @@ const AccountSidebar = () => {
         </div>
       </div>
       <div>
-        <Button className="w-full">Go to Store Dashboard</Button>
+        <Button className="w-full" asChild>
+          <Link href={`/vendor-dashboard`}>Go to Store Dashboard</Link>
+        </Button>
       </div>
     </section>
   );

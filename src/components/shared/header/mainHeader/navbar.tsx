@@ -1,6 +1,6 @@
 "use client";
 // Packages
-import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
+import { Dialog, PopoverGroup } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +13,9 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
 import AuctionList from "./AuctionList";
-import { AuctionMobileMenu } from "./demonav";
+// import Dropdown, { AuctionMobileMenu } from "./demonav";
+import AuctionMobileNav from "./AuctionMobileNav";
+import PagesMobileNav from "./PagesMobileNav";
 
 interface DesktopNavbarProps {
   pathName: string;
@@ -68,20 +70,20 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
   return (
     <nav
       aria-label="Global"
-      className="mx-auto h-[82px] flex container  items-center justify-between  "
+      className="mx-auto h-[74px] flex container items-center justify-between"
     >
       <div className="flex ">
-        <Link href="/" className="-m-1.5 p-1.5">
+        <Link href="/" className="">
           <span className="sr-only">Pacific Rim</span>
-          <Image alt="" src={HeaderLogo} className="h-12 w-24" />
+          <Image alt="" src={HeaderLogo} className="h-[50px] w-[92px] lg:w-[100px]" />
         </Link>
       </div>
-      <PopoverGroup className="hidden lg:flex lg:gap-x-12 ">
+      <PopoverGroup className="hidden lg:flex lg:gap-x-[36px] ">
         <Link
           href="/"
           className={cn(
-            "text-sm/6 font-semibold hover:text-primary-green",
-            pathName === "/" ? "text-primary-green" : "text-gray-900"
+            "text-[20px] font-medium hover:text-[#2A6C2D]",
+            pathName === "/" ? "text-[#2A6C2D]" : "text-gray-900"
           )}
         >
           Home
@@ -89,7 +91,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/about"
           className={cn(
-            "text-sm/6 font-semibold hover:text-primary-green",
+            "text-[20px] font-normal hover:text-[#2A6C2D]",
             pathName === "/about" ? "text-primary-green" : "text-gray-900"
           )}
         >
@@ -98,7 +100,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href=""
           className={cn(
-            "text-sm/6 font-semibold hover:text-primary-green",
+            "text-[20px] font-normal hover:text-[#2A6C2D]",
             pathName === "/products" ? "text-primary-green" : "text-gray-900"
           )}
         >
@@ -107,7 +109,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/blogs"
           className={cn(
-            "text-sm/6 font-semibold hover:text-primary-green",
+            "text-[20px] font-normal hover:text-[#2A6C2D]",
             pathName === "/blogs" ? "text-primary-green" : "text-gray-900"
           )}
         >
@@ -116,7 +118,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/contact"
           className={cn(
-            "text-sm/6 font-semibold hover:text-primary-green",
+            "text-[20px] font-normal hover:text-[#2A6C2D]",
             pathName === "/contact" ? "text-primary-green" : "text-gray-900"
           )}
         >
@@ -126,8 +128,12 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
       <div>
         {!loggedin ? (
           <div className="hidden lg:flex lg:flex-1 gap-x-[20px] lg:justify-end">
-            <Button variant="outline">Log in</Button>
-            <Button>Sign up</Button>
+            <Button variant="outline" asChild size="md">
+              <Link href="/login">Log in</Link>
+            </Button>
+            <Button size="md" asChild>
+              <Link href="/registration">Sign up</Link>
+            </Button>
           </div>
         ) : (
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -141,15 +147,28 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
 
 function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
+  const auctionLinks = [
+    { href: "/all-auctions", label: "All Auctions" },
+    { href: "/live-auctions", label: "Live Auctions" },
+  ];
+  const pagesMobileLinks = [
+    { href: "/about", label: "About Us" },
+    { href: "/faqs", label: "FAQ" },
+    { href: "", label: "Membership Plans" },
+    { href: "", label: "Vendor Store" },
+    { href: "", label: "404 Page" },
+  ];
+ 
   return (
     <>
-      <div className="flex items-center justify-between h-[56px] px-4">
-        <div className="flex ">
+      <div className="flex items-center justify-between h-[56px] p-4">
+        <div className="flex">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Pacific Rim</span>
-            <Image alt="" src={HeaderLogo} className="h-10 w-20" />
+            <Image alt="Logo" src={HeaderLogo} className="h-10 w-20" />
           </Link>
         </div>
         <div className="flex items-center gap-4">
@@ -167,19 +186,19 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
 
       <Dialog
         open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="flex items-center justify-between px-6">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Pacific Rim</span>
-              <Image alt="" src={HeaderLogo} className="h-8 w-auto" />
+              <Image alt="Logo" src={HeaderLogo} className="h-8 w-auto" />
             </Link>
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={closeMobileMenu}
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
             >
               <span className="sr-only">Close menu</span>
@@ -188,37 +207,49 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
+              <div className="w-full py-6">
                 <Link
                   href="/"
                   onClick={closeMobileMenu}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  className="text-[20px] block py-2 px-6 font-normal text-black hover:bg-[#E6EEF6]"
                 >
                   Home
                 </Link>
                 <Link
                   href="/about"
                   onClick={closeMobileMenu}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  className="text-[20px] block py-2 px-6 font-normal text-black hover:bg-[#E6EEF6]"
                 >
                   About
                 </Link>
-                <AuctionMobileMenu />
+                {/* Use Dropdown Component for Auctions */}
+                <AuctionMobileNav
+                  label="Auctions"
+                  links={auctionLinks}
+                  onClose={closeMobileMenu}
+                />
+
                 <Link
                   href="/blogs"
                   onClick={closeMobileMenu}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  className="text-[20px] block py-2 px-6 font-normal text-black hover:bg-[#E6EEF6]"
                 >
                   Blog
                 </Link>
+                <PagesMobileNav
+                  label="Pages"
+                  links={pagesMobileLinks}
+                  onClose={closeMobileMenu}
+                />
                 <Link
                   href="/contact"
                   onClick={closeMobileMenu}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  className="text-[20px] block py-2 px-6 font-normal text-black hover:bg-[#E6EEF6]"
                 >
                   Contact
                 </Link>
               </div>
+
               <div className="py-6">
                 {!loggedin ? (
                   <>
@@ -241,18 +272,24 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
               </div>
             </div>
           </div>
-        </DialogPanel>
+        </Dialog.Panel>
       </Dialog>
     </>
   );
 }
 
+
 function Navbar() {
-  const loggedin = true;
+  const loggedin = false;
   const pathName = usePathname();
 
   // Routes where the Navbar should be hidden
-  const hideRoutes = ["/age-alert"];
+  const hideRoutes = [
+    "/age-alert",
+    "/vendor-dashboard",
+    "/login",
+    "/registration",
+  ];
 
   // Check if the current pathName starts with any hideRoutes item
   const shouldHideNavbar = hideRoutes.some((route) =>

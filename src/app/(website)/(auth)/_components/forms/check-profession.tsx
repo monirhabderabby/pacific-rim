@@ -1,97 +1,83 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import Image from 'next/image'
-import React from 'react'
-import { useForm } from '@/provider/form-provider'
-
+import { Checkbox } from "@/components/ui/checkbox";
+import { useForm } from "@/provider/form-provider";
+import { useState } from "react";
+import NextButton from "./button";
 
 interface Profession {
-  id: string
-  label: string
+  id: string;
+  label: string;
 }
 
 const professions: Profession[] = [
-  { id: 'farmer', label: 'Farmer' },
-  { id: 'cultivator', label: 'Cultivator' },
-  { id: 'processor', label: 'Processor' },
-  { id: 'extractor', label: 'Extractor' },
-  { id: 'dispensary', label: 'Dispensary' },
-  { id: 'distributor', label: 'Distributor' },
-  { id: 'consumer', label: 'Consumer' },
-]
+  { id: "cultivator", label: "Cultivator" },
+  { id: "distributor", label: "Distributor" },
+  { id: "extractor", label: "Extractor" },
+  { id: "processor", label: "Processor" },
+  { id: "dispensary", label: "Dispensary" },
+];
 
 export default function CheckProfession() {
-  const [selectedProfessions, setSelectedProfessions] = useState<string[]>([])
-  const { setStep, getNextStep } = useForm()
+  const [selectedProfessions, setSelectedProfessions] = useState<string[]>([]);
+  const { setStep, getNextStep } = useForm();
 
   const handleProfessionChange = (professionId: string) => {
-    setSelectedProfessions(current => {
+    setSelectedProfessions((current) => {
       if (current.includes(professionId)) {
-        return current.filter(id => id !== professionId)
+        return current.filter((id) => id !== professionId);
       }
-      return [...current, professionId]
-    })
-  }
+      return [...current, professionId];
+    });
+  };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container px-4 py-6 mx-auto">
-      
-
-        <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
-          <div className="relative aspect-square md:aspect-auto">
-            <Image
-              src=""
-              alt="Cannabis products with leaves"
-              fill
-              className="object-cover rounded-lg"
-              priority
-            />
+    <div className="bg-background">
+      <div className=" px-4 py-6 mx-auto">
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-semibold tracking-tight text-green-600">
+              Sign Up
+            </h1>
+            <p className="text-muted-foreground">
+              Continue to register as a customer or vendor. Please provide the
+              information.
+            </p>
           </div>
 
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-semibold tracking-tight text-green-600">Sign Up</h1>
-              <p className="text-muted-foreground">
-                Continue to register as a customer or vendor. Please provide the information.
-              </p>
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Who you are?
+            </h2>
+            <div className="grid gap-4">
+              {professions.map((profession) => (
+                <div
+                  key={profession.id}
+                  className="flex items-center space-x-2"
+                >
+                  <Checkbox
+                    id={profession.id}
+                    checked={selectedProfessions.includes(profession.id)}
+                    onCheckedChange={() =>
+                      handleProfessionChange(profession.id)
+                    }
+                  />
+                  <label
+                    htmlFor={profession.id}
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    {profession.label}
+                  </label>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="space-y-4">
-              <h2 className="text-2xl font-semibold tracking-tight">What&apos;s your profession?</h2>
-              <div className="grid gap-4">
-                {professions.map((profession) => (
-                  <div key={profession.id} className="flex items-center space-x-2">
-                    <Checkbox
-                      id={profession.id}
-                      checked={selectedProfessions.includes(profession.id)}
-                      onCheckedChange={() => handleProfessionChange(profession.id)}
-                    />
-                    <label
-                      htmlFor={profession.id}
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      {profession.label}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <Button 
-              className="bg-green-600 hover:bg-green-700"
-                onClick={()=> setStep(getNextStep('profession'))}
-              disabled={selectedProfessions.length === 0}
-            >
-              Next
-            </Button>
+          <div onClick={() => setStep(getNextStep("profession"))}>
+            <NextButton disable={selectedProfessions.length === 0} />
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
-

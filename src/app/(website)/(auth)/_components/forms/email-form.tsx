@@ -1,8 +1,8 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useForm } from '@/provider/form-provider'
+import NextButton from './button'
 
 export function EmailForm() {
   const { updateFormData, setStep, getNextStep } = useForm()
@@ -30,9 +30,7 @@ export function EmailForm() {
             onChange={(e) => updateFormData({ email: e.target.value })}
           />
         </div>
-        <Button type="submit" className="w-full bg-green-600 hover:bg-green-700">
-          Next
-        </Button>
+        <NextButton />
       </form>
     </div>
   )

@@ -14,7 +14,7 @@ const AuctionList: React.FC = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="">
       <span
         className="flex items-center gap-1"
         onClick={() => handleItemClick()}
