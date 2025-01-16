@@ -1,10 +1,14 @@
 "use client";
-import { getCurrentTab } from "@/data/vendor-dashboard-data";
-import { cn } from "@/lib/utils";
+
+// Packages
 import { AlignJustify, Bell, MessageCircleMore } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+// Local Imports
+import { getCurrentTab } from "@/data/vendor-dashboard-data";
+import { cn } from "@/lib/utils";
 
 const DashNav = () => {
   const pathName = usePathname();
