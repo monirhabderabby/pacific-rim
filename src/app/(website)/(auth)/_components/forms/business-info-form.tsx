@@ -1,94 +1,117 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { Input } from "@/components/ui/input"
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { useForm } from "@/provider/form-provider"
-import { BusinessStore } from '@/types/form'
-import { AdminApprovalModal } from '../modal/admin-aproval-modal' 
-import NextButton, { AddMoreButton } from './button'
+} from "@/components/ui/select";
+import { useForm } from "@/provider/form-provider";
+import { BusinessStore } from "@/types/form";
+import { useEffect, useState } from "react";
+import { AdminApprovalModal } from "../modal/admin-aproval-modal";
+import NextButton, { AddMoreButton } from "./button";
 
-const COUNTRIES = ['USA', 'Canada', 'Mexico', 'Thailand', 'Germany']
-const USA_PROVINCES = ['Arizona', 'California', 'Nevada', 'New York', 'Ohio', 'Oklahoma']
+const COUNTRIES = ["USA", "Canada", "Mexico", "Thailand", "Germany"];
+const USA_PROVINCES = [
+  "Arizona",
+  "California",
+  "Nevada",
+  "New York",
+  "Ohio",
+  "Oklahoma",
+];
 
 export function BusinessInfoForm() {
-  const { updateFormData, setStep, getNextStep } = useForm()
-  const [currentStoreIndex, setCurrentStoreIndex] = useState(0)
-  const [businessStores, setBusinessStores] = useState<BusinessStore[]>([{
-    country: '',
-    province: '',
-    recreationalLicense: '',
-    resellerLicense: ''
-  }])
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const { updateFormData, setStep, getNextStep } = useForm();
+  const [currentStoreIndex, setCurrentStoreIndex] = useState(0);
+  const [businessStores, setBusinessStores] = useState<BusinessStore[]>([
+    {
+      country: "",
+      province: "",
+      recreationalLicense: "",
+      resellerLicense: "",
+    },
+  ]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const currentStore = businessStores[currentStoreIndex]
+  const currentStore = businessStores[currentStoreIndex];
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (currentStore.country !== 'USA') {
-      setIsModalOpen(true)
+    e.preventDefault();
+    if (currentStore.country !== "USA") {
+      setIsModalOpen(true);
     } else {
-      submitForm()
+      submitForm();
     }
-  }
+  };
 
   const submitForm = () => {
-    updateFormData({ businessStores })
-    setStep(getNextStep('business-info'))
-  }
+    updateFormData({ businessStores });
+    setStep(getNextStep("business-info"));
+  };
 
-  const isNextDisabled = !currentStore.country || 
-    (currentStore.country === 'USA' && !currentStore.province) || 
-    !currentStore.recreationalLicense
+  const isNextDisabled =
+    !currentStore.country ||
+    (currentStore.country === "USA" && !currentStore.province) ||
+    !currentStore.recreationalLicense;
 
   const updateCurrentStore = (field: keyof BusinessStore, value: string) => {
-    const updatedStores = [...businessStores]
+    const updatedStores = [...businessStores];
     updatedStores[currentStoreIndex] = {
       ...updatedStores[currentStoreIndex],
-      [field]: value
-    }
-    setBusinessStores(updatedStores)
-  }
+      [field]: value,
+    };
+    setBusinessStores(updatedStores);
+
+    console.log(value);
+  };
 
   const addNewStore = () => {
-    setBusinessStores([...businessStores, {
-      country: '',
-      province: '',
-      recreationalLicense: '',
-      resellerLicense: ''
-    }])
-    setCurrentStoreIndex(businessStores.length)
-  }
+    setBusinessStores([
+      ...businessStores,
+      {
+        country: "",
+        province: "",
+        recreationalLicense: "",
+        resellerLicense: "",
+      },
+    ]);
+    setCurrentStoreIndex(businessStores.length);
+  };
 
   useEffect(() => {
-    if (currentStore.country !== 'USA') {
-      updateCurrentStore('province', '')
+    if (currentStore.country !== "USA") {
+      updateCurrentStore("province", "");
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentStore.country])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentStore.country]);
 
   return (
     <div className="space-y-6">
       <div className="space-y-2 text-center">
         <h1 className="text-3xl font-bold text-green-600">Sign Up</h1>
         <p className="text-gray-500">
-          Continue to register as a customer or vendor, Please provide the information.
+          Continue to register as a customer or vendor, Please provide the
+          information.
         </p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Select your business information</h2>
+          <h2 className="text-2xl font-semibold">
+            Select your business information
+          </h2>
           <div className="space-y-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium">Select your business Country</label>
-              <Select onValueChange={(value) => updateCurrentStore('country', value)} value={currentStore.country}>
+              <label className="text-sm font-medium">
+                Select your business Country
+              </label>
+              <Select
+                onValueChange={(value) => updateCurrentStore("country", value)}
+                value={currentStore.country}
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Select Country" />
                 </SelectTrigger>
@@ -101,12 +124,17 @@ export function BusinessInfoForm() {
                 </SelectContent>
               </Select>
             </div>
-            {currentStore.country === 'USA' && (
+            {currentStore.country === "USA" && (
               <div className="space-y-2">
                 <label className="text-sm font-medium">
                   Select your business Province for USA
                 </label>
-                <Select onValueChange={(value) => updateCurrentStore('province', value)} value={currentStore.province}>
+                <Select
+                  onValueChange={(value) =>
+                    updateCurrentStore("province", value)
+                  }
+                  value={currentStore.province}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select Province" />
                   </SelectTrigger>
@@ -120,7 +148,8 @@ export function BusinessInfoForm() {
                 </Select>
               </div>
             )}
-            {(currentStore.country && currentStore.country !== 'USA' || (currentStore.country === 'USA' && currentStore.province)) && (
+            {((currentStore.country && currentStore.country !== "USA") ||
+              (currentStore.country === "USA" && currentStore.province)) && (
               <>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">
@@ -131,7 +160,9 @@ export function BusinessInfoForm() {
                     placeholder="Enter license number"
                     required
                     value={currentStore.recreationalLicense}
-                    onChange={(e) => updateCurrentStore('recreationalLicense', e.target.value)}
+                    onChange={(e) =>
+                      updateCurrentStore("recreationalLicense", e.target.value)
+                    }
                   />
                 </div>
                 <div className="space-y-2">
@@ -141,7 +172,9 @@ export function BusinessInfoForm() {
                   <Input
                     placeholder="Enter license number"
                     value={currentStore.resellerLicense}
-                    onChange={(e) => updateCurrentStore('resellerLicense', e.target.value)}
+                    onChange={(e) =>
+                      updateCurrentStore("resellerLicense", e.target.value)
+                    }
                   />
                 </div>
               </>
@@ -149,11 +182,11 @@ export function BusinessInfoForm() {
           </div>
         </div>
         <div className="flex items-center justify-between">
-        
-          <NextButton disable={isNextDisabled}/>
-          {(currentStore.country && currentStore.country !== 'USA' || (currentStore.country === 'USA' && currentStore.province)) && (
+          <NextButton disable={isNextDisabled} />
+          {((currentStore.country && currentStore.country !== "USA") ||
+            (currentStore.country === "USA" && currentStore.province)) && (
             <div onClick={addNewStore}>
-             <AddMoreButton />
+              <AddMoreButton />
             </div>
           )}
         </div>
@@ -161,11 +194,10 @@ export function BusinessInfoForm() {
       <AdminApprovalModal
         isOpen={isModalOpen}
         onClose={() => {
-          setIsModalOpen(false)
-          submitForm()
+          setIsModalOpen(false);
+          submitForm();
         }}
       />
     </div>
-  )
+  );
 }
-

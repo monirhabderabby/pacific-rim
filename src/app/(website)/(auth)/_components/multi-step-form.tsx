@@ -45,7 +45,7 @@ export function MultiStepForm() {
   };
 
   return (
-    <div className="min-h-screen  overflow-hidden">
+    <div className="min-h-screen mb-[100px]">
       <div className="mx-auto container px-4 py-8">
         <div className="relative rounded-lg ">
           <div className="flex items-center justify-between py-4 md:mb-[90px]">
@@ -79,6 +79,7 @@ export function MultiStepForm() {
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="rounded-l-lg object-cover rounded-2xl"
+                priority
               />
             </div>
             <div className="md:p-8 flex flex-col justify-center">
