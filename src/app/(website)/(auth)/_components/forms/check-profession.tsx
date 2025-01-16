@@ -1,13 +1,10 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Checkbox } from '@/components/ui/checkbox'
-import React from 'react'
-import { useForm } from '@/provider/form-provider'
-import NextButton from './button'
-import { useDispatch, useSelector } from 'react-redux'
-import { setRegistrationValue } from './AuthSlice'
-
+import { Checkbox } from "@/components/ui/checkbox";
+import { useForm } from "@/provider/form-provider";
+import { useDispatch, useSelector } from "react-redux";
+import { setRegistrationValue } from "../../../../../redux/features/authentication/AuthSlice";
+import NextButton from "./button";
 
 interface Profession {
   id: string;
@@ -23,23 +20,24 @@ const professions: Profession[] = [
 ];
 
 export default function CheckProfession() {
-  const [selectedProfessions, setSelectedProfessions] = useState<string[]>([]);
+  // const [selectedProfessions, setSelectedProfessions] = useState<string[]>([]);
   const { setStep, getNextStep } = useForm();
   
   const dispatch = useDispatch();
-  const val = useSelector((state: any) => state);
+  const val = useSelector((state: any) => state?.auth);
 
-  const handleProfessionChange = (professionId: string) => {
-    setSelectedProfessions((current) => {
-      if (current.includes(professionId)) {
-        return current.filter((id) => id !== professionId);
-      }
-      return [...current, professionId]
-    })
+  const selectedProfessions: string[] = val.profession;
 
-    dispatch(setRegistrationValue({ profession: selectedProfessions }));
-    console.log(val)
-  }
+  const handleProfessionChange = (currentProfession: string) => {
+    const updatedProfessions = selectedProfessions.includes(currentProfession)
+      ? selectedProfessions.filter(
+          (profession) => profession !== currentProfession
+        ) // Remove if already selected
+      : [...selectedProfessions, currentProfession]; // Add if not already selected
+
+    // Dispatch the updated profession list
+    dispatch(setRegistrationValue({ profession: updatedProfessions }));
+  };
 
   return (
     <div className="bg-background">
