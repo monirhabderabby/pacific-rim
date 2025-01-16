@@ -8,6 +8,7 @@ import { useState } from 'react'
 
 import { ScrollArea } from "@/components/ui/scroll-area"
 import SectionHeading from '@/components/shared/SectionHeading/SectionHeading'
+import { PageHeader } from '@/components/shared/sections/page-header'
 
 interface Notification {
     id: string
@@ -77,12 +78,26 @@ function Page() {
 
 
     return (
+        <>
+            <PageHeader
+                    title="About Us"
+                    items={[
+                      {
+                        label: "Home",
+                        href: "/",
+                      },
+                      {
+                        label: "Notifications",
+                        href: "/notifications",
+                      },
+                    ]}
+                  />
+        
         <div className="section">
             <div className="text-center mb-12">
                 <div className="font-bold">
-                    <h3 className="text-2xl lg:text-4xl text-primary-green-hover">Notifications</h3>
                     <div className="mt-[-10px]">
-                        <SectionHeading heading={""} subheading={""} />
+                        <SectionHeading heading={"Notifications"} subheading={""} />
                     </div>
                 </div>
             </div>
@@ -97,6 +112,7 @@ function Page() {
                 </ScrollArea>
             </div>
         </div>
+        </>
     )
 }
 
