@@ -1,8 +1,8 @@
 "use client";
+import { SidebarContentType } from "@/data/vendor-dashboard-data";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SidebarContentType } from "./dashboard-sidebar";
 
 interface Props {
   item: SidebarContentType;

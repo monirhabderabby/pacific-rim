@@ -1,13 +1,29 @@
+"use client";
+import { getCurrentTab } from "@/data/vendor-dashboard-data";
+import { cn } from "@/lib/utils";
 import { AlignJustify, Bell, MessageCircleMore } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const DashNav = () => {
+  const pathName = usePathname();
+
+  const currentTab = getCurrentTab(pathName);
   return (
     <div className="w-full h-[94px] bg-[#2A6C2D] flex items-center">
       <div className="ml-[336px] mr-[37px] flex justify-between w-full">
-        <div className="h-[36px] w-[36px] bg-white text-[#2A6C2D] flex justify-center items-center rounded-[4px]">
-          <AlignJustify />
+        <div className="flex items-center gap-x-[16px]">
+          <div className="h-[36px] w-[36px] bg-white text-[#2A6C2D] flex justify-center items-center rounded-[4px]">
+            <AlignJustify />
+          </div>
+          <div
+            className={cn(
+              " w-full h-[46px] rounded-[4px] pl-[16px] flex items-center gap-[12px] font-medium text-[18px] leading-[21.4px] transition-colors duration-300 bg-transparent text-white hover:bg-white/10"
+            )}
+          >
+            {currentTab?.icon} {currentTab?.name}
+          </div>
         </div>
         <DashRightSide />
       </div>
