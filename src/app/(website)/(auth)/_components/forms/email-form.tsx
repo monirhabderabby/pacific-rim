@@ -3,14 +3,12 @@
 import { Input } from "@/components/ui/input";
 import { useForm } from "@/provider/form-provider";
 import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import NextButton from "./button";
 
 export function EmailForm() {
   const { setStep, getNextStep } = useForm();
   const dispatch = useDispatch();
-
-  const val = useSelector((state: any) => state.auth);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,7 +19,7 @@ export function EmailForm() {
   const handleEmailChange = (email: string) => {
     dispatch(
       setRegistrationValue({
-        email,
+        email: email,
       })
     );
   };

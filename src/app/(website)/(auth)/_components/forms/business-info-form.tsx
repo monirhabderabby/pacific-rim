@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useForm } from "@/provider/form-provider";
-import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
+import { addNewBusiness } from "@/redux/features/authentication/AuthSlice";
 import { BusinessStore } from "@/types/form";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -37,6 +37,7 @@ export function BusinessInfoForm() {
       resellerLicense: "",
     },
   ]);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -50,7 +51,7 @@ export function BusinessInfoForm() {
       submitForm();
     }
 
-    dispatch(setRegistrationValue({}));
+    dispatch(addNewBusiness(businessStores));
   };
 
   const submitForm = () => {
@@ -70,8 +71,6 @@ export function BusinessInfoForm() {
       [field]: value,
     };
     setBusinessStores(updatedStores);
-
-    console.log(value);
   };
 
   const addNewStore = () => {

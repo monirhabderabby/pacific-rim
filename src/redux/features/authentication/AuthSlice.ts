@@ -10,9 +10,9 @@ import { createSlice } from "@reduxjs/toolkit";
 // Define the initial state of the counter
 interface Business {
   country: string;
-  state: string;
-  business_license: string;
-  reseller_business_license: string;
+  province?: string;
+  recreationalLicense: string;
+  resellerLicense: string;
 }
 
 const initialState: {
@@ -45,13 +45,13 @@ const authSlice = createSlice({
       };
     },
     addNewBusiness: (state, action) => {
-      state.businesses = [...state.businesses, action.payload];
+      state.businesses = action.payload;
     },
   },
 });
 
 // Export actions for use in components
-export const { setRegistrationValue } = authSlice.actions;
+export const { setRegistrationValue, addNewBusiness } = authSlice.actions;
 
 // Export the reducer to configure the store
 export default authSlice.reducer;
