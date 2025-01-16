@@ -7,6 +7,7 @@ const Modal = ({children}:any) => {
           {children}
         </div>
       </div>
+      <p>delete</p>
     </section>
   );
 };
