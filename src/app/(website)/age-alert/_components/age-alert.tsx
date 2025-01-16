@@ -5,15 +5,13 @@ import { useRouter } from "next/navigation";
 import Swal from "sweetalert2"; // Import SweetAlert2
 
 // local impot -------------------------
+import Modal from "@/components/shared/modal/modal";
+import { Button } from "@/components/ui/button";
 import { addToSessionStorage } from "@/lib/session-storage";
 import Image from "next/image";
-import Modal from "@/components/shared/modal/modal";
 
 const AgeAlert = () => {
-
   const { push } = useRouter();
-
- 
 
   const handleYes = () => {
     addToSessionStorage("age-restriction", false);
@@ -77,25 +75,18 @@ const AgeAlert = () => {
               You must be 21+ years to enter this site.
             </p>
           </div>
-          <div className="flex justify-between">
-            <button
-              onClick={handleYes}
-              className="w-full border-[1px] border-[#2A6C2D] py-[20px] text-base text-white bg-[#2A6C2D] hover:bg-[#266129]/80 rounded-[8px] mt-[36px] duration-300"
-            >
+          <div className="flex justify-between mt-[35px]">
+            <Button onClick={handleYes} className="w-full">
               Yes
-            </button>
+            </Button>
           </div>
-          <div className="flex justify-between">
-            <button
-              onClick={handleNo}
-              className="w-full border-[1px] border-[#2A6C2D] py-[20px] text-base text-[#2A6C2D] rounded-[8px] hover:border-[#2A6C2D]/80 mt-4 duration-300"
-            >
+          <div className="flex justify-between mt-[14px]">
+            <Button onClick={handleNo} variant="outline" className="w-full">
               No
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
-    
     </div>
   );
 };
