@@ -105,6 +105,7 @@ const AuctionDetails = () => {
   };
   const handleBidClick = () => {
     console.log(biddingPrice);
+    setIsLive(true);
   };
 
   return (
