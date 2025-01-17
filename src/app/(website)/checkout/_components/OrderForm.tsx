@@ -21,7 +21,9 @@ import OrderTotal from "./OrderTotal";
 import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
-
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
+import OrderConfirmationModal from "./OrderConfirmationModal";
 
 // Types
 type OrderItem = {
@@ -29,8 +31,6 @@ type OrderItem = {
   name: string;
   price: string;
 };
-
-
 
 const orderItems: OrderItem[] = [
   {
@@ -53,7 +53,6 @@ const orderItems: OrderItem[] = [
   },
 ];
 
-
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
   country: z.string().min(1, "Country is required"),
@@ -61,14 +60,18 @@ const formSchema = z.object({
   address: z.string().min(1, "Address is required"),
   apartment: z.string().optional(),
   email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Phone must be at least 10 digits"),
+  phone: z.string().min(5, "Phone must be at least 5 digits"),
   paymentMethod: z.string().min(1, "Payment type is required"),
   cardholderName: z.string(),
   cardNumber: z.string(),
   expDate: z.string(),
   cvv: z.string(),
+  coupon: z.string().optional(),
 });
 const OrderForm: React.FC = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -84,10 +87,15 @@ const OrderForm: React.FC = () => {
       cardNumber: "",
       expDate: "",
       cvv: "",
+      coupon: "",
     },
   });
 
-  const handleSubmit = (values: z.infer<typeof formSchema>) => {
+  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setIsSubmitting(false);
+    setShowModal(true);
     console.log(values);
   };
 
@@ -99,6 +107,7 @@ const OrderForm: React.FC = () => {
 
   return (
     <section className="w-[95%] mx-auto md:w-full pb-[80px]">
+      {showModal && <OrderConfirmationModal />}
       <Form {...form}>
         <SectionHeading heading={"Checkout"} subheading={""} />
 
@@ -409,7 +418,7 @@ const OrderForm: React.FC = () => {
 
                         <Label
                           htmlFor="paypal"
-                          className={`w-full border cursor-pointer rounded-lg flex items-center justify-between px-4 py-3 ${
+                          className={`w-full border cursor-pointer rounded-lg flex items-center justify-between px-4 py-4 ${
                             field.value === "paypal"
                               ? "bg-[#f0fdf4] border-[#2A6C2D]"
                               : "border-zinc-200"
@@ -480,13 +489,43 @@ const OrderForm: React.FC = () => {
                   </FormItem>
                 )}
               />
+              <div className="mt-7">
+                <FormField
+                  control={form.control}
+                  name="coupon"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-[#0057a8] text-[16px]">
+                        Add Coupon{" "}
+                      </FormLabel>
+                      <span className="text-[#9C9C9C] text-[10px]">
+                        {" "}
+                        (Add coupon if you want to have discount)
+                      </span>
+                      <FormControl>
+                        <Input
+                          placeholder=""
+                          type="text"
+                          {...field}
+                          className="h-[48px]"
+                        />
+                      </FormControl>
 
-              <div></div>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
               <Button
-                className="gap-2.5 self-stretch px-6 py-5 mt-8 w-full text-base font-semibold leading-tight text-white bg-green-800 rounded-lg min-h-[56px] max-md:px-5 max-md:max-w-full"
+                className="relative w-full mt-5"
                 aria-label="Place Order"
+                disabled={isSubmitting}
               >
-                Place Order
+                {isSubmitting ? "Processing" : "Place Order"}
+                {isSubmitting && (
+                  <Loader2 className="absolute right-5 top-4 h-6 w-5 animate-spin" />
+                )}
               </Button>
             </div>
           </div>
