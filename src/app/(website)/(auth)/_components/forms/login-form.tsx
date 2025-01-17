@@ -52,6 +52,7 @@ export function LoginForm() {
       }
 
       setLoading(false);
+      form.reset();
     }, 3000);
   };
 
