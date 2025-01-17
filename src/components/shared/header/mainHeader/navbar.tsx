@@ -75,7 +75,11 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
       <div className="flex ">
         <Link href="/" className="">
           <span className="sr-only">Pacific Rim</span>
-          <Image alt="" src={HeaderLogo} className="h-[50px] w-[92px] lg:w-[100px]" />
+          <Image
+            alt=""
+            src={HeaderLogo}
+            className="h-[50px] w-[92px] lg:w-[100px]"
+          />
         </Link>
       </div>
       <PopoverGroup className="hidden lg:flex lg:gap-x-[36px] ">
@@ -161,7 +165,7 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
     { href: "", label: "Vendor Store" },
     { href: "", label: "404 Page" },
   ];
- 
+
   return (
     <>
       <div className="flex items-center justify-between h-[56px] p-4">
@@ -250,22 +254,16 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
                 </Link>
               </div>
 
-              <div className="py-6">
+              <div className=" container pt-6">
                 {!loggedin ? (
-                  <>
-                    <button
-                      type="button"
-                      className="inline-flex items-center rounded-md px-3 mr-3 py-2 border border-lime-500 text-sm font-semibold text-primary-green shadow-sm"
-                    >
+                  <div className="grid grid-cols-2 gap-[30px]">
+                    <Button variant="outline" size="sm">
                       Log in
-                    </button>
-                    <button
-                      type="button"
-                      className="inline-flex items-center rounded-md bg-primary-green px-3 py-2 text-sm font-semibold text-white shadow-sm"
-                    >
+                    </Button>
+                    <Button type="button" size="sm">
                       Sign up
-                    </button>
-                  </>
+                    </Button>
+                  </div>
                 ) : (
                   <HeaderIconMenu icons={Navicons} />
                 )}
@@ -277,7 +275,6 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
     </>
   );
 }
-
 
 function Navbar() {
   const loggedin = false;
