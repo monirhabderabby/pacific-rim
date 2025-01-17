@@ -13,6 +13,7 @@ import { LoginForm } from "./forms/login-form";
 import { RecreationalCannabis } from "./forms/recreational-cannabis";
 import { ResetPasswordForm } from "./forms/reset-password-form";
 import { VerifyOTPForm } from "./forms/verify-otp-form";
+import CountryPage from "./forms/country-page";
 
 export function MultiStepForm() {
   const { step, setStep, getPrevStep } = useForm();
@@ -39,6 +40,8 @@ export function MultiStepForm() {
         return <RecreationalCannabis />;
       case "business-info":
         return <BusinessInfoForm />;
+      case "country":
+        return <CountryPage />;
       default:
         return <LoginForm />;
     }

@@ -17,9 +17,7 @@ const FormContext = createContext<FormContextType | undefined>(undefined)
 
 export function FormProvider({ children }: { children: React.ReactNode }) {
   const [step, setStep] = useState<FormStep>('experience')
-  const [formData, setFormData] = useState<FormData>({
-    licenses: []
-  })
+  const [formData, setFormData] = useState<FormData>({} as FormData)
 
   const updateFormData = (data: Partial<FormData>) => {
     setFormData(prev => ({ ...prev, ...data }))
@@ -39,18 +37,22 @@ export function FormProvider({ children }: { children: React.ReactNode }) {
   
       case 'profession':
         return experience === 'CBD/HEMP' ? 'user-info' : 'email';
-  
+      
       case 'email':
-        return 'business-info';
+        return 'country'; 
+          
+      case 'country':
+        return 'business-info'; // add country selector before business info
 
       case 'business-info':
         return experience === 'CBD/HEMP' ? 'login' : 'cannabis';
       case 'cannabis':	
         return 'login'
-        
-      case 'user-info':
-        return experience === 'CBD/HEMP' ? 'business-info' : 'login';
-
+      
+      case 'user-info': 
+        return experience === 'CBD/HEMP' ? 'country' : 'login'; // add country selector
+      
+     
       default:
         return 'login';
     }
