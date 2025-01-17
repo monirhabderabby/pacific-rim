@@ -1,8 +1,8 @@
 import { ChevronDown } from "lucide-react";
 import React, { useState } from "react";
-import AuctionModal from "./AuctionModal";
+import PagesModal from "./PagesModal";
 
-const AuctionList: React.FC = () => {
+const PagesList: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleItemClick = () => {
@@ -14,20 +14,20 @@ const AuctionList: React.FC = () => {
   };
 
   return (
-    <div className="">
+    <div className="relative">
       <span
         className="flex items-center gap-1"
         onClick={() => handleItemClick()}
       >
-        Auction <ChevronDown className="h-4 w-4" />{" "}
+        Pages <ChevronDown className="h-4 w-4" />{" "}
       </span>
-      <AuctionModal
+      <PagesModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        auctionItem={AuctionList}
+        auctionItem={PagesList}
       />
     </div>
   );
 };
 
-export default AuctionList;
+export default PagesList;

@@ -5,20 +5,17 @@ import Image from "next/image";
 
 // local import
 import { FeatureCardType } from "@/data/featured";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function FeaturedProductCard({
   product,
 }: {
   product: FeatureCardType;
 }) {
-  const router = useRouter();
   return (
-    <div
+    <Link
+      href={`/products/${product.id}`}
       className="flex overflow-hidden relative flex-col grow shrink self-stretch p-3 my-auto mx-auto bg-white rounded-[8px] border border-gray-200 border-solid w-full md:w-[260px] hover:shadow-feature_card transition-shadow duration-300 cursor-pointer"
-      onClick={() => {
-        router.push(`/products/${product.id}`);
-      }}
     >
       <div className="overflow-hidden rounded-[8px]">
         <Image
@@ -98,6 +95,6 @@ export default function FeaturedProductCard({
           Add to cart
         </button>
       </div>
-    </div>
+    </Link>
   );
 }

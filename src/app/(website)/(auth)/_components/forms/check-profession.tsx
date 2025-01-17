@@ -22,7 +22,7 @@ const professions: Profession[] = [
 export default function CheckProfession() {
   // const [selectedProfessions, setSelectedProfessions] = useState<string[]>([]);
   const { setStep, getNextStep } = useForm();
-
+  
   const dispatch = useDispatch();
   const val = useSelector((state: any) => state?.auth);
 
