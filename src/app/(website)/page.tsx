@@ -6,6 +6,8 @@ import { ClientReviews } from "@/components/shared/clientReview/ClientReview";
 import SearchBerCategories from "@/components/shared/searchBerCategories/searchBerCategories";
 import AboutSection from "@/components/shared/sections/about-section";
 import PopularBlogs from "@/components/shared/sections/popularBlogs/popularBlogs";
+import BestOffer from "./_components/best_offer";
+import DealOfTheDay from "./_components/deal_of_the_day";
 
 const Page = () => {
   const loggedin = true;
@@ -25,9 +27,12 @@ const Page = () => {
             <FAQSection />
           </div>
         )}
-
+        
+        {loggedin && <DealOfTheDay/>}
         {loggedin && <PopularBlogs />}
         {loggedin && <ClientReviews />}
+        
+        {loggedin && <BestOffer/>}
       </div>
     </div>
   );
