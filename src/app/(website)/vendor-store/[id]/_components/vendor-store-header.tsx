@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import StarRating from "@/components/ui/star-rating";
 import Image from "next/image";
+import Link from "next/link";
 
 const VendorStoreHeader = () => {
   return (
@@ -36,14 +37,19 @@ const VendorStoreHeader = () => {
         </div>
 
         <div className="mt-[20px] flex items-center gap-[15px]">
-          <Button className="flex items-center gap-x-2 text-[16px] font-bold leading-[19.2px]">
-            <Image
-              src="/assets/svg/inbox.svg"
-              alt="inbox"
-              height={15}
-              width={15}
-            />
-            Message
+          <Button asChild>
+            <Link
+              href="/vendor-store/456/contact"
+              className="flex items-center gap-x-2 text-[16px] font-bold leading-[19.2px]"
+            >
+              <Image
+                src="/assets/svg/inbox.svg"
+                alt="inbox"
+                height={15}
+                width={15}
+              />
+              Message
+            </Link>
           </Button>
           <Button
             className="flex items-center gap-x-2 text-[16px] font-bold leading-[19.2px]"
