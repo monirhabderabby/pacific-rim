@@ -1,43 +1,94 @@
-'use client'
+"use client";
 
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { useForm } from '@/provider/form-provider'
-import { Label } from '@/components/ui/label'
+// Packages
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
+
+// Local imports
+
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+
+const forgotPasswordSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+});
+
+type ForgotPasswordSchemaType = z.infer<typeof forgotPasswordSchema>;
 
 export function ForgotPasswordForm() {
-  const { updateFormData, setStep } = useForm()
+  const [loadiing, setLoading] = useState(false);
+  const form = useForm<ForgotPasswordSchemaType>({
+    resolver: zodResolver(forgotPasswordSchema),
+    defaultValues: {
+      email: "",
+    },
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setStep('verify-otp')
-  }
+  const handleSubmit = (values: ForgotPasswordSchemaType) => {
+    setLoading(true);
+    setTimeout(() => {
+      toast.success("6 Digit Otp sent to your email", {
+        position: "top-center",
+        richColors: true,
+      });
+      setLoading(false);
+    }, 3000);
+
+    console.log("OTP Sent to your email", values);
+  };
 
   return (
-    <div className="space-y-6">
-      <div className="mb-[30px] text-center">
-        <h1 className="text-[36px] leading-[43.2px] font-semibold text-[#6EBA6B] mb-2">Forgot Password?</h1>
-        <p className="text-[#444444] text-[16px]">
+    <div className="w-full ">
+      <div className="space-y-2 text-center">
+        <h1 className="text-[36px] leading-[43.2px] font-semibold text-[#6EBA6B]">
+          Forgot Password?
+        </h1>
+        <p className="text-[#444444] text-[16px] font-normal">
           You may receive email notifications from us to reset your password for
           security and login purposes.
         </p>
       </div>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="mb-2">
-          <Label htmlFor="email" className='text-[16px] font-normal leading-[19.2px] text-[#444444]'>Email Address</Label>
-          <Input
-            placeholder="Write your email address"
-            type="email"
-            required
-            onChange={(e) => updateFormData({ email: e.target.value })}
-            className='border-[1px] border-[#9E9E9E] focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-[#9E9E9E] text-black font-normal text-[16px] leading-[19.2px] p-[16px] h-[51px] mt-[5px]'
-          />
-        </div>
-        <Button type="submit" className="w-full bg-[#2A6C2D] p-[24px] h-[56px]">
-          Send OTP
-        </Button>
-      </form>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(handleSubmit)}
+          className="space-y-6 mt-[36px]"
+        >
+          <div className="space-y-4">
+            <FormField
+              name="email"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email Address</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="email"
+                      placeholder="Write your email address"
+                      className="h-[50px]"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <Button type="submit" className="w-full " disabled={loadiing}>
+            {loadiing ? "Generating a 6 Digit OTP" : " Send OTP"}
+          </Button>
+        </form>
+      </Form>
     </div>
-  )
+  );
 }
-
