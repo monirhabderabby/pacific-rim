@@ -50,12 +50,12 @@ const AuthUIProvider = async ({
           </div>
           <div
             className={cn(
-              "grid h-full",
+              "grid h-full items-center",
               fullWidth ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"
             )}
           >
             {!fullWidth && (
-              <div className="relative hidden md:block w-[570px] h-full">
+              <div className="relative hidden md:block w-[570px] min-h-[684px] h-full">
                 <Image
                   src={sidebarImage}
                   alt="CBD Products"

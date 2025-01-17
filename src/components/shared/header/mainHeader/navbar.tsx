@@ -286,6 +286,7 @@ function Navbar() {
     "/vendor-dashboard",
     "/login",
     "/registration",
+    "/reset-password",
   ];
 
   // Check if the current pathName starts with any hideRoutes item
