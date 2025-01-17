@@ -1,13 +1,8 @@
 "use client";
+import VendorReviewCard from "@/components/shared/cards/VendorReviewCard";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Flame, Heart } from "lucide-react";
-import { useState } from "react";
-import { ProductImageGallery } from "./ProductImageGallery";
-import { StarRating } from "./StarRating";
-import { ProductData, BidData } from "./types";
 import { Button } from "@/components/ui/button";
-import { CountdownTimer } from "./CountdownTimer";
 import {
   Table,
   TableBody,
@@ -16,8 +11,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import VendorReviewCard from "@/components/shared/cards/VendorReviewCard";
+import { Flame, Heart } from "lucide-react";
+import { useState } from "react";
+import { CountdownTimer } from "./CountdownTimer";
+import { ProductImageGallery } from "./ProductImageGallery";
 import { ReviewForm } from "./ReviewForm";
+import { StarRating } from "./StarRating";
+import { BidData, ProductData } from "./types";
 
 const productData: ProductData = {
   title: "American Beauty",
@@ -93,7 +93,7 @@ const reviews = [
 ];
 const AuctionDetails = () => {
   const [isWishlist, setIsWishlist] = useState(false);
-  const [islive, setIsLive] = useState(true);
+  const [islive, setIsLive] = useState(false);
   const [biddingPrice, setBiddingPrice] = useState<number | string>("");
 
   const handleWishlistToggle = () => {
@@ -124,7 +124,10 @@ const AuctionDetails = () => {
                     {productData.title}
                   </div>
                   <div className="flex flex-col items-start mt-2 w-full">
-                    <StarRating rating={productData.rating} onChange={() => {} } />
+                    <StarRating
+                      rating={productData.rating}
+                      onChange={() => {}}
+                    />
                     <div className="flex gap-2 items-center mt-2 text-base leading-tight text-[#E10E0E] -translate-x-[7px]">
                       <div className="flex items-center self-stretch my-auto">
                         <Flame className="h-[15px]" />
@@ -311,9 +314,9 @@ const AuctionDetails = () => {
                 />
               </div>
             ))}
-            <div className="w-full h-[1px] border-b-[1px] border-[#C5C5C5] mb-[30px]"/>
+            <div className="w-full h-[1px] border-b-[1px] border-[#C5C5C5] mb-[30px]" />
           </div>
-          <ReviewForm/>
+          <ReviewForm />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { PageHeader } from "@/components/shared/sections/page-header";
-import OrderConfirmed from "./_components/OrderConfirmed";
-import OrderDetails from "./_components/OrderDetails";
+import OrderConfirmed from "../_components/OrderConfirmed";
+import OrderDetails from "../_components/OrderDetails";
 
 const Page = () => {
   // order Status data it will be come backend ==========
