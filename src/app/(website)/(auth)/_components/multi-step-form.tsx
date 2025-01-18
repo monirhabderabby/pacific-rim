@@ -5,14 +5,14 @@ import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { ForgotPasswordForm } from "../forgot-password/_components/forgot-password-form";
 import { LoginForm } from "../login/_components/login-form";
+import { EmailForm } from "../registration/(a)/email/_components/email-form";
+import CheckProfession from "../registration/(a)/profession/_components/profession-checker";
 import { ExperienceForm } from "../registration/_components/experience-form";
 import { ResetPasswordForm } from "../reset-password/_componments/reset-password-form";
 import { VerifyOTPForm } from "../reset-password/_componments/verify-otp-form";
 import SignUpForm from "./forms/UserInfoSignUp";
 import { BusinessInfoForm } from "./forms/business-info-form";
-import CheckProfession from "./forms/check-profession";
 import CountryPage from "./forms/country-page";
-import { EmailForm } from "./forms/email-form";
 import { RecreationalCannabis } from "./forms/recreational-cannabis";
 
 export function MultiStepForm() {
