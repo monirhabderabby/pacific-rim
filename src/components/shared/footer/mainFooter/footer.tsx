@@ -26,123 +26,127 @@ function Footer() {
   }
 
   return (
-    <footer className="bg-zinc-950 text-white py-12">
+    <footer className="bg-[#101218] text-white pt-20 pb-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-4 gap-4 lg:gap-24">
           {/* Logo Column */}
-          <div className="flex flex-col lg:items-center">
+          <div className="flex flex-col items-center col-span-4 lg:col-span-1 ">
             <Image
               src={FooterLogo}
               alt="Pacific Rim Fusion Logo"
-              width={80}
-              height={80}
+              width={91}
+              height={91}
               className="mb-4"
             />
-            <h2 className="text-xl font-bold mb-1">PACIFIC RIM FUSION</h2>
-            <p className="text-zinc-400">Share The Balance</p>
+            <h2 className="text-[18px] font-semibold mb-1 text-[#ffffff]">PACIFIC RIM FUSION</h2>
+            <p className="text-[#E6EEF6] text-[16px">Share The Balance</p>
           </div>
 
           {/* Information Column */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Information</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-zinc-400 hover:text-white transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-zinc-400 hover:text-white transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy-policy"
-                  className="text-zinc-400 hover:text-white transition-colors"
-                >
-                  Privacy policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/term-and-conditions"
-                  className="text-zinc-400 hover:text-white transition-colors"
-                >
-                  Terms and conditions
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faqs"
-                  className="text-zinc-400 hover:text-white transition-colors"
-                >
-                  Faq
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <div className="col-span-4 lg:col-span-2">
+            <div className="grid grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-[16px] font-medium mb-4 border-[#E6EEF6] border-b-[1px] pb-[10px]">Information</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link
+                      href="/about"
+                      className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
+                    >
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/contact"
+                      className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
+                    >
+                      Contact
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/privacy-policy"
+                      className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
+                    >
+                      Privacy policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/term-and-conditions"
+                      className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
+                    >
+                      Terms and conditions
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/faqs"
+                      className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
+                    >
+                      Faq
+                    </Link>
+                  </li>
+                </ul>
+              </div>
 
-          {/* Discover Column */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Discover</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/live-auction"
-                  className="text-zinc-400 hover:text-white transition-colors"
-                >
-                  Live Auction
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/features"
-                  className="text-zinc-400 hover:text-white transition-colors"
-                >
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/ending-soon"
-                  className="text-zinc-400 hover:text-white transition-colors"
-                >
-                  Ending Soon
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/features-auction"
-                  className="text-zinc-400 hover:text-white transition-colors"
-                >
-                  Features Auction
-                </Link>
-              </li>
-            </ul>
+              {/* Discover Column */}
+              <div>
+                <h3 className="text-[16px] font-medium mb-4 border-[#E6EEF6] border-b-[1px] pb-[10px]">Discover</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link
+                      href="/live-auction"
+                      className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
+                    >
+                      Live Auction
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/features"
+                      className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
+                    >
+                      Features
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/ending-soon"
+                      className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
+                    >
+                      Ending Soon
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/features-auction"
+                      className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
+                    >
+                      Features Auction
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           {/* Locate Us Column */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Locate Us</h3>
-            <address className="text-zinc-400 not-italic">
+          <div className="col-span-4 lg:col-span-1">
+            <h3 className="text-[16px] font-medium mb-4 border-[#E6EEF6] border-b-[1px] pb-[10px] ">Locate Us</h3>
+            <p className="text-[#E6EEF6] text-[14px] font-normal hover:text-white">
               2 Star Circle Star Way,
               <br />
               San Carlos, CA
               <br />
               94070
-            </address>
+            </p>
           </div>
         </div>
 
         {/* Copyright Notice */}
-        <div className="mt-12 pt-4 border-t border-zinc-800 text-center text-zinc-500 text-sm">
+        <div className="mt-4 text-center lg:text-right text-[#D9D9D9] text-[10px] lg:text-[14px]">
           <p>
             2024 WWW Staging - Thailand - Pacific Rim Fusion, LLC. Powered by
             WWW Staging - Thailand - Pacific Rim Fusion, LLC
