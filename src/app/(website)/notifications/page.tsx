@@ -47,7 +47,7 @@ function Page() {
             {notifications.map((notification) => (
                 <div
                     key={notification.id}
-                    className="flex lg:items-center justify-between py-4 border-b border-gray-300"
+                    className="flex lg:items-center justify-between py-4 border-b border-[#CCCCCC]"
                 >
                     <div className="flex items-center gap-4">
                         <div className="">
@@ -68,7 +68,7 @@ function Page() {
                             className="hover:text-red-400 transition-colors w-[20px] h-[20px]"
                             aria-label="Close notification"
                         >
-                            <X className='text-[#000000]' />
+                            <X className='text-[#000000] w-[20px] h-[20px]' />
                         </button>
                     </div>
                 </div>
