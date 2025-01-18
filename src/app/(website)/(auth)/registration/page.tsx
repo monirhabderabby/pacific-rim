@@ -1,11 +1,16 @@
-"use client";
-import { FormProvider } from "@/provider/form-provider";
-import { MultiStepForm } from "../_components/multi-step-form";
+// Packages
+import dynamic from "next/dynamic";
+
+// Local imports
+import AuthUIProvider from "../_components/provider/AuthUIProvider";
+const ExperienceForm = dynamic(() => import("./_components/experience-form"), {
+  ssr: false,
+});
 
 export default function Page() {
   return (
-    <FormProvider>
-      <MultiStepForm />
-    </FormProvider>
+    <AuthUIProvider sidebarImage="https://i.postimg.cc/QCCySSfp/image-9.png">
+      <ExperienceForm />
+    </AuthUIProvider>
   );
 }
