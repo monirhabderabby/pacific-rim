@@ -2,6 +2,8 @@
 
 // Packages
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -28,6 +30,8 @@ type ForgotPasswordSchemaType = z.infer<typeof forgotPasswordSchema>;
 
 export function ForgotPasswordForm() {
   const [loadiing, setLoading] = useState(false);
+
+  const router = useRouter();
   const form = useForm<ForgotPasswordSchemaType>({
     resolver: zodResolver(forgotPasswordSchema),
     defaultValues: {
@@ -43,13 +47,32 @@ export function ForgotPasswordForm() {
         richColors: true,
       });
       setLoading(false);
+
+      router.push("/reset-password");
     }, 3000);
 
     console.log("OTP Sent to your email", values);
   };
 
   return (
-    <div className="w-full ">
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 1,
+        },
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          duration: 0.5,
+        },
+      }}
+      className="w-full "
+    >
       <div className="space-y-2 text-center">
         <h1 className="text-[36px] leading-[43.2px] font-semibold text-[#6EBA6B]">
           Forgot Password?
@@ -89,6 +112,6 @@ export function ForgotPasswordForm() {
           </Button>
         </form>
       </Form>
-    </div>
+    </motion.div>
   );
 }
