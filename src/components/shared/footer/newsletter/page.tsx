@@ -63,13 +63,13 @@ function NewsletterPage() {
             {/* Right column with form */}
             <div className="flex-1 w-full bg-white/70 p-[20px] md:p-[40px] rounded-[16px]">
               <div className="space-y-4 mb-5">
-                <h2 className="text-2xl lg:text-4xl font-semibold text-primary-green-hover">
+                <h2 className="text-[25px] lg:text-[32px] font-semibold text-primary-green-hover">
                   Subscribe Newsletter
                 </h2>
-                <h3 className="text-base lg:text-xl text-primary-green-hover">
+                <h3 className="text-semibold leading-[26.4px] lg:text-[22px] text-primary-green-hover">
                   Get bidding update earlier.
                 </h3>
-                <p className="text-[#444444] ">
+                <p className="text-[#444444] text-[14px] lg:text-[16px]">
                   Subscribe to our newsletter and be the first to discover the
                   latest CBD tips, exclusive discounts, and wellness news.
                 </p>
@@ -85,11 +85,11 @@ function NewsletterPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="placeholder:text-[#B3B3B3] flex-1 bg-white text-black text-center lg:text-left text-sm lg:text-base p-[22px] lg:p-6 border-[1px] border-primary-green-hover focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="placeholder:text-[#B3B3B3] flex-1 bg-white text-black text-center lg:text-left text-sm lg:text-base p-[21px] lg:p-6 border-[1px] border-primary-green-hover focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
                 <Button
                   type="submit"
-                  className="bg-primary-green-hover hover:bg-[#225430] w-[120px] lg:w-[142px] py-[13px] lg:absolute right-0 top-0 text-white mt-3 lg:mt-0"
+                  className="bg-primary-green-hover hover:bg-[#225430] w-[120px] lg:w-[142px] h-[40px] lg:h-[50px] py-[13px] lg:absolute right-0 top-0 text-white mt-3 lg:mt-0"
                 >
                   Subscribe
                 </Button>
