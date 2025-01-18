@@ -4,6 +4,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -38,6 +39,8 @@ export function ResetPasswordForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const router = useRouter();
+
   // form
   const form = useForm({
     resolver: zodResolver(resetPasswordSchema),
@@ -55,6 +58,8 @@ export function ResetPasswordForm() {
         richColors: true,
       });
       setLoading(false);
+
+      router.push("/login");
     }, 3000);
 
     console.log("Reset Password value", values);
