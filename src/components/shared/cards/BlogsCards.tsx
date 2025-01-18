@@ -38,7 +38,7 @@ function BlogsCards({ image, title, date, author, comments, id }: Blog) {
                             {comments} Comments
                         </div>
                     </div>
-                    <h3 className="font-medium mb-4 line-clamp-2 text-[18px] text-[#000000]">
+                    <h3 className="font-medium line-clamp-2 text-[18px] text-[#000000]">
                         {title}
                     </h3>
                 </CardContent>
