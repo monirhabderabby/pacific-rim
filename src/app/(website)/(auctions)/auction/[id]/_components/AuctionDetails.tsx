@@ -112,6 +112,8 @@ const AuctionDetails = () => {
     setBidSubmitting(true);
     await new Promise((resolve) => setTimeout(resolve, 2000));
     setIsLimited(true);
+      setIsLive(true);
+
   };
 
   return (
