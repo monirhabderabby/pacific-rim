@@ -14,13 +14,13 @@ function BlogsCards({ image, title, date, author, comments, id }: Blog) {
     return (
         <>
             <Card key={id} className="overflow-hidden bg-primary-light shadow-none border-0">
-                <CardHeader className="p-0">
+                <CardHeader className="p-0 group overflow-hidden">
                     <Image
                         src={image}
                         alt={title}
                         width={600}
                         height={400}
-                        className="w-full w-[370px], lg:h-[230px] h-[270px] object-cover"
+                        className="w-full w-[370px], lg:h-[230px] h-[270px] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-150 duration-300"
                     />
                 </CardHeader>
                 <CardContent className="p-4">
