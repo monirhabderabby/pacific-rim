@@ -1,5 +1,9 @@
+'use client'
+
 import React from "react";
 import { IoCheckmarkCircle } from "react-icons/io5";
+import { useState } from 'react'
+import PlansPayment from "./plansPayment";
 
 function PlansCard({
   cardtitle,
@@ -10,6 +14,7 @@ function PlansCard({
   messages,
 }: any) {
   const title = cardtitle === "Standard" ? true : false;
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="w-full border border-[#A3A6AF] rounded-[16px] relative">
       {title && (
@@ -29,9 +34,17 @@ function PlansCard({
         <h4 className="text-[22px] text-[#1A1A1A] font-bold leading-[26.4px] mt-6">
           ₿{cardprice}
         </h4>
-        <button className="w-full text-base text-[#FFFFFF] font-semibold bg-[#2A6C2D] hover:bg-[#266129]/80 rounded-[8px] py-[12.5px] mt-6 duration-300">
-          Subscribe Now
-        </button>
+        <div>
+          <button onClick={() => setIsOpen(true)} className="w-full text-base text-[#FFFFFF] font-semibold bg-[#2A6C2D] hover:bg-[#266129]/80 rounded-[8px] py-[12.5px] mt-6 duration-300">
+            Subscribe Now
+          </button>
+          <PlansPayment
+            isOpen={isOpen} 
+            onClose={() => setIsOpen(false)} 
+            price={9000.0}
+            
+          />
+        </div>
       </div>
       {/* 2nd div */}
       <div className="px-6 mt-10 pb-[75.5px]">

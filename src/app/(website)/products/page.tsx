@@ -11,7 +11,11 @@ const Page = () => {
           { label: "Our Products", href: "" },
         ]}
       />
+      {/* Render the product grid or list */}
+      <div className="">
+        
       <ProductsContainer />
+      </div>
     </div>
   );
 };
