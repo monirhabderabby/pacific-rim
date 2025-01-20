@@ -113,7 +113,10 @@ function CountrySelector() {
             },
           ],
         }}
-        onRegionTipShow={handleRegionTipShow}
+
+
+        
+        onRegionTipShow={handleRegionTipShow}                      
         onRegionClick={handleRegionClick}
       />
     </div>
