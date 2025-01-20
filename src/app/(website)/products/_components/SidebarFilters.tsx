@@ -7,27 +7,38 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { RootState, AppDispatch } from "@/redux/store";
-import { setPriceRange, toggleFlower,toggleCategory } from "@/redux/features/filtering/FilterSlice";
+import { setPriceRange, toggleFlower, toggleCategory } from "@/redux/features/filtering/FilterSlice";
 
 export default function SidebarFilters() {
   const dispatch = useDispatch<AppDispatch>();
   const { priceRange, flowers, categories } = useSelector((state: RootState) => state.filters);
 
   const flowerOptions = ["Indica", "Sativa", "Hybrid"];
-  const categoryOptions = ["Flower", "Topical", "Apprel", "Edibels", "Vape Products", "Concentrations"];
+  const categoryOptions = ["Flower", "Topical", "Apparel", "Edibles", "Vape Products", "Concentrations"];
 
+  // Handle changes to the slider's value
   const handlePriceChange = (value: number[]) => {
-    console.log(value)
-    dispatch(setPriceRange(value));
+    if (value[0] <= value[1]) {
+      dispatch(setPriceRange(value));  // Update Redux state
+    }
+  };
+
+  // Handle changes to the input fields
+  const handleInputChange = (index: number, newValue: number) => {
+    const updatedRange = [...priceRange];
+    updatedRange[index] = newValue;
+
+    // Ensure the input values are valid and maintain correct order
+    if (updatedRange[0] <= updatedRange[1]) {
+      dispatch(setPriceRange(updatedRange as [number, number]));  // Update Redux state
+    }
   };
 
   const handleFlowerToggle = (flower: string) => {
-    console.log(flower)
     dispatch(toggleFlower(flower));
   };
 
   const handleCategoryToggle = (category: string) => {
-    console.log(category)
     dispatch(toggleCategory(category));
   };
 
@@ -37,11 +48,10 @@ export default function SidebarFilters() {
       <div className="rounded-lg bg-[#E6EEF6] p-4">
         <h2 className="text-[28px] font-bold text-[#0057A8] mb-4">Filter by Price</h2>
         <Slider
-          defaultValue={[0, 789]}
+          value={priceRange}  // Bind slider directly to Redux state
           max={1000}
           step={1}
-          value={priceRange}
-          onValueChange={handlePriceChange}
+          onValueChange={handlePriceChange}  // Update Redux state when slider is moved
           className="my-4"
         />
         <div className="flex gap-4 items-center">
@@ -49,8 +59,8 @@ export default function SidebarFilters() {
             <Label className="text-[11px] text-[#9C9C9C]">Starting Price</Label>
             <Input
               type="number"
-              value={priceRange[0]}
-              onChange={(e) => handlePriceChange([+e.target.value, priceRange[1]])}
+              value={priceRange[0]}  // Bind to Redux state to reflect current price
+              onChange={(e) => handleInputChange(0, +e.target.value)}  // Update Redux state when input changes
               className="h-9"
             />
           </div>
@@ -58,8 +68,8 @@ export default function SidebarFilters() {
             <Label className="text-[11px] text-[#9C9C9C]">Ending Price</Label>
             <Input
               type="number"
-              value={priceRange[1]}
-              onChange={(e) => handlePriceChange([priceRange[0], +e.target.value])}
+              value={priceRange[1]}  // Bind to Redux state to reflect current price
+              onChange={(e) => handleInputChange(1, +e.target.value)}  // Update Redux state when input changes
               className="h-9"
             />
           </div>
