@@ -88,7 +88,7 @@ const animationVariants: Record<string, Variants> = {
     visible: {
       scale: 1,
       opacity: 1,
-      transition: { duration: 0.4, ease: "easeInOut", type: "tween" },
+      transition: { duration: 0.8, ease: "easeInOut", type: "spring" },
     },
   },
   zoomOut: {
