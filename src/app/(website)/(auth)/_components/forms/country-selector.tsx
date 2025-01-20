@@ -1,42 +1,41 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { Flag } from '@/app/(website)/(auth)/_components/forms/flag'
-import { Country, CountrySelectorProps } from '@/types/form'
+import { Flag } from "@/app/(website)/(auth)/_components/forms/flag";
+import { Country, CountrySelectorProps } from "@/types/form";
+import Image from "next/image";
+import { useState } from "react";
 // import { useForm } from '@/provider/form-provider'
 
-import { setRegistrationValue } from '@/redux/features/authentication/AuthSlice'
-import { useDispatch } from 'react-redux'
+import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
+import { useDispatch } from "react-redux";
 
 const countries: Country[] = [
-  { name: 'Costa Rica', flag: "/assets/img/Frame 1597881738.png", code: 'CR' },
-  { name: 'United States', flag: "/assets/img/image 872.png", code: 'US' },
-  { name: 'Sierra Leone', flag: "/assets/img/image 875.png", code: 'SL' },
-  { name: 'Solomon Islands', flag: "/assets/img/image 876.png", code: 'SB' },
-  { name: 'Paraguay', flag: "/assets/img/image 877.png", code: 'PY' },
-]
+  { name: "Costa Rica", flag: "/assets/img/Frame 1597881738.png", code: "CR" },
+  { name: "United States", flag: "/assets/img/image 872.png", code: "US" },
+  { name: "Sierra Leone", flag: "/assets/img/image 875.png", code: "SL" },
+  { name: "Solomon Islands", flag: "/assets/img/image 876.png", code: "SB" },
+  { name: "Paraguay", flag: "/assets/img/image 877.png", code: "PY" },
+];
 
-export function CountrySelector({ onNext }: CountrySelectorProps) {
-  const [selectedCountries, setSelectedCountries] = useState<string[]>([])
+export function CountrySelectorOld({ onNext }: CountrySelectorProps) {
+  const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   // const {setStep} = useForm()
 
   const toggleCountry = (countryCode: string) => {
-    setSelectedCountries(prev =>
+    setSelectedCountries((prev) =>
       prev.includes(countryCode)
-        ? prev.filter(code => code !== countryCode)
+        ? prev.filter((code) => code !== countryCode)
         : [...prev, countryCode]
-    )
-     
-  }
+    );
+  };
 
   const handleCountry = () => {
-    onNext(selectedCountries)
+    onNext(selectedCountries);
     dispatch(setRegistrationValue({ country: selectedCountries }));
-  }
+  };
 
   return (
     <div className="flex flex-col items-center w-full max-w-6xl mx-auto px-4">
@@ -44,7 +43,7 @@ export function CountrySelector({ onNext }: CountrySelectorProps) {
         Select Any Country
       </h1>
       <p className="text-gray-500 mb-8">Choose Your Business Country</p>
-      
+
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
         {countries.map((country) => (
           <Flag
@@ -80,15 +79,17 @@ export function CountrySelector({ onNext }: CountrySelectorProps) {
         Next →
       </button>
     </div>
-  )
+  );
 }
 
 function LegendItem({ color, label }: { color: string; label: string }) {
   return (
     <div className="flex items-center">
-      <div className={`w-3 h-3 rounded-full mr-2`} style={{ backgroundColor: color }} />
+      <div
+        className={`w-3 h-3 rounded-full mr-2`}
+        style={{ backgroundColor: color }}
+      />
       <span className="text-sm">{label}</span>
     </div>
-  )
+  );
 }
-
