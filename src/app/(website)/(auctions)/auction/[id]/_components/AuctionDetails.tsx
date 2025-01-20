@@ -11,14 +11,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Flame, Heart, Loader2 } from "lucide-react";
+import { Flame, Heart } from "lucide-react";
 import { useState } from "react";
 import { CountdownTimer } from "./CountdownTimer";
 import { ProductImageGallery } from "./ProductImageGallery";
 import { ReviewForm } from "./ReviewForm";
 import { StarRating } from "./StarRating";
 import { BidData, ProductData } from "./types";
-import BidsLimitedModal from "./BidsLimitedModal";
 
 const productData: ProductData = {
   title: "American Beauty",
@@ -94,33 +93,24 @@ const reviews = [
 ];
 const AuctionDetails = () => {
   const [isWishlist, setIsWishlist] = useState(false);
-  const [islive, setIsLive] = useState(true);
-  const [isLimited, setIsLimited] = useState(false);
-  const [bidSubmitting, setBidSubmitting] = useState(false);
+  const [islive] = useState(false);
   const [biddingPrice, setBiddingPrice] = useState<number | string>("");
 
   const handleWishlistToggle = () => {
-    setIsWishlist((prev) => !prev); 
+    setIsWishlist((prev) => !prev); // Toggle wishlist state
   };
   const handleBidChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setBiddingPrice(value === "" ? "" : Number(value));
   };
-  const handleBidSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("biddingPrice:",biddingPrice);
-    setBidSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsLimited(true);
-      setIsLive(true);
-
+  const handleBidClick = () => {
+    console.log(biddingPrice);
   };
 
   return (
     <div>
       <SectionHeading heading={"Our products"} subheading={""} />
       <section className=" flex justify-center items-center pt-10 px-4">
-        {isLimited && <BidsLimitedModal />}
         <div className="flex flex-col w-full max-w-[1200px]">
           <div className="flex flex-wrap gap-8 w-full ">
             <ProductImageGallery
@@ -186,66 +176,58 @@ const AuctionDetails = () => {
                 <div className="mt-5 w-full border border-solid  border-b-stone-700 h-[1px]" />
 
                 {/* Bidding input ------------------------------------ */}
-                <form onSubmit={handleBidSubmit}>
-                  {islive && (
-                    <div className="flex flex-col max-w-[400px] pt-[25px]">
-                      <label
-                        htmlFor="bidInput"
-                        className="text-base leading-tight text-neutral-700"
-                      >
-                        Your Bid Price
-                      </label>
-                      <div className="flex justify-between mt-2 w-full h-11 whitespace-nowrap rounded-md border border-solid border-neutral-400">
-                        <div className="gap-3 self-stretch px-4 text-sm font-semibold leading-tight text-[#2a6c2d] bg-[#eaf0ea] rounded-lg h-[42px] w-[42px] flex items-center justify-center">
-                          $
-                        </div>
-                        <input
-                          id="bidInput"
-                          type="number"
-                          required
-                          onChange={handleBidChange}
-                          className="focus:outline-none focus:ring-0 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-moz-appearance:textfield] flex-1 shrink gap-2 self-stretch py-2 pr-3 pl-3 pb-2  my-auto text-base leading-snug rounded-lg min-w-[240px] text-black"
-                          aria-label="Bid amount in dollars"
-                        />
+
+                {islive && (
+                  <div className="flex flex-col max-w-[400px] pt-[25px]">
+                    <label
+                      htmlFor="bidInput"
+                      className="text-base leading-tight text-neutral-700"
+                    >
+                      Your Bid Price
+                    </label>
+                    <div className="flex justify-between mt-2 w-full h-11 whitespace-nowrap rounded-md border border-solid border-neutral-400">
+                      <div className="gap-3 self-stretch px-4 text-sm font-semibold leading-tight text-[#2a6c2d] bg-[#eaf0ea] rounded-lg h-[42px] w-[42px] flex items-center justify-center">
+                        $
                       </div>
-                    </div>
-                  )}
-                  <div className="flex flex-col mt-6 w-full">
-                    {/* wishlist and bid----------------- */}
-                    <div className="flex gap-[40px] items-center justify-between mt-2 w-full">
-                      {/* wishlist----------------- */}
-                      <button
-                        onClick={handleWishlistToggle}
-                        type="button"
-                        className={`flex gap-2.5 justify-center items-center px-2 bg-white rounded-lg border border-solid ${
-                          isWishlist
-                            ? "border-red-500 text-red-500"
-                            : "border-stone-300"
-                        } h-[43px] min-h-[43px] w-[45px]`}
-                        aria-label="Add to wishlist"
-                      >
-                        <Heart fill={isWishlist ? "red" : "none"} />
-                      </button>
-                      {islive ? (
-                        <Button
-                          className="relative w-full"
-                          aria-label="Place Order"
-                          disabled={bidSubmitting}
-                          type="submit"
-                        >
-                          {bidSubmitting ? "Processing" : "Bid Now"}
-                          {bidSubmitting && (
-                            <Loader2 className="absolute right-5 top-4 h-6 w-5 animate-spin" />
-                          )}
-                        </Button>
-                      ) : (
-                        <Button className=" w-full" disabled={true}>
-                          Expired
-                        </Button>
-                      )}
+                      <input
+                        id="bidInput"
+                        type="number"
+                        onChange={handleBidChange}
+                        className="appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-moz-appearance:textfield] flex-1 shrink gap-2 self-stretch py-3 pr-5 pl-4 pb-2  my-auto text-base leading-snug rounded-lg min-w-[240px] text-black"
+                        aria-label="Bid amount in dollars"
+                      />
                     </div>
                   </div>
-                </form>
+                )}
+                <div className="flex flex-col mt-6 w-full">
+                  {/* wishlist and bid----------------- */}
+                  <div className="flex gap-[40px] items-center justify-between mt-2 w-full">
+                    {/* wishlist----------------- */}
+                    <button
+                      onClick={handleWishlistToggle}
+                      className={`flex gap-2.5 justify-center items-center px-2 bg-white rounded-lg border border-solid ${
+                        isWishlist
+                          ? "border-red-500 text-red-500"
+                          : "border-stone-300"
+                      } h-[42px] min-h-[41px] w-[43px]`}
+                      aria-label="Add to wishlist"
+                    >
+                      <Heart fill={isWishlist ? "red" : "none"} />
+                    </button>
+                    {islive ? (
+                      <Button
+                        className="max-w-[320px] text-white bg-[#2a6c2d] px-6  rounded-lg h-[43px] flex justify-center items-center w-full"
+                        onClick={handleBidClick}
+                      >
+                        Bid Now
+                      </Button>
+                    ) : (
+                      <button className="max-w-[320px] text-white bg-[#C5C5C5] px-6  rounded-lg h-[43px] flex justify-center items-center w-full">
+                        Expired
+                      </button>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
