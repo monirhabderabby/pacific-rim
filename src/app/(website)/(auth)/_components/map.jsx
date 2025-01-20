@@ -98,7 +98,10 @@ function WorldMap() {
             },
           ],
         }}
-        onRegionTipShow={handleRegionTipShow}
+
+
+        
+        onRegionTipShow={handleRegionTipShow}                      
         onRegionClick={handleRegionClick}
       />
     </div>
