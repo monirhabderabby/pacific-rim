@@ -22,7 +22,7 @@ const PacificDropdownSelector = ({
       value={selectedValue}
       onValueChange={(val) => onValueChange(val)} // Update the state on selection
     >
-      <SelectTrigger className="bg-green-600 rounded-[8px] text-white">
+      <SelectTrigger className="bg-[#ECECEC] rounded-[8px] text-[#0057A8]">
         <SelectValue placeholder={selectedValue} />
       </SelectTrigger>
       <SelectContent className="w-fit">
