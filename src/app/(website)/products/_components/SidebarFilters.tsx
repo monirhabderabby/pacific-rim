@@ -19,7 +19,7 @@ export default function SidebarFilters() {
   // Handle changes to the slider's value
   const handlePriceChange = (value: number[]) => {
     if (value[0] <= value[1]) {
-      dispatch(setPriceRange(value));  // Update Redux state
+      dispatch(setPriceRange(value));
     }
   };
 
@@ -27,10 +27,9 @@ export default function SidebarFilters() {
   const handleInputChange = (index: number, newValue: number) => {
     const updatedRange = [...priceRange];
     updatedRange[index] = newValue;
-
     // Ensure the input values are valid and maintain correct order
     if (updatedRange[0] <= updatedRange[1]) {
-      dispatch(setPriceRange(updatedRange as [number, number]));  // Update Redux state
+      dispatch(setPriceRange(updatedRange as [number, number]));
     }
   };
 
@@ -48,10 +47,12 @@ export default function SidebarFilters() {
       <div className="rounded-lg bg-[#E6EEF6] p-4">
         <h2 className="text-[28px] font-bold text-[#0057A8] mb-4">Filter by Price</h2>
         <Slider
-          value={priceRange}  // Bind slider directly to Redux state
+          value={priceRange}  // Bind the slider value to the Redux state
           max={1000}
+          min={0}
           step={1}
-          onValueChange={handlePriceChange}  // Update Redux state when slider is moved
+          minStepsBetweenThumbs={5}
+          onValueChange={handlePriceChange}  // Handle slider value change
           className="my-4"
         />
         <div className="flex gap-4 items-center">
@@ -59,8 +60,8 @@ export default function SidebarFilters() {
             <Label className="text-[11px] text-[#9C9C9C]">Starting Price</Label>
             <Input
               type="number"
-              value={priceRange[0]}  // Bind to Redux state to reflect current price
-              onChange={(e) => handleInputChange(0, +e.target.value)}  // Update Redux state when input changes
+              value={priceRange[0]}  // Bind to Redux state
+              onChange={(e) => handleInputChange(0, +e.target.value)}  // Update Redux state on input change
               className="h-9"
             />
           </div>
@@ -68,8 +69,8 @@ export default function SidebarFilters() {
             <Label className="text-[11px] text-[#9C9C9C]">Ending Price</Label>
             <Input
               type="number"
-              value={priceRange[1]}  // Bind to Redux state to reflect current price
-              onChange={(e) => handleInputChange(1, +e.target.value)}  // Update Redux state when input changes
+              value={priceRange[1]}  // Bind to Redux state
+              onChange={(e) => handleInputChange(1, +e.target.value)}  // Update Redux state on input change
               className="h-9"
             />
           </div>
