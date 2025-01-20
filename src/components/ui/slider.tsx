@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import * as SliderPrimitive from "@radix-ui/react-slider";
 
 import { cn } from "@/lib/utils";
@@ -9,7 +10,7 @@ type SliderProps = {
   max: number;
   minStepsBetweenThumbs: number;
   step: number;
-  value?: number[] | readonly number[];
+  value?: number[] | readonly number[]; // Array of values for multiple thumbs
   onValueChange?: (values: number[]) => void;
 };
 
@@ -28,6 +29,13 @@ const Slider = React.forwardRef(
   ) => {
     const initialValue = Array.isArray(value) ? value : [min, max];
     const [localValues, setLocalValues] = useState(initialValue);
+
+    // Sync localValues with value prop from Redux store (or parent)
+    useEffect(() => {
+      if (value) {
+        setLocalValues(value); // Update local state when value changes
+      }
+    }, [value]);
 
     const handleValueChange = (newValues: number[]) => {
       setLocalValues(newValues);
@@ -62,7 +70,7 @@ const Slider = React.forwardRef(
                 top: `10px`,
               }}
             >
-              
+              {/* Optional labels or thumbs */}
             </div>
             <SliderPrimitive.Thumb className="block h-4 w-4 rounded-full border border-primary/50 bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" />
           </React.Fragment>
