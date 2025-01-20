@@ -16,7 +16,7 @@ const AuctionModal: React.FC<AuctionModalProps> = ({ isOpen, onClose }) => {
       onClose={onClose}
       className="fixed inset-0 z-30 overflow-y-auto  rounded-none backdrop-blur-[4px] mt-[74px]"
     >
-      <div className="fixed  inset-0 bg-black  opacity-50" aria-hidden="true" />
+      <div className="fixed  inset-0 bg-black/30  opacity-50" aria-hidden="true" />
       <div className="flex  justify-center ml-[-70px]">
         <Dialog.Panel className="bg-white shadow-lg rounded-b-[8px] z-50 ">
           <Dialog.Title className="w-full">

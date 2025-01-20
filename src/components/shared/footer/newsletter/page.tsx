@@ -38,11 +38,11 @@ function NewsletterPage() {
   return (
     <>
       <section
-        className="h-auto lg:h-[457px]"
+        className="h-auto lg:h-[457px] "
         style={{
           backgroundImage: "url('/assets/newsletter/newsletter-bg.png')",
           backgroundRepeat: "repeat", // Ensure seamless background
-          animation: "moveBackground 30s linear infinite alternate", // Alternate animation direction
+          animation: "moveBackground 10s linear infinite alternate", // Alternate animation direction
           backgroundSize: "cover",
           backgroundPosition: "top",
         }}
