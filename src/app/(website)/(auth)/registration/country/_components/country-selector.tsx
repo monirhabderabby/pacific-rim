@@ -1,7 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 "use client";
+import { addNewBusiness } from "@/redux/features/authentication/AuthSlice";
+import { useAppDispatch } from "@/redux/store";
 import { VectorMap } from "@react-jvectormap/core";
 import { worldMill } from "@react-jvectormap/world";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 // Define the countries you want to include
@@ -17,7 +21,7 @@ const countries = {
 const disabledColor = "#808080"; // Gray color for disabled countries
 const colorScale = ["#C8EEFF", "#0071A4", "#008000"]; // Green for selected countries
 
-function WorldMap() {
+function CountrySelector() {
   const [regionColors, setRegionColors] = useState({
     US: 100, // Green for United States
     CA: 100, // Green for Canada
@@ -26,6 +30,9 @@ function WorldMap() {
     ES: 100, // Green for Spain
     TH: 100, // Green for Thailand
   });
+
+  const dispatch = useAppDispatch();
+  const router = useRouter();
 
   const [mapPaths, setMapPaths] = useState(null);
 
@@ -39,8 +46,6 @@ function WorldMap() {
   function handleRegionClick(event, code) {
     // If the country is not in the list, prevent interaction by returning early
     if (!countries[code]) {
-      //   console.log(`You clicked on a disabled country: ${code}`);
-      alert("Sorry This Country not allow ");
       return; // Disable the click interaction
     }
 
@@ -52,7 +57,18 @@ function WorldMap() {
       [code]: 50, // Color changed to show interaction (can be adjusted)
     }));
 
-    console.log(`You clicked on: ${countryName}`);
+    dispatch(
+      addNewBusiness([
+        {
+          country: countryName,
+          province: "",
+          recreationalLicense: "",
+          resellerLicense: "",
+        },
+      ])
+    );
+
+    router.push("/");
   }
 
   function handleRegionTipShow(event, label, code) {
@@ -104,4 +120,4 @@ function WorldMap() {
   );
 }
 
-export default WorldMap;
+export default CountrySelector;

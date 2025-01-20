@@ -29,16 +29,6 @@ export default function ProfessionChecker() {
   const dispatch = useDispatch();
   const authState = useAppSelector((state) => state.auth);
 
-  let nextPath: string;
-
-  nextPath =
-    authState?.type === "Recreational Cannabis"
-      ? "/registration/profession/email"
-      : "";
-
-  nextPath =
-    authState.type === "CBD/HEMP" ? "/registration/profession/country" : "";
-
   const selectedProfessions: string[] = authState.profession;
 
   const handleProfessionChange = (currentProfession: string) => {
@@ -100,7 +90,14 @@ export default function ProfessionChecker() {
               size="md"
               asChild
             >
-              <Link href={nextPath} className="flex items-center">
+              <Link
+                href={
+                  authState.type === "Recreational Cannabis"
+                    ? "/registration/profession/email"
+                    : "/registration/country"
+                }
+                className="flex items-center"
+              >
                 Next
                 <ArrowRight className="ml-2" />
               </Link>
