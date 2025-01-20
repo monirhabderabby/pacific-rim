@@ -55,7 +55,7 @@ const PopularCategoriesCard = () => {
       initial="hidden"
       animate={inView ? "show" : "hidden"} // Start animation only when in view
       viewport={{ once: false, amount: 0.3 }}
-      className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[13px]   justify-items-center"
+      className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[13px] justify-items-center"
       ref={ref}
     >
       {categories.map((category, i) => (
