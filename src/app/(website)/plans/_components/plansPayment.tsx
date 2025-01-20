@@ -91,7 +91,7 @@ function PlansPayment({ isOpen, onClose, price }: PaymentModalProps) {
               </div>
               <div className="flex justify-between font-medium pt-2 border-t-[1px] border-[#000000]">
                 <span className=' text-[16px] font-semibold text-[#444444]'>Charged</span>
-                <span className='text-[#000000] font-medium text-[16px]'>₿{price.toFixed(2)}</span>
+                <span className='text-[#000000] font-medium text-[16px]'>₿{price}</span>
               </div>
             </div>
           </div>

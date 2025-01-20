@@ -22,7 +22,7 @@ const page = () => {
         <PlansCard
             cardtitle="Standard"
             cardcontent="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer "
-            cardprice="7,000.00"
+            cardprice="8,000.00"
             action="10"
             bids="25"
             messages="Unlimited"
