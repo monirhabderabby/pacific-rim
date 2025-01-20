@@ -137,7 +137,7 @@ function Page() {
     return (
         <>
             <PageHeader
-                    title="About Us"
+                    title="Notifications"
                     items={[
                       {
                         label: "Home",

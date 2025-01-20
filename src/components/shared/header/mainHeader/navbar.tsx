@@ -15,6 +15,8 @@ import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
 import AuctionList from "./AuctionList";
 // import Dropdown, { AuctionMobileMenu } from "./demonav";
 import AuctionMobileNav from "./AuctionMobileNav";
+import PagesMobileNav from "./PagesMobileNav";
+import PagesList from "./PagesList";
 
 interface DesktopNavbarProps {
   pathName: string;
@@ -119,6 +121,15 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           Blog
         </Link>
         <Link
+          href=""
+          className={cn(
+            "text-[20px] font-normal hover:text-[#2A6C2D]",
+            pathName === "/blogs" ? "text-primary-green" : "text-black font-normal"
+          )}
+        >
+          <PagesList/>
+        </Link>
+        <Link
           href="/contact"
           className={cn(
             "text-[20px] font-normal hover:text-[#2A6C2D]",
@@ -160,13 +171,13 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
 
   // Pages Mobile Links
 
-  // const pagesMobileLinks = [
-  //   { href: "/about", label: "About Us" },
-  //   { href: "/faqs", label: "FAQ" },
-  //   { href: "", label: "Membership Plans" },
-  //   { href: "", label: "Vendor Store" },
-  //   { href: "", label: "404 Page" },
-  // ];
+  const pagesMobileLinks = [
+    { href: "/about", label: "About Us" },
+    { href: "/faqs", label: "FAQ" },
+    { href: "", label: "Membership Plans" },
+    { href: "", label: "Vendor Store" },
+    { href: "", label: "404 Page" },
+  ];
 
   return (
     <>
@@ -242,6 +253,11 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
                 >
                   Blog
                 </Link>
+                <PagesMobileNav
+                  label="page"
+                  links={pagesMobileLinks}
+                  onClose={closeMobileMenu}
+                />
                 <Link
                   href="/contact"
                   onClick={closeMobileMenu}
