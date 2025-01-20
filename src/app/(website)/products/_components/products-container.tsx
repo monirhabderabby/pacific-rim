@@ -3,24 +3,22 @@ import FeaturedProductCard from "@/components/shared/cards/featured_card";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import PacificPagination from "@/components/ui/PacificPagination";
 import { featureProducts } from "@/data/featured";
+import { RootState, useAppSelector } from "@/redux/store";
 import { useState } from "react";
 import SidebarFilters from "./SidebarFilters";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
 
 const ProductsContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Get filters from Redux store
-  const { priceRange, flowers, categories } = useSelector(
+  const { priceRange, flowers, categories } = useAppSelector(
     (state: RootState) => state.filters
   );
 
   // Filter products based on the selected filters
   const filteredProducts = featureProducts.filter((product) => {
     const price = parseFloat(product.price.replace(",", ""));
-    const matchesPrice =
-      price >= priceRange[0] && price <= priceRange[1];
+    const matchesPrice = price >= priceRange[0] && price <= priceRange[1];
     const matchesCategory =
       categories.length === 0 || categories.includes(product.category);
     const matchesFlowerType =

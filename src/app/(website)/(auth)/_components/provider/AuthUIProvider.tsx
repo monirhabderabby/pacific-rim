@@ -30,7 +30,7 @@ const AuthUIProvider = async ({
     <div className="min-h-screen  overflow-hidden">
       <div className="container ">
         <div className="relative rounded-lg mt-[40px]">
-          <div className="flex items-center justify-between  md:mb-[90px]">
+          <div className="flex items-center justify-center md:justify-between  ">
             <Link href="/">
               <div className="flex items-cente gap-1">
                 <Image
@@ -46,16 +46,18 @@ const AuthUIProvider = async ({
                 </span>
               </div>
             </Link>
-            <LoginBackButton />
+            <div className="hidden md:block">
+              <LoginBackButton />
+            </div>
           </div>
           <div
             className={cn(
-              "grid h-full items-center",
+              "grid min-h-[calc(100vh-80px)] md:py-[90px] items-center",
               fullWidth ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"
             )}
           >
             {!fullWidth && (
-              <div className="relative hidden md:block w-[570px] min-h-[684px] h-full">
+              <div className="relative hidden md:block w-full lg:w-[570px] md:max-h-[684px] h-full">
                 <Image
                   src={sidebarImage}
                   alt="CBD Products"

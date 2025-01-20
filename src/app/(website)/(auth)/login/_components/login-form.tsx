@@ -2,8 +2,11 @@
 
 // Packages
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 // Local imports
@@ -19,8 +22,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import { toast } from "sonner";
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -71,7 +72,24 @@ export function LoginForm() {
   };
 
   return (
-    <div className="w-full">
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 1,
+        },
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          duration: 0.5,
+        },
+      }}
+      className="w-full"
+    >
       <div className="space-y-2 text-center">
         <h1 className="text-[36px] leading-[43.2px] font-semibold text-[#6EBA6B] mb-[27px]">
           Log In
@@ -160,21 +178,23 @@ export function LoginForm() {
         </form>
       </Form>
       <div className="text-center">
-        <div>
-          <button
-            className="text-[#2A6C2D] text-[16px] font-normal leading-[19.2px] my-[20px]"
-            onClick={() => console.log("Forgot Password clicked")} // Replace with actual logic
+        <div className="mt-[24px]">
+          <Link
+            href="/forgot-password"
+            className="text-[#2A6C2D] text-[16px] font-normal leading-[19.2px] "
           >
             Forgot Password?
-          </button>
+          </Link>
         </div>
-        <span className="text-[16px] text-[#808080]">
-          Don&apos;t have an account?{" "}
-        </span>
-        <Link href="#" className="text-[#2A6C2D] text-[16px] font-normal">
-          Sign Up
-        </Link>
+        <div className="mt-[40px]">
+          <span className="text-[16px] text-[#808080]">
+            Don&apos;t have an account?{" "}
+          </span>
+          <Link href="#" className="text-[#2A6C2D] text-[16px] font-normal ">
+            Sign Up
+          </Link>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
