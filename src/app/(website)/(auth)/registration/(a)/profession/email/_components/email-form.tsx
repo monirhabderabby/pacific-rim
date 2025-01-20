@@ -8,7 +8,7 @@ import { z } from "zod";
 
 // Local imports
 
-import NextButton from "@/app/(website)/(auth)/_components/forms/button";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -19,7 +19,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/store";
+import { useAppDispatch } from "@/redux/store";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 // Define Zod schema for email validation
 const emailSchema = z.object({
@@ -30,15 +32,14 @@ type EmailSchemaType = z.infer<typeof emailSchema>;
 
 export function EmailForm() {
   const dispatch = useAppDispatch();
-  const authState = useAppSelector((state) => state.auth);
-
-  console.log(authState);
 
   // Use React Hook Form with Zod resolver
   const form = useForm<EmailSchemaType>({
     resolver: zodResolver(emailSchema),
     defaultValues: { email: "" },
   });
+
+  const { watch } = form;
 
   const handleSubmit = (data: EmailSchemaType) => {
     // Dispatch email to Redux store
@@ -107,7 +108,12 @@ export function EmailForm() {
               )}
             />
           </div>
-          <NextButton />
+          <Button disabled={!watch("email")} size="md" asChild>
+            <Link href={"/registration/country"} className="flex items-center">
+              Next
+              <ArrowRight className="ml-2" />
+            </Link>
+          </Button>
         </form>
       </Form>
     </motion.div>
