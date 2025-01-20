@@ -15,7 +15,6 @@ import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
 import AuctionList from "./AuctionList";
 // import Dropdown, { AuctionMobileMenu } from "./demonav";
 import AuctionMobileNav from "./AuctionMobileNav";
-import PagesMobileNav from "./PagesMobileNav";
 
 interface DesktopNavbarProps {
   pathName: string;
@@ -75,7 +74,11 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
       <div className="flex ">
         <Link href="/" className="">
           <span className="sr-only">Pacific Rim</span>
-          <Image alt="" src={HeaderLogo} className="h-[50px] w-[92px] lg:w-[100px]" />
+          <Image
+            alt=""
+            src={HeaderLogo}
+            className="h-[50px] w-[92px] lg:w-[100px]"
+          />
         </Link>
       </div>
       <PopoverGroup className="hidden lg:flex lg:gap-x-[36px] ">
@@ -83,7 +86,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           href="/"
           className={cn(
             "text-[20px] font-medium hover:text-[#2A6C2D]",
-            pathName === "/" ? "text-[#2A6C2D]" : "text-gray-900"
+            pathName === "/" ? "text-[#2A6C2D]" : "text-black font-normal"
           )}
         >
           Home
@@ -92,7 +95,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           href="/about"
           className={cn(
             "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/about" ? "text-primary-green" : "text-gray-900"
+            pathName === "/about" ? "text-primary-green" : "text-black font-normal" 
           )}
         >
           About
@@ -101,7 +104,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           href=""
           className={cn(
             "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/products" ? "text-primary-green" : "text-gray-900"
+            pathName === "/products" ? "text-primary-green" : "text-black font-normal"
           )}
         >
           <AuctionList />
@@ -110,7 +113,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           href="/blogs"
           className={cn(
             "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/blogs" ? "text-primary-green" : "text-gray-900"
+            pathName === "/blogs" ? "text-primary-green" : "text-black font-normal"
           )}
         >
           Blog
@@ -119,7 +122,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           href="/contact"
           className={cn(
             "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/contact" ? "text-primary-green" : "text-gray-900"
+            pathName === "/contact" ? "text-primary-green" : "text-black font-normal"
           )}
         >
           Contact
@@ -154,14 +157,17 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
     { href: "/all-auctions", label: "All Auctions" },
     { href: "/live-auctions", label: "Live Auctions" },
   ];
-  const pagesMobileLinks = [
-    { href: "/about", label: "About Us" },
-    { href: "/faqs", label: "FAQ" },
-    { href: "", label: "Membership Plans" },
-    { href: "", label: "Vendor Store" },
-    { href: "", label: "404 Page" },
-  ];
- 
+
+  // Pages Mobile Links
+
+  // const pagesMobileLinks = [
+  //   { href: "/about", label: "About Us" },
+  //   { href: "/faqs", label: "FAQ" },
+  //   { href: "", label: "Membership Plans" },
+  //   { href: "", label: "Vendor Store" },
+  //   { href: "", label: "404 Page" },
+  // ];
+
   return (
     <>
       <div className="flex items-center justify-between h-[56px] p-4">
@@ -236,11 +242,6 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
                 >
                   Blog
                 </Link>
-                <PagesMobileNav
-                  label="Pages"
-                  links={pagesMobileLinks}
-                  onClose={closeMobileMenu}
-                />
                 <Link
                   href="/contact"
                   onClick={closeMobileMenu}
@@ -250,22 +251,16 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
                 </Link>
               </div>
 
-              <div className="py-6">
+              <div className=" container pt-6">
                 {!loggedin ? (
-                  <>
-                    <button
-                      type="button"
-                      className="inline-flex items-center rounded-md px-3 mr-3 py-2 border border-lime-500 text-sm font-semibold text-primary-green shadow-sm"
-                    >
+                  <div className="grid grid-cols-2 gap-[30px]">
+                    <Button variant="outline" size="sm">
                       Log in
-                    </button>
-                    <button
-                      type="button"
-                      className="inline-flex items-center rounded-md bg-primary-green px-3 py-2 text-sm font-semibold text-white shadow-sm"
-                    >
+                    </Button>
+                    <Button type="button" size="sm">
                       Sign up
-                    </button>
-                  </>
+                    </Button>
+                  </div>
                 ) : (
                   <HeaderIconMenu icons={Navicons} />
                 )}
@@ -278,7 +273,6 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
   );
 }
 
-
 function Navbar() {
   const loggedin = false;
   const pathName = usePathname();
@@ -289,6 +283,8 @@ function Navbar() {
     "/vendor-dashboard",
     "/login",
     "/registration",
+    "/reset-password",
+    "/forgot-password",
   ];
 
   // Check if the current pathName starts with any hideRoutes item

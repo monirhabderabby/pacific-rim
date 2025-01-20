@@ -16,7 +16,7 @@ interface Business {
 }
 
 const initialState: {
-  type: string;
+  type: "CBD/HEMP" | "Recreational Cannabis" | "";
   experience: string;
   profession: string[];
   email: string;

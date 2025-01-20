@@ -8,7 +8,7 @@ import { featureProducts } from "@/data/featured";
 
 const OurFeatureSection = () => {
   return (
-    <div className="section container ">
+    <div className="section container py-[80px]">
       <SectionHeading heading="Our Featured Products" subheading="Products" />
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-[17px] md:gap-[27px] pt-[40px]">

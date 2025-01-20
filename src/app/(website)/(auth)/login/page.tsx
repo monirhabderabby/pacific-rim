@@ -1,13 +1,11 @@
-import { FormProvider } from "@/provider/form-provider";
-import { LoginForm } from "../_components/forms/login-form";
+import AuthUIProvider from "../_components/provider/AuthUIProvider";
+import { LoginForm } from "./_components/login-form";
 
 const Page = () => {
   return (
-    <div>
-      <FormProvider>
-        <LoginForm />
-      </FormProvider>
-    </div>
+    <AuthUIProvider sidebarImage="https://i.postimg.cc/X7ywkKYd/e0ba46c9845debdbdfbf19f3d80aba56-1.png">
+      <LoginForm />
+    </AuthUIProvider>
   );
 };
 

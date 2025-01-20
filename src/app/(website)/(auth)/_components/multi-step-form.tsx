@@ -3,17 +3,17 @@
 import { useForm } from "@/provider/form-provider";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
+import { ForgotPasswordForm } from "../forgot-password/_components/forgot-password-form";
+import { LoginForm } from "../login/_components/login-form"
+import CheckProfession from "../registration/(a)/profession/_components/profession-checker";
+import { ExperienceForm } from "../registration/_components/experience-form";
+import { ResetPasswordForm } from "../reset-password/_componments/reset-password-form";
+import { VerifyOTPForm } from "../reset-password/_componments/verify-otp-form";
 import SignUpForm from "./forms/UserInfoSignUp";
 import { BusinessInfoForm } from "./forms/business-info-form";
-import CheckProfession from "./forms/check-profession";
-import { EmailForm } from "./forms/email-form";
-import { ExperienceForm } from "./forms/experience-form";
-import { ForgotPasswordForm } from "./forms/forgot-password-form";
-import { LoginForm } from "./forms/login-form";
-import { RecreationalCannabis } from "./forms/recreational-cannabis";
-import { ResetPasswordForm } from "./forms/reset-password-form";
-import { VerifyOTPForm } from "./forms/verify-otp-form";
 import CountryPage from "./forms/country-page";
+import { RecreationalCannabis } from "./forms/recreational-cannabis";
+import { EmailForm } from "../registration/(a)/profession/email/_components/email-form";
 
 export function MultiStepForm() {
   const { step, setStep, getPrevStep } = useForm();
@@ -25,7 +25,7 @@ export function MultiStepForm() {
       case "forgot-password":
         return <ForgotPasswordForm />;
       case "verify-otp":
-        return <VerifyOTPForm />;
+        return <VerifyOTPForm onVerified={() => {}} />;
       case "reset-password":
         return <ResetPasswordForm />;
       case "experience":

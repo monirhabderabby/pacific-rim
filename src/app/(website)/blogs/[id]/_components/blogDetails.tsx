@@ -7,13 +7,15 @@ function BlogDetails() {
     return (
         <div>
             <article className="mb-8 bg-primary-light rounded-lg">
+                <div className='overflow-hidden'>
                 <Image
                     src="/assets/blogs/blogs.png"
                     alt="Cannabis buds"
                     width={770}
                     height={440}
-                    className="w-full h-[320px] lg:w-[770px] lg:h-[440px] rounded-t-lg"
+                    className="w-full h-[320px] lg:w-[770px] lg:h-[440px] rounded-t-lg transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-150 duration-300"
                 />
+                </div>
                 <div className='p-4'>
                     <h2 className="text-[28px] leading-[33.6px] font-semibold text-[#2A6C2D] mb-4">Germany &#39;s Pioneering Cannabis Legislation: Setting a Precedent for the EU</h2>
                     <div className="flex gap-5 flex-wrap text-[#444444] font-[16px] leading-[19.2px] mb-4">
