@@ -1,9 +1,13 @@
-// local import 
+"use client";
+// local import
 import Image from "next/image";
 
-// package import 
+// package import
+import { fadeIn } from "@/components/animations/variant";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 // category type ////
 interface CategoryCard {
   id: number;
@@ -41,27 +45,58 @@ const categories: CategoryCard[] = [
 ];
 
 const PopularCategoriesCard = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[13px]   justify-items-center">
-      {categories.map((category) => (
+    <motion.div
+      variants={fadeIn("up", 0.3)}
+      initial="hidden"
+      animate={inView ? "show" : "hidden"} // Start animation only when in view
+      viewport={{ once: false, amount: 0.3 }}
+      className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[13px]   justify-items-center"
+      ref={ref}
+    >
+      {categories.map((category, i) => (
         <Card
           key={category.id}
           className="overflow-hidden w-full  lg:w-[270px] shadow-none "
         >
           <CardContent className=" p-[12px]">
-            <div className="aspect-square relative">
+            <motion.div
+              initial={{
+                opacity: 0,
+                filter: "blur(1px)",
+              }}
+              animate={{
+                opacity: inView ? 1 : 0,
+                filter: "blur(0px)",
+                transition: {
+                  duration: 0.5,
+                  delay: i * 0.2,
+                },
+              }}
+              exit={{
+                opacity: 0,
+                transition: {
+                  duration: 0.5,
+                },
+              }}
+              className="aspect-square relative"
+            >
               <Image
                 src={category.image}
                 alt={category.title}
                 fill
                 className="object-cover w-[246px] h-[204px]"
               />
-            </div>
+            </motion.div>
             <CardButtons />
           </CardContent>
         </Card>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

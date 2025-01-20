@@ -1,22 +1,18 @@
-// package import 
+import { blurDataUrl } from "@/data/blur-data-url";
 import Image from "next/image";
+import Anim from "../animations/anim";
 
 const Hero = () => {
   return (
     <div>
       <section
-        className="relative w-full h-[430px] lg:h-[530px] bg-cover bg-center z-[-10] lg:px-20"
+        className="relative w-full h-[430px] lg:h-[530px] bg-cover bg-center lg:px-20 animate-moveBackground"
         style={{
-          backgroundImage: `url(assets/img/heroBg.png)`,
-          backgroundSize: "cover",
-          backgroundRepeat: "repeat", // Ensure seamless background
-          animation: "moveBackground 30s linear infinite alternate", // Alternate animation direction
-          top: 0,
-          left: 0,
+          backgroundImage: `url(/assets/img/heroBg.png)`,
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative container z-10 flex items-center justify-start   h-full text-white ">
+        <div className="relative container flex items-center justify-start h-full text-white">
           <div className="md:w-[670px]">
             <h1 className="text-[32px] leading-[38.4px] lg:text-[56px] lg:leading-[67.2px] font-semibold mb-4">
               SHARE THE <br />
@@ -32,59 +28,27 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* three image  */}
-      <div className="grid grid-cols-3 gap-4 lg:gap-[24px] mx-auto max-w-[1200px] mt-[-50px] lg:mt-[-100px] z-50 justify-items-center p-2">
-        <div className="h-[130px] w-[103px] md:w-[200px] md:h-[220px] lg:h-[300px] lg:w-[370px]  rounded-[16px] relative">
-          <Image
-          
-            src="/assets/img/hero1.png"
-            alt="Picture of the author"
-            className="rounded-[16px]"
-            fill
-            priority
-          />
+      {/* Three images */}
+      <Anim variant="slideInTop">
+        <div className="grid grid-cols-3 gap-4 lg:gap-[24px] mx-auto max-w-[1200px] mt-[-50px] lg:mt-[-100px] z-50 justify-items-center p-2">
+          {["hero1.png", "hero2.png", "hero3.png"].map((img, index) => (
+            <div
+              key={index}
+              className="h-[130px] w-[103px] md:w-[200px] md:h-[220px] lg:h-[300px] lg:w-[370px] rounded-[16px] relative"
+            >
+              <Image
+                src={`/assets/img/${img}`}
+                alt={`SHRED Product ${index + 1}`}
+                className="rounded-[16px]"
+                fill
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={blurDataUrl}
+              />
+            </div>
+          ))}
         </div>
-        <div className="h-[130px] w-[103px] md:w-[200px] md:h-[220px] lg:h-[300px] lg:w-[370px]  rounded-[16px] relative">
-          <Image
-            src="/assets/img/hero2.png"
-            alt="Picture of the author"
-            className="rounded-[16px]"
-            fill
-            priority
-          />
-        </div>
-        <div className="h-[130px] w-[103px] md:w-[200px] md:h-[220px] lg:h-[300px] lg:w-[370px]  rounded-[16px] relative">
-          <Image
-            src="/assets/img/hero3.png"
-            alt="Picture of the author"
-            className="rounded-[16px]"
-            fill
-            priority
-          />
-        </div>
-      </div>
-
-      <style>
-        {`
-          @keyframes moveBackground {
-            0% {
-              background-position: 0 0;
-            }
-            100% {
-              background-position: 100% 100%; /* Ends at this position */
-            }
-          }
-
-          @keyframes fadeIn {
-            0% {
-              opacity: 0;
-            }
-            100% {
-              opacity: 1;
-            }
-          }       
-        `}
-      </style>
+      </Anim>
     </div>
   );
 };

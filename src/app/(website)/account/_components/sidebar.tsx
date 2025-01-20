@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import LogOutModal from "./logOutModal";
 
 const navigationLists = [
   {
@@ -43,17 +45,35 @@ const navigationLists = [
     icon: <Settings className="ml-3" />,
     href: "/account/settings",
   },
-  {
-    id: 6,
-    name: "Log out",
-    icon: <LogOut className="ml-3" />,
-    href: "/",
-  },
+
 ];
 
 const AccountSidebar = () => {
+
+  const [showModal, setShowModal] = useState(false); // Modal visibility state
+
   const pathName = usePathname();
+
+
+
+  const handleLogout = () => {
+    setShowModal(true); // Show the modal when "Log out" is clicked
+  };
+
+  const confirmLogout = () => {
+    // Perform logout action (e.g., clearing auth tokens or redirecting to the login page)
+    console.log("User logged out");
+    setShowModal(false); // Close the modal
+    window.location.href = "/"; // Redirect to the home page or login page
+  };
+
+  const cancelLogout = () => {
+    setShowModal(false); // Close the modal
+  };
+
+
   return (
+ <>
     <section className="space-y-[40px] md:sticky md:top-[50px]">
       <div className="border-[1px] rounded-[12px] border-[#C5C5C5] w-full  md:w-[270px] h-auto ">
         <div className="h-[70px] w-full flex justify-start items-center border-b border-b-[#C5C5C5]">
@@ -67,6 +87,7 @@ const AccountSidebar = () => {
 
             return (
               <Link
+           
                 href={href}
                 className={cn(
                   "flex items-center h-[64px] gap-x-3 border-b border-[#C5C5C5] hover:bg-[#EAF0EA] transition-colors duration-300 cursor-pointer",
@@ -81,8 +102,32 @@ const AccountSidebar = () => {
                   {name}
                 </span>
               </Link>
+
             );
           })}
+{/* LogOut Button  */}
+           <button
+              onClick={(e) => {
+                 {
+                  e.preventDefault(); // Prevent navigation for "Log out"
+                  handleLogout(); // Handle logout logic
+                 
+                }
+              }}
+                className={cn(
+                  "flex items-center h-[64px] gap-x-3 hover:bg-[#EAF0EA] transition-colors duration-300 cursor-pointer",
+                    "text-[#E10E0E] hover:bg-[#E10E0E]/5",
+                  
+                )}
+                
+              >
+               <LogOut className="ml-3" />
+                <span className="text-[20px] font-normal leading-[24px]">
+                  Log Out
+                </span>
+              </button>
+
+       
         </div>
       </div>
       <div>
@@ -91,6 +136,10 @@ const AccountSidebar = () => {
         </Button>
       </div>
     </section>
+    {
+      showModal && (<LogOutModal cancelLogout={cancelLogout} confirmLogout={confirmLogout } />)
+    }
+ </>
   );
 };
 
