@@ -1,7 +1,8 @@
-'use client';
-import { useState, useEffect } from "react";
+// @ts-nocheck
+"use client";
 import { VectorMap } from "@react-jvectormap/core";
 import { worldMill } from "@react-jvectormap/world";
+import { useEffect, useState } from "react";
 
 // Define the countries you want to include
 const countries = {
@@ -38,7 +39,7 @@ function WorldMap() {
   function handleRegionClick(event, code) {
     // If the country is not in the list, prevent interaction by returning early
     if (!countries[code]) {
-    //   console.log(`You clicked on a disabled country: ${code}`);
+      //   console.log(`You clicked on a disabled country: ${code}`);
       alert("Sorry This Country not allow ");
       return; // Disable the click interaction
     }
@@ -49,7 +50,6 @@ function WorldMap() {
     setRegionColors((prevColors) => ({
       ...prevColors,
       [code]: 50, // Color changed to show interaction (can be adjusted)
-      
     }));
 
     console.log(`You clicked on: ${countryName}`);
@@ -86,7 +86,6 @@ function WorldMap() {
                         acc[key] = 100; // Green for selected countries
                       } else {
                         acc[key] = disabledColor; // Gray for disabled countries
-                   
                       }
                       return acc;
                     }, {})
