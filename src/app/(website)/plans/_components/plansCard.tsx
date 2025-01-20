@@ -41,7 +41,7 @@ function PlansCard({
           <PlansPayment
             isOpen={isOpen} 
             onClose={() => setIsOpen(false)} 
-            price={9000.0}
+            price={cardprice}
             
           />
         </div>

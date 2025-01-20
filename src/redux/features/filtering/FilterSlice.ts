@@ -7,7 +7,7 @@ interface FilterState {
 }
 
 const initialState: FilterState = {
-  priceRange: [0, 789],
+  priceRange: [0, 1000],
   flowers: [],
   categories: [],
 };
