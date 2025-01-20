@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ChevronRight } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface DropdownProps {
   label: string;
@@ -26,23 +27,43 @@ export default function AuctionMobileNav({ label, links, onClose }: DropdownProp
       </button>
 
       {/* Dropdown Menu */}
+      <AnimatePresence>
       {isOpen && (
-        <div className="w-full ">
-          {links.map((link) => (
-            <Link
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="w-full ">
+
+          {links.map((link, index) => (
+            <motion.div
               key={link.href}
-              href={link.href}
-              onClick={() => {
-                closeDropdown();
-                onClose(); // Ensures the mobile menu also closes
+              initial={{ opacity: 0, y: -10 }} // Start slightly left and hidden
+              animate={{ opacity: 1, y: 0 }}  // Move into place and fade in
+              exit={{ opacity: 0, y: -10 }}   // Fade out and move left when closing
+              transition={{
+                duration: 0.3,
+                ease: 'easeInOut',
+                delay: index * 0.05, // Stagger animation for each link
               }}
-              className="block pl-10 py-2 text-[20px] font-normal text-black hover:bg-[#E6EEF6]"
             >
-              {link.label}
-            </Link>
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => {
+                  closeDropdown();
+                  onClose(); // Ensures the mobile menu also closes
+                }}
+                className="block pl-10 py-2 text-[20px] font-normal text-black hover:bg-[#E6EEF6]"
+              >
+                {link.label}
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </div>
   );
 }
