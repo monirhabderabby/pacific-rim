@@ -21,7 +21,7 @@ export default function ProfileCompletion() {
     // This would typically be an API call
     const loadProfileData = () => {
       setProfileData({
-        completionPercentage: 90,
+        completionPercentage: 70,
         domain: "www.staging-Thailand-Pasific fuision"
       })
     }

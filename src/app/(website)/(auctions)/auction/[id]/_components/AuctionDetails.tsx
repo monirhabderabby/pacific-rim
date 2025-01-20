@@ -93,7 +93,7 @@ const reviews = [
 ];
 const AuctionDetails = () => {
   const [isWishlist, setIsWishlist] = useState(false);
-  const [islive, setIsLive] = useState(false);
+  const [islive] = useState(false);
   const [biddingPrice, setBiddingPrice] = useState<number | string>("");
 
   const handleWishlistToggle = () => {
