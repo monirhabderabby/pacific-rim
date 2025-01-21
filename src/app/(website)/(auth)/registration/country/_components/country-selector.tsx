@@ -81,7 +81,7 @@ function CountrySelector() {
   }
 
   return (
-    <div style={{ margin: "auto", width: "990px", height: "600px" }}>
+    <div style={{ margin: "auto", width: "100%", height: "600px" }}>
       <VectorMap
         map={worldMill}
         containerStyle={{
@@ -113,10 +113,7 @@ function CountrySelector() {
             },
           ],
         }}
-
-
-        
-        onRegionTipShow={handleRegionTipShow}                      
+        onRegionTipShow={handleRegionTipShow}
         onRegionClick={handleRegionClick}
       />
     </div>
