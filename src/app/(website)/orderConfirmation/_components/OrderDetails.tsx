@@ -30,7 +30,7 @@ const OrderDetails = ({
       <div className="max-w-6xl mx-auto mb-[40px] md:mb-[60px] lg:mb-[80px]">
         <div className="text-center mb-8">
           <h1 className="heading">Order details.</h1>
-          <p className="text-sm md:text-base font-normal leading-[19px] text-[#444444] mt-4">
+          <p className="text-base font-normal leading-[19px] text-[#444444] mt-4">
             Confirmation number: {confirmationNumber}
           </p>
         </div>
@@ -113,7 +113,7 @@ const OrderDetails = ({
 
         <div className="mt-8 text-center">
           <Button
-            className="bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] hover:bg-primary-green text-white py-[18px] px-[63px] md:px-[90px] lg:px-[120px]"
+            className="bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] hover:bg-[#121D42] text-white py-[18px] px-[63px] md:px-[90px] lg:px-[120px]"
             //   onClick={() => window.location.href = '/shop'}
           >
             Shop More

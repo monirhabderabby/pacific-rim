@@ -19,8 +19,8 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
     <div>
       <div className="container py-[40px] md:py-[60px] lg:py-[80px]">
         <div className="flex flex-col items-center justify-center">
-          <h1 className="heading">
-            Wooh Your order is confirmed
+          <h1 className="heading text-center">
+            Wooh Your order is <br className="block md:hidden"/> confirmed
           </h1>
           <div className="flex items-center justify-center mt-[8px] mb-[16px]">
                       <Image
@@ -31,13 +31,13 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
                         height={4}
                       />
                     </div>
-          <p className="text-sm md:text-base font-normal leading-[19px] text-[#444444]">
-            The Order Details page provides a comprehensive summary of your
-            recent purchase.
+          <p className="text-base font-normal leading-[19px] text-[#444444] text-center md:text-left">
+            The Order Details page provides a <br className="block md:hidden"/> comprehensive summary of your
+            recent <br className="block md:hidden"/> purchase.
           </p>
 
           {/* Progress Tracker */}
-          <div className="relative w-full max-w-xl pt-6">
+          <div className="relative w-full max-w-xl pt-6 ">
             {/* Progress Line */}
             <Progress value={progressValue} className="absolute left-0 top-10 h-[1px] w-full bg-black [&>div]:bg-[#121D42]" />
 
@@ -103,14 +103,14 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
             </div>
           </div>
 
-          <p className="text-sm md:text-base font-normal leading-[19px] text-[#444444] mt-[40px] mb-[27px]">
-            Delivery Times are estimated.If you{"'"}r experienced difficulty
-            with this order plese conatct the seller.
+          <p className="text-base font-normal leading-[19px] text-[#444444] mt-[40px] mb-[27px] text-center md:text-left">
+            Delivery Times are estimated.If you&apos;r <br className="block md:hidden"/> experienced difficulty
+            with this order plese <br className="block md:hidden"/> conatct the seller.
           </p>
 
           <Button
             variant="default"
-            className="bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] text-white hover:bg-primary-green px-[70px]"
+            className="bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] text-white hover:bg-[#121D42] px-[70px]"
           >
             Help center
           </Button>
