@@ -34,9 +34,9 @@ const contactData = [
 
 const ContactInfo: React.FC = () => {
   return (
-    <div className="flex flex-col grow p-5 max-w-[470px] bg-[#EAF0EA] rounded-2xl min-h-[648px] max-md:mt-8 max-md:max-w-full">
+    <div className="flex flex-col grow p-[20px] gap-[10px] max-w-[470px] bg-[#E6EEF6] rounded-2xl min-h-[648px] max-md:mt-8 max-md:max-w-full">
       <div className="flex flex-col w-full max-md:max-w-full">
-        <h1 className="text-3xl font-semibold leading-tight text-green-800 max-md:max-w-full">
+        <h1 className="text-[25px] lg:text-[32px] font-semibold leading-[38.4px] text-gradiend max-md:max-w-full">
           Customer Service
         </h1>
         <div className="flex flex-col mt-6 w-full max-md:max-w-full">
@@ -47,8 +47,8 @@ const ContactInfo: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col mt-8 w-full max-md:max-w-full">
-        <h2 className="text-3xl font-semibold leading-tight text-green-800 max-md:max-w-full py-2">
+      <div className="flex flex-col mt-8 w-full max-md:max-w-full gap-[20px]">
+        <h2 className="text-[32px] font-semibold leading-[38.4px] text-gradiend max-md:max-w-full">
           Social Media
         </h2>
         <SocialIcons />
