@@ -29,7 +29,7 @@ const AuthUIProvider = async ({
   return (
     <div className="min-h-screen  overflow-hidden">
       <div className="container ">
-        <div className="relative rounded-lg mt-[40px]">
+        <div className="relative rounded-lg  mt-[40px]">
           <div className="flex items-center justify-center md:justify-between  ">
             <Link href="/">
               <div className="flex items-cente gap-1">
@@ -53,7 +53,7 @@ const AuthUIProvider = async ({
           <div
             className={cn(
               "grid min-h-[calc(100vh-80px)] md:py-[90px] items-center",
-              fullWidth ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"
+              fullWidth ? "grid-cols-1 md:py-0" : "grid-cols-1 md:grid-cols-2"
             )}
           >
             {!fullWidth && (
@@ -68,7 +68,9 @@ const AuthUIProvider = async ({
                 />
               </div>
             )}
-            <div className="md:p-8">{children}</div>
+            <div className={cn(fullWidth ? "md:p-0" : "md:p-8")}>
+              {children}
+            </div>
           </div>
         </div>
       </div>

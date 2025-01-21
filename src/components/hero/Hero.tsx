@@ -14,7 +14,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative container flex items-center justify-start h-full text-white">
           <div className="md:w-[670px]">
-            <h1 className="text-[32px] leading-[38.4px] lg:text-[56px] lg:leading-[67.2px] font-semibold mb-4">
+            <h1 className="text-[32px] leading-[38.4px] lg:text-[56px] lg:leading-[67.2px] font-semibold mb-4 ">
               SHARE THE <br />
               BALANCE
             </h1>
