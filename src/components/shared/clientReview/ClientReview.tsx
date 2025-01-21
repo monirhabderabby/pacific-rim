@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/carousel";
 
 import { ReviewCard } from "./ReviewCard";
+import SectionHeading from "../SectionHeading/SectionHeading";
 
 // Review data this come from Backend **********************
 const reviewsData = [
@@ -78,25 +79,14 @@ export const ClientReviews: React.FC = () => {
   return (
     <section className="flex flex-col items-center mb-12 mt-[90px]">
       {/* Header Section */}
-      <div className="flex flex-col max-w-full w-[625px] mb-10">
-        <div className="text-center">
-          <h2 className="text-4xl font-semibold text-green-800 mb-2">
-            Our Client Review
-          </h2>
-          <p className="text-xl font-medium">Clients says.</p>
-          <div className="flex gap-1 justify-center mt-2">
-            <div className="w-3 h-1 bg-stone-600/30" />
-            <div className="w-10 h-1 bg-green-800" />
-            <div className="w-3 h-1 bg-stone-600/30" />
-          </div>
-        </div>
-      </div>
+
+      <SectionHeading heading={"Our Client Review"} subheading={"Clients says"}/>
 
 
       {/*---------------------- Carousel Section ----------------------*/}
       <Carousel
         opts={{ align: "start", loop: true }}
-        className="w-full max-w-7xl relative mb-10 p-3"
+        className="w-full max-w-7xl relative mb-10 p-3 select-none"
         setApi={setApi}
       >
         <CarouselContent>
@@ -122,8 +112,8 @@ export const ClientReviews: React.FC = () => {
           ))}
         </CarouselContent>
         <div className="absolute flex justify-between space-x-5 -bottom-10 left-[calc(50%-20px)] w-[40px]">
-          <CarouselPrevious className="px-4 py-2 h-[40px] w-[140] bg-primary-green !text-white rounded-full hover:bg-primary-green-hover" />
-          <CarouselNext className="px-4 py-2 h-[40px] w-[140] bg-primary-green !text-white rounded-full hover:bg-primary-green-hover" />
+          <CarouselPrevious className="px-4 py-2 h-[40px] w-[140] bg-primary !text-white rounded-full hover:bg-primary-green-hover" />
+          <CarouselNext className="px-4 py-2 h-[40px] w-[140] bg-primary !text-white rounded-full hover:bg-primary-green-hover" />
         </div>
       </Carousel>
     </section>

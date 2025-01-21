@@ -41,7 +41,7 @@ export function CountdownTimer() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center p-3 text-center bg-[#eaf0ea] rounded-lg w-full">
+    <div className="flex flex-col justify-center items-center p-3 text-center bg-[#E6EEF6] rounded-lg w-full">
       <div className="text-sm leading-none text-neutral-400">
         Hurry up! Offer ends In:
       </div>

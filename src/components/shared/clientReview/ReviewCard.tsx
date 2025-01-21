@@ -35,8 +35,8 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
           <StarRating rating={rating} />
         </div>
         <div className="mt-4 text-base font-medium leading-5 text-center text-green-900">
-          <p className="mb-2">{title}</p>
-          <p>{review}</p>
+          <p className="mb-2 text-gradient">{title}</p>
+          <p className="text-gradient">{review}</p>
         </div>
       </CardContent>
     </Card>

@@ -1,6 +1,9 @@
 "use client";
 
 // Packages
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 
 // Local imports
@@ -9,8 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
 import { useAppSelector } from "@/redux/store";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import FormHeader from "../../../../_components/form-header";
 
 interface Profession {
   id: string;
@@ -18,10 +20,13 @@ interface Profession {
 }
 
 const professions: Profession[] = [
+  { id: "farmmer", label: "Farmer" },
   { id: "cultivator", label: "Cultivator" },
-  { id: "distributor", label: "Distributor" },
-  { id: "extractor", label: "Extractor" },
   { id: "processor", label: "Processor" },
+
+  { id: "extractor", label: "Extractor" },
+  { id: "distributor", label: "Distributor" },
+
   { id: "dispensary", label: "Dispensary" },
 ];
 
@@ -31,35 +36,32 @@ export default function ProfessionChecker() {
 
   const selectedProfessions: string[] = authState.profession;
 
-  const handleProfessionChange = (currentProfession: string) => {
-    const updatedProfessions = selectedProfessions.includes(currentProfession)
-      ? selectedProfessions.filter(
-          (profession) => profession !== currentProfession
-        ) // Remove if already selected
-      : [...selectedProfessions, currentProfession]; // Add if not already selected
-
-    // Dispatch the updated profession list
-    dispatch(setRegistrationValue({ profession: updatedProfessions }));
-  };
+  const handleProfessionChange = useCallback(
+    (currentProfession: string) => {
+      const updatedProfessions = new Set(selectedProfessions);
+      if (updatedProfessions.has(currentProfession)) {
+        updatedProfessions.delete(currentProfession);
+      } else {
+        updatedProfessions.add(currentProfession);
+      }
+      dispatch(
+        setRegistrationValue({ profession: Array.from(updatedProfessions) })
+      );
+    },
+    [selectedProfessions, dispatch]
+  );
 
   return (
-    <div className="bg-background">
-      <div className=" px-4 py-6 mx-auto">
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <h1 className="text-3xl font-semibold tracking-tight text-green-600">
-              Sign Up
-            </h1>
-            <p className="text-muted-foreground">
-              Continue to register as a customer or vendor. Please provide the
-              information.
-            </p>
-          </div>
+    <div className="py-[20px] md:py-0">
+      <div>
+        <div>
+          <FormHeader
+            label="Sign Up"
+            paragraph="Continue to register as a customer or vendor, Please provide the information."
+            title="What do you want to experience?"
+          />
 
           <div className="space-y-4">
-            <h2 className="text-2xl font-semibold tracking-tight">
-              Who you are?
-            </h2>
             <div className="grid gap-4">
               {professions.map((profession) => (
                 <div
@@ -84,7 +86,7 @@ export default function ProfessionChecker() {
             </div>
           </div>
 
-          <div>
+          <div className="pt-[40px]">
             <Button
               disabled={selectedProfessions.length === 0}
               size="md"

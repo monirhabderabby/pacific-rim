@@ -1,5 +1,6 @@
 "use client";
 import CountdownTimers from "@/components/shared/CountdownTimer/CountdownTimer";
+import { Button } from "@/components/ui/button";
 import React from "react";
 
 const DealOfTheDay = () => {
@@ -29,10 +30,8 @@ const DealOfTheDay = () => {
           </div>
         </div>
 
-       
-
         <div className="pt-[36px]">
-        <CountdownTimers targetDate="2025-01-20T00:00:00" />
+          <CountdownTimers targetDate="2025-01-31T00:00:00" />
         </div>
 
         <style>
@@ -58,9 +57,9 @@ const DealOfTheDay = () => {
         </style>
       </section>
       <div className="mt-[10px]">
-        <button className="w-full text-base font-medium leading-[20px] text-white bg-[#0057A8] py-[24px] rounded-[8px]">
+        <Button className="w-full ">
           Shop Now
-        </button>
+        </Button>
       </div>
     </div>
   );

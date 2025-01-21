@@ -108,14 +108,18 @@ const config: Config = {
         fadeIn: "fadeIn 1s ease-in-out",
       },
       backgroundImage: {
+       
+        'hover-gradient': "linear-gradient(150.75deg, rgba(112, 145, 255, 0.8) -1.08%, rgba(47, 70, 151, 0.8) 48.26%, rgba(116, 133, 251, 0.8) 89.46%)",
         "green-linear": "linear-gradient(90deg, #1D4C1F 0%, #44B249 100%)",
         primary:
           "linear-gradient(150.75deg, #121D42 -1.08%, #152764 44.87%, #4857BD 89.46%)",
         "primary-hover":
           "linear-gradient(150.75deg, #7091FF -1.08%, #2F4697 48.26%, #7485FB 89.46%)",
+        "primary-disabled":
+          "linear-gradient(150.75deg, #A2A2A2 -1.08%, #B6B6B6 44.87%, #D0D0D0 89.46%)",
       },
       boxShadow: {
-        feature_card: "0px 0px 10px 1px #2A6C2D1A",
+        feature_card: "0px 0px 10px 1px #C1C9E4",
       },
     },
   },

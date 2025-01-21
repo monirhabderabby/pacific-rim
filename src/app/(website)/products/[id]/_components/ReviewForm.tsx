@@ -52,7 +52,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = () => {
 
       <Button
         type="submit"
-        className="self-start "
+        className="self-start px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-green-600"
       >
         Submit
       </Button>
