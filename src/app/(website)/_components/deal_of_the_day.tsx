@@ -1,6 +1,5 @@
 "use client";
 import CountdownTimers from "@/components/shared/CountdownTimer/CountdownTimer";
-import React from "react";
 
 const DealOfTheDay = () => {
   return (
@@ -29,10 +28,8 @@ const DealOfTheDay = () => {
           </div>
         </div>
 
-       
-
         <div className="pt-[36px]">
-        <CountdownTimers targetDate="2025-01-20T00:00:00" />
+          <CountdownTimers targetDate="2025-01-31T00:00:00" />
         </div>
 
         <style>

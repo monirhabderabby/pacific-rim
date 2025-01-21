@@ -2,10 +2,13 @@
 import dynamic from "next/dynamic";
 
 // Local imports
-const ExperienceForm = dynamic(() => import("../_components/experience-form"), {
-  ssr: false,
-});
+const UserInformationForm = dynamic(
+  () => import("../_components/UserInfoSignUp"),
+  {
+    ssr: false,
+  }
+);
 
 export default function Page() {
-  return <ExperienceForm />;
+  return <UserInformationForm />;
 }

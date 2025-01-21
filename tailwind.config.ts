@@ -113,6 +113,8 @@ const config: Config = {
           "linear-gradient(150.75deg, #121D42 -1.08%, #152764 44.87%, #4857BD 89.46%)",
         "primary-hover":
           "linear-gradient(150.75deg, #7091FF -1.08%, #2F4697 48.26%, #7485FB 89.46%)",
+        "primary-disabled":
+          "linear-gradient(150.75deg, #A2A2A2 -1.08%, #B6B6B6 44.87%, #D0D0D0 89.46%)",
       },
       boxShadow: {
         feature_card: "0px 0px 10px 1px #2A6C2D1A",

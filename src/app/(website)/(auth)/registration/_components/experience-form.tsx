@@ -7,58 +7,81 @@ import { useDispatch } from "react-redux";
 
 // Local imports
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Checkbox } from "@/components/ui/checkbox";
 import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
 import { useAppSelector } from "@/redux/store";
+import FormHeader from "./form-header";
 
 export function ExperienceForm() {
   const dispatch = useDispatch();
 
-  const { type } = useAppSelector((state) => state.auth);
+  const authState = useAppSelector((state) => state.auth);
 
-  const handleRadioChange = useCallback(
-    (value: string) => {
-      dispatch(setRegistrationValue({ type: value }));
+  const handleExperiencChange = useCallback(
+    (type: "CBD/HEMP" | "Recreational Cannabis" | "Both") => {
+      dispatch(setRegistrationValue({ type }));
     },
     [dispatch]
   );
 
   return (
-    <div className="space-y-6">
-      <div className="space-y-2 text-center">
-        <h1 className="text-4xl  font-semibold text-[#6EBA6B]">Sign Up</h1>
-        <p className="text-gray-500 text-xs">
-          Continue to register as a customer or vendor, Please provide the
-          information.
-        </p>
-      </div>
+    <div className="py-[20px] md:py-0">
+      <FormHeader
+        label="Sign Up"
+        paragraph="Continue to register as a customer or vendor, Please provide the information."
+        title="What do you want to experience?"
+      />
       <form className="space-y-6">
         <div className="space-y-4">
-          <h2 className=" text-[32px] font-medium">
-            What do you want to experience?
-          </h2>
-          <RadioGroup
-            onValueChange={handleRadioChange}
-            value={type || ""}
-            className="space-y-3"
-          >
+          <div className="space-y-4">
             <div className="flex items-center space-x-2 cursor-pointer">
-              <RadioGroupItem value="CBD/HEMP" id="cbd" />
-              <Label htmlFor="cbd" className="cursor-pointer">
+              <Checkbox
+                id="CBD/HEMP"
+                checked={authState.type === "CBD/HEMP"}
+                onCheckedChange={() => handleExperiencChange("CBD/HEMP")}
+              />
+              <label
+                htmlFor="CBD/HEMP"
+                className="text-[20px] font-medium leading-[24px] peer-disabled:cursor-not-allowed peer-disabled:opacity-70 "
+              >
                 CBD/HEMP
-              </Label>
+              </label>
             </div>
             <div className="flex items-center space-x-2 cursor-pointer">
-              <RadioGroupItem value="Recreational Cannabis" id="recreational" />
-              <Label htmlFor="recreational" className="cursor-pointer">
+              <Checkbox
+                id="recreational"
+                checked={authState.type === "Recreational Cannabis"}
+                onCheckedChange={() =>
+                  handleExperiencChange("Recreational Cannabis")
+                }
+              />
+              <label
+                htmlFor="recreational"
+                className="text-[20px] font-medium leading-[24px] peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >
                 Recreational Cannabis
-              </Label>
+              </label>
             </div>
-          </RadioGroup>
+            <div className="flex items-center space-x-2 cursor-pointer">
+              <Checkbox
+                id="recreational"
+                checked={authState.type === "Both"}
+                onCheckedChange={() => handleExperiencChange("Both")}
+              />
+              <label
+                htmlFor="recreational"
+                className="text-[20px] font-medium leading-[24px] peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >
+                Both
+              </label>
+            </div>
+          </div>
         </div>
-        <Button disabled={!type} size="md">
-          <Link href="/registration/profession" className="flex items-center">
+        <Button disabled={!authState.type} size="md">
+          <Link
+            href="/registration/experiences/profession"
+            className="flex items-center"
+          >
             Next
             <ArrowRight className="ml-2" />
           </Link>
