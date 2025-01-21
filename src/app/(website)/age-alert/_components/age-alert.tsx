@@ -1,21 +1,22 @@
 "use client";
 
 // Packages====================
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Swal from "sweetalert2"; // Import SweetAlert2
 
 // local impot -------------------------
 import Modal from "@/components/shared/modal/modal";
 import { Button } from "@/components/ui/button";
-import { addToSessionStorage } from "@/lib/session-storage";
 import Image from "next/image";
 
 const AgeAlert = () => {
   const { push } = useRouter();
+  const searchParams = useSearchParams();
 
   const handleYes = () => {
-    addToSessionStorage("age-restriction", false);
-    push("/");
+    const redirectPath = searchParams.get("redirect") || "/"; // Get redirect path or default to "/"
+    sessionStorage.setItem("age-restriction", "false"); // Update session storage
+    push(redirectPath); // Redirect to the previous path
   };
 
   const handleNo = () => {

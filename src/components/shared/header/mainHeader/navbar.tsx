@@ -16,6 +16,7 @@ import AuctionList from "./AuctionList";
 // import Dropdown, { AuctionMobileMenu } from "./demonav";
 import AuctionMobileNav from "./AuctionMobileNav";
 import PagesMobileNav from "./PagesMobileNav";
+import PagesList from "./PagesList";
 
 interface DesktopNavbarProps {
   pathName: string;
@@ -87,7 +88,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           href="/"
           className={cn(
             "text-[20px] font-medium hover:text-[#2A6C2D]",
-            pathName === "/" ? "text-[#2A6C2D]" : "text-gray-900"
+            pathName === "/" ? "text-[#2A6C2D]" : "text-black font-normal"
           )}
         >
           Home
@@ -96,7 +97,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           href="/about"
           className={cn(
             "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/about" ? "text-primary-green" : "text-gray-900"
+            pathName === "/about" ? "text-primary-green" : "text-black font-normal" 
           )}
         >
           About
@@ -105,7 +106,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           href=""
           className={cn(
             "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/products" ? "text-primary-green" : "text-gray-900"
+            pathName === "/products" ? "text-primary-green" : "text-black font-normal"
           )}
         >
           <AuctionList />
@@ -114,16 +115,25 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           href="/blogs"
           className={cn(
             "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/blogs" ? "text-primary-green" : "text-gray-900"
+            pathName === "/blogs" ? "text-primary-green" : "text-black font-normal"
           )}
         >
           Blog
         </Link>
         <Link
+          href=""
+          className={cn(
+            "text-[20px] font-normal hover:text-[#2A6C2D]",
+            pathName === "/blogs" ? "text-primary-green" : "text-black font-normal"
+          )}
+        >
+          <PagesList/>
+        </Link>
+        <Link
           href="/contact"
           className={cn(
             "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/contact" ? "text-primary-green" : "text-gray-900"
+            pathName === "/contact" ? "text-primary-green" : "text-black font-normal"
           )}
         >
           Contact
@@ -158,6 +168,9 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
     { href: "/all-auctions", label: "All Auctions" },
     { href: "/live-auctions", label: "Live Auctions" },
   ];
+
+  // Pages Mobile Links
+
   const pagesMobileLinks = [
     { href: "/about", label: "About Us" },
     { href: "/faqs", label: "FAQ" },
@@ -241,7 +254,7 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
                   Blog
                 </Link>
                 <PagesMobileNav
-                  label="Pages"
+                  label="page"
                   links={pagesMobileLinks}
                   onClose={closeMobileMenu}
                 />
@@ -287,6 +300,7 @@ function Navbar() {
     "/login",
     "/registration",
     "/reset-password",
+    "/forgot-password",
   ];
 
   // Check if the current pathName starts with any hideRoutes item

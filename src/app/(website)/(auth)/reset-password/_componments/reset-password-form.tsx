@@ -2,7 +2,9 @@
 
 // Packages
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -37,6 +39,8 @@ export function ResetPasswordForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const router = useRouter();
+
   // form
   const form = useForm({
     resolver: zodResolver(resetPasswordSchema),
@@ -54,6 +58,8 @@ export function ResetPasswordForm() {
         richColors: true,
       });
       setLoading(false);
+
+      router.push("/login");
     }, 3000);
 
     console.log("Reset Password value", values);
@@ -62,7 +68,24 @@ export function ResetPasswordForm() {
   };
 
   return (
-    <div className="w-full ">
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 1,
+        },
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          duration: 0.5,
+        },
+      }}
+      className="w-full "
+    >
       <div className="space-y-2 text-center">
         <h1 className="text-[36px] leading-[43.2px] font-semibold text-[#6EBA6B]">
           Reset Password
@@ -83,7 +106,7 @@ export function ResetPasswordForm() {
                       <Input
                         type={showPassword ? "text" : "password"}
                         placeholder="Enter your new password"
-                        className=" h-[50px]"
+                        className=" h-[50px] w-full"
                         {...field}
                       />
                       <button
@@ -143,6 +166,8 @@ export function ResetPasswordForm() {
           </Button>
         </form>
       </Form>
-    </div>
+    </motion.div>
   );
 }
+
+export default ResetPasswordForm;

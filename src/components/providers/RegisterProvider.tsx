@@ -1,12 +1,16 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import Modal from "../shared/modal/modal";
 import { Button } from "../ui/button";
 import Image from "next/image";
 
-const RegisterProvider = ({ isOpen, setIsOpen }: any) => {
+const RegisterProvider = ({children}:any) => {
+   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
+      {children}
       {isOpen && (
+
         <Modal>
           <div>
             <div className="mx-auto mt-6 w-[205px] h-[205px] relative">

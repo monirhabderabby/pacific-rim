@@ -1,5 +1,5 @@
-import { LoginForm } from "../_components/forms/login-form";
 import AuthUIProvider from "../_components/provider/AuthUIProvider";
+import { LoginForm } from "./_components/login-form";
 
 const Page = () => {
   return (

@@ -1,10 +1,16 @@
 "use client";
 
+// Packages
+import { useDispatch } from "react-redux";
+
+// Local imports
+
+import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useForm } from "@/provider/form-provider";
-import { useDispatch, useSelector } from "react-redux";
-import { setRegistrationValue } from "../../../../../redux/features/authentication/AuthSlice";
-import NextButton from "./button";
+import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
+import { useAppSelector } from "@/redux/store";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 interface Profession {
   id: string;
@@ -19,14 +25,11 @@ const professions: Profession[] = [
   { id: "dispensary", label: "Dispensary" },
 ];
 
-export default function CheckProfession() {
-  // const [selectedProfessions, setSelectedProfessions] = useState<string[]>([]);
-  const { setStep, getNextStep } = useForm();
-  
+export default function ProfessionChecker() {
   const dispatch = useDispatch();
-  const val = useSelector((state: any) => state?.auth);
+  const authState = useAppSelector((state) => state.auth);
 
-  const selectedProfessions: string[] = val.profession;
+  const selectedProfessions: string[] = authState.profession;
 
   const handleProfessionChange = (currentProfession: string) => {
     const updatedProfessions = selectedProfessions.includes(currentProfession)
@@ -81,8 +84,24 @@ export default function CheckProfession() {
             </div>
           </div>
 
-          <div onClick={() => setStep(getNextStep("profession"))}>
-            <NextButton disable={selectedProfessions.length === 0} />
+          <div>
+            <Button
+              disabled={selectedProfessions.length === 0}
+              size="md"
+              asChild
+            >
+              <Link
+                href={
+                  authState.type === "Recreational Cannabis"
+                    ? "/registration/profession/email"
+                    : "/registration/country"
+                }
+                className="flex items-center"
+              >
+                Next
+                <ArrowRight className="ml-2" />
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

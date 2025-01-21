@@ -1,25 +1,34 @@
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import BlogsContainer from "./_components/blogs-container";
+import { PageHeader } from "@/components/shared/sections/page-header";
 
 const Page = () => {
   return (
-    <section className="py-16 px-4">
-      <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-primary-green mb-2">
-            Our Latest News From Blogs
-          </h2>
-          <div className="font-bold">
-            <h3 className="text-xl text-primary-green">Blog</h3>
-            <div className="mt-[-10px]">
-              <SectionHeading heading={""} subheading={""} />
-            </div>
-          </div>
-        </div>
+    <>
+      <PageHeader
+            title="Blog Page"
+            items={[
+              {
+              label: "Home",
+              href: "/",
+            },
+            {
+            label: "blogs",
+            href: "/blogs",
+          },
+        ]}
+      />
+      <div className="py-16 px-4">
 
-        <BlogsContainer />
+        <div className="container mx-auto">
+          <div className="mt-[-10px]">
+            <SectionHeading heading={"Our Latest News From Blogs"} subheading={"Blog"} />
+          </div>
+
+          <BlogsContainer />
+        </div>
       </div>
-    </section>
+    </>
   );
 };
 

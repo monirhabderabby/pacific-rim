@@ -2,9 +2,7 @@ import { NextResponse } from "next/server";
 
 // This function can be marked `async` if using `await` inside
 export async function middleware() {
-  // const response = await ageRestrictionHandler(request);
-
-  // If the age restriction handler returns a response, use it; otherwise, proceed.
+  // Otherwise, proceed as normal
   return NextResponse.next();
 }
 

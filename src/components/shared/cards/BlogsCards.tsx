@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
-import { CalendarDays, MessageCircle, User } from 'lucide-react';
+import { ArrowRight, CalendarDays, MessageCircle, User } from 'lucide-react';
 
 // local import 
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
@@ -14,17 +14,17 @@ function BlogsCards({ image, title, date, author, comments, id }: Blog) {
     return (
         <>
             <Card key={id} className="overflow-hidden bg-primary-light shadow-none border-0">
-                <CardHeader className="p-0">
+                <CardHeader className="p-0 group overflow-hidden">
                     <Image
                         src={image}
                         alt={title}
                         width={600}
                         height={400}
-                        className="w-full object-cover"
+                        className="w-full w-[370px], lg:h-[230px] h-[270px] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-150 duration-300"
                     />
                 </CardHeader>
                 <CardContent className="p-4">
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                    <div className="flex items-center gap-4 text-sm text-[#444444] mb-4">
                         <div className="flex items-center gap-1 text-[12px]">
                             <CalendarDays className="w-4 h-4" />
                             {date}
@@ -38,32 +38,21 @@ function BlogsCards({ image, title, date, author, comments, id }: Blog) {
                             {comments} Comments
                         </div>
                     </div>
-                    <h3 className="font-semibold mb-4 line-clamp-2 text-[18px]">
+                    <h3 className="font-medium line-clamp-2 text-[18px] text-[#000000]">
                         {title}
                     </h3>
                 </CardContent>
                 <CardFooter className="p-6 pt-0">
+                    
                     <Link
                         href={`/blogs/${id}`}
-                        className="text-primary-green hover:text-primary-green-hover font-medium inline-flex items-center gap-2"
+                        className="text-primary hover:text-primary font-medium inline-flex items-center gap-1"
                     >
                         Read More
-                        <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 5l7 7-7 7"
-                            />
-
-                        </svg>
+                        <ArrowRight className='w-[25px] h-[22px] font-light'/>
 
                     </Link>
+                    
                 </CardFooter>
             </Card>
         </>
