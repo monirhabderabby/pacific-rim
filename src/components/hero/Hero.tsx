@@ -1,53 +1,20 @@
 "use client"
-// package import
 import Image from "next/image";
-
 import { useState } from "react";
-import Modal from "../shared/modal/modal";
-import { Button } from "../ui/button";
+import RegisterProvider from "../providers/RegisterProvider";
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(true);
   return (
     <>
       {isOpen && (
-
-        <Modal>
-        <div>
-          <div className="mx-auto mt-6 w-[160px] md:w-[205px] h-[160px] md:h-[205px] relative">
-            <Image
-              src="/assets/img/logo.png"
-              alt="logo"
-              fill
-              style={{ objectFit: "contain" }}
-            />
-          </div>
-          <h2 className="text-center text-[28px] md:text-[36.53px] text-[#333333] font-bold leading-[33.6px] md:leading-[43.84px] mt-2">
-          PACIFIC RIM FUSION
-          </h2>
-          <h3 className="text-center text-[32px] text-[#0057A8] font-semibold leading-[38.4px] mt-[25px]">
-          Get 50% offer for your first purchase.
-          </h3>
-          <p className="text-center text-[22px] text-[#102011] font-normal leading-[26.4px] mt-4">
-          &quot;Save up on your favorite items - Limited time offer&quot;
-          </p>
-          <div className="w-full flex justify-center mt-[35px]">
-            <Button  onClick={()=>setIsOpen(!isOpen)} className="w-[80%] bg-[#0057A8]">
-            Reward Now
-            </Button>
-          </div>
-          <div className="w-full flex justify-center mt-[14px]">
-            <Button onClick={()=>setIsOpen(isOpen)} variant="outline" className="w-[80%] text-[#0057A8] border border-[#0057A8]">
-            No Thanks
-            </Button>
-          </div>
-        </div>
-      </Modal>
+          <RegisterProvider isOpen={isOpen} setIsOpen={setIsOpen}/>
       )}
 
 
      {
-      !isOpen &&  <div>
+      !isOpen &&
+      <div>
       <section
         className="relative w-full h-[430px] lg:h-[530px] bg-cover bg-center z-[-10] lg:px-20"
         style={{
