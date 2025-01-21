@@ -4,19 +4,32 @@ import { Heart } from "lucide-react";
 import Image from "next/image";
 
 // local import
+
 import { FeatureCardType } from "@/data/featured";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { useState } from "react";
+
 
 export default function FeaturedProductCard({
   product,
 }: {
   product: FeatureCardType;
 }) {
+
+  const [isWishlist, setIsWishlist] = useState(false);
+
+  const handleWishlistToggle = () => {
+    setIsWishlist((prev) => !prev); // Toggle wishlist state
+  };
+
   return (
     <Link
       href={`/products/${product.id}`}
-      className="flex overflow-hidden relative flex-col grow shrink self-stretch p-3 my-auto mx-auto bg-white rounded-[8px] border border-gray-200 border-solid w-full md:w-[260px] hover:shadow-feature_card transition-shadow duration-300 cursor-pointer"
+    
+
+      className="flex overflow-hidden relative flex-col grow shrink self-stretch p-3 my-auto mx-auto bg-white rounded-[8px] border border-gray-200 border-solid w-full md:w-[260px] hover:shadow-feature_card transition-shadow duration-300 cursor-pointer "
     >
       <div className="overflow-hidden rounded-[8px]">
         <Image
@@ -25,28 +38,55 @@ export default function FeaturedProductCard({
           alt="Product image"
           width={300}
           height={100}
-          className="object-contain z-0 w-full rounded-[8px] aspect-[1.07] hover:scale-105 duration-300"
+          className="object-contain z-0 w-full rounded-[8px] aspect-[1.07]  hover:scale-105 duration-300"
         />
       </div>
-      <div className="flex absolute top-5 z-0 flex-col w-[32px] right-[22px]">
-        <Button className="flex gap-2.5 items-center p-2 w-full h-8  rounded-[30px] transition-colors duration-300 group">
-          <Heart className="group-hover:fill-[#E10E0E] hover:border-0" />
-        </Button>
+
+      {/* ======= add wishlist ========= */}
+      <div className="flex absolute top-5 z-0 flex-col w-[32px] right-[20px]">
+        <button 
+               onClick={ (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                handleWishlistToggle()
+               
+               }
+               }
+               className={`flex gap-2.5 justify-center items-center px-2 bg-white rounded-full   ${
+                 isWishlist
+                   ? " border-none text-white bg-primary"
+                   : " border-blue-500 text-black hover:bg-hover-gradient hover:text-white"
+               }  min-h-[32px] w-[32px]`}
+               aria-label="Add to wishlist"
+        // className="flex gap-2.5 items-center p-2 w-full h-8 bg-white hover:bg-primary-green rounded-[30px] transition-colors duration-300 group"
+        
+        
+        >
+          <Heart className="group-hover:fill-white hover:border-0 w-4 h-4" />
+        </button>
+    
       </div>
       <div className="flex z-0 flex-col mt-2 w-full">
         <div className="flex flex-col w-full">
           <div className="flex gap-10 justify-between items-center w-full">
             <div className="flex gap-2 items-center self-stretch my-auto text-xs leading-tight text-[#E10E0E] whitespace-nowrap">
               <div className="flex gap-1 items-center self-stretch my-auto">
-                <Image
+              {/* hot icon  */}
+                {/* <Image
                   loading="lazy"
                   width={9}
                   height={9}
                   src="/assets/svg/hot.svg"
                   alt="hot icon"
                   className="object-contain shrink-0 self-stretch my-auto aspect-[0.75] fill-[#E10E0E] w-[9px]"
-                />
-                <div className="self-stretch my-auto text-[#E10E0E]">Hot</div>
+                /> */}
+                <div
+     className={cn(
+      "text-[12px] font-normal my-auto",
+      product.stoke === "In Stock" ? "text-[#2A6C2D]" : "text-red-500"
+    )}
+                  
+               >{product.stoke}</div>
               </div>
             </div>
             <div className="flex gap-1 items-start self-stretch my-auto">
@@ -90,7 +130,7 @@ export default function FeaturedProductCard({
 
             console.log("add to cart");
           }}
-          className="gap-2.5  w-full mt-4"
+          className=" mt-[16px] w-full "
           aria-label="Add to cart"
         >
           Add to cart
