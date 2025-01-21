@@ -9,6 +9,8 @@ import { ProductImageGallery } from "./ProductImageGallery";
 import { SizeSelector } from "./SizeSelector";
 import { StarRating } from "./StarRating";
 import { ProductData, SizeOption } from "./types";
+import VendorReviewCard from "@/components/shared/cards/VendorReviewCard";
+import { ReviewForm } from "./ReviewForm";
 
 const productData: ProductData = {
   title: "American Beauty",
@@ -31,6 +33,35 @@ const productData: ProductData = {
   ],
   mainImage: { src: "/assets/img/prodDetails.png", alt: "Product main image" },
 };
+const reviews = [
+  {
+    imageSrc: "/assets/img/reviews-card-imag.png.png",
+    name: "Leslie Alexander",
+    date: "16 June 2025",
+    rating: 4,
+    review:
+      "Welcome to Pacific Rim Fusion, the leading B2B online auction marketplace dedicated to empowering local cannabis farms and businesses in markets often dominated by larger operators. Operating in Federally legal jurisdictions including Thailand, Germany, and Canada, we specialize in facilitating the sale of surplus cannabis and cannabis-related products through a secure and dynamic platform.",
+    storeName: "American Beauty",
+  },
+  {
+    imageSrc: "/assets/img/reviews-card-imag.png.png",
+    name: "Leslie Alexander",
+    date: "10 May 2025",
+    rating: 4,
+    review:
+      "Welcome to Pacific Rim Fusion, the leading B2B online auction marketplace dedicated to empowering local cannabis farms and businesses in markets often dominated by larger operators. Operating in Federally legal jurisdictions including Thailand, Germany, and Canada, we specialize in facilitating the sale of surplus cannabis and cannabis-related products through a secure and dynamic platform.",
+    storeName: "Beauty Green",
+  },
+  {
+    imageSrc: "/assets/img/reviews-card-imag.png.png",
+    name: "Leslie Alexander",
+    date: "5 April 2025",
+    rating: 5,
+    review:
+      "Welcome to Pacific Rim Fusion, the leading B2B online auction marketplace dedicated to empowering local cannabis farms and businesses in markets often dominated by larger operators. Operating in Federally legal jurisdictions including Thailand, Germany, and Canada, we specialize in facilitating the sale of surplus cannabis and cannabis-related products through a secure and dynamic platform.",
+    storeName: "Green Leaf",
+  },
+];
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
@@ -68,7 +99,7 @@ const ProductDetails = () => {
             <div className="flex flex-col grow shrink justify-center min-w-[240px] w-[30%]">
               <div className="flex flex-col max-w-full">
                 <div className="flex flex-col w-full">
-                  <div className="text-4xl font-semibold leading-tight text-[#2A6C2D]">
+                  <div className="text-4xl font-semibold leading-tight text-gradient">
                     {productData.title}
                   </div>
                   <div className="flex flex-col items-start mt-2 w-full">
@@ -105,7 +136,7 @@ const ProductDetails = () => {
                         alt="store name"
                       />
                     </Avatar>
-                    <div className="text-[#2a6c2d]">{productData.store}</div>
+                    <div className="text-gradient">{productData.store}</div>
                   </div>
                 </div>
                 <div className="mt-5 w-full border border-solid  border-b-stone-700 h-[1px]" />
@@ -177,7 +208,7 @@ const ProductDetails = () => {
       </section>
 
       <section className="my-[80px]  container">
-        <h1 className="text-[28px] font-semibold text-[#2A6C2D] leading-[33.6px]">
+        <h1 className="text-[28px] font-semibold text-gradient leading-[33.6px]">
           Explore related Items
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-[24px] gap-[30px]">
@@ -186,6 +217,31 @@ const ProductDetails = () => {
           ))}
         </div>
       </section>
+      <div className="mb-[50px] container">
+          <h2 className="text-[#2c6534] text-center text-[25px] font-[600] mt-[50px]">
+            Review
+          </h2>
+          <div>
+            {reviews.map((review, index) => (
+              <div
+                key={index}
+                className="border-b-[1px] border-[#C5C5C5]  last:border-none "
+              >
+                <VendorReviewCard
+                  key={index}
+                  imageSrc={review.imageSrc}
+                  name={review.name}
+                  date={review.date}
+                  rating={review.rating}
+                  review={review.review}
+                  storeName={review.storeName}
+                />
+              </div>
+            ))}
+            <div className="w-full h-[1px] border-b-[1px] border-[#C5C5C5] mb-[30px]" />
+          </div>
+          <ReviewForm />
+        </div>
     </div>
   );
 };
