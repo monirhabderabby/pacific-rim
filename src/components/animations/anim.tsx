@@ -84,11 +84,11 @@ const animationVariants: Record<string, Variants> = {
     },
   },
   zoomIn: {
-    hidden: { scale: 0.5, opacity: 0 },
+    hidden: { scale: 0.6, opacity: 0 },
     visible: {
       scale: 1,
       opacity: 1,
-      transition: { duration: 0.5, ease: "easeInOut" },
+      transition: { duration: 0.8, ease: "easeInOut", type: "tween" },
     },
   },
   zoomOut: {
@@ -182,7 +182,9 @@ const animationVariants: Record<string, Variants> = {
   },
 };
 
-const Anim = ({ children, variant = "fadeIn" }: Props) => {
+//slideInBottom
+//
+const Anim = ({ children, variant = "slideInTop" }: Props) => {
   const selectedVariant = animationVariants[variant];
 
   return (

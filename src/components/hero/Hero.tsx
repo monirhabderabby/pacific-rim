@@ -29,7 +29,7 @@ const Hero = () => {
       </section>
 
       {/* Three images */}
-      <Anim variant="slideInTop">
+      <Anim variant="zoomIn">
         <div className="grid grid-cols-3 gap-4 lg:gap-[24px] mx-auto max-w-[1200px] mt-[-50px] lg:mt-[-100px] z-50 justify-items-center p-2">
           {["hero1.png", "hero2.png", "hero3.png"].map((img, index) => (
             <div
