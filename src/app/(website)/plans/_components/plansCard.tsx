@@ -4,6 +4,7 @@ import React from "react";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { useState } from 'react'
 import PlansPayment from "./plansPayment";
+import { Button } from "@/components/ui/button";
 
 function PlansCard({
   cardtitle,
@@ -18,13 +19,13 @@ function PlansCard({
   return (
     <div className="w-full border border-[#A3A6AF] rounded-[16px] relative">
       {title && (
-        <div className="bg-[#2A6C2D] py-[6px] rounded-tl-[16px] rounded-tr-[16px] absolute w-full">
-          <h4 className="text-center text-[11px] text-[#F8ECEC] leading-[13.2px] font-semibold ">
+        <div className="bg-primary py-[6px] rounded-tl-[16px] rounded-tr-[16px] absolute w-full">
+          <h4 className="text-center text-[11px] text-[#F8ECEC] leading-[13.2px] font-mideum ">
             Most Popular
           </h4>
         </div>
       )}
-      <div className=" px-6 pt-[75.5px]">
+      <div className="px-6 gap-[40px] pt-[75.5px]">
         <h2 className="text-xl text-[#1C3A58] font-semibold leading-[24px]">
           {cardtitle}
         </h2>
@@ -34,10 +35,10 @@ function PlansCard({
         <h4 className="text-[22px] text-[#1A1A1A] font-bold leading-[26.4px] mt-6">
           ₿{cardprice}
         </h4>
-        <div>
-          <button onClick={() => setIsOpen(true)} className="w-full text-base text-[#FFFFFF] font-semibold bg-[#2A6C2D] hover:bg-[#266129]/80 rounded-[8px] py-[12.5px] mt-6 duration-300">
+        <div className="mt-[24px]">
+          <Button onClick={() => setIsOpen(true)} className="w-full  ">
             Subscribe Now
-          </button>
+          </Button>
           <PlansPayment
             isOpen={isOpen} 
             onClose={() => setIsOpen(false)} 
@@ -52,14 +53,14 @@ function PlansCard({
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
             <span>
-              <IoCheckmarkCircle size={16}  className="text-[#2A6C2D] " />
+              <IoCheckmarkCircle size={16}  className="text-[#121D42]" />
             </span>
             <p className="text-sm text-[#444444] font-normal leading-[16.8px]">
               Auction/Listing
             </p>
           </div>
           <div>
-            <p className="text-sm text-[#2A6C2D] font-bold leading-[16.8px]">
+            <p className="text-sm text-gradient font-bold leading-[16.8px]">
               {action}
             </p>
           </div>
@@ -68,14 +69,14 @@ function PlansCard({
         <div className="flex justify-between items-center mt-5">
           <div className="flex items-center gap-2">
             <span>
-            <IoCheckmarkCircle size={16}  className="text-[#2A6C2D] " />
+            <IoCheckmarkCircle size={16}  className="text-[#121D42]" />
             </span>
             <p className="text-sm text-[#444444] font-normal leading-[16.8px]">
               Bids
             </p>
           </div>
           <div>
-            <p className="text-sm text-[#2A6C2D] font-bold leading-[16.8px]">
+            <p className="text-sm text-gradient font-bold leading-[16.8px]">
               {bids}
             </p>
           </div>
@@ -84,14 +85,14 @@ function PlansCard({
         <div className="flex justify-between items-center mt-5">
           <div className="flex items-center gap-2">
             <span>
-            <IoCheckmarkCircle size={16}  className="text-[#2A6C2D] " />
+            <IoCheckmarkCircle size={16}  className="text-[#121D42]" />
             </span>
             <p className="text-sm text-[#444444] font-normal leading-[16.8px]">
               Messages
             </p>
           </div>
           <div>
-            <p className="text-sm text-[#2A6C2D] font-bold leading-[16.8px]">
+            <p className="text-sm text-gradient font-bold leading-[16.8px]">
               {messages}
             </p>
           </div>
