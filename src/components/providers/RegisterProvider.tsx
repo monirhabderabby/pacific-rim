@@ -1,16 +1,21 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import Modal from "../shared/modal/modal";
 import { Button } from "../ui/button";
-import Image from "next/image";
 
-const RegisterProvider = ({children}:any) => {
-   const [isOpen, setIsOpen] = useState(false);
+const RegisterProvider = ({ children }: any) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsOpen(true);
+    }, 20000);
+  }, []);
   return (
     <div>
       {children}
       {isOpen && (
-
         <Modal>
           <div>
             <div className="mx-auto mt-6 w-[205px] h-[205px] relative">
@@ -40,7 +45,7 @@ const RegisterProvider = ({children}:any) => {
             </div>
             <div className="w-full flex justify-center mt-[14px]">
               <Button
-                onClick={() => setIsOpen(isOpen)}
+                onClick={() => setIsOpen(!isOpen)}
                 variant="outline"
                 className="w-full md:w-[80%] text-[#121D42] border border-[#121D42]"
               >

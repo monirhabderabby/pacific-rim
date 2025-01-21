@@ -21,7 +21,7 @@ export function PageHeader({ title, items }: PageHeaderProps) {
   return (
     <div
       className={cn(
-        "relative w-full flex flex-col items-center justify-center bg-black h-[300px] animate-moveBackground"
+        "relative w-full flex flex-col items-center justify-center bg-black h-[109px] md:h-[300px] animate-moveBackground"
       )}
       style={{
         backgroundImage: `url(/assets/img/heroBg.png)`,
@@ -49,12 +49,12 @@ export function PageHeader({ title, items }: PageHeaderProps) {
                 )}
                 <BreadcrumbItem key={`item-${item.label}-${index}`}>
                   {index === items.length - 1 ? (
-                    <BreadcrumbPage className="text-inherit">
+                    <BreadcrumbPage className="text-base md:text-lg lg:text-xl leading-[24px] font-normal md:font-medium lg:font-semibold text-white hover:text-gray-200">
                       {item.label}
                     </BreadcrumbPage>
                   ) : (
                     <BreadcrumbLink
-                      className="text-inherit hover:text-gray-200 text-xl"
+                      className="text-base md:text-lg lg:text-xl leading-[24px] font-normal md:font-medium lg:font-semibold text-white hover:text-gray-200"
                       href={item.href}
                     >
                       {item.label}

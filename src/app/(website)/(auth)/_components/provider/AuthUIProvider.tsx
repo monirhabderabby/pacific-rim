@@ -13,12 +13,14 @@ interface AuthUIProviderProps {
   children: ReactNode;
   sidebarImage: string;
   fullWidth?: boolean;
+  backButton?: true | false;
 }
 
 const AuthUIProvider = async ({
   children,
   sidebarImage,
   fullWidth,
+  backButton = true,
 }: AuthUIProviderProps) => {
   // generating a blur data url
   const buffer = await fetch(sidebarImage, { cache: "no-store" }).then(
@@ -46,9 +48,11 @@ const AuthUIProvider = async ({
                 </span>
               </div>
             </Link>
-            <div className="hidden md:block">
-              <LoginBackButton />
-            </div>
+            {backButton && (
+              <div className="hidden md:block">
+                <LoginBackButton />
+              </div>
+            )}
           </div>
           <div
             className={cn(

@@ -88,8 +88,8 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/"
           className={cn(
-            "text-[20px] font-medium hover:text-[#2A6C2D]",
-            pathName === "/" ? "text-[#2A6C2D]" : "text-black font-normal"
+            "text-[20px] font-medium hover:text-gradient",
+            pathName === "/" ? "text-gradient" : "text-black font-normal"
           )}
         >
           Home
@@ -97,8 +97,8 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/about"
           className={cn(
-            "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/about" ? "text-primary-green" : "text-black font-normal" 
+            "text-[20px] font-normal hover:text-gradient",
+            pathName === "/about" ? "text-gradient" : "text-black font-normal" 
           )}
         >
           About
@@ -106,8 +106,8 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href=""
           className={cn(
-            "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/products" ? "text-primary-green" : "text-black font-normal"
+            "text-[20px] font-normal hover:text-gradient",
+            pathName === "/products" ? "text-gradient" : "text-black font-normal"
           )}
         >
           <AuctionList />
@@ -115,8 +115,8 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/blogs"
           className={cn(
-            "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/blogs" ? "text-primary-green" : "text-black font-normal"
+            "text-[20px] font-normal hover:text-gradient",
+            pathName === "/blogs" ? "text-gradient" : "text-black font-normal"
           )}
         >
           Blog
@@ -124,8 +124,8 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href=""
           className={cn(
-            "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/blogs" ? "text-primary-green" : "text-black font-normal"
+            "text-[20px] font-normal hover:text-gradient",
+            pathName === "/blogs" ? "text-gradient" : "text-black font-normal"
           )}
         >
           <PagesList/>
@@ -133,8 +133,8 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/contact"
           className={cn(
-            "text-[20px] font-normal hover:text-[#2A6C2D]",
-            pathName === "/contact" ? "text-primary-green" : "text-black font-normal"
+            "text-[20px] font-normal hover:text-gradient",
+            pathName === "/contact" ? "text-gradient" : "text-black font-normal"
           )}
         >
           Contact
