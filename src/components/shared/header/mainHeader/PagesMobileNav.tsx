@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ChevronRight } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface DropdownProps {
   label: string;
@@ -26,9 +27,28 @@ export default function PagesMobileNav({ label, links, onClose }: DropdownProps)
       </button>
 
       {/* Dropdown Menu */}
+      <AnimatePresence>
       {isOpen && (
-        <div className="w-full ">
-          {links.map((link) => (
+
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="w-full"
+        >
+          {links.map((link, index) => (
+            <motion.div
+            key={link.href}
+            initial={{ opacity: 0, y: -10 }} // Start slightly left and hidden
+            animate={{ opacity: 1, y: 0 }}  // Move into place and fade in
+            exit={{ opacity: 0, y: -10 }}   // Fade out and move left when closing
+            transition={{
+              duration: 0.3,
+              ease: 'easeInOut',
+              delay: index * 0.05, // Stagger animation for each link
+            }}
+          >
             <Link
               key={link.href}
               href={link.href}
@@ -40,9 +60,11 @@ export default function PagesMobileNav({ label, links, onClose }: DropdownProps)
             >
               {link.label}
             </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </div>
   );
 }

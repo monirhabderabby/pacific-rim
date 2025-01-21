@@ -13,14 +13,14 @@ export default function BiddingCard() {
   const timeLeft = useCountdown(endDate);
 
   return (
-    <Card className=" shadow-none   rounded-[16px] p-[16px] relative">
-      <div className="">
+    <Card className=" shadow-none p-[16px] relative">
+      <div className="overflow-hidden rounded-[8px]">
         <Image
           height={300}
           width={400}
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/07a15d7f9b9bb47f1c399eb2bcca6083f278b4bf5bd9f04b6458478c49d90e56?placeholderIfAbsent=true&apiKey=13a72d2a8d4c40b0974e394fc11603d9"
           alt="American Beauty product"
-          className="w-full h-[266px] object-cover rounded-[8px]"
+          className="w-full h-[266px] object-cover rounded-[8px] hover:scale-105 duration-300 "
         />
         <Button className="absolute -top-[10px] -right-[10px] rounded-full w-[56px] h-[56px] p-0 bg-[#2A6C2D] hover:bg-[#2c6130]">
           <Image
