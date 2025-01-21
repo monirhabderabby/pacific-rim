@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import Image from "next/image";
 import { StarRating } from "../clientReview/StarRating";
 import { CartItem } from "@/types/cart";
+import { FiShoppingCart } from "react-icons/fi";
 interface CartItemProps {
   item: CartItem;
   onUpdateQuantity: (id: string, quantity: number) => void;
@@ -14,7 +15,7 @@ export function CartItemCard({
   item,
   onUpdateQuantity,
   onRemove,
-  icon
+  // icon
 }: CartItemProps) {
 
   return (
@@ -29,8 +30,9 @@ export function CartItemCard({
             fill
             className="rounded-lg object-cover"
           />
-          <button className="absolute top-2 right-2 p-1.5 bg-white rounded-full">
-          {icon}
+          <button className="absolute top-2 right-2 p-1.5 bg-white hover:bg-gradient-to-r from-[#7091FFCC] via-[#2F4697CC] to-[#7485FBCC] focus:bg-gradient-to-l focus:from-[#121D42] focus:via-[#152764] focus:to-[#4857BD] rounded-full focus:text-white hover:text-white">
+          {/* {icon} */}
+          <FiShoppingCart/>
           </button>
         </div>
         <div className="flex-1 space-y-1 pt-2 flex flex-col justify-evenly">
