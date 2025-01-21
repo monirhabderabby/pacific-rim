@@ -1,5 +1,6 @@
 "use client";
-// package import 
+
+// Package imports
 import { useRouter } from "next/navigation";
 import { ReactNode, useEffect } from "react";
 
@@ -10,8 +11,11 @@ const AgeRestrictionGuard = ({ children }: { children: ReactNode }) => {
     const ageRestrictionValue = sessionStorage.getItem("age-restriction");
 
     if (!ageRestrictionValue || ageRestrictionValue === "true") {
-      // Redirect to "/age-alert" if restricted
-      router.push("/age-alert");
+      // Get the current pathname to use as the redirect target
+      const currentPath = window.location.pathname;
+
+      // Redirect to "/age-alert" with the redirect query parameter
+      router.push(`/age-alert?redirect=${encodeURIComponent(currentPath)}`);
     }
   }, [router]);
 
