@@ -4,13 +4,15 @@ import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { featureProducts } from "@/data/featured";
 import { Flame, Heart, Minus, Plus, RefreshCw } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ProductImageGallery } from "./ProductImageGallery";
 import { SizeSelector } from "./SizeSelector";
 import { StarRating } from "./StarRating";
 import { ProductData, SizeOption } from "./types";
 import VendorReviewCard from "@/components/shared/cards/VendorReviewCard";
 import { ReviewForm } from "./ReviewForm";
+import { Button } from "@/components/ui/button";
+import { useScroll, motion, useTransform } from "framer-motion";
 
 const productData: ProductData = {
   title: "American Beauty",
@@ -66,10 +68,49 @@ const reviews = [
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const [sizes, setSizes] = useState<SizeOption[]>(productData.sizes);
-  // const [selectedSize, setSelectedSize] = useState(
-  //   productData.sizes.find((size) => size.isSelected)?.value || ""
-  // );
   const [isWishlist, setIsWishlist] = useState(false);
+
+  //animation
+  // const descriptionRef = useRef(null);
+  const relatedItemsRef = useRef(null);
+  const reviewSectionRef = useRef(null);
+
+  // Scroll progress for Description Section
+  // const { scrollYProgress: descriptionScrollY } = useScroll({
+  //   target: descriptionRef,
+  //   offset: ["0 1", "1.33 1"],
+  // });
+  // const descriptionScale = useTransform(descriptionScrollY, [0, 1], [0.8, 1]);
+  // const descriptionOpacity = useTransform(descriptionScrollY, [0, 1], [0.6, 1]);
+
+  // Scroll progress for Related Items Section
+  const { scrollYProgress: relatedItemsScrollY } = useScroll({
+    target: relatedItemsRef,
+    offset: ["0 1", "1.33 1"],
+  });
+  const relatedItemsScale = useTransform(relatedItemsScrollY, [0, 1], [0.8, 1]);
+  const relatedItemsOpacity = useTransform(
+    relatedItemsScrollY,
+    [0, 1],
+    [0.6, 1]
+  );
+
+  // Scroll progress for Review Section
+  const { scrollYProgress: reviewSectionScrollY } = useScroll({
+    target: reviewSectionRef,
+    offset: ["0 1", ".8 1"],
+  });
+  const reviewSectionScale = useTransform(
+    reviewSectionScrollY,
+    [0, 1],
+    [0.8, 1]
+  );
+  const reviewSectionOpacity = useTransform(
+    reviewSectionScrollY,
+    [0, 1],
+    [0.6, 1]
+  );
+
   const handleQuantityChange = (increment: boolean) => {
     setQuantity((prev) => (increment ? prev + 1 : Math.max(1, prev - 1)));
   };
@@ -91,7 +132,7 @@ const ProductDetails = () => {
       <SectionHeading heading={"Our products"} subheading={""} />
       <section className="flex justify-center items-center pt-10 px-4">
         <div className="flex flex-col w-full max-w-[1200px]">
-          <div className="flex flex-wrap gap-8 w-full ">
+          <div className="flex flex-wrap gap-8 w-full">
             <ProductImageGallery
               thumbnails={productData.images}
               mainImage={productData.mainImage}
@@ -177,12 +218,15 @@ const ProductDetails = () => {
                     </button>
                   </div>
                   <div className="flex gap-8 items-center mt-4 w-full text-base leading-tight">
-                    <button className="gap-2.5 self-stretch px-6 py-3 my-auto font-medium text-white bg-[#2a6c2d] rounded-lg min-h-[43px] w-[170px] max-md:px-5">
+                    <Button className="gap-2.5 self-stretch min-h-[43px] w-[170px] max-md:px-5">
                       Add to cart
-                    </button>
-                    <button className="gap-2.5 self-stretch px-6 py-3 my-auto font-semibold text-[#2a6c2d] rounded-lg border border-[#2a6c2d] border-solid min-h-[43px] w-[170px] max-md:px-5">
+                    </Button>
+                    <Button
+                      variant={"outline"}
+                      className="gap-2.5 self-stretch my-auto min-h-[43px] w-[170px] "
+                    >
                       Buy Now
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -196,8 +240,11 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center mt-10 w-full text-center max-md:max-w-full">
-            <div className="text-2xl font-semibold leading-tight text-green-800 max-md:max-w-full">
+          <div
+            className="flex flex-col items-center mt-10 w-full text-center max-md:max-w-full"
+            
+          >
+            <div className="text-2xl font-semibold leading-tight text-gradient max-md:max-w-full">
               Description
             </div>
             <div className="mt-5 text-base leading-5 text-neutral-700 max-md:max-w-full">
@@ -207,7 +254,14 @@ const ProductDetails = () => {
         </div>
       </section>
 
-      <section className="my-[80px]  container">
+      <motion.section
+        className="my-[80px]  container"
+        ref={relatedItemsRef}
+        style={{
+          scale: relatedItemsScale,
+          opacity: relatedItemsOpacity,
+        }}
+      >
         <h1 className="text-[28px] font-semibold text-gradient leading-[33.6px]">
           Explore related Items
         </h1>
@@ -216,32 +270,38 @@ const ProductDetails = () => {
             <FeaturedProductCard key={product.id} product={product} />
           ))}
         </div>
-      </section>
-      <div className="mb-[50px] container">
-          <h2 className="text-[#2c6534] text-center text-[25px] font-[600] mt-[50px]">
-            Review
-          </h2>
-          <div>
-            {reviews.map((review, index) => (
-              <div
+      </motion.section>
+      <motion.div
+        className="mb-[50px] container"
+        ref={reviewSectionRef}
+        style={{
+          scale: reviewSectionScale,
+          opacity: reviewSectionOpacity,
+        }}
+      >
+        <h2 className="text-gradient text-center text-[25px] font-[600] mt-[50px]">
+          Review
+        </h2>
+        <div>
+          {reviews.map((review, index) => (
+            <div
+              key={index}
+              className="border-b-[1px] border-[#C5C5C5]  last:border-none "
+            >
+              <VendorReviewCard
                 key={index}
-                className="border-b-[1px] border-[#C5C5C5]  last:border-none "
-              >
-                <VendorReviewCard
-                  key={index}
-                  imageSrc={review.imageSrc}
-                  name={review.name}
-                  date={review.date}
-                  rating={review.rating}
-                  review={review.review}
-                  storeName={review.storeName}
-                />
-              </div>
-            ))}
-            <div className="w-full h-[1px] border-b-[1px] border-[#C5C5C5] mb-[30px]" />
-          </div>
-          <ReviewForm />
+                imageSrc={review.imageSrc}
+                name={review.name}
+                date={review.date}
+                rating={review.rating}
+                review={review.review}
+              />
+            </div>
+          ))}
+          <div className="w-full h-[1px] border-b-[1px] border-[#C5C5C5] mb-[30px]" />
         </div>
+        <ReviewForm />
+      </motion.div>
     </div>
   );
 };

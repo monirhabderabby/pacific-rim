@@ -6,6 +6,7 @@ import Image from "next/image";
 // local import
 import { FeatureCardType } from "@/data/featured";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function FeaturedProductCard({
   product,
@@ -28,9 +29,9 @@ export default function FeaturedProductCard({
         />
       </div>
       <div className="flex absolute top-5 z-0 flex-col w-[32px] right-[22px]">
-        <button className="flex gap-2.5 items-center p-2 w-full h-8 bg-white hover:bg-primary-green rounded-[30px] transition-colors duration-300 group">
-          <Heart className="group-hover:fill-white hover:border-0" />
-        </button>
+        <Button className="flex gap-2.5 items-center p-2 w-full h-8  rounded-[30px] transition-colors duration-300 group">
+          <Heart className="group-hover:fill-[#E10E0E] hover:border-0" />
+        </Button>
       </div>
       <div className="flex z-0 flex-col mt-2 w-full">
         <div className="flex flex-col w-full">
@@ -70,7 +71,7 @@ export default function FeaturedProductCard({
               />
             </div>
           </div>
-          <div className="mt-2 text-[16px] text-left font-medium leading-[19.2px] text-[#2A6C2D]">
+          <div className="mt-2 text-[16px] text-left font-medium leading-[19.2px] text-gradient">
             American Beauty
           </div>
           <div className="flex gap-1 items-end self-start mt-2 font-medium leading-tight">
@@ -82,18 +83,18 @@ export default function FeaturedProductCard({
             </div>
           </div>
         </div>
-        <button
+        <Button
           onClick={(e) => {
             e.stopPropagation();
             e.preventDefault();
 
             console.log("add to cart");
           }}
-          className="gap-2.5 self-stretch px-6 py-3 mt-4 w-full text-base font-medium leading-tight text-white bg-primary-green-hover hover:bg-primary-green-hover/90 rounded-lg max-md:px-5 transition-colors duration-300"
+          className="gap-2.5  w-full mt-4"
           aria-label="Add to cart"
         >
           Add to cart
-        </button>
+        </Button>
       </div>
     </Link>
   );

@@ -45,7 +45,7 @@ export default function SidebarFilters() {
     <aside className="w-[270px] space-y-4 mt-[52px]">
       {/* Price Filter */}
       <div className="rounded-lg bg-[#E6EEF6] p-4">
-        <h2 className="text-[28px] font-bold text-[#0057A8] mb-4">Filter by Price</h2>
+        <h2 className="text-[28px] font-bold text-gradient mb-4">Filter by Price</h2>
         <Slider
           value={priceRange}  // Bind the slider value to the Redux state
           max={1000}
@@ -79,7 +79,7 @@ export default function SidebarFilters() {
 
       {/* Shop by Flowers */}
       <div className="rounded-lg bg-[#E6EEF6] p-4">
-        <h2 className="text-[28px] leading-[30px] font-bold text-[#0057A8] mb-4">Shop by Flowers</h2>
+        <h2 className="text-[28px] leading-[30px] font-bold text-gradient mb-4">Shop by Flowers</h2>
         <p className="text-[18px] text-[#434851] mb-3">Sub Categories List</p>
         <div className="space-y-3">
           {flowerOptions.map((flower) => (
@@ -99,7 +99,7 @@ export default function SidebarFilters() {
 
       {/* Categories */}
       <div className="rounded-lg bg-[#E6EEF6] p-4">
-        <h2 className="text-[28px] font-bold text-[#0057A8] mb-4">Categories</h2>
+        <h2 className="text-[28px] font-bold text-gradient mb-4">Categories</h2>
         <div className="space-y-3">
           {categoryOptions.map((category) => (
             <div key={category} className="flex items-center space-x-2">

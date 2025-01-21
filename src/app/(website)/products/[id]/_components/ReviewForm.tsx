@@ -24,7 +24,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = () => {
       onSubmit={handleSubmit}
       className="flex flex-col gap-4 rounded-lg w-full"
     >
-      <h2 className="text-lg font-semibold text-green-800">Add a review</h2>
+      <h2 className="text-lg font-semibold text-gradient">Add a review</h2>
 
       <div className="flex gap-2">
         <label htmlFor="rating" className="text-base text-neutral-700">

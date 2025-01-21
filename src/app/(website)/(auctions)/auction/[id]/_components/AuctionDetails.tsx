@@ -12,12 +12,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Flame, Heart } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CountdownTimer } from "./CountdownTimer";
 import { ProductImageGallery } from "./ProductImageGallery";
 import { ReviewForm } from "./ReviewForm";
 import { StarRating } from "./StarRating";
 import { BidData, ProductData } from "./types";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const productData: ProductData = {
   title: "American Beauty",
@@ -93,8 +94,36 @@ const reviews = [
 ];
 const AuctionDetails = () => {
   const [isWishlist, setIsWishlist] = useState(false);
-  const [islive] = useState(false);
+  const [islive] = useState(true);
   const [biddingPrice, setBiddingPrice] = useState<number | string>("");
+
+  // animation
+  const bidsRef = useRef(null);
+  const reviewsRef = useRef(null);
+
+  // Scroll progress for Related Items Section
+  const { scrollYProgress: relatedItemsScrollY } = useScroll({
+    target: bidsRef,
+    offset: ["0 1", "1.33 1"],
+  });
+  const bidsItemsScale = useTransform(relatedItemsScrollY, [0, 1], [0.8, 1]);
+  const bidsItemsOpacity = useTransform(relatedItemsScrollY, [0, 1], [0.8, 1]);
+
+  // Scroll progress for Review Section
+  const { scrollYProgress: reviewSectionScrollY } = useScroll({
+    target: reviewsRef,
+    offset: ["0 1", ".8 1"],
+  });
+  const reviewSectionScale = useTransform(
+    reviewSectionScrollY,
+    [0, 1],
+    [0.8, 1]
+  );
+  const reviewSectionOpacity = useTransform(
+    reviewSectionScrollY,
+    [0, 1],
+    [0.8, 1]
+  );
 
   const handleWishlistToggle = () => {
     setIsWishlist((prev) => !prev); // Toggle wishlist state
@@ -120,7 +149,7 @@ const AuctionDetails = () => {
             <div className="flex flex-col grow shrink justify-center min-w-[240px] w-[30%]">
               <div className="flex flex-col max-w-full">
                 <div className="flex flex-col w-full">
-                  <div className="text-4xl font-semibold leading-tight text-[#2A6C2D]">
+                  <div className="text-4xl font-semibold leading-tight text-gradient">
                     {productData.title}
                   </div>
                   <div className="flex flex-col items-start mt-2 w-full">
@@ -147,7 +176,7 @@ const AuctionDetails = () => {
                       </span>
                     </div> */}
 
-                    <span className="text-[#2A6C2D] text-[18px]">
+                    <span className="text-gradient text-[18px]">
                       Winning Bid:
                     </span>
                     <span className="text-[#1A1A1A] text-[18px]">$7000</span>
@@ -170,7 +199,7 @@ const AuctionDetails = () => {
                         alt="store name"
                       />
                     </Avatar>
-                    <div className="text-[#2a6c2d]">{productData.store}</div>
+                    <div className="text-gradient">{productData.store}</div>
                   </div>
                 </div>
                 <div className="mt-5 w-full border border-solid  border-b-stone-700 h-[1px]" />
@@ -186,14 +215,17 @@ const AuctionDetails = () => {
                       Your Bid Price
                     </label>
                     <div className="flex justify-between mt-2 w-full h-11 whitespace-nowrap rounded-md border border-solid border-neutral-400">
-                      <div className="gap-3 self-stretch px-4 text-sm font-semibold leading-tight text-[#2a6c2d] bg-[#eaf0ea] rounded-lg h-[42px] w-[42px] flex items-center justify-center">
+                      <label
+                        htmlFor="bidInput"
+                        className="gap-3 self-stretch px-4 font-semibold bg-[#E6EEF6] rounded-lg h-[42px] w-[42px] flex items-center justify-center"
+                      >
                         $
-                      </div>
+                      </label>
                       <input
                         id="bidInput"
                         type="number"
                         onChange={handleBidChange}
-                        className="appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-moz-appearance:textfield] flex-1 shrink gap-2 self-stretch py-3 pr-5 pl-4 pb-2  my-auto text-base leading-snug rounded-lg min-w-[240px] text-black"
+                        className="appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-moz-appearance:textfield] flex-1 shrink gap-2 self-stretch py-2 pr-5 pl-4 pb-2 my-auto text-base leading-snug rounded-lg min-w-[240px] text-black outline-none focus:outline-none focus:ring-0 focus:border-none"
                         aria-label="Bid amount in dollars"
                       />
                     </div>
@@ -216,7 +248,7 @@ const AuctionDetails = () => {
                     </button>
                     {islive ? (
                       <Button
-                        className="max-w-[320px] text-white bg-[#2a6c2d] px-6  rounded-lg h-[43px] flex justify-center items-center w-full"
+                        className="max-w-[320px] px-6 rounded-lg h-[43px] flex justify-center items-center w-full"
                         onClick={handleBidClick}
                       >
                         Bid Now
@@ -232,7 +264,7 @@ const AuctionDetails = () => {
             </div>
           </div>
           <div className="flex flex-col items-center mt-10 w-full text-center max-md:max-w-full">
-            <div className="text-2xl font-semibold leading-tight text-green-800 max-md:max-w-full">
+            <div className="text-2xl font-semibold leading-tight text-gradient max-md:max-w-full">
               Description
             </div>
             <div className="mt-5 text-base leading-5 text-neutral-700 max-md:max-w-full">
@@ -242,59 +274,74 @@ const AuctionDetails = () => {
         </div>
       </section>
       <div className="container mt-[50px]">
-        <h2 className="text-[#2c6534] text-center text-[25px] font-[600]">
-          Bids
-        </h2>
-        <div className="mb-[20px]">
-          <h3 className="text-[#2c6534] text-[20px] font-[600]">
-            Total Bids Placed:
-          </h3>
-          <p className="text-[#3D3D3D] text-[16px] font-[400]">
-            Auction has expired
-          </p>
-          <p className="text-[#3D3D3D] text-[16px] font-[400]">
-            Highest bidder was: Oregon Greener
-          </p>
-        </div>
-        <div className="border border-[#C5C5C5] rounded-lg overflow-hidden text-center">
-          <Table className="table-fixed w-full">
-            <TableHeader>
-              <TableRow className="bg-[#E6E6E6]">
-                <TableHead className="border-r-[1px] border-black text-center w-1/4 text-[#444444]">
-                  Bidder Name
-                </TableHead>
-                <TableHead className="border-r-[1px] border-black text-center w-1/4 text-[#444444]">
-                  Bidder Time
-                </TableHead>
-                <TableHead className="border-r-[1px] border-black text-center w-1/4 text-[#444444]">
-                  Bid
-                </TableHead>
-                <TableHead className="text-center w-1/4 text-[#444444]">
-                  Auto
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody className="text-[#444444]">
-              {bidsData.map((bidData, index) => (
-                <TableRow key={index}>
-                  <TableCell className="border-r-[1px] border-black w-1/4">
-                    {bidData.bidderName}
-                  </TableCell>
-                  <TableCell className="border-r-[1px] border-black w-1/4">
-                    {bidData.biddingTime}
-                  </TableCell>
-                  <TableCell className="border-r-[1px] border-black w-1/4">
-                    {bidData.bidAmount}
-                  </TableCell>
-                  <TableCell className="">{""}</TableCell>
+        <motion.div
+          ref={bidsRef}
+          style={{
+            scale: bidsItemsScale,
+            opacity: bidsItemsOpacity,
+          }}
+        >
+          <h2 className="text-gradient text-center text-[25px] font-[600]">
+            Bids
+          </h2>
+          <div className="mb-[20px]">
+            <h3 className="text-gradient text-[20px] font-[600]">
+              Total Bids Placed:
+            </h3>
+            <p className="text-[#3D3D3D] text-[16px] font-[400]">
+              Auction has expired
+            </p>
+            <p className="text-[#3D3D3D] text-[16px] font-[400]">
+              Highest bidder was: Oregon Greener
+            </p>
+          </div>
+          <div className="border border-[#C5C5C5] rounded-lg overflow-hidden text-center">
+            <Table className="table-fixed w-full">
+              <TableHeader>
+                <TableRow className="bg-[#E6E6E6]">
+                  <TableHead className="border-r-[1px] border-black text-center w-1/4 text-[#444444]">
+                    Bidder Name
+                  </TableHead>
+                  <TableHead className="border-r-[1px] border-black text-center w-1/4 text-[#444444]">
+                    Bidder Time
+                  </TableHead>
+                  <TableHead className="border-r-[1px] border-black text-center w-1/4 text-[#444444]">
+                    Bid
+                  </TableHead>
+                  <TableHead className="text-center w-1/4 text-[#444444]">
+                    Auto
+                  </TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+              </TableHeader>
+              <TableBody className="text-[#444444]">
+                {bidsData.map((bidData, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="border-r-[1px] border-black w-1/4">
+                      {bidData.bidderName}
+                    </TableCell>
+                    <TableCell className="border-r-[1px] border-black w-1/4">
+                      {bidData.biddingTime}
+                    </TableCell>
+                    <TableCell className="border-r-[1px] border-black w-1/4">
+                      {bidData.bidAmount}
+                    </TableCell>
+                    <TableCell className="">{""}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </motion.div>
         {/* comments---------------------------------------------------------------- */}
-        <div className="mb-[50px]">
-          <h2 className="text-[#2c6534] text-center text-[25px] font-[600] mt-[50px]">
+        <motion.div
+          className="mb-[50px]"
+          ref={reviewsRef}
+          style={{
+            scale: reviewSectionScale,
+            opacity: reviewSectionOpacity,
+          }}
+        >
+          <h2 className="text-gradient text-center text-[25px] font-[600] mt-[50px]">
             Review
           </h2>
           <div>
@@ -310,14 +357,13 @@ const AuctionDetails = () => {
                   date={review.date}
                   rating={review.rating}
                   review={review.review}
-                  storeName={review.storeName}
                 />
               </div>
             ))}
             <div className="w-full h-[1px] border-b-[1px] border-[#C5C5C5] mb-[30px]" />
           </div>
           <ReviewForm />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

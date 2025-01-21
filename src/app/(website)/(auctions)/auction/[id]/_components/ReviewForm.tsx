@@ -24,7 +24,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = () => {
       onSubmit={handleSubmit}
       className="flex flex-col gap-4 rounded-lg w-full"
     >
-      <h2 className="text-lg font-semibold text-green-800">Add a review</h2>
+      <h2 className="text-lg font-semibold text-gradient">Add a review</h2>
 
       <div className="flex gap-2">
         <label htmlFor="rating" className="text-base text-neutral-700">
@@ -52,7 +52,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = () => {
 
       <Button
         type="submit"
-        className="self-start px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-green-600"
+        className="self-start "
       >
         Submit
       </Button>
