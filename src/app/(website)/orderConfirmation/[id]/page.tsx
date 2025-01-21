@@ -10,7 +10,7 @@ const Page = () => {
       isComplete: true,
     },
     shipping: {
-      isComplete: true,
+      isComplete: false,
     },
     delivery: {
       date: "Jan 25-29",
@@ -27,24 +27,32 @@ const Page = () => {
     },
     payment: {
       method: "Paypal",
-      subtotal: 7000.0,
-      shippingCost: 7800.0,
-      taxAmount: 50.0,
+      subtotal: 7000.00,
+      shippingCost: 7800.00,
+      taxAmount: 50.00,
     },
     totalItems: 3,
   };
   return (
     <div>
       <PageHeader
-        title="Your Cart"
+        title="Order Details"
         items={[
           {
             label: "Home",
             href: "/",
           },
           {
-            label: "Confirmation",
-            href: "/orderConfirmation",
+            label: "Our Products",
+            href: "/ourProducts",
+          },
+          {
+            label: "Checkout",
+            href: "/checkout",
+          },
+          {
+            label: "Order details",
+            href: "/orderDetails",
           },
         ]}
       />

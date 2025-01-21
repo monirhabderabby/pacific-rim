@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { OrderConfirmationProps } from "@/data/Order";
 import { Check } from "lucide-react";
 import { Progress } from "@/components/ui/progress"
+import Image from "next/image";
 
 
 const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
@@ -16,13 +17,21 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
   if (orderStatus.delivery.isComplete) progressValue += 100;
   return (
     <div>
-      <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center space-y-6 text-center">
-          <h1 className="text-2xl font-semibold text-green-700 sm:text-3xl">
+      <div className="container py-[40px] md:py-[60px] lg:py-[80px]">
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="heading">
             Wooh Your order is confirmed
           </h1>
-
-          <p className="text-sm text-gray-600 sm:text-base">
+          <div className="flex items-center justify-center mt-[8px] mb-[16px]">
+                      <Image
+                        src="/assets/img/line_bar.png"
+                        className="w-full"
+                        alt="line bar"
+                        width={72}
+                        height={4}
+                      />
+                    </div>
+          <p className="text-sm md:text-base font-normal leading-[19px] text-[#444444]">
             The Order Details page provides a comprehensive summary of your
             recent purchase.
           </p>
@@ -30,7 +39,7 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
           {/* Progress Tracker */}
           <div className="relative w-full max-w-xl pt-6">
             {/* Progress Line */}
-            <Progress value={progressValue} className="absolute left-0 top-10 h-[5px] w-full bg-gray-200 [&>div]:bg-[#2A6C2D]" />
+            <Progress value={progressValue} className="absolute left-0 top-10 h-[1px] w-full bg-black [&>div]:bg-[#121D42]" />
 
             {/* Status Points */}
             <div className="relative flex justify-between ">
@@ -39,15 +48,15 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.ordered.isComplete
-                      ? "bg-[#2A6C2D]"
-                      : "bg-[#BDD1BE]"
+                      ? "bg-[#121D42]"
+                      : "bg-[#E6EEF6] border border-[#444444]"
                   }`}
                 >
                   {orderStatus.ordered.isComplete && (
-                    <Check className="h-5 w-5 text-white" />
+                    <Check className="h-5 w-5 text-[#FDFEFD]" />
                   )}
                 </div>
-                <p className="mt-2 text-sm font-medium sm:text-base">Ordered</p>
+                <p className="mt-2 text-sm font-medium sm:text-base text-center">Ordered</p>
                 <p className="text-xs text-gray-500 sm:text-sm">
                   {orderStatus.ordered.date}
                 </p>
@@ -58,12 +67,12 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.shipping.isComplete
-                      ? "bg-[#2A6C2D]"
-                      : "bg-[#BDD1BE]"
+                      ? "bg-[#121D42]"
+                      : "bg-[#E6EEF6] border border-[#444444]"
                   }`}
                 >
                   {orderStatus.shipping.isComplete && (
-                    <Check className="h-5 w-5 text-white" />
+                    <Check className="h-5 w-5 text-white " />
                   )}
                 </div>
                 <p className="mt-2 text-sm font-medium sm:text-base">
@@ -76,8 +85,8 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.delivery.isComplete
-                      ? "bg-[#2A6C2D]"
-                      : "bg-[#BDD1BE]"
+                      ? "bg-[#121D42]"
+                      : "bg-[#E6EEF6] border border-[#444444]"
                   }`}
                 >
                   {orderStatus.delivery.isComplete && (
@@ -94,14 +103,14 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
             </div>
           </div>
 
-          <p className="max-w-md text-sm text-gray-600 sm:text-base">
+          <p className="text-sm md:text-base font-normal leading-[19px] text-[#444444] mt-[40px] mb-[27px]">
             Delivery Times are estimated.If you{"'"}r experienced difficulty
             with this order plese conatct the seller.
           </p>
 
           <Button
             variant="default"
-            className="bg-[#2A6C2D] hover:bg-primary-green"
+            className="bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] text-white hover:bg-primary-green px-[70px]"
           >
             Help center
           </Button>
