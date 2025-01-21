@@ -45,10 +45,16 @@ const categories: CategoryCard[] = [
 ];
 
 const PopularCategoriesCard = () => {
+
+
+  
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
+
+
+
   return (
     <motion.div
       variants={fadeIn("up", 0.3)}

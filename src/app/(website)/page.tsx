@@ -14,7 +14,7 @@ const Page = () => {
 
   return (
     <div>
-      <div className="min-h-screen">
+      <div className="min-h-screen ">
         <SearchBerCategories />
 
         <Hero />

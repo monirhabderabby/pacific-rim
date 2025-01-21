@@ -13,7 +13,7 @@ import { Blog } from '@/types/popularBlog';
 function BlogsCards({ image, title, date, author, comments, id }: Blog) {
     return (
         <>
-            <Card key={id} className="overflow-hidden bg-primary-light shadow-none border-0">
+            <Card key={id} className="overflow-hidden bg-[#E6EEF6] shadow-none border-0">
                 <CardHeader className="p-0 group overflow-hidden">
                     <Image
                         src={image}
@@ -46,10 +46,10 @@ function BlogsCards({ image, title, date, author, comments, id }: Blog) {
                     
                     <Link
                         href={`/blogs/${id}`}
-                        className="text-primary hover:text-primary font-medium inline-flex items-center gap-1"
+                        className="text-gradient hover:text-primary font-medium inline-flex items-center gap-1"
                     >
                         Read More
-                        <ArrowRight className='w-[25px] h-[22px] font-light'/>
+                        <ArrowRight className='w-[25px] h-[22px] font-light text-[#27376a]'/>
 
                     </Link>
                     
