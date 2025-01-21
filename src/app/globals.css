@@ -100,13 +100,11 @@ body {
   .dev {
     @apply p-2 m-5;
   }
-}
 
-.PhoneInputInput {
-  height: 50px !important;
-  border-radius: 8px;
-  border: none !important;
-}
-.PhoneInputInput:focus-visible {
-  outline: none !important;
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-br from-[#121D42] via-[#152764] to-[#4857BD];
+  }
+  .heading {
+    @apply text-[25px]  md:text-[36px] font-semibold leading-[30px] md:leading-[43.2px] text-gradient;
+  }
 }
