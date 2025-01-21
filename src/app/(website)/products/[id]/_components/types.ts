@@ -19,7 +19,14 @@ export interface ProductImage {
     images: ProductImage[];
     mainImage: ProductImage;
   }
+  // export interface StarRatingProps {
+  //   rating: number;
+  //   maxRating?: number;
+  // }
+  export type ReviewFormProps = Record<string, never>;
   export interface StarRatingProps {
-    rating: number;
-    maxRating?: number;
+    rating: number; // Current rating value
+    onChange?: (newRating: number) => void; // Callback when rating changes
+    maxRating?: number; // Optional maximum number of stars (default is 5)
   }
+  

@@ -8,7 +8,7 @@ interface CustomerReviewsCardProps {
   name: string; // Customer name
   date: string; // Review date
   review: string; // Review text
-  storeName: string; // Store name
+  storeName?: string; // Store name
   rating: number; // rating number
 }
 
@@ -55,7 +55,8 @@ const VendorReviewCard: React.FC<CustomerReviewsCardProps> = ({
       <p className="text-base text-[#444444] font-normal leading-[19.2px] mt-5">
         {review}
       </p>
-      <div className="flex items-center gap-x-[6px] mt-5">
+      {storeName && (
+        <div className="flex items-center gap-x-[6px] mt-5">
         <span>
           <LuBox className="text-xl text-[#2A6C2D]" />
         </span>
@@ -63,6 +64,8 @@ const VendorReviewCard: React.FC<CustomerReviewsCardProps> = ({
           {storeName}
         </p>
       </div>
+      )}
+      
     </div>
   );
 };

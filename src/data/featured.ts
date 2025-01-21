@@ -5,6 +5,7 @@ export type FeatureCardType = {
   originalPrice: string;
   category: string;
   flowerType: string;
+  stoke: string;
 };
 
 export const featureProducts: FeatureCardType[] = [
@@ -16,6 +17,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "9,025.00",
     category: "Flower",
     flowerType: "Indica",
+    stoke: "In Stock"
   },
   {
     id: crypto.randomUUID(),
@@ -25,6 +27,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "7,500.00",
     category: "Topical",
     flowerType: "Sativa",
+     stoke: "In Stock"
   },
   {
     id: crypto.randomUUID(),
@@ -34,6 +37,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "6,000.00",
     category: "Edibels",
     flowerType: "Hybrid",
+     stoke: " Out Of Stock"
   },
   {
     id: crypto.randomUUID(),
@@ -43,6 +47,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "5,000.00",
     category: "Apprel",
     flowerType: "Indica",
+     stoke: " Out Of Stocke"
   },
   {
     id: crypto.randomUUID(),
@@ -52,6 +57,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "9,000.00",
     category: "Vape Products",
     flowerType: "Sativa",
+     stoke: "In Stock"
   },
   {
     id: crypto.randomUUID(),
@@ -61,6 +67,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "3,500.00",
     category: "Concentrations",
     flowerType: "Hybrid",
+     stoke: " Out Of Stocke"
   },
   {
     id: crypto.randomUUID(),
@@ -70,6 +77,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "10,000.00",
     category: "Flower",
     flowerType: "Sativa",
+     stoke: "In Stock"
   },
   {
     id: crypto.randomUUID(),
@@ -79,6 +87,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "9,200.00",
     category: "Edibels",
     flowerType: "Indica",
+     stoke: "In Stock"
   },
   {
     id: crypto.randomUUID(),
@@ -88,6 +97,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "9,025.00",
     category: "Flower",
     flowerType: "Indica",
+     stoke: " Out Of Stocke"
   },
   {
     id: crypto.randomUUID(),
@@ -97,6 +107,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "7,500.00",
     category: "Topical",
     flowerType: "Sativa",
+     stoke: "In Stock"
   },
  
 ];

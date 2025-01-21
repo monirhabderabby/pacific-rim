@@ -22,7 +22,7 @@ export default function BiddingCard() {
           alt="American Beauty product"
           className="w-full h-[266px] object-cover rounded-[8px] hover:scale-105 duration-300 "
         />
-        <Button className="absolute -top-[10px] -right-[10px] rounded-full w-[56px] h-[56px] p-0 bg-[#2A6C2D] hover:bg-[#2c6130]">
+        <Button className="absolute -top-[10px] -right-[10px] rounded-full w-[56px] h-[56px] p-0 bg-primary hover:bg-[#2c6130]">
           <Image
             src="/assets/svg/hammer.svg"
             alt="hammer"
@@ -50,7 +50,7 @@ export default function BiddingCard() {
           <span className="text-[#9C9C9C] ml-2">8 Views</span>
         </div>
 
-        <h2 className="text-[25px] leading-[30px] font-semibold text-center text-[#2A6C2D] mb-2">
+        <h2 className="text-[25px] leading-[30px] font-semibold text-center text-gradient mb-2">
           American Beauty
         </h2>
 
@@ -59,7 +59,7 @@ export default function BiddingCard() {
           <span className="text-gray-400 line-through text-sm">₿9,25.00</span>
         </div>
 
-        <div className="bg-[#EAF0EA] p-[12px] rounded-[8px] max-w-[275px] mx-auto">
+        <div className="bg-[#E6EEF6] p-[12px] rounded-[8px] max-w-[275px] mx-auto">
           <p className="text-gray-500 text-sm mb-2 text-center">
             Hurry up! Offer ends in:
           </p>
