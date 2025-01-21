@@ -41,24 +41,24 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col grow p-5 max-w-[670px] bg-[#EAF0EA] rounded-2xl min-h-[648px] max-md:mt-8 max-md:max-w-full">
-      <div className="flex flex-col w-full max-md:max-w-full">
-        <h1 className="text-3xl font-semibold leading-tight text-green-800 max-md:max-w-full">
+    <div className="flex flex-col grow p-[20px] max-w-[670px] bg-[#E6EEF6] rounded-2xl min-h-[648px] max-md:mt-8 max-md:max-w-full gap-[24px]">
+      <div className="flex flex-col gap-[8px] w-full max-md:max-w-full">
+        <h1 className="text-[25px] lg:text-[32px] font-semibold leading-[38.4px] text-gradiend max-md:max-w-full">
           We are Here to Help!
         </h1>
-        <div className="mt-2 text-base leading-5 text-neutral-700 max-md:max-w-full">
-          For inquiries, partnerships, or additional information about how
+        <div >
+          <p className="text-[16px] leading-[19.2px] text-[#444444] max-md:max-w-full">For inquiries, partnerships, or additional information about how
           Pacific Rim Fusion can help your local business, please reach out
           through our support channel..
           <br />
           <br />
           Together, we can build a more equitable and prosperous cannabis
-          industry.
+          industry.</p>
         </div>
       </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col flex-1 mt-6 w-full text-base leading-tight text-neutral-700 max-md:max-w-full">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col flex-1 w-full  max-md:max-w-full">
           {/* Name Field */}
           <FormField
             control={form.control}
@@ -66,7 +66,7 @@ const ContactForm: React.FC = () => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="Full Name*" {...field} className="w-full h-[51px] p-2 bg-white border-[#2A6C2D] rounded-md"/>
+                  <Input placeholder="Full Name*" {...field} className="w-full h-[51px] p-[16px] text-black text-[16px] bg-white border-[#0057A8] rounded-md placeholder:text-[16px] placeholder:text-[#444444] focus-visible:ring-0 focus-visible:ring-offset-0"/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -81,7 +81,7 @@ const ContactForm: React.FC = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Email Address*" {...field} className="w-full h-[51px] p-2 bg-white border-[#2A6C2D] rounded-md"/>
+                    <Input placeholder="Email Address*" {...field} className="w-full h-[51px] p-[16px]text-black text-[16px] bg-white border-[#0057A8] rounded-md placeholder:text-[16px] placeholder:text-[#444444] focus-visible:ring-0 focus-visible:ring-offset-0"/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -97,7 +97,7 @@ const ContactForm: React.FC = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Subject" {...field} className="w-full h-[51px] p-2 bg-white border-[#2A6C2D] rounded-md"/>
+                    <Input placeholder="Subject" {...field} className="w-full h-[51px] p-[16px]text-black text-[16px] bg-white border-[#0057A8] rounded-md placeholder:text-[16px] placeholder:text-[#444444] focus-visible:ring-0 focus-visible:ring-offset-0"/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -113,7 +113,7 @@ const ContactForm: React.FC = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Textarea placeholder="Ask your Queries*" {...field} className="w-full p-2 bg-white border-[#2A6C2D] rounded-md h-48"/>
+                    <Textarea placeholder="Ask your Queries*" {...field} className="w-full p-[16px]text-black text-[16px] bg-white border-[#0057A8] rounded-md placeholder:text-[16px] placeholder:text-[#444444] h-[170px] focus-visible:ring-0 focus-visible:ring-offset-0"/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -124,7 +124,7 @@ const ContactForm: React.FC = () => {
           {/* Submit Button */}
           <Button
             type="submit"
-            className="gap-2.5 self-center px-6 py-5 mt-4 max-w-full font-semibold text-white whitespace-nowrap bg-primary-green hover:bg-primary-green-hover rounded-lg min-h-[56px] w-[198px] max-md:px-5 transition-colors duration-200"
+            className="self-center max-w-full font-semibold whitespace-nowrap mt-[16px]  rounded-lg min-h-[56px] w-[198px] max-md:px-5 transition-colors duration-200"
           >
             Submit
           </Button>
