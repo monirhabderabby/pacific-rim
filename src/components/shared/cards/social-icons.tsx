@@ -11,27 +11,27 @@ export default function SocialIcons() {
     <div className="flex items-center gap-x-[20px]">
       <Link
         href="/"
-        className="border rounded-full text-[#2A6C2D] text-bg-primary-hover border-[#2A6C2D] hover:bg-[#2A6C2D] hover:text-white  w-[40px] h-[40px] flex justify-center items-center"
+        className="border rounded-full text-bg-primary border-[#0057A8] hover:bg-primary hover:text-white w-[40px] lg:w-[44px] h-[40px] lg:h-[44px] flex justify-center items-center"
       >
-        <TfiFacebook />
+        <GrInstagram className="w-[20px] h-[30px]"/>
       </Link>
       <Link
         href="/"
-        className="border rounded-full text-[#2A6C2D] text-bg-primary-hover border-[#2A6C2D] hover:bg-[#2A6C2D] hover:text-white  w-[40px] h-[40px] flex justify-center items-center"
+        className="border rounded-full text-bg-primary border-[#0057A8] hover:bg-primary hover:text-white  w-[40px] lg:w-[44px] h-[40px] lg:h-[44px] flex justify-center items-center"
       >
-        <TfiLinkedin />
+        <TfiFacebook className="w-[20px] h-[30px]" />
       </Link>
       <Link
         href="/"
-        className="border rounded-full text-[#2A6C2D] text-bg-primary-hover border-[#2A6C2D] p-2 hover:text-white hover:bg-[#2A6C2D]"
+        className="border rounded-full text-bg-primary border-[#0057A8] hover:bg-primary hover:text-white  w-[40px] lg:w-[44px] h-[40px] lg:h-[44px] flex justify-center items-center"
       >
-        <BsTwitterX />
+        <TfiLinkedin className="w-[20px] h-[30px]"/>
       </Link>
       <Link
         href="/"
-        className="border rounded-full text-[#2A6C2D]  border-[#2A6C2D] p-2 hover:bg-[#2A6C2D] hover:text-white w-[40px] h-[40px] flex justify-center items-center"
+        className="border rounded-full text-bg-primary border-[#0057A8] hover:bg-primary hover:text-white  w-[40px] lg:w-[44px] h-[40px] lg:h-[44px] flex justify-center items-center"
       >
-        <GrInstagram />
+        <BsTwitterX className="w-[20px] h-[30px]"/>
       </Link>
     </div>
   );

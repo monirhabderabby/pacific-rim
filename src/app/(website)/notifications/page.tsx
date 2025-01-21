@@ -110,12 +110,12 @@ function Page() {
                             </Avatar>
                         </motion.div>
                         </div>
-                        <span className="text-base lg:text-xl text-[#4D4D4D]">{notification.message}</span>
+                        <span className="text-base lg:text-xl text-[#4D4D4D] font-normal">{notification.message}</span>
                     </div>
                     <div className="flex items-center justify-end flex-wrap-reverse gap-4">
-                        <span className="text-nowrap text-xs lg:text-base text-[#4D4D4D]">{notification.date}</span>
+                        <span className="text-nowrap text-xs lg:text-base text-[#4D4D4D] font-normal">{notification.date}</span>
                         <motion.button
-                            className="hover:text-[#000000] right-2 transition-opacity duration-200 "
+                            className="right-2 transition-opacity duration-200 "
                             onClick={() => removeNotification(notification.id, year)}
                             // className="hover:text-red-400 transition-colors w-[20px] h-[20px]"
                             aria-label="Close notification"
@@ -152,24 +152,19 @@ function Page() {
         
         <div className="section">
             <div className="text-center mb-12">
-                <div className="font-bold">
-                    <div className="mt-[-10px]">
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        >
-                        <SectionHeading heading={"Notifications"} subheading={""} />
-                    </motion.div>
-                        
-                    </div>
-                </div>
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <SectionHeading heading={"Notifications"} subheading={""} />
+                </motion.div>
             </div>
             <div className="container">
                 <ScrollArea className="">
                     <div className="">
                     <motion.h1
-                        className="text-[25px] text-black font-bold mb-2 px-2"
+                        className="text-[25px] text-black font-semibold mb-2 px-2"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
@@ -178,7 +173,7 @@ function Page() {
                     </motion.h1>
                         {renderNotifications(notifications2026, 2026)}
                     <motion.h1
-                        className="text-[25px] mt-8 mb-2 text-black font-bold px-2"
+                        className="text-[25px] mt-8 mb-2 text-black font-semibold px-2"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}

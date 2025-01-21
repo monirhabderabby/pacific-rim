@@ -17,6 +17,7 @@ import AuctionList from "./AuctionList";
 import AuctionMobileNav from "./AuctionMobileNav";
 import PagesMobileNav from "./PagesMobileNav";
 import PagesList from "./PagesList";
+import { motion } from "framer-motion";
 
 interface DesktopNavbarProps {
   pathName: string;
@@ -179,6 +180,12 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
     { href: "", label: "404 Page" },
   ];
 
+  const sidebarVariants = {
+    hidden: { y: "-100%", opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+    exit: { y: "100%", opacity: 0 },
+  };
+
   return (
     <>
       <div className="flex items-center justify-between h-[56px] p-4">
@@ -207,7 +214,14 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <motion.div
+          variants={sidebarVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+        >
           <div className="flex items-center justify-between px-6">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Pacific Rim</span>
@@ -267,7 +281,7 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
                 </Link>
               </div>
 
-              <div className=" container pt-6">
+              <div className="container pt-6">
                 {!loggedin ? (
                   <div className="grid grid-cols-2 gap-[30px]">
                     <Button variant="outline" size="sm">
@@ -283,7 +297,7 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
               </div>
             </div>
           </div>
-        </Dialog.Panel>
+        </motion.div>
       </Dialog>
     </>
   );
