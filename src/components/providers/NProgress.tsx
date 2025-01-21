@@ -1,12 +1,12 @@
 "use client";
-// package import 
+// package import
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
 const NProgress = () => {
   return (
     <ProgressBar
       height="3px"
-      color="#2A6C2D"
+      color="#00417E"
       options={{ showSpinner: false }}
     />
   );
