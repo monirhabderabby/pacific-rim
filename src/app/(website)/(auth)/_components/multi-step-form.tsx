@@ -4,16 +4,16 @@ import { useForm } from "@/provider/form-provider";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { ForgotPasswordForm } from "../forgot-password/_components/forgot-password-form";
-import { LoginForm } from "../login/_components/login-form"
-import CheckProfession from "../registration/(a)/profession/_components/profession-checker";
+import { LoginForm } from "../login/_components/login-form";
+import CheckProfession from "../registration/(a)/experiences/profession/_components/profession-checker";
+import { EmailForm } from "../registration/(a)/experiences/profession/email/_components/email-form";
 import { ExperienceForm } from "../registration/_components/experience-form";
+import SignUpForm from "../registration/_components/UserInfoSignUp";
 import { ResetPasswordForm } from "../reset-password/_componments/reset-password-form";
 import { VerifyOTPForm } from "../reset-password/_componments/verify-otp-form";
-import SignUpForm from "./forms/UserInfoSignUp";
 import { BusinessInfoForm } from "./forms/business-info-form";
 import CountryPage from "./forms/country-page";
 import { RecreationalCannabis } from "./forms/recreational-cannabis";
-import { EmailForm } from "../registration/(a)/profession/email/_components/email-form";
 
 export function MultiStepForm() {
   const { step, setStep, getPrevStep } = useForm();
