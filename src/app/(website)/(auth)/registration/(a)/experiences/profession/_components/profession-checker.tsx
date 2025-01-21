@@ -92,14 +92,7 @@ export default function ProfessionChecker() {
               size="md"
               asChild
             >
-              <Link
-                href={
-                  authState.type === "Recreational Cannabis"
-                    ? "/registration/profession/email"
-                    : "/registration/country"
-                }
-                className="flex items-center"
-              >
+              <Link href="/registration/country" className="flex items-center">
                 Next
                 <ArrowRight className="ml-2" />
               </Link>

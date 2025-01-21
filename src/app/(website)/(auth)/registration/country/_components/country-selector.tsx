@@ -68,7 +68,7 @@ function CountrySelector() {
       ])
     );
 
-    router.push("/");
+    router.push(`/registration/country/${countryName}`);
   }
 
   function handleRegionTipShow(event, label, code) {

@@ -1,13 +1,22 @@
-import AuthUIProvider from "../../../_components/provider/AuthUIProvider";
-import { StateSelector } from "./_components/state-slector";
+// Packages
+import dynamic from "next/dynamic";
+// Local imports
+import AuthUIProvider from "@/app/(website)/(auth)/_components/provider/AuthUIProvider";
+const StateSelector = dynamic(() => import("./_components/state-slector"), {
+  ssr: false,
+});
 
-const Page = () => {
+const Page = ({ params }: { params: { state: string } }) => {
+  const decodeString = decodeURIComponent(params.state) as
+    | "United States"
+    | "Canada";
   return (
     <AuthUIProvider
       sidebarImage="https://i.postimg.cc/QCCySSfp/image-9.png"
       fullWidth
+      backButton={false}
     >
-      <StateSelector />
+      <StateSelector currentState={decodeString} />
     </AuthUIProvider>
   );
 };
