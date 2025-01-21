@@ -37,7 +37,7 @@ const bestOfferData: BestOfferData[] = [
 const BestOffer: React.FC = () => {
   return (
     <div className="container pb-[40px] md:pb-[60px] lg:pb-[80px]">
-      <h3 className="text-[25px] md:text-[28px] lg:text-[32px] font-semibold leading-[30px] md:leading-[34px] lg:leading-[38px] text-[#0057A8]">
+      <h3 className="heading">
         Best Offer
       </h3>
       <p className="text-xl font-normal leading-[24px] text-[#444444] pt-[6] md:pt-[7px] lg:pt-[8px]">
@@ -48,7 +48,7 @@ const BestOffer: React.FC = () => {
         {bestOfferData.map((offer) => (
           <div
             key={offer?.id}
-            className="p-[8px] rounded-[16px] bg-white shadow box-shadow: 0px 4px 4px 0px #00000026;
+            className="p-[12px] rounded-[16px] bg-white shadow box-shadow: 0px 4px 4px 0px #00000026;
 "
           >
             <div className="pb-[6px] md:pb-[7px] lg:pb-[8px]">
@@ -57,7 +57,7 @@ const BestOffer: React.FC = () => {
                 alt={offer?.name}
                 width={254}
                 height={218}
-                className="w-full"
+                className="w-full rounded-sm"
               />
             </div>
 
