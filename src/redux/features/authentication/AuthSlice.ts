@@ -50,15 +50,19 @@ const authSlice = createSlice({
         };
       }
     },
-    reset: () => {
+    resetAuthSlice: () => {
       return initialState;
     },
   },
 });
 
 // Export actions for use in components
-export const { setRegistrationValue, addNewBusiness, updateBusiness } =
-  authSlice.actions;
+export const {
+  setRegistrationValue,
+  addNewBusiness,
+  updateBusiness,
+  resetAuthSlice,
+} = authSlice.actions;
 
 // Export the reducer to configure the store
 export default authSlice.reducer;

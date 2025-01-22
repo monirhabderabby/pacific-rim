@@ -21,11 +21,7 @@ const AuctionList: React.FC = () => {
       >
         Auction <ChevronDown className="h-4 w-4" />{" "}
       </span>
-      <AuctionModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        auctionItem={AuctionList}
-      />
+      <AuctionModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 };

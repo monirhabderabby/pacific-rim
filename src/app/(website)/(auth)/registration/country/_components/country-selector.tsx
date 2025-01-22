@@ -2,9 +2,11 @@
 // @ts-nocheck
 "use client";
 import { addNewBusiness } from "@/redux/features/authentication/AuthSlice";
-import { useAppDispatch } from "@/redux/store";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
 import { VectorMap } from "@react-jvectormap/core";
 import { worldMill } from "@react-jvectormap/world";
+import { AnimatePresence, motion } from "framer-motion";
+import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -22,6 +24,7 @@ const disabledColor = "#808080"; // Gray color for disabled countries
 const colorScale = ["#C8EEFF", "#0071A4", "#008000"]; // Green for selected countries
 
 function CountrySelector() {
+  const [loading, setLoading] = useState<true | false>(false);
   const [regionColors, setRegionColors] = useState({
     US: 100, // Green for United States
     CA: 100, // Green for Canada
@@ -35,12 +38,30 @@ function CountrySelector() {
   const router = useRouter();
 
   const [mapPaths, setMapPaths] = useState(null);
+  const authState = useAppSelector((state) => state.auth);
+
+  const businesses = authState.businesses;
+
+  // check if prev form value not found
+  const { profession } = authState;
+
+  // if prev state value not found then start from first
+
+  if (profession.length == 0) {
+    redirect("/registration");
+  }
 
   // Dynamically set the map paths after the component has mounted
   useEffect(() => {
     if (worldMill && worldMill.paths) {
       setMapPaths(worldMill.paths);
     }
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      setLoading(false);
+    };
   }, []);
 
   function handleRegionClick(event, code) {
@@ -57,8 +78,11 @@ function CountrySelector() {
       [code]: 50, // Color changed to show interaction (can be adjusted)
     }));
 
+    setLoading(true);
+
     dispatch(
       addNewBusiness([
+        ...businesses,
         {
           country: countryName,
           province: "",
@@ -81,7 +105,51 @@ function CountrySelector() {
   }
 
   return (
-    <div style={{ margin: "auto", width: "100%", height: "600px" }}>
+    <motion.div
+      exit={{
+        opacity: 0,
+        transition: {
+          duration: 1,
+        },
+      }}
+      style={{
+        margin: "auto",
+        width: "100%",
+        height: "600px",
+        position: "relative",
+      }}
+    >
+      <AnimatePresence>
+        {loading && (
+          <motion.div
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+              transition: {
+                duration: 0.5,
+              },
+            }}
+            exit={{
+              opacity: 0,
+            }}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              height: "100%",
+              width: "100%",
+              backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent black
+              zIndex: 100, // Ensure it layers on top of the map
+            }}
+          >
+            <div className="w-full h-full flex justify-center items-center">
+              <Loader2 className="animate-spin h-5 w-5 z-50 text-white " />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <VectorMap
         map={worldMill}
         containerStyle={{
@@ -116,7 +184,7 @@ function CountrySelector() {
         onRegionTipShow={handleRegionTipShow}
         onRegionClick={handleRegionClick}
       />
-    </div>
+    </motion.div>
   );
 }
 
