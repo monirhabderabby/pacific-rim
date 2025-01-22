@@ -33,7 +33,7 @@ const loginSchema = z.object({
 
 type LoginFormValues = z.infer<typeof loginSchema>;
 
-export function LoginForm() {
+export default function LoginForm() {
   const [loading, setLoading] = useState(false);
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
@@ -91,7 +91,7 @@ export function LoginForm() {
       className="w-full"
     >
       <div className="space-y-2 text-center">
-        <h1 className="text-[36px] leading-[43.2px] font-semibold text-[#6EBA6B] mb-[27px]">
+        <h1 className="text-[36px] leading-[43.2px] font-semibold text-gradient mb-[27px]">
           Log In
         </h1>
       </div>
@@ -147,18 +147,18 @@ export function LoginForm() {
                   <Checkbox
                     checked={field.value}
                     onCheckedChange={field.onChange}
-                    className=" border-2 border-[#9E9E9E] data-[state=checked]:bg-[#2A6C2D] data-[state=checked]:text-white"
+                    className=" border-2 border-[#9E9E9E] data-[state=checked]:bg-[#00417E] data-[state=checked]:text-white"
                   />
                   <label
                     htmlFor="remember"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
                     I agree with the{" "}
-                    <Link href="#" className="text-[#4CAF50]">
+                    <Link href="#" className="text-gradient">
                       term of service
                     </Link>{" "}
                     and{" "}
-                    <Link href="#" className="text-[#4CAF50]">
+                    <Link href="#" className="text-gradient">
                       privacy policy
                     </Link>
                   </label>
@@ -170,7 +170,7 @@ export function LoginForm() {
 
           <Button
             type="submit"
-            className="w-full bg-[#2A6C2D] p-[24px] h-[56px]"
+            className="w-full  p-[24px] h-[56px]"
             disabled={loading}
           >
             {loading ? "Logging in..." : "Log In"}
@@ -181,7 +181,7 @@ export function LoginForm() {
         <div className="mt-[24px]">
           <Link
             href="/forgot-password"
-            className="text-[#2A6C2D] text-[16px] font-normal leading-[19.2px] "
+            className="text-gradient text-[16px] font-normal leading-[19.2px] "
           >
             Forgot Password?
           </Link>
@@ -190,7 +190,10 @@ export function LoginForm() {
           <span className="text-[16px] text-[#808080]">
             Don&apos;t have an account?{" "}
           </span>
-          <Link href="#" className="text-[#2A6C2D] text-[16px] font-normal ">
+          <Link
+            href="/registration"
+            className="text-gradient text-[16px] font-normal "
+          >
             Sign Up
           </Link>
         </div>

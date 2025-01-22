@@ -1,5 +1,9 @@
+import dynamic from "next/dynamic";
 import AuthUIProvider from "../_components/provider/AuthUIProvider";
-import { LoginForm } from "./_components/login-form";
+
+const LoginForm = dynamic(() => import("./_components/login-form"), {
+  ssr: false,
+});
 
 const Page = () => {
   return (
