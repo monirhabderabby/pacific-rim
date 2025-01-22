@@ -10,7 +10,7 @@ interface Business {
 
 const initialState: {
   type: "CBD/HEMP" | "Recreational Cannabis" | "Both" | "";
-  experience: string;
+
   profession: string[];
   email: string;
   fullName: string;
@@ -18,19 +18,11 @@ const initialState: {
   businesses: Business[];
 } = {
   type: "",
-  experience: "",
   profession: [],
   email: "",
   fullName: "",
   password: "",
-  businesses: [
-    {
-      country: "",
-      province: "",
-      businessLicense: "",
-      resellerLicense: "",
-    },
-  ],
+  businesses: [],
 };
 
 // Create the slice
@@ -57,6 +49,9 @@ const authSlice = createSlice({
           ...action.payload,
         };
       }
+    },
+    reset: () => {
+      return initialState;
     },
   },
 });

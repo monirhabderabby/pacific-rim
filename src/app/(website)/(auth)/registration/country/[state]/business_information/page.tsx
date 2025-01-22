@@ -1,5 +1,11 @@
 import AuthUIProvider from "@/app/(website)/(auth)/_components/provider/AuthUIProvider";
-import { BusinessInfoForm } from "./_components/business-info-form";
+import dynamic from "next/dynamic";
+const BusinessInfoForm = dynamic(
+  () => import("./_components/business-info-form"),
+  {
+    ssr: false,
+  }
+);
 
 const Page = () => {
   return (

@@ -9,83 +9,103 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { updateBusiness } from "@/redux/features/authentication/AuthSlice";
 import { useAppSelector } from "@/redux/store";
-import { BusinessStore } from "@/types/form";
-import Link from "next/link";
 
-import { AddMoreButton } from "@/app/(website)/(auth)/_components/forms/button";
+import { Plus } from "lucide-react";
+import { useRouter } from "next-nprogress-bar";
+import { toast } from "sonner";
 import { AdminApprovalModal } from "../../../../../_components/modal/admin-aproval-modal";
+import FormHeader from "../../../../_components/form-header";
 
 export function BusinessInfoForm() {
-  const [currentStoreIndex, setCurrentStoreIndex] = useState(0);
+  const authState = useAppSelector((state) => state.auth);
 
-  const currentBusinessInfo = useAppSelector(
-    (state) => state.auth.businesses[state.auth.businesses.length - 1]
-  );
+  const currentBusinessInfo = authState.businesses[
+    authState.businesses.length - 1
+  ] || {
+    ...authState.businesses[authState.businesses.length - 1],
+    businessLicense: "",
+    resellerLicense: "",
+  };
+
+  const isRecreational = authState.type === "Recreational Cannabis";
+
+  console.log(authState);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
   };
 
-  const submitForm = () => {};
+  const submitForm = () => {
+    if (isRecreational) {
+      setIsModalOpen(true);
+    } else {
+      // Code you business logic here...
+      console.log(authState);
+      toast.success("Your account is ready! ");
 
-  const isNextDisabled = !currentBusinessInfo.businessLicense;
+      setTimeout(() => {
+        router.push("/login");
+      }, 500);
+    }
+  };
 
-  const updateCurrentStore = (field: keyof BusinessStore, value: string) => {};
+  const isNextDisabled = !currentBusinessInfo?.businessLicense;
 
   return (
     <div className="space-y-6">
-      <div className="space-y-2 text-center">
-        <h1 className="text-3xl font-bold text-green-600">Sign Up</h1>
-        <p className="text-gray-500">
-          Continue to register as a customer or vendor, Please provide the
-          information.
-        </p>
-      </div>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">
-            Provide your business information
-          </h2>
-          <div className="space-y-2">
-            <label className="text-sm font-medium">
-              Provide your Recreational business license
-              <span className="text-red-500">*</span>
-            </label>
-            <Input
-              placeholder="Enter license number"
-              required
-              value={currentBusinessInfo.businessLicense}
-              onChange={(e) =>
-                dispatch(
-                  updateBusiness({
-                    businessLicense: e.target.value,
-                  })
-                )
-              }
-            />
-          </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium">
-              Provide your Reseller business license (optional)
-            </label>
-            <Input
-              placeholder="Enter license number"
-              value={currentBusinessInfo.resellerLicense}
-              onChange={(e) =>
-                dispatch(
-                  updateBusiness({
-                    resellerLicense: e.target.value,
-                  })
-                )
-              }
-            />
-          </div>
+      <FormHeader
+        label="Sign Up"
+        paragraph="Continue to register as a customer or vendor, Please provide the information."
+        title="Select your business information"
+      />
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="space-y-2">
+          <label className="text-sm font-medium">
+            Provide your Recreational business license
+            <span className="text-red-500">*</span>
+          </label>
+          <Input
+            placeholder="Enter license number"
+            required
+            value={currentBusinessInfo.businessLicense}
+            onChange={(e) =>
+              dispatch(
+                updateBusiness({
+                  businessLicense: e.target.value,
+                })
+              )
+            }
+          />
         </div>
-        <div className="flex items-center justify-between">
-          <NextButton />
+        <div className="space-y-2">
+          <label className="text-sm font-medium">
+            Provide your Reseller business license (optional)
+          </label>
+          <Input
+            placeholder="Enter license number"
+            value={currentBusinessInfo.resellerLicense}
+            onChange={(e) =>
+              dispatch(
+                updateBusiness({
+                  resellerLicense: e.target.value,
+                })
+              )
+            }
+          />
+        </div>
+        <div className="flex items-center justify-between pt-[40px]">
+          <Button
+            disabled={isNextDisabled}
+            className="min-w-[155px]"
+            type="submit"
+            onClick={submitForm}
+          >
+            Next →
+          </Button>
           <div>
             <AddMoreButton />
           </div>
@@ -102,10 +122,12 @@ export function BusinessInfoForm() {
   );
 }
 
-const NextButton = () => {
+export default BusinessInfoForm;
+
+const AddMoreButton = () => {
   return (
-    <Button disabled={false} className="min-w-[155px]">
-      <Link href="">Next →</Link>
+    <Button variant="outline">
+      Add More <Plus className="ml-2" />
     </Button>
   );
 };

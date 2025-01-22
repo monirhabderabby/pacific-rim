@@ -48,7 +48,7 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.ordered.isComplete
-                      ? "bg-[#121D42]"
+                      ? "bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD]"
                       : "bg-[#E6EEF6] border border-[#444444]"
                   }`}
                 >
@@ -67,7 +67,7 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.shipping.isComplete
-                      ? "bg-[#121D42]"
+                      ? "bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD]"
                       : "bg-[#E6EEF6] border border-[#444444]"
                   }`}
                 >
@@ -85,7 +85,7 @@ const OrderConfirmed = ({ orderStatus }: OrderConfirmationProps) => {
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full ${
                     orderStatus.delivery.isComplete
-                      ? "bg-[#121D42]"
+                      ? "bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD]"
                       : "bg-[#E6EEF6] border border-[#444444]"
                   }`}
                 >
