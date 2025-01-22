@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 // import Dropdown, { AuctionMobileMenu } from "./demonav";
 import Hideon from "@/provider/Hideon";
 import dynamic from "next/dynamic";
-import DesktopNavbar from "./DesktopNavbar";
 const MobileTabletNavbar = dynamic(() => import("./MobileTabletNavbar"), {
   ssr: false,
 });
@@ -33,7 +32,7 @@ function Navbar() {
           {/* <MobileTabletNavbar loggedin={loggedin} /> */}
         </div>
         <div className="hidden lg:block">
-          <DesktopNavbar pathName={pathName} loggedin={loggedin} />
+          {/* <DesktopNavbar pathName={pathName} loggedin={loggedin} /> */}
         </div>
       </header>
     </Hideon>
