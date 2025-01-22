@@ -107,4 +107,5 @@ body {
   .heading {
     @apply text-[25px]  md:text-[36px] font-semibold leading-[30px] md:leading-[43.2px] text-gradient;
   }
+  
 }

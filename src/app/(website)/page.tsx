@@ -27,12 +27,12 @@ const Page = () => {
             <FAQSection />
           </div>
         )}
-        
-        {loggedin && <DealOfTheDay/>}
+
+        {loggedin && <DealOfTheDay />}
         {loggedin && <PopularBlogs />}
         {loggedin && <ClientReviews />}
-        
-        {loggedin && <BestOffer/>}
+
+        {loggedin && <BestOffer />}
       </div>
     </div>
   );

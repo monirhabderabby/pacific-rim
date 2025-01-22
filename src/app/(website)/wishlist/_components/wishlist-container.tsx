@@ -38,8 +38,8 @@ const WishlistContainer = () => {
         ))}
       </div>
 
-      <div className="flex justify-center py-[40px] border-b border-primary-green-hover/50">
-        <Button className="bg-primary-green-hover hover:bg-primary-green-hover/85 rounded-[8px] h-[43px]">
+      <div className="flex justify-center pt-[20px] md:pt-[30px] lg:pt-[40px]">
+        <Button className="bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] hover:bg-[#121D42] rounded-[8px] py-[12px] px-[24px]">
           Move All them to Cart
         </Button>
       </div>
