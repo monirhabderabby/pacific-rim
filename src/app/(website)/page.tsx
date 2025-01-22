@@ -1,14 +1,13 @@
 // locatl  import ==================
-import Hero from "@/components/hero/Hero";
-import SearchBerCategories from "@/components/shared/searchBerCategories/searchBerCategories";
 
 const Page = () => {
   return (
     <div>
       <div className="min-h-screen ">
-        <SearchBerCategories />
+        {/* <SearchBerCategories />
 
-        <Hero />
+        <Hero /> */}
+        comment every thing
         {/* <PopularCategories loggedin={loggedin} />
         {!loggedin && (
           <AboutSection image="https://utfs.io/f/HkyicnKv4pLkKb11IfnzkrEA5LwVvWx2Fbfe7a6P94u0gcjZ" />
