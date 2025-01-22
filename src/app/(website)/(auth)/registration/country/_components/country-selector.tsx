@@ -62,7 +62,7 @@ function CountrySelector() {
         {
           country: countryName,
           province: "",
-          recreationalLicense: "",
+          businessLicense: "",
           resellerLicense: "",
         },
       ])
