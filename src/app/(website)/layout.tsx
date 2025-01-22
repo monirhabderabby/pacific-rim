@@ -1,6 +1,7 @@
 import "@/app/globals.css";
 import AppProvider from "@/components/providers/AppProvider";
 import NProgress from "@/components/providers/NProgress";
+import Navbar from "@/components/shared/header/mainHeader/navbar";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -25,7 +26,9 @@ export default function RootLayout({
     <AppProvider>
       <html lang="en">
         <body className={cn("antialiased", inter.className)}>
-          <div>{/* <Navbar /> */}</div>
+          <div>
+            <Navbar />
+          </div>
           {/* <AgeRestrictionGuard></AgeRestrictionGuard> */}
 
           {children}
