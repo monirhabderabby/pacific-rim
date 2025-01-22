@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
 import { useAppSelector } from "@/redux/store";
+import { redirect } from "next/navigation";
 import FormHeader from "../../../../_components/form-header";
 
 interface Profession {
@@ -33,6 +34,15 @@ const professions: Profession[] = [
 export default function ProfessionChecker() {
   const dispatch = useDispatch();
   const authState = useAppSelector((state) => state.auth);
+
+  // check if prev form value not found
+  const { type } = authState;
+
+  // if prev state value not found then start from first
+
+  if (!type) {
+    redirect("/registration");
+  }
 
   const selectedProfessions: string[] = authState.profession;
 

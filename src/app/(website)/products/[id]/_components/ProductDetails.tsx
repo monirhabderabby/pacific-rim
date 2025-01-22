@@ -1,18 +1,18 @@
 "use client";
 import FeaturedProductCard from "@/components/shared/cards/featured_card";
+import VendorReviewCard from "@/components/shared/cards/VendorReviewCard";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { featureProducts } from "@/data/featured";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Flame, Heart, Minus, Plus, RefreshCw } from "lucide-react";
 import { useRef, useState } from "react";
 import { ProductImageGallery } from "./ProductImageGallery";
+import { ReviewForm } from "./ReviewForm";
 import { SizeSelector } from "./SizeSelector";
 import { StarRating } from "./StarRating";
 import { ProductData, SizeOption } from "./types";
-import VendorReviewCard from "@/components/shared/cards/VendorReviewCard";
-import { ReviewForm } from "./ReviewForm";
-import { Button } from "@/components/ui/button";
-import { useScroll, motion, useTransform } from "framer-motion";
 
 const productData: ProductData = {
   title: "American Beauty",
@@ -144,7 +144,10 @@ const ProductDetails = () => {
                     {productData.title}
                   </div>
                   <div className="flex flex-col items-start mt-2 w-full">
-                    <StarRating rating={productData.rating} />
+                    <StarRating
+                      rating={productData.rating}
+                      onChange={() => {}}
+                    />
                     <div className="flex gap-2 items-center mt-2 text-base leading-tight text-[#E10E0E] -translate-x-[7px]">
                       <div className="flex items-center self-stretch my-auto">
                         <Flame className="h-[15px]" />
@@ -240,10 +243,7 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
-          <div
-            className="flex flex-col items-center mt-10 w-full text-center max-md:max-w-full"
-            
-          >
+          <div className="flex flex-col items-center mt-10 w-full text-center max-md:max-w-full">
             <div className="text-2xl font-semibold leading-tight text-gradient max-md:max-w-full">
               Description
             </div>

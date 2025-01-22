@@ -1,6 +1,5 @@
-
-import React, { useState, useEffect } from "react";
 import * as SliderPrimitive from "@radix-ui/react-slider";
+import React, { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -16,15 +15,7 @@ type SliderProps = {
 
 const Slider = React.forwardRef(
   (
-    {
-      className,
-      min,
-      max,
-      step,
-      value,
-      onValueChange,
-      ...props
-    }: SliderProps,
+    { className, min, max, step, value, onValueChange, ...props }: SliderProps,
     ref
   ) => {
     const initialValue = Array.isArray(value) ? value : [min, max];
@@ -33,7 +24,7 @@ const Slider = React.forwardRef(
     // Sync localValues with value prop from Redux store (or parent)
     useEffect(() => {
       if (value) {
-        setLocalValues(value); // Update local state when value changes
+        setLocalValues([...value]); // Update local state when value changes
       }
     }, [value]);
 
