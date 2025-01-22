@@ -2,7 +2,7 @@
 // @ts-nocheck
 "use client";
 import { addNewBusiness } from "@/redux/features/authentication/AuthSlice";
-import { useAppDispatch } from "@/redux/store";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
 import { VectorMap } from "@react-jvectormap/core";
 import { worldMill } from "@react-jvectormap/world";
 import { useRouter } from "next/navigation";
@@ -35,6 +35,7 @@ function CountrySelector() {
   const router = useRouter();
 
   const [mapPaths, setMapPaths] = useState(null);
+  const businesses = useAppSelector((state) => state.auth.businesses);
 
   // Dynamically set the map paths after the component has mounted
   useEffect(() => {
@@ -59,6 +60,7 @@ function CountrySelector() {
 
     dispatch(
       addNewBusiness([
+        ...businesses,
         {
           country: countryName,
           province: "",

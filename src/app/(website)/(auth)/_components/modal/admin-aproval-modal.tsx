@@ -4,7 +4,7 @@ import Link from "next/link";
 
 // Local imports
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 interface AdminApprovalModalProps {
   isOpen: boolean;
@@ -33,7 +33,9 @@ export function AdminApprovalModal({
             />
 
             {/* Text content */}
-            <h2 className="text-2xl font-bold mb-2">PACIFIC RIM FUSION</h2>
+            <DialogTitle className="text-2xl font-bold mb-2">
+              PACIFIC RIM FUSION
+            </DialogTitle>
             <p className="text-gradient text-xl mb-2">
               Kindly Wait for Admin Approval.
             </p>
