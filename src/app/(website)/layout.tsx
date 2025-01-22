@@ -1,11 +1,17 @@
 import "@/app/globals.css";
 import AppProvider from "@/components/providers/AppProvider";
 import NProgress from "@/components/providers/NProgress";
-import Navbar from "@/components/shared/header/mainHeader/navbar";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
+const Navbar = dynamic(
+  () => import("@/components/shared/header/mainHeader/navbar"),
+  {
+    ssr: false,
+  }
+);
 
 const inter = Inter({
   subsets: ["latin"],

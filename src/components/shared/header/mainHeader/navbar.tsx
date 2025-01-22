@@ -30,7 +30,7 @@ function Navbar() {
     >
       <header className={cn("bg-white", pathName !== "/" && "border-b-2")}>
         <div className="lg:hidden">
-          <MobileTabletNavbar loggedin={loggedin} />
+          {/* <MobileTabletNavbar loggedin={loggedin} /> */}
         </div>
         <div className="hidden lg:block">
           <DesktopNavbar pathName={pathName} loggedin={loggedin} />
