@@ -1,17 +1,11 @@
 import "@/app/globals.css";
+import AgeRestrictionGuard from "@/components/providers/AgeRestrictionGuard";
 import AppProvider from "@/components/providers/AppProvider";
 import NProgress from "@/components/providers/NProgress";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
-const Navbar = dynamic(
-  () => import("@/components/shared/header/mainHeader/navbar"),
-  {
-    ssr: false,
-  }
-);
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,12 +26,10 @@ export default function RootLayout({
     <AppProvider>
       <html lang="en">
         <body className={cn("antialiased", inter.className)}>
-          <div>
+          {/* <div>
             <Navbar />
-          </div>
-          {/* <AgeRestrictionGuard></AgeRestrictionGuard> */}
-
-          {children}
+          </div> */}
+          <AgeRestrictionGuard>{children}</AgeRestrictionGuard>
 
           <div>
             {/* <NewsletterPage />
