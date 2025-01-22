@@ -20,7 +20,6 @@ import { Label } from "@/components/ui/label";
 import OrderTotal from "./OrderTotal";
 import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox";
-import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import OrderConfirmationModal from "./OrderConfirmationModal";
@@ -106,15 +105,14 @@ const OrderForm: React.FC = () => {
   }, 0);
 
   return (
-    <section className="w-[95%] mx-auto md:w-full pb-[80px]">
+    <section className="w-[95%] mx-auto md:w-full px-[16px] md:px-0 py-[40px] md:py-[60px] lg:py-[80px]">
       {showModal && <OrderConfirmationModal />}
       <Form {...form}>
-        <SectionHeading heading={"Checkout"} subheading={""} />
 
         <form onSubmit={form.handleSubmit(handleSubmit)}>
           <div className="flex justify-center gap-[30px] flex-wrap">
             <div className="flex flex-col gap-[30px] w-[570px]">
-              <h1 className="text-[#2A6C2D] text-[32px] leading-[39px] font-[600]">
+              <h1 className="text-gradient text-xl md:text-2xl lg:text-[32px] font-semibold leading-[24px] md:leading-[32px] lg:leading-[38px]">
                 Billing Information
               </h1>
               <FormField
@@ -279,7 +277,7 @@ const OrderForm: React.FC = () => {
             {/* right side content---------------------------- */}
 
             <div className="w-[570px] ">
-              <h1 className="text-[#2A6C2D] text-[32px] leading-[39px] pb-[30px] font-[600]">
+              <h1 className="text-gradient text-xl md:text-2xl lg:text-[32px] font-semibold leading-[24px] md:leading-[32px] lg:leading-[38px] pb-[32px]">
                 Order Summary
               </h1>
               <div>
@@ -308,7 +306,7 @@ const OrderForm: React.FC = () => {
                             htmlFor="creditCard"
                             className={`w-full border cursor-pointer rounded-lg flex items-center justify-between px-4 py-3 ${
                               field.value === "creditCard"
-                                ? "bg-[#f0fdf4] border-[#2A6C2D]"
+                                ? "bg-[#E6EEF6] border-[#121D42]"
                                 : "border-zinc-200"
                             }`}
                           >
@@ -316,12 +314,12 @@ const OrderForm: React.FC = () => {
                               <RadioGroupItem
                                 id="creditCard"
                                 value="creditCard"
-                                className="h-5 w-5 border-[#2A6C2D] text-[#2A6C2D] before:bg-[#2A6C2D] data-[state=checked]:border-[#2A6C2D] data-[state=checked]:text-[#2A6C2D]"
+                                className="h-5 w-5 border-[#121D42] text-[#121D42] before:bg-[#121D42] data-[state=checked]:border-[#121D42] data-[state=checked]:text-[#121D42]"
                               />
                               <span
                                 className={`text-sm ${
                                   field.value === "creditCard"
-                                    ? "text-[#2A6C2D]"
+                                    ? "text-gradient"
                                     : ""
                                 }`}
                               >
@@ -420,7 +418,7 @@ const OrderForm: React.FC = () => {
                           htmlFor="paypal"
                           className={`w-full border cursor-pointer rounded-lg flex items-center justify-between px-4 py-4 ${
                             field.value === "paypal"
-                              ? "bg-[#f0fdf4] border-[#2A6C2D]"
+                              ? "bg-[#E6EEF6] border-[#121D42]"
                               : "border-zinc-200"
                           }`}
                         >
@@ -428,11 +426,11 @@ const OrderForm: React.FC = () => {
                             <RadioGroupItem
                               id="paypal"
                               value="paypal"
-                              className="h-5 w-5 border-[#2A6C2D] text-[#2A6C2D] before:bg-[#2A6C2D] data-[state=checked]:border-[#2A6C2D] data-[state=checked]:text-[#2A6C2D]"
+                              className="h-5 w-5 border-[#121D42] text-[#121D42] before:bg-[#121D42] data-[state=checked]:border-[#121D42] data-[state=checked]:text-[#121D42]"
                             />
                             <span
                               className={`text-sm ${
-                                field.value === "paypal" ? "text-[#2A6C2D]" : ""
+                                field.value === "paypal" ? "text-[#121D42]" : ""
                               }`}
                             >
                               PayPal
@@ -450,7 +448,7 @@ const OrderForm: React.FC = () => {
                           htmlFor="cashOnDelivery"
                           className={`w-full border cursor-pointer rounded-lg flex items-center justify-between px-4 py-3 ${
                             field.value === "cashOnDelivery"
-                              ? "bg-[#f0fdf4] border-[#2A6C2D]"
+                              ? "bg-[#E6EEF6] border-[#121D42]"
                               : "border-zinc-200"
                           }`}
                         >
@@ -458,12 +456,12 @@ const OrderForm: React.FC = () => {
                             <RadioGroupItem
                               id="cashOnDelivery"
                               value="cashOnDelivery"
-                              className="h-5 w-5 border-[#2A6C2D] text-[#2A6C2D] before:bg-[#2A6C2D] data-[state=checked]:border-[#2A6C2D] data-[state=checked]:text-[#2A6C2D]"
+                              className="h-5 w-5 border-[#121D42] text-[#121D42] before:bg-[#121D42] data-[state=checked]:border-[#121D42] data-[state=checked]:text-[#121D42]"
                             />
                             <span
                               className={`text-sm ${
                                 field.value === "cashOnDelivery"
-                                  ? "text-[#2A6C2D]"
+                                  ? "text-[#121D42]"
                                   : ""
                               }`}
                             >

@@ -9,9 +9,9 @@ import CheckProfession from "../registration/(a)/experiences/profession/_compone
 import { EmailForm } from "../registration/(a)/experiences/profession/email/_components/email-form";
 import { ExperienceForm } from "../registration/_components/experience-form";
 import SignUpForm from "../registration/_components/UserInfoSignUp";
+import { BusinessInfoForm } from "../registration/country/[state]/business_information/_components/business-info-form";
 import { ResetPasswordForm } from "../reset-password/_componments/reset-password-form";
 import { VerifyOTPForm } from "../reset-password/_componments/verify-otp-form";
-import { BusinessInfoForm } from "./forms/business-info-form";
 import CountryPage from "./forms/country-page";
 import { RecreationalCannabis } from "./forms/recreational-cannabis";
 
