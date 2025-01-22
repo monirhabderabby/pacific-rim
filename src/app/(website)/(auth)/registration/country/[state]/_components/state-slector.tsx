@@ -4,13 +4,14 @@
 import canadaFlag from "@/assets/flags/canada.png";
 import usFlag from "@/assets/flags/us.png";
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
 import { useDispatch } from "react-redux";
 
 // Local imports
 
 import { Button } from "@/components/ui/button";
-import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
+import { updateBusiness } from "@/redux/features/authentication/AuthSlice";
+import { useAppSelector } from "@/redux/store";
 import { State } from "@/types/form";
 
 const usStates: State[] = [
@@ -45,14 +46,11 @@ interface Props {
 }
 
 export function StateSelector({ currentState }: Props) {
-  const [selectedState, setSelectedState] = useState<string>("");
+  const province = useAppSelector(
+    (state) => state.auth.businesses[state.auth.businesses.length - 1]?.province
+  );
 
   const dispatch = useDispatch();
-
-  const handleClick = () => {
-    // onNext(selectedState)
-    dispatch(setRegistrationValue({ state: selectedState }));
-  };
 
   // Dynamically set the flag and state list based on the currentState prop
   const isUS = currentState === "United States";
@@ -63,7 +61,7 @@ export function StateSelector({ currentState }: Props) {
       <div className="mb-[30px]">
         <Image
           src={displayedFlag}
-          alt="USA Flag"
+          alt={`${currentState} Flag`}
           width={300}
           height={180}
           className="rounded-[12px] shadow-[0px_4px_12px_0px_#00000026]"
@@ -83,9 +81,15 @@ export function StateSelector({ currentState }: Props) {
         {displayedStates.map((state) => (
           <button
             key={state.name}
-            onClick={() => setSelectedState(state.name)}
+            onClick={() =>
+              dispatch(
+                updateBusiness({
+                  province: state.name,
+                })
+              )
+            }
             className={`p-3 border rounded-md transition-colors duration-300 text-lg font-medium leading-3 ${
-              selectedState === state.name
+              province === state.name
                 ? "border-[#0057A8] bg-primary text-white"
                 : "border-[#0057A8]/20  hover:bg-[#E6EEF6] hover:text-[#00417E]"
             }`}
@@ -96,12 +100,12 @@ export function StateSelector({ currentState }: Props) {
       </div>
 
       <div className="flex justify-end w-full mt-[68px]">
-        <Button
-          onClick={handleClick}
-          disabled={!selectedState}
-          className="min-w-[155px]"
-        >
-          Next →
+        <Button disabled={!province} className="min-w-[155px]">
+          <Link
+            href={`/registration/country/${currentState}/business_information`}
+          >
+            Next →
+          </Link>
         </Button>
       </div>
     </div>
