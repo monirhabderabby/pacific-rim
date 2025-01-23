@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 import AppProvider from "@/components/providers/AppProvider";
+import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -34,8 +35,8 @@ export default function RootLayout({
             <NewsletterPage />
             <Footer />
           </div> */}
-          {/* <NProgress />
-          <Toaster /> */}
+          {/* <NProgress /> */}
+          <Toaster />
         </body>
       </html>
     </AppProvider>
