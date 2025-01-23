@@ -9,7 +9,7 @@ const Page = ({ params }: { params: { state: string } }) => {
   const decodeUrl = (() => {
     try {
       return decodeURIComponent(params.state) as "United States" | "Canada";
-    } catch (err) {
+    } catch {
       redirect(`/registration/country/${params.state}/business_information`);
     }
   })();
