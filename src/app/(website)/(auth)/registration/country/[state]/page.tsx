@@ -3,14 +3,14 @@
 import AuthUIProvider from "@/app/(website)/(auth)/_components/provider/AuthUIProvider";
 
 const Page = ({ params }: { params: { state: string } }) => {
-  const decodeString = (() => {
-    try {
-      return decodeURIComponent(params.state) as "United States" | "Canada";
-    } catch (err) {
-      console.error("Error decoding state:", err);
-      return "United States"; // Fallback value
-    }
-  })();
+  // const decodeString = (() => {
+  //   try {
+  //     return decodeURIComponent(params.state) as "United States" | "Canada";
+  //   } catch (err) {
+  //     console.error("Error decoding state:", err);
+  //     return "United States"; // Fallback value
+  //   }
+  // })();
 
   return (
     <AuthUIProvider
