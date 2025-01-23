@@ -1,11 +1,11 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
 const Flag = ({
   currentState,
   displayedFlag,
 }: {
   currentState: string;
-  displayedFlag: StaticImageData;
+  displayedFlag: string;
 }) => (
   <div className="mb-8">
     <Image

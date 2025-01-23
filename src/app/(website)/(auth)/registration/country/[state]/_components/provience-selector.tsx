@@ -1,12 +1,11 @@
 "use client";
 
 import { State } from "@/data/registration";
-import { StaticImageData } from "next/image";
 import Flag from "./Flag-selector";
 
 interface Props {
   data: State[];
-  flag: StaticImageData;
+  flag: string;
   currentState: string;
 }
 
