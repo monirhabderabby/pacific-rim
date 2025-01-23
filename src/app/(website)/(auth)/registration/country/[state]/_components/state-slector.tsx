@@ -1,11 +1,13 @@
 "use client";
 
+import { State } from "@/data/registration";
+
 // Packages
 
 // Local assets
 
 interface Props {
-  currentState: "United States" | "Canada";
+  data: State[];
 }
 
 /** NextButton Component */
@@ -26,7 +28,8 @@ interface Props {
 // );
 
 /** Main StateSelector Component */
-export function StateSelector({ currentState }: Props) {
+export function StateSelector({ data }: Props) {
+  console.log(data);
   // const dispatch = useDispatch();
 
   // Safely access the Redux state
@@ -35,14 +38,7 @@ export function StateSelector({ currentState }: Props) {
   //     state.auth.businesses?.[state.auth.businesses.length - 1]?.province || ""
   // );
 
-  const isUS = currentState === "United States";
   // const displayedStates = isUS ? usStates : canadaProvinces;
-
-  // Ensure currentState is valid
-  if (!isUS && currentState !== "Canada") {
-    console.error("Invalid currentState value:", currentState);
-    return <p>Error: Invalid country selected.</p>;
-  }
 
   // const handleSelectState = (stateName: string) => {
   //   try {
