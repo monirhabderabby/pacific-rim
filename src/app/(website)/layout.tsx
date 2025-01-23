@@ -32,8 +32,6 @@ export default function RootLayout({
           </div> */}
           <AgeRestrictionGuard>{children}</AgeRestrictionGuard>
 
-          {children}
-
           <div>
             <NewsletterPage />
             {/* <Footer /> */}
