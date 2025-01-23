@@ -3,6 +3,7 @@
 import Hero from "@/components/hero/Hero";
 import PopularCategories from "@/components/PopularCategories/PopularCategories";
 import SearchBerCategories from "@/components/shared/searchBerCategories/searchBerCategories";
+import AboutSection from "@/components/shared/sections/about-section";
 
 const Page = () => {
   const loggedin = true;
@@ -13,10 +14,10 @@ const Page = () => {
 
         <Hero />
         <PopularCategories loggedin={loggedin} />
-        {/* {!loggedin && (
+        {!loggedin && (
           <AboutSection image="https://utfs.io/f/HkyicnKv4pLkKb11IfnzkrEA5LwVvWx2Fbfe7a6P94u0gcjZ" />
         )}
-        {!loggedin && (
+        {/* {!loggedin && (
           <div className="pb-[160px]">
             <FAQSection />
           </div>
