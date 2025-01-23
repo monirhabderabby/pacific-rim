@@ -98,7 +98,7 @@ export function StateSelector({ currentState }: Props) {
         province={province}
         onSelectState={handleSelectState}
       /> */}
-      <NextButton province={province} currentState={currentState} />
+      {/* <NextButton province={province} currentState={currentState} /> */}
     </div>
   );
 }
