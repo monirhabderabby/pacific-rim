@@ -9,7 +9,6 @@ import Link from "next/link";
 // Local assets
 import canadaFlag from "@/assets/flags/canada.png";
 import usFlag from "@/assets/flags/us.png";
-import Flag from "./Flag-selector";
 
 const usStates: State[] = [
   { name: "California" },
@@ -72,6 +71,7 @@ export function StateSelector({ currentState }: Props) {
   const isUS = currentState === "United States";
   const displayedStates = isUS ? usStates : canadaProvinces;
   const displayedFlag = isUS ? flags.us : flags.ca;
+  console.log(displayedFlag);
 
   console.log(displayedStates);
 
@@ -91,7 +91,7 @@ export function StateSelector({ currentState }: Props) {
 
   return (
     <div className="flex flex-col items-center w-full max-w-6xl mx-auto px-4">
-      <Flag currentState={currentState} displayedFlag={displayedFlag} />
+      {/* <Flag currentState={currentState} displayedFlag={displayedFlag} /> */}
       {/* <StateHeader currentState={currentState} />
       <StateContainer
         displayedStates={displayedStates}
