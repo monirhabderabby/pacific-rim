@@ -1,6 +1,9 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { State } from "@/data/registration";
+import { useAppSelector } from "@/redux/store";
+import Link from "next/link";
 import Flag from "./Flag-selector";
 
 interface Props {
@@ -10,21 +13,21 @@ interface Props {
 }
 
 /** NextButton Component */
-// const NextButton = ({
-//   province,
-//   currentState,
-// }: {
-//   province: string;
-//   currentState: string;
-// }) => (
-//   <div className="flex justify-end w-full mt-16">
-//     <Button disabled={!province} className="min-w-[155px]">
-//       <Link href={`/registration/country/${currentState}/business_information`}>
-//         Next →
-//       </Link>
-//     </Button>
-//   </div>
-// );
+const NextButton = ({
+  province,
+  currentState,
+}: {
+  province: string;
+  currentState: string;
+}) => (
+  <div className="flex justify-end w-full mt-16">
+    <Button disabled={!province} className="min-w-[155px]">
+      <Link href={`/registration/country/${currentState}/business_information`}>
+        Next →
+      </Link>
+    </Button>
+  </div>
+);
 
 /** Main StateSelector Component */
 export function ProvienceSelector({ data, currentState, flag }: Props) {
@@ -32,10 +35,10 @@ export function ProvienceSelector({ data, currentState, flag }: Props) {
   // const dispatch = useDispatch();
 
   // Safely access the Redux state
-  // const province = useAppSelector(
-  //   (state) =>
-  //     state.auth.businesses?.[state.auth.businesses.length - 1]?.province || ""
-  // );
+  const province = useAppSelector(
+    (state) =>
+      state.auth.businesses?.[state.auth.businesses.length - 1]?.province || ""
+  );
 
   // const displayedStates = isUS ? usStates : canadaProvinces;
 
@@ -56,7 +59,7 @@ export function ProvienceSelector({ data, currentState, flag }: Props) {
         province={province}
         onSelectState={handleSelectState}
       /> */}
-      {/* <NextButton province={province} currentState={currentState} /> */}
+      <NextButton province={province} currentState={currentState} />
     </div>
   );
 }
