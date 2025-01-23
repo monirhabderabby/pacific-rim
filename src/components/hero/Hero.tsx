@@ -32,7 +32,6 @@ const Hero = () => {
             </div>
           </section>
 
-
           {/* Three images */}
           <Anim variant="zoomIn">
             <div className="grid grid-cols-3 gap-4 lg:gap-[24px] mx-auto max-w-[1200px] mt-[-50px] lg:mt-[-100px] z-50 justify-items-center p-2">
@@ -46,6 +45,7 @@ const Hero = () => {
                     alt={`SHRED Product ${index + 1}`}
                     className="rounded-[16px]"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     loading="lazy"
                     placeholder="blur"
                     blurDataURL={blurDataUrl}

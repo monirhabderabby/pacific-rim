@@ -58,17 +58,19 @@ const JoinAsSeller = () => {
         >
           Join Our Marketplace Today
         </p>
-   <Image
-           className="mx-auto mt-2"
-           src="/assets/img/Line.png"
-           width={80}
-           height={80}
-           alt="Picture of the author"
-         />
+        <Image
+          className="mx-auto mt-2"
+          src="/assets/img/Line.png"
+          width={80}
+          height={80}
+          style={{
+            width: "auto",
+            height: "auto",
+          }}
+          alt="Picture of the author"
+        />
       </div>
-      <Button className="w-full mb-4 s py-2">
-        Join As a Sellers
-      </Button>
+      <Button className="w-full mb-4 s py-2">Join As a Sellers</Button>
     </div>
   );
 };

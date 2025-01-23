@@ -1,6 +1,5 @@
 // Packages
 import Image from "next/image";
-import Link from "next/link";
 
 // Local imports
 import { Button } from "@/components/ui/button";
@@ -43,7 +42,7 @@ export function AdminApprovalModal({
 
             {/* Button */}
             <Button onClick={onClose} className=" px-12 py-2 rounded">
-              <Link href="/">Okay</Link>
+              Okay
             </Button>
           </div>
         </div>
