@@ -1,7 +1,6 @@
 // Packages
 // Local imports
 import AuthUIProvider from "@/app/(website)/(auth)/_components/provider/AuthUIProvider";
-import StateSelector from "./_components/state-slector";
 
 const Page = ({ params }: { params: { state: string } }) => {
   const decodeString = (() => {
@@ -19,7 +18,8 @@ const Page = ({ params }: { params: { state: string } }) => {
       fullWidth
       backButton={false}
     >
-      <StateSelector currentState={decodeString} />
+      {/* <StateSelector currentState={decodeString} /> */}
+      fsd
     </AuthUIProvider>
   );
 };
