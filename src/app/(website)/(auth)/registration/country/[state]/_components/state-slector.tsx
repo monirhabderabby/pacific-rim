@@ -1,38 +1,8 @@
 "use client";
 
 // Packages
-import { State } from "@/types/form";
 
 // Local assets
-import canadaFlag from "@/assets/flags/canada.png";
-import usFlag from "@/assets/flags/us.png";
-
-const usStates: State[] = [
-  { name: "California" },
-  { name: "Arizona" },
-  { name: "Texas" },
-  { name: "Ohio" },
-  { name: "Illinois" },
-  { name: "Michigan" },
-  { name: "Washington" },
-  { name: "New York" },
-];
-
-const canadaProvinces: State[] = [
-  { name: "Ontario" },
-  { name: "Quebec" },
-  { name: "British Columbia" },
-  { name: "Alberta" },
-  { name: "Manitoba" },
-  { name: "Nova Scotia" },
-  { name: "Saskatchewan" },
-  { name: "New Brunswick" },
-];
-
-const flags = {
-  us: usFlag,
-  ca: canadaFlag,
-};
 
 interface Props {
   currentState: "United States" | "Canada";
@@ -66,11 +36,7 @@ export function StateSelector({ currentState }: Props) {
   // );
 
   const isUS = currentState === "United States";
-  const displayedStates = isUS ? usStates : canadaProvinces;
-  const displayedFlag = isUS ? flags.us : flags.ca;
-  console.log(displayedFlag);
-
-  console.log(displayedStates);
+  // const displayedStates = isUS ? usStates : canadaProvinces;
 
   // Ensure currentState is valid
   if (!isUS && currentState !== "Canada") {
