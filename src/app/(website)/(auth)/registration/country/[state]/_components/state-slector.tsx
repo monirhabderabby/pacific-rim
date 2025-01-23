@@ -1,10 +1,7 @@
 "use client";
 
 // Packages
-import { Button } from "@/components/ui/button";
-import { useAppSelector } from "@/redux/store";
 import { State } from "@/types/form";
-import Link from "next/link";
 
 // Local assets
 import canadaFlag from "@/assets/flags/canada.png";
@@ -42,31 +39,31 @@ interface Props {
 }
 
 /** NextButton Component */
-const NextButton = ({
-  province,
-  currentState,
-}: {
-  province: string;
-  currentState: string;
-}) => (
-  <div className="flex justify-end w-full mt-16">
-    <Button disabled={!province} className="min-w-[155px]">
-      <Link href={`/registration/country/${currentState}/business_information`}>
-        Next →
-      </Link>
-    </Button>
-  </div>
-);
+// const NextButton = ({
+//   province,
+//   currentState,
+// }: {
+//   province: string;
+//   currentState: string;
+// }) => (
+//   <div className="flex justify-end w-full mt-16">
+//     <Button disabled={!province} className="min-w-[155px]">
+//       <Link href={`/registration/country/${currentState}/business_information`}>
+//         Next →
+//       </Link>
+//     </Button>
+//   </div>
+// );
 
 /** Main StateSelector Component */
 export function StateSelector({ currentState }: Props) {
   // const dispatch = useDispatch();
 
   // Safely access the Redux state
-  const province = useAppSelector(
-    (state) =>
-      state.auth.businesses?.[state.auth.businesses.length - 1]?.province || ""
-  );
+  // const province = useAppSelector(
+  //   (state) =>
+  //     state.auth.businesses?.[state.auth.businesses.length - 1]?.province || ""
+  // );
 
   const isUS = currentState === "United States";
   const displayedStates = isUS ? usStates : canadaProvinces;
