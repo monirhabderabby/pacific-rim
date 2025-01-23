@@ -45,15 +45,10 @@ const categories: CategoryCard[] = [
 ];
 
 const PopularCategoriesCard = () => {
-
-
-  
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
-
-
 
   return (
     <motion.div
@@ -95,6 +90,7 @@ const PopularCategoriesCard = () => {
                 src={category.image}
                 alt={category.title}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover w-[246px] h-[204px]"
               />
             </motion.div>

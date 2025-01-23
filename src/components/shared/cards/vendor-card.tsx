@@ -1,14 +1,14 @@
-// package import 
-import Image from 'next/image'
-import { MapPin, Phone, Mail, MoveRight } from 'lucide-react'
+// package import
+import { Mail, MapPin, MoveRight, Phone } from "lucide-react";
+import Image from "next/image";
 
-// local import 
+// local import
 
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import type { VendorCardProps } from "@/types/vendor"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import type { VendorCardProps } from "@/types/vendor";
 
-import { StarRating } from '@/app/(website)/cart/_components/star-rating'
+// import { StarRating } from '@/app/(website)/cart/_components/star-rating'
 
 export function VendorCard({ vendor }: VendorCardProps) {
   return (
@@ -26,17 +26,21 @@ export function VendorCard({ vendor }: VendorCardProps) {
             />
           </div>
         </div>
-        
+
         <div>
-          <h2 className="text-lg md:text-[32px] font-medium mb-1">{vendor.name}</h2>
+          <h2 className="text-lg md:text-[32px] font-medium mb-1">
+            {vendor.name}
+          </h2>
           <div className="flex items-center gap-2 mb-4">
             <span className="text-gray-600">{vendor.followers} Followers</span>
             <div className="flex items-center gap-2">
-              <StarRating rating={vendor.rating} />
-              <span className="ml-1 text-sm text-gray-600">({vendor.rating})</span>
+              {/* <StarRating rating={vendor.rating} /> */}
+              <span className="ml-1 text-sm text-gray-600">
+                ({vendor.rating})
+              </span>
             </div>
           </div>
-          
+
           <div className="space-y-3 text-sm">
             <div className="flex items-start gap-3  md:text-xl">
               <MapPin className="w-5 h-5 text-[#2A6C2D] shrink-0 mt-0.5" />
@@ -53,16 +57,13 @@ export function VendorCard({ vendor }: VendorCardProps) {
           </div>
         </div>
       </CardContent>
-      
+
       <CardFooter className="p-6 pt-0">
-        <Button 
-          className="text-sm bg-[#2A6C2D] hover:bg-[#235B26] text-white font-medium hover:gap-4 transition-all"
-        >
+        <Button className="text-sm bg-[#2A6C2D] hover:bg-[#235B26] text-white font-medium hover:gap-4 transition-all">
           Visit Store
-            <MoveRight className="w-4 h-4 mr-2" />
+          <MoveRight className="w-4 h-4 mr-2" />
         </Button>
       </CardFooter>
     </Card>
-  )
+  );
 }
-

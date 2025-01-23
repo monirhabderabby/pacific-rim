@@ -1,7 +1,8 @@
 "use client";
 // Packages
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
+// import { Heart } from "lucide-react";
+import { CiHeart } from "react-icons/ci";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
@@ -70,7 +71,7 @@ export default function AuctionCard({ isExpired, index }: Props) {
               ease: "circIn",
             },
           }}
-          className="absolute -top-[10px] -right-[10px] rounded-full w-[48px] h-[48px] p-0 bg-[#2A6C2D] hover:bg-[#2c6130] flex justify-center items-center"
+          className="absolute -top-[10px] -right-[10px] rounded-full w-[48px] h-[48px] p-0 bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] hover:bg-[#121D42] flex justify-center items-center"
         >
           <Image
             src="/assets/svg/hammer.svg"
@@ -81,14 +82,15 @@ export default function AuctionCard({ isExpired, index }: Props) {
         </motion.div>
       )}
       <div className="flex absolute top-5 z-0 flex-col w-[32px] left-[22px]">
-        <button className="flex gap-2.5 items-center p-2 w-full h-8 bg-white hover:bg-primary-green rounded-[30px] transition-colors duration-300 group">
-          <Heart className="group-hover:fill-white hover:border-0" />
+        <button className="flex gap-2.5 items-center p-2 w-full h-8 bg-white hover:bg-gradient-to-r from-[#7091FFCC] via-[#2F4697CC] to-[#7485FBCC] focus:bg-gradient-to-l focus:from-[#121D42] focus:via-[#152764] focus:to-[#4857BD] focus:text-white hover:text-white rounded-[30px] transition-colors duration-300 group">
+          {/* <Heart className="group-hover:fill-white hover:border-0" /> */}
+          <CiHeart/>
         </button>
       </div>
       <div className="flex z-0 flex-col mt-2 w-full">
         <div className="flex flex-col w-full">
           <div className="flex gap-10 justify-between items-center w-full">
-            <div className="flex gap-2 items-center self-stretch my-auto text-xs leading-tight text-[#E10E0E] whitespace-nowrap">
+            {/* <div className="flex gap-2 items-center self-stretch my-auto text-xs leading-tight text-[#E10E0E] whitespace-nowrap">
               <div className="flex gap-1 items-center self-stretch my-auto">
                 <Image
                   loading="lazy"
@@ -100,6 +102,9 @@ export default function AuctionCard({ isExpired, index }: Props) {
                 />
                 <div className="self-stretch my-auto text-[#E10E0E]">Hot</div>
               </div>
+            </div> */}
+            <div>
+              <p className="text-xs font-medium leading-[14px] text-[#9C9C9C]">8 Views</p>
             </div>
             <div className="flex gap-1 items-start self-stretch my-auto">
               {[1, 2, 3, 4].map((star) => (
@@ -123,7 +128,7 @@ export default function AuctionCard({ isExpired, index }: Props) {
               />
             </div>
           </div>
-          <div className="mt-2 text-[16px] text-base font-medium leading-[19.2px] text-[#2A6C2D]">
+          <div className="mt-2 text-[16px] text-base font-medium leading-[19.2px] text-gradient">
             American Beauty
           </div>
           <div className="flex gap-1 items-end self-start mt-2 font-medium leading-tight">
@@ -140,7 +145,7 @@ export default function AuctionCard({ isExpired, index }: Props) {
           aria-label="Add to cart"
           disabled={isExpired}
           size="md"
-          className="mt-2"
+          className={`mt-2 ${isExpired ? "bg-[#C5C5C5] text-base font-medium leading-[19px] text-white" : "bg-gradient-to-br from-[#121D42] via-[#152764] to-[#4857BD] text-base font-medium leading-[19px] text-white"}`}
         >
           {isExpired ? "Expired" : "Bid Now"}
         </Button>

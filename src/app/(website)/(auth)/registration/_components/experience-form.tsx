@@ -10,12 +10,22 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
 import { useAppSelector } from "@/redux/store";
+import { redirect } from "next/navigation";
 import FormHeader from "./form-header";
 
 export function ExperienceForm() {
   const dispatch = useDispatch();
 
   const authState = useAppSelector((state) => state.auth);
+
+  // check if prev form value not found
+  const { email, fullName, password } = authState;
+
+  // if prev state value not found then start from first
+
+  if (!email || !fullName || !password) {
+    redirect("/registration");
+  }
 
   const handleExperiencChange = useCallback(
     (type: "CBD/HEMP" | "Recreational Cannabis" | "Both") => {
@@ -77,7 +87,7 @@ export function ExperienceForm() {
             </div>
           </div>
         </div>
-        <Button disabled={!authState.type} size="md">
+        <Button disabled={!authState.type} size="md" asChild>
           <Link
             href="/registration/experiences/profession"
             className="flex items-center"
