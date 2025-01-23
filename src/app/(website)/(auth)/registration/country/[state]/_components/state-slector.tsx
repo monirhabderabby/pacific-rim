@@ -1,13 +1,13 @@
 "use client";
 
 import { State } from "@/data/registration";
-
-// Packages
-
-// Local assets
+import { StaticImageData } from "next/image";
+import Flag from "./Flag-selector";
 
 interface Props {
   data: State[];
+  flag: StaticImageData;
+  currentState: string;
 }
 
 /** NextButton Component */
@@ -28,7 +28,7 @@ interface Props {
 // );
 
 /** Main StateSelector Component */
-export function StateSelector({ data }: Props) {
+export function StateSelector({ data, currentState, flag }: Props) {
   console.log(data);
   // const dispatch = useDispatch();
 
@@ -50,7 +50,7 @@ export function StateSelector({ data }: Props) {
 
   return (
     <div className="flex flex-col items-center w-full max-w-6xl mx-auto px-4">
-      {/* <Flag currentState={currentState} displayedFlag={displayedFlag} /> */}
+      <Flag currentState={currentState} displayedFlag={flag} />
       {/* <StateHeader currentState={currentState} />
       <StateContainer
         displayedStates={displayedStates}

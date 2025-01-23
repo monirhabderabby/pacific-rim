@@ -1,7 +1,10 @@
 // Packages
 // Local imports
 import AuthUIProvider from "@/app/(website)/(auth)/_components/provider/AuthUIProvider";
+import canadaFlag from "@/assets/flags/canada.png";
+import usFlag from "@/assets/flags/us.png";
 import { canadaProvinces, State, usStates } from "@/data/registration";
+import { StaticImageData } from "next/image";
 import { redirect } from "next/navigation";
 import StateSelector from "./_components/state-slector";
 
@@ -16,10 +19,13 @@ const Page = ({ params }: { params: { state: string } }) => {
 
   let stats: State[] = [];
 
+  let flag: StaticImageData = usFlag;
+
   if (decodeUrl === "United States") {
     stats = usStates;
   } else if (decodeUrl === "Canada") {
     stats = canadaProvinces;
+    flag = canadaFlag;
   }
 
   return (
@@ -28,7 +34,7 @@ const Page = ({ params }: { params: { state: string } }) => {
       fullWidth
       backButton={false}
     >
-      <StateSelector data={stats} />
+      <StateSelector data={stats} flag={flag} currentState={decodeUrl} />
     </AuthUIProvider>
   );
 };
