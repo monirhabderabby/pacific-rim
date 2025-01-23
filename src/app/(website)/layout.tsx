@@ -1,4 +1,5 @@
 import "@/app/globals.css";
+import AgeRestrictionGuard from "@/components/providers/AgeRestrictionGuard";
 import AppProvider from "@/components/providers/AppProvider";
 import NProgress from "@/components/providers/NProgress";
 import NewsletterPage from "@/components/shared/footer/newsletter/page";
@@ -29,7 +30,7 @@ export default function RootLayout({
           {/* <div>
             <Navbar />
           </div> */}
-          {/* <AgeRestrictionGuard>{children}</AgeRestrictionGuard> */}
+          <AgeRestrictionGuard>{children}</AgeRestrictionGuard>
 
           {children}
 
