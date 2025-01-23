@@ -1,12 +1,8 @@
 import "@/app/globals.css";
 import AppProvider from "@/components/providers/AppProvider";
-import NProgress from "@/components/providers/NProgress";
-import Footer from "@/components/shared/footer/mainFooter/footer";
-import NewsletterPage from "@/components/shared/footer/newsletter/page";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,12 +30,12 @@ export default function RootLayout({
 
           {children}
 
-          <div>
+          {/* <div>
             <NewsletterPage />
             <Footer />
-          </div>
-          <NProgress />
-          <Toaster />
+          </div> */}
+          {/* <NProgress />
+          <Toaster /> */}
         </body>
       </html>
     </AppProvider>
