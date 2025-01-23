@@ -1,11 +1,13 @@
 // locatl  import ==================
 
+import SearchBerCategories from "@/components/shared/searchBerCategories/searchBerCategories";
+
 const Page = () => {
   return (
     <div>
       <div className="min-h-screen ">
-        {/* <SearchBerCategories /> */}
-        fsdf
+        <SearchBerCategories />
+
         {/* <Hero /> */}
         {/* <PopularCategories loggedin={loggedin} />
         {!loggedin && (

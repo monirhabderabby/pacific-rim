@@ -3,7 +3,6 @@ import AgeRestrictionGuard from "@/components/providers/AgeRestrictionGuard";
 import AppProvider from "@/components/providers/AppProvider";
 import NProgress from "@/components/providers/NProgress";
 import NewsletterPage from "@/components/shared/footer/newsletter/page";
-import Navbar from "@/components/shared/header/mainHeader/navbar";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -28,9 +27,9 @@ export default function RootLayout({
     <AppProvider>
       <html lang="en">
         <body className={cn("antialiased", inter.className)}>
-          <div>
+          {/* <div>
             <Navbar />
-          </div>
+          </div> */}
           <AgeRestrictionGuard>{children}</AgeRestrictionGuard>
 
           {children}
