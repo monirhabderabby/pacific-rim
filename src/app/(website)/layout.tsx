@@ -1,7 +1,6 @@
 import "@/app/globals.css";
 import AppProvider from "@/components/providers/AppProvider";
 import NProgress from "@/components/providers/NProgress";
-import Footer from "@/components/shared/footer/mainFooter/footer";
 import NewsletterPage from "@/components/shared/footer/newsletter/page";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
@@ -36,7 +35,7 @@ export default function RootLayout({
 
           <div>
             <NewsletterPage />
-            <Footer />
+            {/* <Footer /> */}
           </div>
           <NProgress />
           <Toaster />
