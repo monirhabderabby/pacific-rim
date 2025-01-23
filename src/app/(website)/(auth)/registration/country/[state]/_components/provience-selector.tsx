@@ -28,7 +28,7 @@ interface Props {
 // );
 
 /** Main StateSelector Component */
-export function StateSelector({ data, currentState, flag }: Props) {
+export function ProvienceSelector({ data, currentState, flag }: Props) {
   console.log(data);
   // const dispatch = useDispatch();
 
@@ -62,4 +62,4 @@ export function StateSelector({ data, currentState, flag }: Props) {
   );
 }
 
-export default StateSelector;
+export default ProvienceSelector;

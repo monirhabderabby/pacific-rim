@@ -6,7 +6,7 @@ import usFlag from "@/assets/flags/us.png";
 import { canadaProvinces, State, usStates } from "@/data/registration";
 import { StaticImageData } from "next/image";
 import { redirect } from "next/navigation";
-import StateSelector from "./_components/state-slector";
+import { ProvienceSelector } from "./_components/provience-selector";
 
 const Page = ({ params }: { params: { state: string } }) => {
   const decodeUrl = (() => {
@@ -34,7 +34,7 @@ const Page = ({ params }: { params: { state: string } }) => {
       fullWidth
       backButton={false}
     >
-      <StateSelector data={stats} flag={flag} currentState={decodeUrl} />
+      <ProvienceSelector data={stats} flag={flag} currentState={decodeUrl} />
     </AuthUIProvider>
   );
 };
