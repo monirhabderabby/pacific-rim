@@ -1,18 +1,17 @@
 "use client";
 
 // Packages
-import canadaFlag from "@/assets/flags/canada.png";
-import usFlag from "@/assets/flags/us.png";
-import Image from "next/image";
-import Link from "next/link";
-import { useDispatch } from "react-redux";
-
-// Local imports
-
 import { Button } from "@/components/ui/button";
 import { updateBusiness } from "@/redux/features/authentication/AuthSlice";
 import { useAppSelector } from "@/redux/store";
 import { State } from "@/types/form";
+import Image from "next/image";
+import Link from "next/link";
+import { useDispatch } from "react-redux";
+
+// Local assets
+import canadaFlag from "@/assets/flags/canada.png";
+import usFlag from "@/assets/flags/us.png";
 
 const usStates: State[] = [
   { name: "California" },
@@ -38,7 +37,7 @@ const canadaProvinces: State[] = [
 
 const flags = {
   us: usFlag,
-  cn: canadaFlag,
+  ca: canadaFlag,
 };
 
 interface Props {
@@ -46,52 +45,63 @@ interface Props {
 }
 
 export function StateSelector({ currentState }: Props) {
-  const province = useAppSelector(
-    (state) => state.auth.businesses[state.auth.businesses.length - 1]?.province
-  );
-
   const dispatch = useDispatch();
 
-  // Dynamically set the flag and state list based on the currentState prop
+  // Safely access the Redux state
+  const province = useAppSelector(
+    (state) =>
+      state.auth.businesses?.[state.auth.businesses.length - 1]?.province || ""
+  );
+
   const isUS = currentState === "United States";
   const displayedStates = isUS ? usStates : canadaProvinces;
-  const displayedFlag = isUS ? flags.us : flags.cn;
+  const displayedFlag = isUS ? flags.us : flags.ca;
+
+  // Ensure currentState is valid
+  if (!isUS && currentState !== "Canada") {
+    console.error("Invalid currentState value:", currentState);
+    return <p>Error: Invalid country selected.</p>;
+  }
+
   return (
     <div className="flex flex-col items-center w-full max-w-6xl mx-auto px-4">
-      <div className="mb-[30px]">
+      {/* Flag */}
+      <div className="mb-8">
         <Image
           src={displayedFlag}
           alt={`${currentState} Flag`}
           width={300}
           height={180}
-          className="rounded-[12px] shadow-[0px_4px_12px_0px_#00000026]"
+          className="rounded-lg shadow-lg"
         />
       </div>
 
-      <div className="space-y-[16px] mb-[56px]">
-        <h1 className="text-gradient heading">
-          Select Any State Of {currentState}
+      {/* Header */}
+      <div className="space-y-4 mb-14 text-center">
+        <h1 className="text-gradient text-3xl font-bold">
+          Select Any State of {currentState}
         </h1>
-        <p className="text-[#6D6D6D] font-normal text-[12px] text-center leading-[14.4px]">
-          Choose Your Business State
+        <p className="text-gray-500 text-sm">
+          Choose Your Business State to Proceed
         </p>
       </div>
 
-      <div className="flex gap-4 flex-wrap ">
+      {/* State Buttons */}
+      <div className="flex gap-4 flex-wrap justify-center">
         {displayedStates.map((state) => (
           <button
             key={state.name}
-            onClick={() =>
-              dispatch(
-                updateBusiness({
-                  province: state.name,
-                })
-              )
-            }
-            className={`p-3 border rounded-md transition-colors duration-300 text-lg font-medium leading-3 ${
+            onClick={() => {
+              try {
+                dispatch(updateBusiness({ province: state.name }));
+              } catch (err) {
+                console.error("Error dispatching updateBusiness:", err);
+              }
+            }}
+            className={`p-3 border rounded-md transition-colors duration-300 text-lg font-medium ${
               province === state.name
-                ? "border-[#0057A8] bg-primary text-white"
-                : "border-[#0057A8]/20  hover:bg-[#E6EEF6] hover:text-[#00417E]"
+                ? "border-blue-500 bg-blue-600 text-white"
+                : "border-blue-200 hover:bg-blue-100 hover:text-blue-700"
             }`}
           >
             {state.name}
@@ -99,7 +109,8 @@ export function StateSelector({ currentState }: Props) {
         ))}
       </div>
 
-      <div className="flex justify-end w-full mt-[68px]">
+      {/* Next Button */}
+      <div className="flex justify-end w-full mt-16">
         <Button disabled={!province} className="min-w-[155px]">
           <Link
             href={`/registration/country/${currentState}/business_information`}
