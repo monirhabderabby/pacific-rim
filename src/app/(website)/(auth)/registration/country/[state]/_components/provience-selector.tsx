@@ -2,9 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import { State } from "@/data/registration";
+import { updateBusiness } from "@/redux/features/authentication/AuthSlice";
 import { useAppSelector } from "@/redux/store";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
 import Flag from "./Flag-selector";
+import StateHeader from "./State-Header";
+import StateContainer from "./stats-container";
 
 interface Props {
   data: State[];
@@ -31,8 +35,7 @@ const NextButton = ({
 
 /** Main StateSelector Component */
 export function ProvienceSelector({ data, currentState, flag }: Props) {
-  console.log(data);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   // Safely access the Redux state
   const province = useAppSelector(
@@ -42,23 +45,23 @@ export function ProvienceSelector({ data, currentState, flag }: Props) {
 
   // const displayedStates = isUS ? usStates : canadaProvinces;
 
-  // const handleSelectState = (stateName: string) => {
-  //   try {
-  //     dispatch(updateBusiness({ province: stateName }));
-  //   } catch (err) {
-  //     console.error("Error dispatching updateBusiness:", err);
-  //   }
-  // };
+  const handleSelectState = (stateName: string) => {
+    try {
+      dispatch(updateBusiness({ province: stateName }));
+    } catch (err) {
+      console.error("Error dispatching updateBusiness:", err);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center w-full max-w-6xl mx-auto px-4">
       <Flag currentState={currentState} displayedFlag={flag} />
-      {/* <StateHeader currentState={currentState} />
+      <StateHeader currentState={currentState} />
       <StateContainer
-        displayedStates={displayedStates}
+        displayedStates={data}
         province={province}
         onSelectState={handleSelectState}
-      /> */}
+      />
       <NextButton province={province} currentState={currentState} />
     </div>
   );
