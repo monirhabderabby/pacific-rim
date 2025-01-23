@@ -1,5 +1,6 @@
 // locatl  import ==================
 
+import Hero from "@/components/hero/Hero";
 import SearchBerCategories from "@/components/shared/searchBerCategories/searchBerCategories";
 
 const Page = () => {
@@ -8,7 +9,7 @@ const Page = () => {
       <div className="min-h-screen ">
         <SearchBerCategories />
 
-        {/* <Hero /> */}
+        <Hero />
         {/* <PopularCategories loggedin={loggedin} />
         {!loggedin && (
           <AboutSection image="https://utfs.io/f/HkyicnKv4pLkKb11IfnzkrEA5LwVvWx2Fbfe7a6P94u0gcjZ" />
