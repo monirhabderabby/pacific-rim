@@ -2,6 +2,9 @@ import "@/app/globals.css";
 import AgeRestrictionGuard from "@/components/providers/AgeRestrictionGuard";
 import AppProvider from "@/components/providers/AppProvider";
 import NProgress from "@/components/providers/NProgress";
+import Footer from "@/components/shared/footer/mainFooter/footer";
+import NewsletterPage from "@/components/shared/footer/newsletter/page";
+import Navbar from "@/components/shared/header/mainHeader/navbar";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -26,14 +29,14 @@ export default function RootLayout({
     <AppProvider>
       <html lang="en">
         <body className={cn("antialiased", inter.className)}>
-          {/* <div>
+          <div>
             <Navbar />
-          </div> */}
+          </div>
           <AgeRestrictionGuard>{children}</AgeRestrictionGuard>
 
           <div>
-            {/* <NewsletterPage />
-            <Footer /> */}
+            <NewsletterPage />
+            <Footer />
           </div>
           <NProgress />
           <Toaster />
