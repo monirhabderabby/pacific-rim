@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "sonner";
 
 // Local imports
+import { AdminApprovalModal } from "@/app/(website)/(auth)/_components/admin-aproval-modal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -16,7 +17,6 @@ import {
   updateBusiness,
 } from "@/redux/features/authentication/AuthSlice";
 import { useAppSelector } from "@/redux/store";
-import { AdminApprovalModal } from "../../../../../_components/modal/admin-aproval-modal";
 import FormHeader from "../../../../_components/form-header";
 
 export function BusinessInfoForm() {
