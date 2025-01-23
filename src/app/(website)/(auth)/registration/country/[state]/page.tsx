@@ -1,10 +1,7 @@
 // Packages
-import dynamic from "next/dynamic";
 // Local imports
 import AuthUIProvider from "@/app/(website)/(auth)/_components/provider/AuthUIProvider";
-const StateSelector = dynamic(() => import("./_components/state-slector"), {
-  ssr: false,
-});
+import StateSelector from "./_components/state-slector";
 
 const Page = ({ params }: { params: { state: string } }) => {
   const decodeString = decodeURIComponent(params.state) as
