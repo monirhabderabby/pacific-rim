@@ -138,13 +138,13 @@ export function VerifyOTPForm({ onVerified }: VerifyOTPFormProps) {
               }}
               className={`!text-[30px] text-[#4E4E4E] !font-medium !leading-[45px] w-[43.83px] 
               lg:w-[70px] h-[70px] lg:h-[90px] text-center text-xl rounded-[12px] lg:rounded-[20px] 
-              focus:outline-none focus:ring-2 focus:ring-[#2A6C2D] border-[1px] 
+              focus:outline-none focus:ring-2 focus:ring-[#121D42] border-[1px] 
               ${
                 form.formState.errors.otp
                   ? "bg-red-200/50 border-red-500/50"
                   : form.watch("otp")[i]
-                  ? "border-gray-200 bg-transparent"
-                  : "border-gray-200 bg-white"
+                  ? "border-[#121D42] bg-[#E6EEF6]"
+                  : "border-[#C5C5C5] bg-white"
               }`}
             />
           ))}
