@@ -9,8 +9,9 @@ import PopularBlog from "@/components/shared/sections/popularBlogs/popularBlogs"
 import BestOffer from "./_components/best_offer";
 import DealOfTheDay from "./_components/deal_of_the_day";
 
-const Page = () => {
+const Page = async () => {
   const loggedin = true;
+
   return (
     <div>
       <div className="min-h-screen ">
