@@ -90,7 +90,7 @@ export function ExperienceForm() {
         <Button disabled={!authState.type} size="md" asChild>
           <Link
             href="/registration/experiences/profession"
-            className="flex items-center"
+            className="flex items-center w-auto h-full"
           >
             Next
             <ArrowRight className="ml-2" />

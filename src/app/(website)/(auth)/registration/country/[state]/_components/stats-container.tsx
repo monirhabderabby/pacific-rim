@@ -15,8 +15,8 @@ const StateContainer = ({
         onClick={() => onSelectState(state.name)}
         className={`p-3 border rounded-md transition-colors duration-300 text-lg font-medium ${
           province === state.name
-            ? "border-blue-500 bg-blue-600 text-white"
-            : "border-blue-200 hover:bg-blue-100 hover:text-blue-700"
+            ? "border-[#B0CBE4] bg-primary text-white"
+            : "border-[#B0CBE4]  hover:bg-[#E9EBF8]"
         }`}
       >
         {state.name}

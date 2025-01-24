@@ -68,7 +68,7 @@ export default function ProfessionChecker() {
           <FormHeader
             label="Sign Up"
             paragraph="Continue to register as a customer or vendor, Please provide the information."
-            title="What do you want to experience?"
+            title="What’s your profession?"
           />
 
           <div className="space-y-4">
@@ -102,7 +102,10 @@ export default function ProfessionChecker() {
               size="md"
               asChild
             >
-              <Link href="/registration/country" className="flex items-center">
+              <Link
+                href="/registration/country"
+                className="flex items-center w-auto h-full"
+              >
                 Next
                 <ArrowRight className="ml-2" />
               </Link>

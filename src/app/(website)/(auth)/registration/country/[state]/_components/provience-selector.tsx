@@ -25,8 +25,11 @@ const NextButton = ({
   currentState: string;
 }) => (
   <div className="flex justify-end w-full mt-16">
-    <Button disabled={!province} className="min-w-[155px]">
-      <Link href={`/registration/country/${currentState}/business_information`}>
+    <Button disabled={!province} className="min-w-[155px] h-full" asChild>
+      <Link
+        href={`/registration/country/${currentState}/business_information`}
+        className="w-[155px]"
+      >
         Next →
       </Link>
     </Button>
