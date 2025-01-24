@@ -131,7 +131,7 @@ export default BusinessInfoForm;
 const AddMoreButton = () => {
   return (
     <Button variant="outline">
-      <Link href="/registration/country" className="flex items-center">
+      <Link href="/registration/country" className="flex items-center w-auto">
         Add More <Plus className="ml-2" />
       </Link>
     </Button>

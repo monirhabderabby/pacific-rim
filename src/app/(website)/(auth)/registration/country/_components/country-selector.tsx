@@ -92,7 +92,12 @@ function CountrySelector() {
       ])
     );
 
-    router.push(`/registration/country/${countryName}`);
+    const redirectUrl =
+      countryName === "United States" || countryName === "Canada"
+        ? `/registration/country/${countryName}`
+        : `/registration/country/${countryName}/business_information`;
+
+    router.push(redirectUrl);
   }
 
   function handleRegionTipShow(event, label, code) {

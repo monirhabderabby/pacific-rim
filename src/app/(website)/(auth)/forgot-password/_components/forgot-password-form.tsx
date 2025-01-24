@@ -74,7 +74,7 @@ export function ForgotPasswordForm() {
       className="w-full "
     >
       <div className="space-y-2 text-center">
-        <h1 className="text-[36px] leading-[43.2px] font-semibold text-[#6EBA6B]">
+        <h1 className="text-[36px] leading-[43.2px] font-semibold text-gradient">
           Forgot Password?
         </h1>
         <p className="text-[#444444] text-[16px] font-normal">
