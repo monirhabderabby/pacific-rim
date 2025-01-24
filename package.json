@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=4096' next build",
     "start": "next start",
     "lint": "next lint",
     "dev:trace": "node --trace-deprecation node_modules/next/dist/bin/next dev"
@@ -67,6 +67,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-icons": "^2.2.7",
+    "cross-env": "^7.0.3",
     "eslint": "^8",
     "eslint-config-next": "14.2.22",
     "postcss": "^8",

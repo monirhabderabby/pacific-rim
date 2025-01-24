@@ -1,4 +1,3 @@
-"use client";
 import { blurDataUrl } from "@/data/blur-data-url";
 import Image from "next/image";
 import Anim from "../animations/anim";

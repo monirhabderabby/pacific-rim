@@ -4,7 +4,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { ArrowRight, EyeIcon, EyeOffIcon } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -22,6 +21,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
+import { useRouter } from "next/navigation";
 import FormHeader from "./form-header";
 
 // Zod Schema for validation
@@ -48,6 +48,7 @@ export default function UserInformationForm() {
   });
   const authState = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -68,6 +69,11 @@ export default function UserInformationForm() {
 
   const togglePasswordVisibility = (field: "password" | "confirmPassword") => {
     setPasswordVisibility((prev) => ({ ...prev, [field]: !prev[field] }));
+  };
+
+  const onSubmit = (data: UserInformationFormType) => {
+    console.log(data);
+    router.push(`/registration/experiences`);
   };
 
   return (
@@ -96,7 +102,10 @@ export default function UserInformationForm() {
       />
 
       <Form {...form}>
-        <form className="flex flex-col gap-[20px] text-[20px]">
+        <form
+          className="flex flex-col gap-[20px] text-[20px]"
+          onSubmit={form.handleSubmit(onSubmit)}
+        >
           {/* Email Field */}
           <FormField
             name="email"
@@ -231,14 +240,9 @@ export default function UserInformationForm() {
           />
 
           <div className="pt-[40px]">
-            <Button disabled={isDisable} size="md" type="submit" asChild>
-              <Link
-                href="/registration/experiences"
-                className="flex items-center"
-              >
-                Next
-                <ArrowRight className="ml-2" />
-              </Link>
+            <Button disabled={isDisable} size="md" type="submit">
+              Next
+              <ArrowRight className="ml-2" />
             </Button>
           </div>
         </form>
