@@ -73,7 +73,7 @@ export function VerifyOTPForm({ onVerified }: VerifyOTPFormProps) {
       className="w-full"
     >
       <div className="space-y-2 text-center">
-        <h1 className="text-[36px] font-semibold text-[#6EBA6B] leading-[43.2px]">
+        <h1 className="text-[36px] font-semibold text-gradient leading-[43.2px]">
           Verify Email
         </h1>
         {form.formState.errors.otp ? (
@@ -138,12 +138,12 @@ export function VerifyOTPForm({ onVerified }: VerifyOTPFormProps) {
               }}
               className={`!text-[30px] text-[#4E4E4E] !font-medium !leading-[45px] w-[43.83px] 
               lg:w-[70px] h-[70px] lg:h-[90px] text-center text-xl rounded-[12px] lg:rounded-[20px] 
-              focus:outline-none focus:ring-2 focus:ring-[#2A6C2D] border-[1px] 
+              focus:outline-none focus:ring-2 focus:ring-[#121D42] border-[1px] 
               ${
                 form.formState.errors.otp
-                  ? "bg-red-200 border-red-500"
+                  ? "bg-red-200/50 border-red-500/50"
                   : form.watch("otp")[i]
-                  ? "border-[#2A6C2D] bg-[#EAF0EA]"
+                  ? "border-[#121D42] bg-[#E6EEF6]"
                   : "border-[#C5C5C5] bg-white"
               }`}
             />
@@ -156,7 +156,7 @@ export function VerifyOTPForm({ onVerified }: VerifyOTPFormProps) {
           <Button
             type="button"
             variant="link"
-            className="text-[#2A6C2D] text-base font-normal leading-[19.2px]"
+            className="text-gradient text-base font-normal leading-[19.2px]"
             onClick={() => {}}
           >
             Resend
