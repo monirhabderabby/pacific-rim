@@ -1,8 +1,4 @@
-import FooterLogo from "../../../../../public/assets/footer-logo.png";
-
 import Hideon from "@/provider/Hideon";
-import Image from "next/image";
-import Link from "next/link";
 
 // Define routes where the footer should be hidden
 const HIDE_ROUTES = [
@@ -44,7 +40,7 @@ const Footer = () => {
           {/* Footer Content Layout */}
           <div className="grid grid-cols-4 gap-4 lg:gap-x-24">
             {/* Logo Column */}
-            <div className="flex flex-col items-center col-span-4 lg:col-span-1">
+            {/* <div className="flex flex-col items-center col-span-4 lg:col-span-1">
               <Link href="/" aria-label="Go to homepage">
                 <Image
                   src={FooterLogo}
@@ -58,10 +54,10 @@ const Footer = () => {
                 PACIFIC RIM FUSION
               </h2>
               <p className="text-[#E6EEF6] text-[16px]">Share The Balance</p>
-            </div>
+            </div> */}
 
             {/* Information & Discover Columns */}
-            <div className="col-span-4 lg:col-span-2">
+            {/* <div className="col-span-4 lg:col-span-2">
               <div className="grid grid-cols-2 gap-10 lg:gap-24">
                 {footerLinks.map(({ title, links }) => (
                   <div key={title}>
@@ -83,10 +79,10 @@ const Footer = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Locate Us Section */}
-            <div className="col-span-3 lg:col-span-1">
+            {/* <div className="col-span-3 lg:col-span-1">
               <h3 className="text-[16px] font-medium mb-4 border-[#E6EEF6] border-b-[1px] pb-[10px] w-[160px] lg:w-[200px]">
                 Locate Us
               </h3>
@@ -95,15 +91,15 @@ const Footer = () => {
                 <br />
                 San Carlos, CA 94070
               </p>
-            </div>
+            </div> */}
 
             {/* Footer Bottom Text */}
-            <div className="lg:col-end-5 lg:col-span-3 col-span-4 text-[#D9D9D9] text-[10px] lg:text-[14px] text-center lg:text-start mt-2 lg:mt-8">
+            {/* <div className="lg:col-end-5 lg:col-span-3 col-span-4 text-[#D9D9D9] text-[10px] lg:text-[14px] text-center lg:text-start mt-2 lg:mt-8">
               <p>
                 2024 WWW Staging - Thailand - Pacific Rim Fusion, LLC. Powered
                 by WWW Staging - Thailand - Pacific Rim Fusion, LLC
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
