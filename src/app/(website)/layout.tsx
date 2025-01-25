@@ -1,14 +1,19 @@
 import "@/app/globals.css";
+
+// Packages
+import type { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
+import { Inter } from "next/font/google";
+
+// Local imports
 import { auth } from "@/auth";
 import AgeRestrictionGuard from "@/components/providers/AgeRestrictionGuard";
 import AppProvider from "@/components/providers/AppProvider";
 import NProgress from "@/components/providers/NProgress";
+import Footer from "@/components/shared/footer/mainFooter/footer";
 import NewsletterPage from "@/components/shared/footer/newsletter/page";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
-import type { Metadata } from "next";
-import { SessionProvider } from "next-auth/react";
-import { Inter } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,7 +43,7 @@ export default async function RootLayout({
 
             <div>
               <NewsletterPage />
-              {/* <Footer /> */}
+              <Footer />
             </div>
             <NProgress />
             <Toaster />
