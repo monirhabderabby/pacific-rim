@@ -1,18 +1,15 @@
 "use client";
 // Packages
-// import dynamic from "next/dynamic";
+
 import { usePathname } from "next/navigation";
 
 // Local imports
 import { cn } from "@/lib/utils";
 import Hideon from "@/provider/Hideon";
 import DesktopNavbar from "./DesktopNavbar";
-// const MobileTabletNavbar = dynamic(() => import("./MobileTabletNavbar"), {
-//   ssr: false,
-// });
+
 
 function Navbar() {
-  const loggedin = false;
   const pathName = usePathname();
 
   return (
@@ -32,7 +29,7 @@ function Navbar() {
           {/* <MobileTabletNavbar loggedin={loggedin} /> */}
         </div>
         <div className="hidden lg:block">
-          <DesktopNavbar pathName={pathName} loggedin={loggedin} />
+          <DesktopNavbar pathName={pathName} />
         </div>
       </header>
     </Hideon>
