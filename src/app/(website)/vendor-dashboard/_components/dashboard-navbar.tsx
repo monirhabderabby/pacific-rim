@@ -17,7 +17,9 @@ const DashNav = () => {
 
   const currentTab = getCurrentTab(pathName);
   return (
-    <div className="w-full h-[94px] bg-white flex items-center px-[38px]">
+    <div style={{
+      backgroundImage: "url('/assets/img/dashboard_nav_bg.svg')",
+    }}  className="bg-cover bg-center bg-no-repeat w-full h-[94px] bg-white flex items-center px-[38px]">
       <div className="ml-[336px] flex justify-between w-full">
         <div className="flex items-center gap-x-[16px]">
           <div
@@ -78,16 +80,16 @@ const DashRightSide = () => {
       <div className="flex items-center gap-x-[10px]">
         <Image
           src="/assets/img/profile_img.png"
-          width={42}
-          height={42}
+          width={44}
+          height={44}
           alt="profile"
           className="rounded-full"
         />
         <div className="flex flex-col gap-y-[2px]">
-          <h3 className="text-[16px] font-medium leading-[24px] text-gradient">
-            Aliana
+          <h3 className="text-[16px] font-medium leading-[20px] text-gradient">
+          Aliana
           </h3>
-          <p className="text-[12px] leading-[14.53px] font-normal text-[#7ABFFF33]">
+          <p className="text-[12px] leading-[14px] font-normal text-[#B0CBE4]">
             Vendor
           </p>
         </div>
