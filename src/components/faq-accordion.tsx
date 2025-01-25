@@ -6,7 +6,6 @@ import {
 } from "@/components/ui/accordion";
 import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
-import faqImg from "../../public/assets/img/faq-Image.png";
 
 export default function FAQSection() {
   return (
@@ -15,7 +14,9 @@ export default function FAQSection() {
         {/* Left Image Section */}
         <div className="w-[470px] h-[600px] hidden md:block">
           <Image
-            src={faqImg}
+            src="/assets/img/faq-Image.png"
+            width={470}
+            height={600}
             alt="Decorative background"
             className="rounded-lg object-cover h-auto"
           />

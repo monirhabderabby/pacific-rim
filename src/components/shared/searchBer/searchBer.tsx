@@ -11,7 +11,7 @@ function SearchBer() {
           <Input
             type="search"
             placeholder="Search"
-            className="pl-8 rounded-[6px]  lg:h-full border-[1px] border-[#2A6C2D] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-[15px] leading-[21px] placeholder:text-[#9C9C9C]"
+            className="pl-8 rounded-[6px]  lg:h-full border-[1px] border-[#0057A8] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-[15px] leading-[21px] placeholder:text-[#9C9C9C]"
           />
         </div>
         <Button className=" absolute right-0 top-0 mt-[4px] lg:mt-[0] h-[36px]  lg:h-full rounded-l-none">
