@@ -84,7 +84,7 @@ const Footer = () => {
             </div> */}
 
             {/* Locate Us Section */}
-            {/* <div className="col-span-3 lg:col-span-1">
+            <div className="col-span-3 lg:col-span-1">
               <h3 className="text-[16px] font-medium mb-4 border-[#E6EEF6] border-b-[1px] pb-[10px] w-[160px] lg:w-[200px]">
                 Locate Us
               </h3>
@@ -93,15 +93,15 @@ const Footer = () => {
                 <br />
                 San Carlos, CA 94070
               </p>
-            </div> */}
+            </div>
 
             {/* Footer Bottom Text */}
-            {/* <div className="lg:col-end-5 lg:col-span-3 col-span-4 text-[#D9D9D9] text-[10px] lg:text-[14px] text-center lg:text-start mt-2 lg:mt-8">
+            <div className="lg:col-end-5 lg:col-span-3 col-span-4 text-[#D9D9D9] text-[10px] lg:text-[14px] text-center lg:text-start mt-2 lg:mt-8">
               <p>
                 2024 WWW Staging - Thailand - Pacific Rim Fusion, LLC. Powered
                 by WWW Staging - Thailand - Pacific Rim Fusion, LLC
               </p>
-            </div> */}
+            </div>
           </div>
         </div>
       </footer>
