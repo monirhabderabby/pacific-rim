@@ -4,12 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Local imports
-import HeaderLogo from "@/../../public/assets/header-logo.png";
+import HeaderLogo from "/public/assets/header-logo.png";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
 import AuctionList from "./AuctionList";
-// import Dropdown, { AuctionMobileMenu } from "./demonav";
 import PagesList from "./PagesList";
 
 interface DesktopNavbarProps {
@@ -56,7 +55,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link href="/" className="">
           <span className="sr-only">Pacific Rim</span>
           <Image
-            alt=""
+            alt="Logo"
             src={HeaderLogo}
             className="h-[50px] w-[92px] lg:w-[100px]"
           />

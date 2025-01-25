@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 // Local imports
-import HeaderLogo from "@/../../public/assets/header-logo.png";
+import HeaderLogo from "/public/assets/header-logo.png";
 import { Button } from "@/components/ui/button";
 import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
 // import Dropdown, { AuctionMobileMenu } from "./demonav";
@@ -183,10 +183,10 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
               <div className="container pt-6">
                 {!loggedin ? (
                   <div className="grid grid-cols-2 gap-[30px]">
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" >
                       Log in
                     </Button>
-                    <Button type="button" size="sm">
+                    <Button type="button" >
                       Sign up
                     </Button>
                   </div>
