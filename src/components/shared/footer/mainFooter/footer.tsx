@@ -1,4 +1,7 @@
+import logo from "@/assets/logo/logo.png";
 import Hideon from "@/provider/Hideon";
+import Image from "next/image";
+import Link from "next/link";
 
 // Define routes where the footer should be hidden
 const HIDE_ROUTES = [
@@ -40,21 +43,22 @@ const Footer = () => {
           {/* Footer Content Layout */}
           <div className="grid grid-cols-4 gap-4 lg:gap-x-24">
             {/* Logo Column */}
-            {/* <div className="flex flex-col items-center col-span-4 lg:col-span-1">
+            <div className="flex flex-col items-center col-span-4 lg:col-span-1">
               <Link href="/" aria-label="Go to homepage">
                 <Image
-                  src={FooterLogo}
+                  src={logo}
                   alt="Pacific Rim Fusion Logo"
                   width={91}
                   height={91}
                   className="mb-4"
+                  placeholder="blur"
                 />
               </Link>
               <h2 className="text-[18px] font-semibold mb-1 text-[#ffffff]">
                 PACIFIC RIM FUSION
               </h2>
               <p className="text-[#E6EEF6] text-[16px]">Share The Balance</p>
-            </div> */}
+            </div>
 
             {/* Information & Discover Columns */}
             {/* <div className="col-span-4 lg:col-span-2">
