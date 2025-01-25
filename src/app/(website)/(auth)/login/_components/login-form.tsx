@@ -4,13 +4,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useTransition } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 import { z } from "zod";
 
 // Local imports
 
+import { SignInWithEmailAndPassword } from "@/actions/authentications/authentication";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -22,6 +22,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -31,10 +32,11 @@ const loginSchema = z.object({
     .refine((val) => val, "Please agree to the terms and privacy policy"),
 });
 
-type LoginFormValues = z.infer<typeof loginSchema>;
+export type LoginFormValues = z.infer<typeof loginSchema>;
 
-export function LoginForm() {
-  const [loading, setLoading] = useState(false);
+export default function LoginForm() {
+  const [isPending, startTransition] = useTransition();
+
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -44,31 +46,24 @@ export function LoginForm() {
     },
   });
 
-  const delayingForTestingPerpuse = (type: "success" | "failed") => {
-    setTimeout(() => {
-      if (type === "success") {
-        toast.success("successfully logged in.");
-      } else if (type === "failed") {
-        toast.error("Failed to login");
-      }
-
-      setLoading(false);
-      form.reset();
-    }, 3000);
-  };
-
-  const onSubmit = (data: LoginFormValues) => {
-    setLoading(true);
-    const { email, password } = data;
-    if (email === "user@example.com" && password === "password123") {
-      delayingForTestingPerpuse("success");
-    } else {
-      form.setError("password", {
-        message: "Invalid email or password combination",
-      });
-
-      delayingForTestingPerpuse("failed");
-    }
+  const onSubmit = async (data: LoginFormValues) => {
+    startTransition(() => {
+      SignInWithEmailAndPassword(data)
+        .then((res: any) => {
+          if (res.success) {
+            toast.success("Login successfull 🎉", {
+              position: "bottom-right",
+              richColors: true,
+            });
+          }
+        })
+        .catch((err) => {
+          toast.error(err.message, {
+            position: "bottom-right",
+            richColors: true,
+          });
+        });
+    });
   };
 
   return (
@@ -91,7 +86,7 @@ export function LoginForm() {
       className="w-full"
     >
       <div className="space-y-2 text-center">
-        <h1 className="text-[36px] leading-[43.2px] font-semibold text-[#6EBA6B] mb-[27px]">
+        <h1 className="text-[36px] leading-[43.2px] font-semibold text-gradient mb-[27px]">
           Log In
         </h1>
       </div>
@@ -147,18 +142,18 @@ export function LoginForm() {
                   <Checkbox
                     checked={field.value}
                     onCheckedChange={field.onChange}
-                    className=" border-2 border-[#9E9E9E] data-[state=checked]:bg-[#2A6C2D] data-[state=checked]:text-white"
+                    className=" border-2 border-[#9E9E9E] data-[state=checked]:bg-[#00417E] data-[state=checked]:text-white"
                   />
                   <label
                     htmlFor="remember"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
                     I agree with the{" "}
-                    <Link href="#" className="text-[#4CAF50]">
+                    <Link href="#" className="text-gradient">
                       term of service
                     </Link>{" "}
                     and{" "}
-                    <Link href="#" className="text-[#4CAF50]">
+                    <Link href="#" className="text-gradient">
                       privacy policy
                     </Link>
                   </label>
@@ -170,10 +165,10 @@ export function LoginForm() {
 
           <Button
             type="submit"
-            className="w-full bg-[#2A6C2D] p-[24px] h-[56px]"
-            disabled={loading}
+            className="w-full  p-[24px] h-[56px]"
+            disabled={isPending}
           >
-            {loading ? "Logging in..." : "Log In"}
+            {isPending ? "Logging in..." : "Log In"}
           </Button>
         </form>
       </Form>
@@ -181,7 +176,9 @@ export function LoginForm() {
         <div className="mt-[24px]">
           <Link
             href="/forgot-password"
-            className="text-[#2A6C2D] text-[16px] font-normal leading-[19.2px] "
+            className={`text-gradient text-[16px] font-normal leading-[19.2px] ${
+              isPending && "pointer-events-none"
+            }`}
           >
             Forgot Password?
           </Link>
@@ -190,7 +187,12 @@ export function LoginForm() {
           <span className="text-[16px] text-[#808080]">
             Don&apos;t have an account?{" "}
           </span>
-          <Link href="#" className="text-[#2A6C2D] text-[16px] font-normal ">
+          <Link
+            href="/registration"
+            className={`text-gradient text-[16px] font-normal  ${
+              isPending && "pointer-events-none"
+            }`}
+          >
             Sign Up
           </Link>
         </div>

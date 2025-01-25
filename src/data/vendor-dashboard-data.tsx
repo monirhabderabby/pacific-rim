@@ -1,5 +1,6 @@
 import { Icons } from "@/components/ui/icons";
 import {
+  BookImage,
   Box,
   Gift,
   LayoutDashboard,
@@ -25,7 +26,8 @@ export const sidebarContents = [
   {
     id: 2,
     name: "Media",
-    icon: Icons.media,
+    // icon: Icons.media,
+    icon: <BookImage className="h-[16px] w-[16px]"/>,
     href: "/vendor-dashboard/media",
   },
   {
@@ -87,31 +89,7 @@ export const sidebarContents = [
     name: "Membership",
     icon: Icons.userPlus,
     href: "/vendor-dashboard/membership",
-  },
-  {
-    id: 9,
-    name: "Staff",
-    icon: Icons.userPencil,
-    href: "/vendor-dashboard/staff",
-  },
-  {
-    id: 10,
-    name: "Group",
-    icon: Icons.users,
-    href: "/vendor-dashboard/staff",
-  },
-  {
-    id: 11,
-    name: "Followers",
-    icon: Icons.happy,
-    href: "/vendor-dashboard/staff",
-  },
-  {
-    id: 12,
-    name: "Supports",
-    icon: Icons.headphone,
-    href: "/vendor-dashboard/staff",
-  },
+  }
 ] as SidebarContentType[];
 
 export const getCurrentTab = (

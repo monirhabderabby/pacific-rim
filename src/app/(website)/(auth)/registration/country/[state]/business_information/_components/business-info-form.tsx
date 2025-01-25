@@ -1,19 +1,22 @@
 "use client";
 
 // Packages
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-
-// Local imports
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { updateBusiness } from "@/redux/features/authentication/AuthSlice";
-import { useAppSelector } from "@/redux/store";
-
 import { Plus } from "lucide-react";
 import { useRouter } from "next-nprogress-bar";
+import Link from "next/link";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { toast } from "sonner";
-import { AdminApprovalModal } from "../../../../../_components/modal/admin-aproval-modal";
+
+// Local imports
+import { AdminApprovalModal } from "@/app/(website)/(auth)/_components/admin-aproval-modal";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  resetAuthSlice,
+  updateBusiness,
+} from "@/redux/features/authentication/AuthSlice";
+import { useAppSelector } from "@/redux/store";
 import FormHeader from "../../../../_components/form-header";
 
 export function BusinessInfoForm() {
@@ -29,8 +32,6 @@ export function BusinessInfoForm() {
 
   const isRecreational = authState.type === "Recreational Cannabis";
 
-  console.log(authState);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -40,17 +41,20 @@ export function BusinessInfoForm() {
   };
 
   const submitForm = () => {
+    console.log(authState);
     if (isRecreational) {
       setIsModalOpen(true);
     } else {
       // Code you business logic here...
-      console.log(authState);
+
       toast.success("Your account is ready! ");
 
       setTimeout(() => {
         router.push("/login");
       }, 500);
     }
+
+    dispatch(resetAuthSlice());
   };
 
   const isNextDisabled = !currentBusinessInfo?.businessLicense;
@@ -127,7 +131,9 @@ export default BusinessInfoForm;
 const AddMoreButton = () => {
   return (
     <Button variant="outline">
-      Add More <Plus className="ml-2" />
+      <Link href="/registration/country" className="flex items-center w-auto">
+        Add More <Plus className="ml-2" />
+      </Link>
     </Button>
   );
 };
