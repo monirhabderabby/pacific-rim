@@ -25,7 +25,6 @@ function Navbar() {
         "/reset-password",
         "/forgot-password",
       ]}
-      currentPath={pathName}
     >
       <header className={cn("bg-white", pathName !== "/" && "border-b-2")}>
         <div className="lg:hidden">

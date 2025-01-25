@@ -9,16 +9,15 @@ import GeoChart from "./_components/TopUserCountries";
 
 const Page = () => {
   return (
-    <div className="w-full px-5 bg-[#eaf0ea] ">
+    <div className="w-full bg-[#E6EEF6] ">
 
-<ProfileCompletion/>
+      <ProfileCompletion />
 
-    <>
-    <h1 className="text-[#0057A8] text-[22px] font-semibold mb-[20px]">Dashboard Overview</h1>
-     <DashboardOverview/>
+      <>
+        <h1 className="text-[#0057A8] text-[22px] font-semibold mb-[20px]">Dashboard Overview</h1>
+        <DashboardOverview />
 
-    </>
-
+      </>
 <div className="  w-full  mx-auto grid grid-cols-6 gap-8 my-[30px] ">
   <PaymentVolumeChart/>
 
@@ -30,11 +29,11 @@ const Page = () => {
 <GeoChart/>
 
 
-<div className="w-full   mx-auto mb-[30px]">
-<OrderRangeChart/>
-</div>
+      <div className="w-full   mx-auto mb-[30px]">
+        <OrderRangeChart />
+      </div>
 
-  </div>
+    </div>
   )
 
 };
