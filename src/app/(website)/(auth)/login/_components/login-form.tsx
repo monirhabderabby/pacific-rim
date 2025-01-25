@@ -4,13 +4,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useTransition } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 import { z } from "zod";
 
 // Local imports
 
+import { SignInWithEmailAndPassword } from "@/actions/authentications/authentication";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -22,6 +22,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -31,10 +32,11 @@ const loginSchema = z.object({
     .refine((val) => val, "Please agree to the terms and privacy policy"),
 });
 
-type LoginFormValues = z.infer<typeof loginSchema>;
+export type LoginFormValues = z.infer<typeof loginSchema>;
 
 export default function LoginForm() {
-  const [loading, setLoading] = useState(false);
+  const [isPending, startTransition] = useTransition();
+
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -44,31 +46,24 @@ export default function LoginForm() {
     },
   });
 
-  const delayingForTestingPerpuse = (type: "success" | "failed") => {
-    setTimeout(() => {
-      if (type === "success") {
-        toast.success("successfully logged in.");
-      } else if (type === "failed") {
-        toast.error("Failed to login");
-      }
-
-      setLoading(false);
-      form.reset();
-    }, 3000);
-  };
-
-  const onSubmit = (data: LoginFormValues) => {
-    setLoading(true);
-    const { email, password } = data;
-    if (email === "user@example.com" && password === "password123") {
-      delayingForTestingPerpuse("success");
-    } else {
-      form.setError("password", {
-        message: "Invalid email or password combination",
-      });
-
-      delayingForTestingPerpuse("failed");
-    }
+  const onSubmit = async (data: LoginFormValues) => {
+    startTransition(() => {
+      SignInWithEmailAndPassword(data)
+        .then((res: any) => {
+          if (res.success) {
+            toast.success("Login successfull 🎉", {
+              position: "bottom-right",
+              richColors: true,
+            });
+          }
+        })
+        .catch((err) => {
+          toast.error(err.message, {
+            position: "bottom-right",
+            richColors: true,
+          });
+        });
+    });
   };
 
   return (
@@ -171,9 +166,9 @@ export default function LoginForm() {
           <Button
             type="submit"
             className="w-full  p-[24px] h-[56px]"
-            disabled={loading}
+            disabled={isPending}
           >
-            {loading ? "Logging in..." : "Log In"}
+            {isPending ? "Logging in..." : "Log In"}
           </Button>
         </form>
       </Form>
@@ -181,7 +176,9 @@ export default function LoginForm() {
         <div className="mt-[24px]">
           <Link
             href="/forgot-password"
-            className="text-gradient text-[16px] font-normal leading-[19.2px] "
+            className={`text-gradient text-[16px] font-normal leading-[19.2px] ${
+              isPending && "pointer-events-none"
+            }`}
           >
             Forgot Password?
           </Link>
@@ -192,7 +189,9 @@ export default function LoginForm() {
           </span>
           <Link
             href="/registration"
-            className="text-gradient text-[16px] font-normal "
+            className={`text-gradient text-[16px] font-normal  ${
+              isPending && "pointer-events-none"
+            }`}
           >
             Sign Up
           </Link>
