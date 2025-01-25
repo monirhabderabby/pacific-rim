@@ -1,12 +1,14 @@
-import { Icons } from "@/components/ui/icons";
 import {
   BookImage,
   Box,
   Gift,
   LayoutDashboard,
+  MessageSquare,
   Settings,
   ShoppingCart,
+  UserPlus,
 } from "lucide-react";
+import Image from "next/image";
 
 export type SidebarContentType = {
   id: number;
@@ -39,7 +41,8 @@ export const sidebarContents = [
   {
     id: 4,
     name: "Auctions",
-    icon: Icons.hammer,
+    // icon: Icons.hammer,
+    icon: <Image src="/assets/img/auction_icon.png" alt="auction" width={16} height={16}/>,
     href: "/vendor-dashboard/live-auctions",
   },
   {
@@ -63,31 +66,34 @@ export const sidebarContents = [
   {
     id: 7,
     name: "Customer",
-    icon: Icons.userI,
+    // icon: Icons.userI,
+    icon: <Image src="/assets/img/customer_icon.png" alt="customer" width={16} height={16}/>,
     href: "/vendor-dashboard/customers",
   },
   {
     id: 8,
     name: "Refund",
-    icon: Icons.refund,
+    // icon: Icons.refund,
+    icon: <Image src="/assets/img/refund_icon.png" alt="refund" width={16} height={16}/>,
     href: "/vendor-dashboard/refund",
   },
   {
     id: 8,
     name: "Reports",
-    icon: Icons.reports,
+    // icon: Icons.reports,
+    icon: <Image src="/assets/img/reports.png" alt="reports" width={16} height={16}/>,
     href: "/vendor-dashboard/reports",
   },
   {
     id: 9,
     name: "Reviews",
-    icon: Icons.message,
+    icon: <MessageSquare  className="h-[16px] w-[16px]"/>,
     href: "/vendor-dashboard/reviews",
   },
   {
     id: 9,
     name: "Membership",
-    icon: Icons.userPlus,
+    icon: <UserPlus className="h-[16px] w-[16px]" />,
     href: "/vendor-dashboard/membership",
   }
 ] as SidebarContentType[];

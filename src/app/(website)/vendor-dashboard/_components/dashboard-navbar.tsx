@@ -17,12 +17,12 @@ const DashNav = () => {
 
   const currentTab = getCurrentTab(pathName);
   return (
-    <div className="w-full h-[94px] bg-white flex items-center pl-[38px]">
-      <div className="ml-[336px] mr-[37px] flex justify-between w-full">
+    <div className="w-full h-[94px] bg-white flex items-center px-[38px]">
+      <div className="ml-[336px] flex justify-between w-full">
         <div className="flex items-center gap-x-[16px]">
           <div
             className={cn(
-              " w-full h-[46px] rounded-[4px] pl-[16px] flex items-center gap-[12px] font-medium text-[18px] leading-[21.4px] transition-colors duration-300 bg-transparent text-[#152764] hover:bg-white/10"
+              "w-full h-[46px] rounded-[4px] pl-[16px] flex items-center gap-[12px] font-medium text-[18px] leading-[21.4px] transition-colors duration-300 bg-transparent text-[#152764] "
             )}
           >
             {currentTab?.icon} {currentTab?.name}
@@ -48,10 +48,10 @@ const SearchButton = () => {
           <Input
             type="search"
             placeholder="Search"
-            className="pl-8 rounded-[6px]  lg:h-full border-[1px] border-[#4857BD] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-[15px] leading-[21px] placeholder:text-[#9C9C9C]"
+            className="pl-8 rounded-[6px]  lg:h-full border-[1px] border-[#4857BD] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-[15px] leading-[21px] placeholder:text-gradient"
           />
         </div>
-        <Button className=" absolute right-0 top-0 mt-[4px] lg:mt-[0] h-[36px]  lg:h-full rounded-l-none">
+        <Button className="absolute right-0 top-0 mt-[4px] lg:mt-[0] h-[36px]  lg:h-full rounded-l-none text-sm font-semibold leading-[17px]">
           Search
         </Button>
       </div>
@@ -61,10 +61,10 @@ const SearchButton = () => {
 
 const DashRightSide = () => {
   return (
-    <div className="flex items-center gap-x-[20px]">
+    <div className="flex items-center justify-end gap-x-[20px]">
       <Link
         href="/"
-        className="h-[35px] w-[35px] border-[1px] border-[#152764] bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD]  text-[#152764] flex justify-center items-center rounded-[24px] hover:bg-white/20 transition-colors duration-300"
+        className="h-[35px] w-[35px] bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] hover:from-[#7091FF] hover:via-[#2F4697] hover:to-[#7485FB] transition-all duration-500 ease-in-out text-[#152764] flex justify-center items-center rounded-[24px]"
       >
         <MessageCircleMore className="h-[12px] w-[12px] text-white" />
       </Link>
@@ -77,18 +77,18 @@ const DashRightSide = () => {
 
       <div className="flex items-center gap-x-[10px]">
         <Image
-          src="https://www.monirhrabby.info/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile.fe6e329e.jpg&w=256&q=95"
+          src="/assets/img/profile_img.png"
           width={42}
           height={42}
           alt="profile"
           className="rounded-full"
         />
         <div className="flex flex-col gap-y-[2px]">
-          <h3 className="text-[16px] font-medium leading-[24px] text-[#152764]">
-            Monir Hossain
+          <h3 className="text-[16px] font-medium leading-[24px] text-gradient">
+            Aliana
           </h3>
           <p className="text-[12px] leading-[14.53px] font-normal text-[#7ABFFF33]">
-            Business
+            Vendor
           </p>
         </div>
       </div>

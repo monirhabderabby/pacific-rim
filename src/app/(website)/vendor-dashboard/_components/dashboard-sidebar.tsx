@@ -11,7 +11,7 @@ const DashSidebar = () => {
       <ScrollArea className="h-full w-full">
         <div className="bg-[#F9FAFD] flex justify-center items-center gap-[12px] w-[266px] h-[95px] shadow-[0px_4px_22px_0px_#D3D8FF99] rounded-[36px] ml-[38px] mt-[32px] mr-[50px] ">
           <Image src="/assets/img/dashboard_logo.png" alt="dashboard_img" width={75} height={75} />
-          <span className="text-[15px] font-semibold leading-[18px] ">PACIFIC <br />
+          <span className="text-[15px] font-semibold leading-[18px] text-[#00417E]">PACIFIC <br />
             RIM <br />
             FUSION</span>
         </div>
