@@ -10,27 +10,27 @@ const HIDE_ROUTES = [
 ];
 
 // Define an array of links for the footer
-const footerLinks = [
-  {
-    title: "Information",
-    links: [
-      { label: "About Us", href: "/about" },
-      { label: "Contact", href: "/contact" },
-      { label: "Privacy Policy", href: "/privacyPolicy" },
-      { label: "Terms and Conditions", href: "/term-and-conditions" },
-      { label: "FAQs", href: "/faqs" },
-    ],
-  },
-  {
-    title: "Discover",
-    links: [
-      { label: "Live Auction", href: "/live-auctions" },
-      { label: "Features", href: "/features" },
-      { label: "Ending Soon", href: "/ending-soon" },
-      { label: "Features Auction", href: "/features-auction" },
-    ],
-  },
-];
+// const footerLinks = [
+//   {
+//     title: "Information",
+//     links: [
+//       { label: "About Us", href: "/about" },
+//       { label: "Contact", href: "/contact" },
+//       { label: "Privacy Policy", href: "/privacyPolicy" },
+//       { label: "Terms and Conditions", href: "/term-and-conditions" },
+//       { label: "FAQs", href: "/faqs" },
+//     ],
+//   },
+//   {
+//     title: "Discover",
+//     links: [
+//       { label: "Live Auction", href: "/live-auctions" },
+//       { label: "Features", href: "/features" },
+//       { label: "Ending Soon", href: "/ending-soon" },
+//       { label: "Features Auction", href: "/features-auction" },
+//     ],
+//   },
+// ];
 
 const Footer = () => {
   return (
