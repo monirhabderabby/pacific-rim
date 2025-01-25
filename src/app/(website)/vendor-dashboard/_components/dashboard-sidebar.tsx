@@ -28,7 +28,7 @@ const DashSidebar = () => {
     <>
       <div style={{
         backgroundImage: "url('/assets/img/dashboard_sidebar_bg.svg')",
-      }} className="bg-cover bg-center bg-no-repeat h-full w-[354px] bg-white shadow-[0px_28px_20px_0px_#0000000D] sticky top-[0px] pt-[20px] -mt-24">
+      }} className="bg-cover bg-center bg-no-repeat h-full w-[354px] bg-white rounded-tr-lg shadow-[0px_28px_20px_0px_#0000000D] sticky top-[0px] pt-[20px] -mt-24">
         <ScrollArea className="h-full w-full">
           <div className="bg-[#F9FAFD] flex justify-center items-center gap-[12px] w-[266px] h-[95px] shadow-[0px_4px_22px_0px_#D3D8FF99] rounded-[36px] ml-[38px] mt-[32px] mr-[50px] ">
             <Image src="/assets/img/dashboard_logo.png" alt="dashboard_img" width={75} height={75} />
