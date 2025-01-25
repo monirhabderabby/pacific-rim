@@ -18,27 +18,27 @@ import PagesMobileNav from "./PagesMobileNav";
 const Navicons = [
   {
     href: "/notifications",
-    src: "/assets/svg/bell.svg",
+    src: "public/assets/svg/bell.svg",
     alt: "bell-icon",
     count: 4,
     srOnlyText: "View notifications",
   },
   {
     href: "/wishlist",
-    src: "/assets/svg/heart.svg",
+    src: "public/assets/svg/heart.svg",
     alt: "heart-icon",
     srOnlyText: "View wishlist",
   },
   {
     href: "/cart",
-    src: "/assets/svg/cart-icon.svg",
+    src: "public/assets/svg/cart-icon.svg",
     alt: "cart-icon",
     count: 2,
     srOnlyText: "View cart",
   },
   {
     href: "/account",
-    src: "/assets/svg/user-circle.svg",
+    src: "public/assets/svg/user-circle.svg",
     alt: "user-icon",
     srOnlyText: "View account",
   },
@@ -46,13 +46,13 @@ const Navicons = [
 const mobileNavicons = [
   {
     href: "/wishlist",
-    src: "/assets/svg/heart.svg",
+    src: "public/assets/svg/heart.svg",
     alt: "heart-icon",
     srOnlyText: "View wishlist",
   },
   {
     href: "/cart",
-    src: "/assets/svg/cart-icon.svg",
+    src: "public/assets/svg/cart-icon.svg",
     alt: "cart-icon",
     count: 4,
     srOnlyText: "View cart",
