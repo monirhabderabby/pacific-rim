@@ -1,4 +1,3 @@
-import logo from "@/assets/logo/logo.png";
 import Hideon from "@/provider/Hideon";
 import Image from "next/image";
 import Link from "next/link";
@@ -46,12 +45,11 @@ const Footer = () => {
             <div className="flex flex-col items-center col-span-4 lg:col-span-1">
               <Link href="/" aria-label="Go to homepage">
                 <Image
-                  src={logo}
+                  src="/assets/logo.png"
                   alt="Pacific Rim Fusion Logo"
                   width={91}
                   height={91}
                   className="mb-4"
-                  placeholder="blur"
                 />
               </Link>
               <h2 className="text-[18px] font-semibold mb-1 text-[#ffffff]">
