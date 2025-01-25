@@ -3,8 +3,7 @@ import { PopoverGroup } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Local imports
-import HeaderLogo from "../../../../../public/assets/img/header-logo.png";
+
 
 
 function DesktopNavbar() {
@@ -18,7 +17,9 @@ function DesktopNavbar() {
           <span className="sr-only">Pacific Rim</span>
           <Image
             alt="Logo"
-            src={HeaderLogo}
+            src="/assets/img/header-logo.png"
+            width={92}
+            height={50}
             className="h-[50px] w-[92px] lg:w-[100px]"
           />
         </Link>
