@@ -4,16 +4,39 @@ import Hideon from "@/provider/Hideon";
 import Image from "next/image";
 import Link from "next/link";
 
-function Footer() {
-  // Define routes where the footer should be hidden
-  const HIDE_ROUTES = [
-    "/age-alert",
-    "/vendor-dashboard",
-    "/login",
-    "/registration",
-    "/forgot-password",
-  ];
+// Define routes where the footer should be hidden
+const HIDE_ROUTES = [
+  "/age-alert",
+  "/vendor-dashboard",
+  "/login",
+  "/registration",
+  "/forgot-password",
+];
 
+// Define an array of links for the footer
+const footerLinks = [
+  {
+    title: "Information",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Privacy Policy", href: "/privacyPolicy" },
+      { label: "Terms and Conditions", href: "/term-and-conditions" },
+      { label: "FAQs", href: "/faqs" },
+    ],
+  },
+  {
+    title: "Discover",
+    links: [
+      { label: "Live Auction", href: "/live-auctions" },
+      { label: "Features", href: "/features" },
+      { label: "Ending Soon", href: "/ending-soon" },
+      { label: "Features Auction", href: "/features-auction" },
+    ],
+  },
+];
+
+const Footer = () => {
   return (
     <Hideon routes={HIDE_ROUTES}>
       <footer className="bg-[#101218] text-white pt-12 lg:pt-20 pb-12">
@@ -40,57 +63,25 @@ function Footer() {
             {/* Information & Discover Columns */}
             <div className="col-span-4 lg:col-span-2">
               <div className="grid grid-cols-2 gap-10 lg:gap-24">
-                {/* Information Section */}
-                <div>
-                  <h3 className="text-[16px] font-medium mb-4 border-[#E6EEF6] border-b-[1px] pb-[10px]">
-                    Information
-                  </h3>
-                  <ul className="space-y-2">
-                    {[
-                      { label: "About Us", href: "/about" },
-                      { label: "Contact", href: "/contact" },
-                      { label: "Privacy Policy", href: "/privacyPolicy" },
-                      {
-                        label: "Terms and Conditions",
-                        href: "/term-and-conditions",
-                      },
-                      { label: "FAQs", href: "/faqs" },
-                    ].map(({ label, href }) => (
-                      <li key={label}>
-                        <Link
-                          href={href}
-                          className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
-                        >
-                          {label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Discover Section */}
-                <div>
-                  <h3 className="text-[16px] font-medium mb-4 border-[#E6EEF6] border-b-[1px] pb-[10px]">
-                    Discover
-                  </h3>
-                  <ul className="space-y-2">
-                    {[
-                      { label: "Live Auction", href: "/live-auctions" },
-                      { label: "Features", href: "/features" },
-                      { label: "Ending Soon", href: "/ending-soon" },
-                      { label: "Features Auction", href: "/features-auction" },
-                    ].map(({ label, href }) => (
-                      <li key={label}>
-                        <Link
-                          href={href}
-                          className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
-                        >
-                          {label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {footerLinks.map(({ title, links }) => (
+                  <div key={title}>
+                    <h3 className="text-[16px] font-medium mb-4 border-[#E6EEF6] border-b-[1px] pb-[10px]">
+                      {title}
+                    </h3>
+                    <ul className="space-y-2">
+                      {links.map(({ label, href }) => (
+                        <li key={label}>
+                          <Link
+                            href={href}
+                            className="text-[#E6EEF6] text-[14px] font-normal hover:text-white transition-colors"
+                          >
+                            {label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -118,6 +109,6 @@ function Footer() {
       </footer>
     </Hideon>
   );
-}
+};
 
 export default Footer;
