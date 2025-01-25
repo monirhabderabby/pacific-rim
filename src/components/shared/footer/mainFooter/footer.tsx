@@ -12,27 +12,27 @@ const HIDE_ROUTES = [
 ];
 
 // Define an array of links for the footer
-// const footerLinks = [
-//   {
-//     title: "Information",
-//     links: [
-//       { label: "About Us", href: "/about" },
-//       { label: "Contact", href: "/contact" },
-//       { label: "Privacy Policy", href: "/privacyPolicy" },
-//       { label: "Terms and Conditions", href: "/term-and-conditions" },
-//       { label: "FAQs", href: "/faqs" },
-//     ],
-//   },
-//   {
-//     title: "Discover",
-//     links: [
-//       { label: "Live Auction", href: "/live-auctions" },
-//       { label: "Features", href: "/features" },
-//       { label: "Ending Soon", href: "/ending-soon" },
-//       { label: "Features Auction", href: "/features-auction" },
-//     ],
-//   },
-// ];
+const footerLinks = [
+  {
+    title: "Information",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Privacy Policy", href: "/privacyPolicy" },
+      { label: "Terms and Conditions", href: "/term-and-conditions" },
+      { label: "FAQs", href: "/faqs" },
+    ],
+  },
+  {
+    title: "Discover",
+    links: [
+      { label: "Live Auction", href: "/live-auctions" },
+      { label: "Features", href: "/features" },
+      { label: "Ending Soon", href: "/ending-soon" },
+      { label: "Features Auction", href: "/features-auction" },
+    ],
+  },
+];
 
 const Footer = () => {
   return (
@@ -59,7 +59,7 @@ const Footer = () => {
             </div>
 
             {/* Information & Discover Columns */}
-            {/* <div className="col-span-4 lg:col-span-2">
+            <div className="col-span-4 lg:col-span-2">
               <div className="grid grid-cols-2 gap-10 lg:gap-24">
                 {footerLinks.map(({ title, links }) => (
                   <div key={title}>
@@ -81,7 +81,7 @@ const Footer = () => {
                   </div>
                 ))}
               </div>
-            </div> */}
+            </div>
 
             {/* Locate Us Section */}
             <div className="col-span-3 lg:col-span-1">
