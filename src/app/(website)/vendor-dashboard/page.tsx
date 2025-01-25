@@ -1,9 +1,11 @@
 import AnalyticsChart from "./_components/analytics-chart";
 
 import DashboardOverview from "./_components/dashBoardOverview";
+import MostSoldItems from "./_components/MostSoldItems";
 import OrderRangeChart from "./_components/order-range-chart";
 import PaymentVolumeChart from "./_components/payment-volume-chart";
 import ProfileCompletion from "./_components/ProfileCompletion";
+import GeoChart from "./_components/TopUserCountries";
 
 const Page = () => {
   return (
@@ -19,8 +21,14 @@ const Page = () => {
 
 <div className="  w-full  mx-auto grid grid-cols-6 gap-8 my-[30px] ">
   <PaymentVolumeChart/>
+
+  <div className="w-full col-span-2">
+<MostSoldItems/>
   <AnalyticsChart/>
 </div>
+</div>
+<GeoChart/>
+
 
 <div className="w-full   mx-auto mb-[30px]">
 <OrderRangeChart/>
