@@ -5,47 +5,49 @@ import Link from "next/link";
 
 // Local imports
 import HeaderLogo from "/public/assets/header-logo.png";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
-import AuctionList from "./AuctionList";
-import PagesList from "./PagesList";
+// import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
+// import AuctionList from "./AuctionList";
+// import PagesList from "./PagesList";
 
 interface DesktopNavbarProps {
   pathName: string;
   loggedin: boolean;
 }
 
-const Navicons = [
-  {
-    href: "/notifications",
-    src: "/assets/svg/bell.svg",
-    alt: "bell-icon",
-    count: 4,
-    srOnlyText: "View notifications",
-  },
-  {
-    href: "/wishlist",
-    src: "/assets/svg/heart.svg",
-    alt: "heart-icon",
-    srOnlyText: "View wishlist",
-  },
-  {
-    href: "/cart",
-    src: "/assets/svg/cart-icon.svg",
-    alt: "cart-icon",
-    count: 2,
-    srOnlyText: "View cart",
-  },
-  {
-    href: "/account",
-    src: "/assets/svg/user-circle.svg",
-    alt: "user-icon",
-    srOnlyText: "View account",
-  },
-];
+// const Navicons = [
+//   {
+//     href: "/notifications",
+//     src: "/assets/svg/bell.svg",
+//     alt: "bell-icon",
+//     count: 4,
+//     srOnlyText: "View notifications",
+//   },
+//   {
+//     href: "/wishlist",
+//     src: "/assets/svg/heart.svg",
+//     alt: "heart-icon",
+//     srOnlyText: "View wishlist",
+//   },
+//   {
+//     href: "/cart",
+//     src: "/assets/svg/cart-icon.svg",
+//     alt: "cart-icon",
+//     count: 2,
+//     srOnlyText: "View cart",
+//   },
+//   {
+//     href: "/account",
+//     src: "/assets/svg/user-circle.svg",
+//     alt: "user-icon",
+//     srOnlyText: "View account",
+//   },
+// ];
 
-function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
+
+// loggedin
+function DesktopNavbar({ pathName }: DesktopNavbarProps) {
   return (
     <nav
       aria-label="Global"
@@ -80,7 +82,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         >
           About
         </Link>
-        <Link
+        {/* <Link
           href=""
           className={cn(
             "text-[20px] font-normal hover:text-gradient",
@@ -90,7 +92,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           )}
         >
           <AuctionList />
-        </Link>
+        </Link> */}
         <Link
           href="/blogs"
           className={cn(
@@ -100,7 +102,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         >
           Blog
         </Link>
-        <Link
+        {/* <Link
           href=""
           className={cn(
             "text-[20px] font-normal hover:text-gradient",
@@ -108,7 +110,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           )}
         >
           <PagesList />
-        </Link>
+        </Link> */}
         <Link
           href="/contact"
           className={cn(
@@ -119,7 +121,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           Contact
         </Link>
       </PopoverGroup>
-      <div>
+      {/* <div>
         {!loggedin ? (
           <div className="hidden lg:flex lg:flex-1 gap-x-[20px] lg:justify-end">
             <Button variant="outline" asChild size="md">
@@ -134,7 +136,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
             <HeaderIconMenu icons={Navicons} />
           </div>
         )}
-      </div>
+      </div> */}
     </nav>
   );
 }
