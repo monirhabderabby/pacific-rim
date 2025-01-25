@@ -12,6 +12,7 @@ import AppProvider from "@/components/providers/AppProvider";
 import NProgress from "@/components/providers/NProgress";
 import Footer from "@/components/shared/footer/mainFooter/footer";
 import NewsletterPage from "@/components/shared/footer/newsletter/page";
+import Navbar from "@/components/shared/header/mainHeader/navbar";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 
@@ -36,9 +37,9 @@ export default async function RootLayout({
       <AppProvider>
         <html lang="en">
           <body className={cn("antialiased", inter.className)}>
-            {/* <div>
+            <div>
             <Navbar />
-          </div> */}
+          </div>
             <AgeRestrictionGuard>{children}</AgeRestrictionGuard>
 
             <div>

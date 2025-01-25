@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Local imports
-import HeaderLogo from "@/../../public/assets/header-logo.png";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
@@ -57,7 +56,9 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           <span className="sr-only">Pacific Rim</span>
           <Image
             alt=""
-            src={HeaderLogo}
+            src="/assets/img/header-logo.png"
+            width={92}
+            height={50}
             className="h-[50px] w-[92px] lg:w-[100px]"
           />
         </Link>
