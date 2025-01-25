@@ -8,6 +8,7 @@ import AboutSection from "@/components/shared/sections/about-section";
 import PopularBlog from "@/components/shared/sections/popularBlogs/popularBlogs";
 import BestOffer from "./_components/best_offer";
 import DealOfTheDay from "./_components/deal_of_the_day";
+import FAQSection from "@/components/faq-accordion";
 
 const Page = async () => {
   const loggedin = true;
@@ -22,11 +23,11 @@ const Page = async () => {
         {!loggedin && (
           <AboutSection image="https://utfs.io/f/HkyicnKv4pLkKb11IfnzkrEA5LwVvWx2Fbfe7a6P94u0gcjZ" />
         )}
-        {/* {!loggedin && (
+        {!loggedin && (
           <div className="pb-[160px]">
             <FAQSection />
           </div>
-        )} */}
+        )}
         {loggedin && <DealOfTheDay />}
         {loggedin && <PopularBlog />}
         {loggedin && <ClientReviews />}

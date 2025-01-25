@@ -106,7 +106,7 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
           href=""
           className={cn(
             "text-[20px] font-normal hover:text-gradient",
-            pathName === "/blogs" ? "text-gradient" : "text-black font-normal"
+            pathName === "" ? "text-gradient" : "text-black font-normal"
           )}
         >
           <PagesList />
