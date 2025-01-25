@@ -28,17 +28,17 @@ const monthData: Record<MonthKey, DataItem[]> = {
   Nov: [
     { name: "Sales", value: 65, color: "#2A6C2D" },
     { name: "Pending", value: 15, color: "#DBB0E4" },
-    { name: "Distribute", value: 20, color: "#0057A8" },
+    { name: "Distribute", value: 20, color: "#7ABFFF" },
   ],
   Dec: [
     { name: "Sales", value: 50, color: "#2A6C2D" },
     { name: "Pending", value: 25, color: "#DBB0E4" },
-    { name: "Distribute", value: 25, color: "#0057A8" },
+    { name: "Distribute", value: 25, color: "#7ABFFF" },
   ],
   Jan: [
     { name: "Sales", value: 70, color: "#2A6C2D" },
-    { name: "Pending", value: 20, color: "hsl(280, 100%, 88%)" },
-    { name: "Distribute", value: 10, color: "#0057A8" },
+    { name: "Pending", value: 20, color: "#DBB0E4" },
+    { name: "Distribute", value: 10, color: "#7ABFFF" },
   ],
 };
 
@@ -52,9 +52,9 @@ export default function AnalyticsChart() {
   return (
     <Card className="w-full col-span-2">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-7">
-        <CardTitle className="text-[#494949] text-[28px] font-semibold">Analytics</CardTitle>
+        <CardTitle className="text-gradient text-[28px] font-semibold">Analytics</CardTitle>
         <Select defaultValue={month} onValueChange={(value) => setMonth(value as MonthKey)}>
-          <SelectTrigger className="w-[90px] bg-[#15803d] text-white focus:ring-0">
+          <SelectTrigger className="w-[90px] bg-primary text-white focus:ring-0">
             <SelectValue />
           </SelectTrigger>
           <SelectContent className="  text-[12px] rounded-[8px]">
