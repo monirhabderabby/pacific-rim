@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 // Local imports
-import HeaderLogo from "@/../../public/assets/header-logo.png";
 import { Button } from "@/components/ui/button";
 import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
 // import Dropdown, { AuctionMobileMenu } from "./demonav";
@@ -91,7 +90,13 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
         <div className="flex">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Pacific Rim</span>
-            <Image alt="Logo" src={HeaderLogo} className="h-10 w-20" />
+            <Image 
+              alt="Logo" 
+              src="/assets/img/header-logo.png"
+              width={20}
+              height={10} 
+              className="h-10 w-20" 
+            />
           </Link>
         </div>
         <div className="flex items-center gap-4">
@@ -124,7 +129,12 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
           <div className="flex items-center justify-between px-6">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Pacific Rim</span>
-              <Image alt="Logo" src={HeaderLogo} className="h-8 w-auto" />
+              <Image alt="Logo" 
+                src="/assets/img/header-logo.png" 
+                width={20}
+                height={8} 
+                className="h-8 w-auto" 
+              />
             </Link>
             <button
               type="button"
@@ -183,10 +193,10 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
               <div className="container pt-6">
                 {!loggedin ? (
                   <div className="grid grid-cols-2 gap-[30px]">
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" >
                       Log in
                     </Button>
-                    <Button type="button" size="sm">
+                    <Button type="button" >
                       Sign up
                     </Button>
                   </div>
