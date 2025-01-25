@@ -1,6 +1,5 @@
 "use client";
 import { SidebarContentType } from "@/data/vendor-dashboard-data";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,17 +12,11 @@ const DashboardSidebarItem = ({ item }: Props) => {
   const isActive = pathName === item.href;
 
   return (
-    <Link
-      href={item.href}
-      className={cn(
-        " w-full h-[46px] rounded-[4px] pl-[16px] flex items-center gap-[12px] font-medium text-[18px] leading-[21.4px] transition-colors duration-300",
-        isActive
-          ? "bg-white text-[#2A6C2D]"
-          : "bg-transparent text-white hover:bg-white/10"
-      )}
-    >
-      {item.icon} {item.name}
-    </Link>
+    <div className="relative pl-[38px]">
+      <Link className={`flex items-center gap-2 px-6 py-4 rounded-l-full text-lg font-medium leading-[21px] text-[#152764] ${isActive && "bg-[#E6EEF6]"}`} href={item.href}>{item?.icon} {item?.name}</Link>
+      <span className={`absolute top-[-48px] right-0 w-12 h-12 bg-transparent rounded-full shadow-[35px_35px_0_10px_#E6EEF6] ${isActive ? "block" : "hidden bg-[#E6EEF6]"}`}></span>
+      <span className={`absolute bottom-[-48px] right-0 w-12 h-12 bg-transparent rounded-full shadow-[35px_-35px_0_10px_#E6EEF6] ${isActive ? "block" : "hidden"}`}></span>
+    </div>
   );
 };
 
