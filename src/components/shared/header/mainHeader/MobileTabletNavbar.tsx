@@ -17,27 +17,27 @@ import PagesMobileNav from "./PagesMobileNav";
 const Navicons = [
   {
     href: "/notifications",
-    src: "public/assets/svg/bell.svg",
+    src: "/assets/svg/bell.svg",
     alt: "bell-icon",
     count: 4,
     srOnlyText: "View notifications",
   },
   {
     href: "/wishlist",
-    src: "public/assets/svg/heart.svg",
+    src: "/assets/svg/heart.svg",
     alt: "heart-icon",
     srOnlyText: "View wishlist",
   },
   {
     href: "/cart",
-    src: "public/assets/svg/cart-icon.svg",
+    src: "/assets/svg/cart-icon.svg",
     alt: "cart-icon",
     count: 2,
     srOnlyText: "View cart",
   },
   {
     href: "/account",
-    src: "public/assets/svg/user-circle.svg",
+    src: "/assets/svg/user-circle.svg",
     alt: "user-icon",
     srOnlyText: "View account",
   },
@@ -45,13 +45,13 @@ const Navicons = [
 const mobileNavicons = [
   {
     href: "/wishlist",
-    src: "public/assets/svg/heart.svg",
+    src: "/assets/svg/heart.svg",
     alt: "heart-icon",
     srOnlyText: "View wishlist",
   },
   {
     href: "/cart",
-    src: "public/assets/svg/cart-icon.svg",
+    src: "/assets/svg/cart-icon.svg",
     alt: "cart-icon",
     count: 4,
     srOnlyText: "View cart",
@@ -91,11 +91,12 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Pacific Rim</span>
             <Image 
-            alt="Logo" 
-            src="/assets/img/header-logo.png"
-            width={20}
-            height={10} 
-            className="h-10 w-20" />
+              alt="Logo" 
+              src="/assets/img/header-logo.png"
+              width={20}
+              height={10} 
+              className="h-10 w-20" 
+            />
           </Link>
         </div>
         <div className="flex items-center gap-4">
@@ -129,10 +130,11 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Pacific Rim</span>
               <Image alt="Logo" 
-              src="/assets/img/header-logo.png" 
-              width={20}
-              height={8} 
-              className="h-8 w-auto" />
+                src="/assets/img/header-logo.png" 
+                width={20}
+                height={8} 
+                className="h-8 w-auto" 
+              />
             </Link>
             <button
               type="button"

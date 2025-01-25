@@ -8,16 +8,15 @@ interface Props {
 }
 
 const Hideon = ({ children, routes, currentPath }: Props) => {
-  // Check if the current pathName exactly matches or starts with any hideRoutes item (case-insensitive)
+  // Check if the current pathName starts with any hideRoutes item
   const shouldHideNavbar = routes.some((route) =>
-    currentPath.toLowerCase().startsWith(route.toLowerCase())
+    currentPath.startsWith(route)
   );
 
   // If the Navbar should be hidden, return null
   if (shouldHideNavbar) {
     return null;
   }
-
   return <div>{children}</div>;
 };
 
