@@ -15,7 +15,7 @@ async function getData() {
 
     const items = await getData()
   return (
-    <div className="bg-white rounded-3xl p-6 w-full col-span-2 mb-[30px]">
+    <div className="bg-white rounded-[8px] p-6 w-full col-span-2 mb-[30px]">
     <h2 className="text-2xl font-semibold mb-6">Most Sold Items</h2>
     <div className="space-y-4">
       {items.map((item) => (
@@ -33,6 +33,9 @@ async function getData() {
         </div>
       ))}
     </div>
+
+
+
   </div>
   )
 }

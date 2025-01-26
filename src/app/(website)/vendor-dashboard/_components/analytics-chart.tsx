@@ -26,17 +26,17 @@ type MonthKey = "Nov" | "Dec" | "Jan";
 // Month data object with proper typing
 const monthData: Record<MonthKey, DataItem[]> = {
   Nov: [
-    { name: "Sales", value: 65, color: "#2A6C2D" },
+    { name: "Sales", value: 65, color: "rgb(19,34,83)" },
     { name: "Pending", value: 15, color: "#DBB0E4" },
     { name: "Distribute", value: 20, color: "#7ABFFF" },
   ],
   Dec: [
-    { name: "Sales", value: 50, color: "#2A6C2D" },
+    { name: "Sales", value: 50, color: "rgb(19,34,83)" },
     { name: "Pending", value: 25, color: "#DBB0E4" },
     { name: "Distribute", value: 25, color: "#7ABFFF" },
   ],
   Jan: [
-    { name: "Sales", value: 70, color: "#2A6C2D" },
+    { name: "Sales", value: 70, color: "rgb(19,34,83)" },
     { name: "Pending", value: 20, color: "#DBB0E4" },
     { name: "Distribute", value: 10, color: "#7ABFFF" },
   ],
