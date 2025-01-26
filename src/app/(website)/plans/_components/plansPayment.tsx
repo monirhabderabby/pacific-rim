@@ -58,7 +58,7 @@ function PlansPayment({ isOpen, onClose, price }: PaymentModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="w-[343px] lg:min-w-[650px] h-[668px] lg:h-[751px] p-[12px] lg:p-[40px] bg-[#E6EEF6] rounded-[12px]">
-        <div className="">
+        <div>
           <div className='bg-white rounded-[12px] p-[20px] mb-[30px] lg:mb-[40px]'>
             <h3 className="text-[20px] lg:text-[26px] font-bold">Standard</h3>
             <div className="mt-4 space-y-3">
