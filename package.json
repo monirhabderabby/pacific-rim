@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node api.js && next dev",
     "build": "cross-env NODE_OPTIONS='--max-old-space-size=4096' next build",
-    "start": "next start",
+    "start": "node api.js && next start",
     "lint": "next lint",
-    "dev:trace": "node --trace-deprecation node_modules/next/dist/bin/next dev"
+    "dev:trace": "node api.js && node --trace-deprecation node_modules/next/dist/bin/next dev"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
